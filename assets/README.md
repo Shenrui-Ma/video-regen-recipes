@@ -1,13 +1,5 @@
-# 项目视觉素材
+# 项目封面
 
-## hero.png
+`hero.png` 为本项目生成的 AI 概念插画（2172 × 724），非 H3 实测样片。
 
-为 Video ReGen Recipes 新生成的原创 AI 概念插画，尺寸为 2172 × 724。
-
-画面将角色设定、声音波形和分镜草稿，与本地制作设备及连续纸片场景连接，表达从参考素材到自己的作品。它是项目概念图，不是 H3 模板输出、性能对比或实测成片截图。
-
-- 生成方式：内置 `image_gen` 图像生成工具，一次生成。
-- 生成提示：[hero-prompt.txt](hero-prompt.txt)。
-- 本仓库提供的这张概念图沿用 [MIT License](../LICENSE)。
-
-后续样片和素材另行记录作者、来源、用途与许可。不要把这张封面作为已经跑通某个模板的证据。
+使用内置 image_gen 工具生成，提示词见 [hero-prompt.txt](hero-prompt.txt)。本图采用 [MIT License](../LICENSE)。
