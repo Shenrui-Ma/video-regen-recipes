@@ -95,7 +95,7 @@ flowchart TD
 
 H3 的推理条件随权重、量化、分辨率、时长和工作流变化。每份配方需要提供自己的设备与版本记录；仓库不以统一的显存、耗时或费用数字代替实测。
 
-**本地 H3 推理也不自动等于完整流程离线。** 如果某个配方使用官方 Context-IR、Regenerate-2K 或其他外部服务，会明确标为混合流程，并说明必要依赖。具体能力与模型使用条件以 [MiniMax H3 官方模型卡](https://huggingface.co/MiniMaxAI/MiniMax-H3) 为准。
+**本地 H3 推理也不自动等于完整流程离线。** 图像、声音、Agent 或可选的 Context-IR 预处理如果使用外部服务，配方会明确记录这些依赖。官方托管的 Regenerate-2K 涉及云端视频再生成，仅作为能力对照，不属于当前收录路线；首批模板的视频推理与所需后续视频生成均在本地或自托管环境执行。具体能力与模型使用条件以 [MiniMax H3 官方模型卡](https://huggingface.co/MiniMaxAI/MiniMax-H3) 为准。
 
 接入边界见 [本地 H3 路线](docs/local-h3.md)，素材准备见 [图像与声音](docs/assets-and-audio.md)。
 
