@@ -22,8 +22,8 @@
 
 ## TODO
 
-- [x] 收录视频模板，提供分类与关键词索引
-- [x] 整理从素材生成到后期剪辑的 Skills 与工具
+- [x] 打通参考图生成链路（ComfyUI、NovelAI、GPT-Image2）
+- [x] 本地 MiniMax H3 及 ComfyUI 部署可复现
 - [ ] 适配 Updream、Runway 等工具的 Computer Use 操作
 - [ ] 逐一完成各模板的 Windows 端测试
 - [ ] 适配更多 Agent 产品，如 Trae、WorkBuddy
