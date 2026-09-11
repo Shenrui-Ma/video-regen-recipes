@@ -1,0 +1,21 @@
+subject_definitions:
+<Subject 1>: The character depicted in the supplied identity reference image. {{CHARACTER_DESCRIPTION}}. Preserve the recognizable identity and wear {{OUTFIT_DESCRIPTION}} consistently. Transfer pose, expression, scale and orientation from the main performer in <Video 1>, not the original performer's identity or wardrobe.
+<Video 1>: The current slow-motion reference subsegment. Use its choreography, camera framing, shot order, cuts and timing as the editing reference. Retain its non-performer scene content as closely as possible. Background anchors: {{BACKGROUND_ANCHORS}}.
+<Audio 1>: The explicitly connected audio accompanying the current slow-motion reference. Use it as a timing reference only. The final soundtrack will be restored in post-production.
+
+summary:
+[reference generation + video editing + audio reference] Reenact the supplied reference with <Subject 1> as the only main performer. The intended visible output is {{VISIBLE_FRAMES}} frames at 24 fps, lasting {{DURATION_SECONDS}} seconds on the slow-motion timeline, excluding any hidden continuation prefix.
+
+retention_analysis:
+<Subject 1>: fully_preserved — Maintain the supplied identity, body proportions, hair, outfit and accessories across shots.
+<Video 1>: partially_preserved — Replace the main performer while retaining the referenced action timing, camera, cuts, layout, background lighting and colors. Do not transfer the source performer's identity or costume.
+<Audio 1>: reference — Reference timing only; exact soundtrack copying is a separate post-production operation.
+
+detailed_description:
+A 2D anime character reenactment following the supplied reference's shot sequence. [Shot 1] The sole main performer is <Subject 1>. Follow the current reference's pose progression, gestures, expressions, camera scale and movement. At each cut already present in the reference, continue with its corresponding framing and action phase rather than inventing an additional transition. Maintain the same identity and outfit through close, medium and full-body views. Keep the background palette and brightness consistent with the current source; dark clothing must not recolor the environment. Preserve the reference's rapid edits rather than replacing them with dissolves. At the visible end, complete the action phase represented by the current subsegment without inventing a restart. Any continuation context is supplied separately by the workflow, not created by this sentence. Preserve a single body with the original pair of arms and hands; do not leave the source performer standing beside the replacement.
+
+overall_soundscape:
+No new dialogue, vocalizations, ambient sounds or foley are requested. Use the connected reference only for synchronization; generated audio is not the final delivery track.
+
+non_diegetic_music:
+N/A

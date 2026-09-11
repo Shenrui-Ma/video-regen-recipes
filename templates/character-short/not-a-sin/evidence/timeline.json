@@ -1,0 +1,382 @@
+{
+  "schema_version": 1,
+  "kind": "historical_plan_reconstructed_from_controller",
+  "not_a_comfyui_workflow": true,
+  "not_per_task_execution_evidence": true,
+  "fps": 24,
+  "source_frames": 2343,
+  "source_master_sha256": "cebe20280dc2d63790add1bf77eb5365106ec844a5d2316ae3ffe82c9e218e7e",
+  "character_image_sha256": "c9d80713eafde0f1a2519fcaba4cd5ba363adff16cf0eed254d3485a162c8d4c",
+  "segments": [
+    {
+      "id": "seg01",
+      "source_label_not_target_outfit": "浴衣",
+      "source_start_frame": 0,
+      "source_end_frame": 175,
+      "restored_frames": 175,
+      "real_slow_frames": 350,
+      "terminal_hold_frames": 0,
+      "generation_parts": [
+        {
+          "id": "seg01/A",
+          "visible_slow_frames": 175,
+          "sample_frames": 175,
+          "context_frames": 0,
+          "trim_frames": 0,
+          "guide_start": 0
+        },
+        {
+          "id": "seg01/B",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        }
+      ]
+    },
+    {
+      "id": "seg02",
+      "source_label_not_target_outfit": "粉色睡衣",
+      "source_start_frame": 175,
+      "source_end_frame": 350,
+      "restored_frames": 175,
+      "real_slow_frames": 350,
+      "terminal_hold_frames": 0,
+      "generation_parts": [
+        {
+          "id": "seg02/A",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        },
+        {
+          "id": "seg02/B",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        }
+      ]
+    },
+    {
+      "id": "seg03",
+      "source_label_not_target_outfit": "白色长裙",
+      "source_start_frame": 350,
+      "source_end_frame": 525,
+      "restored_frames": 175,
+      "real_slow_frames": 350,
+      "terminal_hold_frames": 0,
+      "generation_parts": [
+        {
+          "id": "seg03/A",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        },
+        {
+          "id": "seg03/B",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        }
+      ]
+    },
+    {
+      "id": "seg04",
+      "source_label_not_target_outfit": "通勤装",
+      "source_start_frame": 525,
+      "source_end_frame": 701,
+      "restored_frames": 176,
+      "real_slow_frames": 352,
+      "terminal_hold_frames": 0,
+      "generation_parts": [
+        {
+          "id": "seg04/A",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        },
+        {
+          "id": "seg04/B",
+          "visible_slow_frames": 177,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 32,
+          "guide_start": 10
+        }
+      ]
+    },
+    {
+      "id": "seg05",
+      "source_label_not_target_outfit": "浅蓝长裙",
+      "source_start_frame": 701,
+      "source_end_frame": 876,
+      "restored_frames": 175,
+      "real_slow_frames": 350,
+      "terminal_hold_frames": 0,
+      "generation_parts": [
+        {
+          "id": "seg05/A",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        },
+        {
+          "id": "seg05/B",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        }
+      ]
+    },
+    {
+      "id": "seg06",
+      "source_label_not_target_outfit": "浴衣",
+      "source_start_frame": 876,
+      "source_end_frame": 1051,
+      "restored_frames": 175,
+      "real_slow_frames": 350,
+      "terminal_hold_frames": 0,
+      "generation_parts": [
+        {
+          "id": "seg06/A",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        },
+        {
+          "id": "seg06/B",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        }
+      ]
+    },
+    {
+      "id": "seg07",
+      "source_label_not_target_outfit": "粉色睡衣",
+      "source_start_frame": 1051,
+      "source_end_frame": 1226,
+      "restored_frames": 175,
+      "real_slow_frames": 350,
+      "terminal_hold_frames": 0,
+      "generation_parts": [
+        {
+          "id": "seg07/A",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        },
+        {
+          "id": "seg07/B",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        }
+      ]
+    },
+    {
+      "id": "seg08",
+      "source_label_not_target_outfit": "白色长裙",
+      "source_start_frame": 1226,
+      "source_end_frame": 1401,
+      "restored_frames": 175,
+      "real_slow_frames": 350,
+      "terminal_hold_frames": 0,
+      "generation_parts": [
+        {
+          "id": "seg08/A",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        },
+        {
+          "id": "seg08/B",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        }
+      ]
+    },
+    {
+      "id": "seg09",
+      "source_label_not_target_outfit": "通勤装",
+      "source_start_frame": 1401,
+      "source_end_frame": 1577,
+      "restored_frames": 176,
+      "real_slow_frames": 352,
+      "terminal_hold_frames": 0,
+      "generation_parts": [
+        {
+          "id": "seg09/A",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        },
+        {
+          "id": "seg09/B",
+          "visible_slow_frames": 177,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 32,
+          "guide_start": 10
+        }
+      ]
+    },
+    {
+      "id": "seg10",
+      "source_label_not_target_outfit": "浅蓝长裙",
+      "source_start_frame": 1577,
+      "source_end_frame": 1752,
+      "restored_frames": 175,
+      "real_slow_frames": 350,
+      "terminal_hold_frames": 0,
+      "generation_parts": [
+        {
+          "id": "seg10/A",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        },
+        {
+          "id": "seg10/B",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        }
+      ]
+    },
+    {
+      "id": "seg11",
+      "source_label_not_target_outfit": "浴衣",
+      "source_start_frame": 1752,
+      "source_end_frame": 1928,
+      "restored_frames": 176,
+      "real_slow_frames": 352,
+      "terminal_hold_frames": 0,
+      "generation_parts": [
+        {
+          "id": "seg11/A",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        },
+        {
+          "id": "seg11/B",
+          "visible_slow_frames": 177,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 32,
+          "guide_start": 10
+        }
+      ]
+    },
+    {
+      "id": "seg12",
+      "source_label_not_target_outfit": "粉色睡衣",
+      "source_start_frame": 1928,
+      "source_end_frame": 2103,
+      "restored_frames": 175,
+      "real_slow_frames": 350,
+      "terminal_hold_frames": 0,
+      "generation_parts": [
+        {
+          "id": "seg12/A",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        },
+        {
+          "id": "seg12/B",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        }
+      ]
+    },
+    {
+      "id": "seg13",
+      "source_label_not_target_outfit": "白色长裙",
+      "source_start_frame": 2103,
+      "source_end_frame": 2278,
+      "restored_frames": 175,
+      "real_slow_frames": 350,
+      "terminal_hold_frames": 0,
+      "generation_parts": [
+        {
+          "id": "seg13/A",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        },
+        {
+          "id": "seg13/B",
+          "visible_slow_frames": 175,
+          "sample_frames": 209,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        }
+      ]
+    },
+    {
+      "id": "seg14",
+      "source_label_not_target_outfit": "白色长裙尾段",
+      "source_start_frame": 2278,
+      "source_end_frame": 2343,
+      "restored_frames": 65,
+      "real_slow_frames": 130,
+      "terminal_hold_frames": 11,
+      "generation_parts": [
+        {
+          "id": "seg14/A",
+          "visible_slow_frames": 141,
+          "sample_frames": 175,
+          "context_frames": 22,
+          "trim_frames": 34,
+          "guide_start": 12
+        }
+      ]
+    }
+  ]
+}

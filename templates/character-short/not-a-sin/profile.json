@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "not-a-sin-h3-slowref-continuation",
+  "version": "0.1.0",
+  "author": "Shenrui Ma",
+  "status": "documented-historical-case",
+  "public_runtime_status": "not-packaged",
+  "new_character_validation": "pending",
+  "runtime": "ComfyUI (self-hosted)",
+  "model_family": "MiniMax-H3",
+  "mode": "Ref2VA with custom joint AV Motion Context integration",
+  "base_video": {
+    "width": 1344,
+    "height": 768,
+    "fps": 24
+  },
+  "sampling": {
+    "steps": 20,
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "attention": "pytorch",
+    "turbo_lora": false,
+    "sage_attention": false,
+    "easycache": false
+  },
+  "reference": {
+    "speed": "1/2",
+    "interpolation": "RIFE, require verified 2N frames",
+    "identity_images_in_historical_case": 1,
+    "outfit_policy": "fixed_character_outfit"
+  },
+  "continuation": {
+    "source": "previous_published_slow_video_and_audio_tail",
+    "video_context_frames": 22,
+    "audio_context_frames_parameter": 24,
+    "audio_context_unit": "implementation-specific; not PCM sample count",
+    "execution": "one global serial dependency chain"
+  },
+  "postprocess": {
+    "restore_speed": "2x after concatenating each source segment slow parts",
+    "soundtrack": "authoritative full-source audio remux",
+    "optional_delivery": {
+      "interpolation": "RIFE to 60fps",
+      "upscale": "RTX VSR 3x ULTRA",
+      "codec": "H.264",
+      "target_bitrate_mbps": 100,
+      "audio": "stream copy"
+    }
+  },
+  "unknown": {
+    "gpu_model": null,
+    "peak_vram": null,
+    "comfyui_commit": null,
+    "custom_nodes_commits": null,
+    "weights_sha256": null,
+    "total_cost": null,
+    "total_generation_seconds": null
+  },
+  "files": {
+    "guide": "README.md",
+    "sources": "sources.md",
+    "workflow_contract": "workflows/README.md",
+    "prompt_template": "prompts/ref2va.template.txt",
+    "historical_prompt": "prompts/historical-seg01.txt",
+    "evidence": "evidence/README.md",
+    "timeline": "evidence/timeline.json"
+  }
+}
