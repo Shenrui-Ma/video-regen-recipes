@@ -23,4 +23,5 @@ outputs/
 *.key
 *.p12
 cookies*.json
-
+/AGENTS.md
+/.local-notes/

@@ -26,5 +26,3 @@ PR 写清改了什么、怎样验证、还有什么限制即可。
 ## 提交格式
 
 采用 Angular 格式：`type(scope): summary`，例如 `feat(templates): add an episode recipe`。使用简短的动作描述；正文说明必要的原因、验证和限制。常用类型为 `feat`、`fix`、`docs`、`refactor`、`perf`、`test`、`build`、`ci`、`revert`。
-
-项目作者的原创配方署名统一为 **Shenrui Ma（四倍体果蝇）**；其他贡献者保留各自署名。
