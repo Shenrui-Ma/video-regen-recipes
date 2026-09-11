@@ -1,6 +1,6 @@
 # 提示词
 
-使用 [ref2va.template.txt](ref2va.template.txt) 填写以下变量。它是整理后的通用稿，尚未重新运行验证；[historical-seg01.txt](historical-seg01.txt) 保留历史原稿。
+使用 [ref2va.template.txt](ref2va.template.txt) 填写以下变量。这是角色可替换的通用稿，尚未重新运行验证。
 
 | 变量 | 填写内容 |
 | --- | --- |

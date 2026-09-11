@@ -6,7 +6,14 @@
   "status": "documented-historical-case",
   "public_runtime_status": "not-packaged",
   "new_character_validation": "pending",
-  "runtime": "ComfyUI (self-hosted)",
+  "runtime": "ComfyUI",
+  "deployment": {
+    "default": "local",
+    "guides": {
+      "local": "../../../docs/comfyui-local.md",
+      "remote": "../../../docs/comfyui-remote.md"
+    }
+  },
   "model_family": "MiniMax-H3",
   "mode": "Ref2VA with custom joint AV Motion Context integration",
   "base_video": {
@@ -63,7 +70,6 @@
     "sources": "sources.md",
     "workflow_contract": "workflows/README.md",
     "prompt_template": "prompts/ref2va.template.txt",
-    "historical_prompt": "prompts/historical-seg01.txt",
     "evidence": "evidence/README.md",
     "timeline": "evidence/timeline.json"
   }

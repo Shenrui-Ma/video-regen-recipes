@@ -6,33 +6,22 @@
 
 <sub>AI 概念插画，非 H3 实测样片。[图像说明](assets/README.md)</sub>
 
-收集二次元二创与番剧的制作模板，让 Agent 帮你准备角色图像和声音、设计分镜、生成视频并完成剪辑。你可以替换角色，修改场景、台词和画风，做出自己的版本。
+收集二次元二创与番剧的制作模板，让 Agent 帮你准备角色图像和声音、设计分镜、生成视频并完成剪辑。替换角色，修改场景、台词和画风，做出自己的版本。
 
-首个模板 **[XX不是罪过](templates/character-short/not-a-sin/)** 已收录：用自己的角色重演参考视频。已有银狼历史案例，完整执行包与可安装 Skill 整理中。
+## 怎么用
 
-## 制作范围
+**[选模板](templates/) → 准备素材 → 生成视频 → 剪辑成片。**
 
-- **视频**：在本机或自行管理的 GPU 服务器上运行 ComfyUI + MiniMax H3。
-- **图片与声音**：本地或在线工具均可，如 ComfyUI、NovelAI、GPT Image、语音服务和已有素材。
+- **视频生成**：聚焦 ComfyUI + MiniMax H3，默认使用[本地 ComfyUI](docs/comfyui-local.md)，也可连接[远程服务器](docs/comfyui-remote.md)。
+- **图片与声音**：工具不限，可使用 ComfyUI、NovelAI、GPT Image、语音服务或已有素材。
 
-制作流程：**选模板 → 准备素材 → 分镜 → H3 生成 → 剪辑成片**。
+项目仍在整理中，各模板会注明可用内容与验证状态；完整执行包和可安装 Skill 尚未发布。
 
-## 模板方向
+## 参与贡献
 
-- [番剧对白与叙事场景](templates/anime-dialogue-scene/)
-- [角色主题短片](templates/character-short/)
-- [液态形变与风格化 ED](templates/liquid-morphing-ed/)
+欢迎分享视频案例、提示词、工作流和复现经验，见[贡献指南](CONTRIBUTING.md)。
 
-## 参与整理
-
-```bash
-git clone https://github.com/Shenrui-Ma/video-regen-recipes.git
-cd video-regen-recipes
-```
-
-欢迎分享视频案例、提示词、工作流和复现经验，见 [贡献指南](CONTRIBUTING.md)。
-
-[模板怎么写](docs/template-format.md) · [本地 H3](docs/local-h3.md) · [图片与声音](docs/assets-and-audio.md)
+[模板怎么写](docs/template-format.md) · [H3 制作流程](docs/local-h3.md) · [图片与声音](docs/assets-and-audio.md)
 
 ## 许可
 
