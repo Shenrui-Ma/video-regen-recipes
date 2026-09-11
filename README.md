@@ -1,6 +1,6 @@
 # Video ReGen Recipes
 
-**一句话，让Agent在本地复刻热点MEME/鬼畜/手书视频。**
+**一句话，让Agent在本地复刻热点MEME/鬼畜/手书视频。也可在Updream等线上工具快速复用资产**
 
 ![Video ReGen Recipes 概念片场](assets/hero.png)
 
