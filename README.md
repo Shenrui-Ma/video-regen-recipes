@@ -15,7 +15,7 @@
 - **视频生成**：聚焦 ComfyUI + MiniMax H3，默认使用[本地 ComfyUI](docs/comfyui-local.md)，也可连接[远程服务器](docs/comfyui-remote.md)。
 - **图片与声音**：工具不限，可使用 ComfyUI、NovelAI、GPT Image、语音服务或已有素材。
 
-项目仍在整理中，各模板会注明可用内容与验证状态；完整执行包和可安装 Skill 尚未发布。
+[参考图 Skills](skills/) 可独立使用；视频模板的完整执行包仍在整理，各项验证状态见对应说明。
 
 ## 参与贡献
 

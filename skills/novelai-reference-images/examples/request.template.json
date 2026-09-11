@@ -1,0 +1,16 @@
+{
+  "input": "single adult character, full body, neutral pose, simple light background, clean linework, no text",
+  "model": "REPLACE_VERIFIED_MODEL_ID",
+  "action": "generate",
+  "parameters": {
+    "width": 832,
+    "height": 1216,
+    "n_samples": 1,
+    "steps": 28,
+    "scale": 5,
+    "sampler": "REPLACE_VERIFIED_SAMPLER",
+    "seed": 123456789,
+    "negative_prompt": "cropped feet, duplicate person",
+    "image_format": "png"
+  }
+}
