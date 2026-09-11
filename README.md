@@ -1,10 +1,9 @@
 # Video ReGen Recipes
 
-**一句话，让Agent在本地复刻热点MEME/鬼畜/手书视频。也可在Updream等线上工具快速复用资产**
+**一句话，让Agent在本地复刻热点MEME/鬼畜/手书视频，也可在Updream等线上工具快速复用。**
 
 ![Video ReGen Recipes 概念片场](assets/hero.png)
 
-<sub>AI 概念插画，非 H3 实测样片。[图像说明](assets/README.md)</sub>
 
 收集二次元二创与番剧的制作模板，让 Agent 帮你准备角色图像和声音、设计分镜、生成视频并完成剪辑。替换角色，修改场景、台词和画风，做出自己的版本。
 
