@@ -1,6 +1,6 @@
 # Video ReGen Recipes
 
-**一句话让Agent帮你复刻热点meme视频。**
+**一句话，让Agent在本地复刻热点MEME/鬼畜/手书视频。**
 
 ![Video ReGen Recipes 概念片场](assets/hero.png)
 
