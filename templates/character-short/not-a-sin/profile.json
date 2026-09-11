@@ -38,7 +38,9 @@
   },
   "postprocess": {
     "restore_speed": "2x after concatenating each source segment slow parts",
-    "soundtrack": "authoritative full-source audio remux",
+    "soundtrack": "source music restored; historical initial master trims and AAC-reencodes before later stream copies",
+    "historical_initial_audio": {"trim_end_sample": 4686000, "sample_rate": 48000, "channels": 2, "codec": "AAC", "bitrate_kbps": 256},
+    "historical_final_video_repair": "CFR setpts=N/(60*TB), H.264 NVENC p7/hq re-encode, 5857 frames, then master-audio stream copy",
     "optional_delivery": {
       "interpolation": "RIFE to 60fps",
       "upscale": "RTX VSR 3x ULTRA",
