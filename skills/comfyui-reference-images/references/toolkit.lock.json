@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit",
+  "workflows": [
+    {
+      "id": "h3-ref2va-dialogue",
+      "path": "workflows/h3/ref2va-dialogue/api.template.json",
+      "sha256": "ee9e16ce709c0cb6ad94e2fb8124fd1bf59b9c247553f0495c625828e605afd1",
+      "family": "MiniMax-H3",
+      "mode": "independent-ref2va",
+      "format": "parameterized-comfyui-api",
+      "status": "offline-checked; requires rendering and runtime validation",
+      "guide": "workflows/h3/ref2va-dialogue/README.md"
+    },
+    {
+      "id": "sdxl-two-pass-cowboy-shot",
+      "path": "workflows/images/sdxl-two-pass-cowboy-shot/api.template.json",
+      "sha256": "72cd51c54b0b7fd7aeb38cdd7793d9a6831457d123e6e3fd6d99ba8a32e370d3",
+      "family": "SDXL-Illustrious",
+      "mode": "text-to-image",
+      "format": "parameterized-comfyui-api",
+      "status": "adapted; not rerun",
+      "guide": "workflows/images/sdxl-two-pass-cowboy-shot/README.md"
+    }
+  ],
+  "revision": "eed34dbe95c55d29322401713952fccd4ae181ef"
+}

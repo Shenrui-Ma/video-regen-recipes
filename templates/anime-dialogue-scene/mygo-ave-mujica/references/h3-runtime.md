@@ -2,6 +2,8 @@
 
 本页使用**独立 Ref2VA 联合音视频采样**。每段重新绑定人物、场景和声音，生成后剪辑拼接。串行提交便于控制资源和恢复任务，不代表上一段 latent 续接。
 
+具体图由 [ComfyUI Toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/main/workflows/h3/ref2va-dialogue)维护；本包保留[固定来源](../workflows/toolkit-source.json)对应的离线副本，便于构建器稳定使用。更新时先核对commit与哈希，不自动漂移。
+
 ## 1. 固定第一轮配置
 
 | 项目 | 本模板默认 |

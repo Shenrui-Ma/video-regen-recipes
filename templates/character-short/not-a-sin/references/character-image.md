@@ -13,6 +13,8 @@
 
 这些选择只解决角色图片。视频仍需要可运行的 [H3 后端](../../../../docs/local-h3.md)；上传图片或调用在线生图工具不会替代视频推理环境。
 
+具体两次采样图可从 [Toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/main/workflows/images/sdxl-two-pass-cowboy-shot)获取，按[固定版本解析](../../../../skills/comfyui-reference-images/references/toolkit.md)填写模型与提示词。
+
 ## 1. 定义这张图
 
 确定角色身份、固定服装、画风、比例和必须露出的部位。**Cowboy shot 通常取头部到大腿的景别**：比胸像多保留身体与服装信息，头顶留白，身体和双手尽量完整。它不是全身图；视频需要明确鞋子、腿部或背面设计时，另补全身或侧背参考。

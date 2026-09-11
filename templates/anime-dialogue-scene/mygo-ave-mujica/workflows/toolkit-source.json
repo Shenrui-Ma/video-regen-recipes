@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit",
+  "revision": "eed34dbe95c55d29322401713952fccd4ae181ef",
+  "workflow": {
+    "id": "h3-ref2va-dialogue",
+    "path": "workflows/h3/ref2va-dialogue/api.template.json",
+    "sha256": "ee9e16ce709c0cb6ad94e2fb8124fd1bf59b9c247553f0495c625828e605afd1",
+    "family": "MiniMax-H3",
+    "mode": "independent-ref2va",
+    "format": "parameterized-comfyui-api",
+    "status": "offline-checked; requires rendering and runtime validation",
+    "guide": "workflows/h3/ref2va-dialogue/README.md"
+  },
+  "local_snapshot": "ref2va.api.template.json",
+  "purpose": "verified offline snapshot for the recipe builder; concrete graph maintained in toolkit"
+}

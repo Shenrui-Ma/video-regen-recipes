@@ -1,5 +1,7 @@
 # 远程 ComfyUI（可选）
 
+工作流优先从 [ComfyUI Toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)获取，按[关联与版本规则](../skills/comfyui-reference-images/references/toolkit.md)选择。
+
 ComfyUI 和模型运行在另一台电脑或 GPU 服务器上，Agent 从当前设备连接。使用同一份模板，只调整连接、素材传输和结果获取。
 
 1. **连接**：使用自己配置的服务地址和访问方式。地址与凭据保存在用户运行配置中；检查服务器实际安装的模型、节点及可用资源。

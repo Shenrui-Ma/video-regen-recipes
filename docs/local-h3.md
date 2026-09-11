@@ -1,5 +1,7 @@
 # H3 共用制作流程
 
+工作流优先从 [ComfyUI Toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)获取，按[关联与版本规则](../skills/comfyui-reference-images/references/toolkit.md)选择。
+
 默认从[本地 ComfyUI](comfyui-local.md)开始；使用另一台机器时，选择[远程 ComfyUI](comfyui-remote.md)。模板只描述素材、生成与剪辑方法，连接地址和文件传输由所选运行方式处理。
 
 ## 运行前后

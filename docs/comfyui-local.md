@@ -1,5 +1,7 @@
 # 本地 ComfyUI（默认）
 
+工作流优先从 [ComfyUI Toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)获取，按[关联与版本规则](../skills/comfyui-reference-images/references/toolkit.md)选择。
+
 ComfyUI 和模型运行在自己的电脑上。先准备模板要求的节点、模型和显存，再按模板生成。
 
 1. **连接**：启动本机 ComfyUI，使用它实际显示的地址。Agent 也在同一台电脑上运行时，连接该本机地址；若 Agent 在其他机器，按[远程版](comfyui-remote.md)处理。

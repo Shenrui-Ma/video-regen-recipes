@@ -21,7 +21,7 @@
 
 欢迎分享视频案例、提示词、工作流和复现经验，见[贡献指南](CONTRIBUTING.md)。
 
-[模板怎么写](docs/template-format.md) · [H3 制作流程](docs/local-h3.md) · [图片与声音](docs/assets-and-audio.md)
+[模板怎么写](docs/template-format.md) · [ComfyUI 工作流库](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit) · [H3 制作流程](docs/local-h3.md) · [图片与声音](docs/assets-and-audio.md)
 
 ## 许可
 
