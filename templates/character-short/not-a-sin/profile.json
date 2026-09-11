@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "not-a-sin-h3-slowref-continuation",
   "version": "0.1.0",
-  "author": "Shenrui Ma",
+  "author": "Shenrui Ma（四倍体果蝇）",
   "status": "documented-historical-case",
   "public_runtime_status": "not-packaged",
   "new_character_validation": "pending",
@@ -46,7 +46,13 @@
   "postprocess": {
     "restore_speed": "2x after concatenating each source segment slow parts",
     "soundtrack": "source music restored; historical initial master trims and AAC-reencodes before later stream copies",
-    "historical_initial_audio": {"trim_end_sample": 4686000, "sample_rate": 48000, "channels": 2, "codec": "AAC", "bitrate_kbps": 256},
+    "historical_initial_audio": {
+      "trim_end_sample": 4686000,
+      "sample_rate": 48000,
+      "channels": 2,
+      "codec": "AAC",
+      "bitrate_kbps": 256
+    },
     "historical_final_video_repair": "CFR setpts=N/(60*TB), H.264 NVENC p7/hq re-encode, 5857 frames, then master-audio stream copy",
     "optional_delivery": {
       "interpolation": "RIFE to 60fps",
@@ -71,6 +77,12 @@
     "workflow_contract": "workflows/README.md",
     "prompt_template": "prompts/ref2va.template.txt",
     "evidence": "evidence/README.md",
-    "timeline": "evidence/timeline.json"
-  }
+    "timeline": "evidence/timeline.json",
+    "agent_entry": "SKILL.md",
+    "character_image": "references/character-image.md"
+  },
+  "entry_modes": [
+    "text-to-reference-to-video",
+    "provided-reference-to-video"
+  ]
 }
