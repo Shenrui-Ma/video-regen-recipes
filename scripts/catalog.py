@@ -73,6 +73,14 @@ def cell(value):
     return value.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('|', '&#124;').replace('\n', ' ')
 
 
+def homepage_count(text, count):
+    pattern = r'^### 🎬 已收录 \[\d+ 个视频模板\]\(templates/\) · 持续更新$'
+    updated, matches = re.subn(pattern, f'### 🎬 已收录 [{count} 个视频模板](templates/) · 持续更新', text, flags=re.MULTILINE)
+    if matches != 1:
+        raise ValueError('Homepage must contain exactly one template-count heading linked to templates/.')
+    return updated
+
+
 def markdown(catalog):
     out = ['# 模板索引', '', f"目前收录 **{catalog['template_count']} 个视频模板**。按名称、别名或类型查找，再把一句话需求交给对应 Skill。",
            '', '剧情示例、备用角色素材、参考图 Skill 和空目录不重复计为模板。', '',
@@ -131,6 +139,8 @@ def main(argv=None):
                 print('没有匹配的模板。试试别名或标签；不要自动替换为其他题材。')
             return 0
         outputs = {root/'catalog.json': json.dumps(catalog, ensure_ascii=False, indent=2)+'\n', root/'README.md': markdown(catalog)}
+        homepage = ROOT/'README.md'
+        outputs[homepage] = homepage_count(homepage.read_text(encoding='utf-8'), catalog['template_count'])
         if args.command == 'check':
             if any(not path.is_file() or path.read_text(encoding='utf-8') != text for path,text in outputs.items()):
                 raise ValueError('Template indexes are stale; run python3 scripts/catalog.py build')

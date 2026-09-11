@@ -40,4 +40,6 @@ python3 scripts/catalog.py build
 python3 scripts/catalog.py check
 ```
 
-提交时一起更新生成的目录与 JSON。检查会拒绝重复 ID、缺少索引信息、无效入口以及未更新的生成文件。只有同时具备 `profile.json`、`README.md` 和 `SKILL.md` 的目录计为模板；空分类、媒体文件和辅助工具不计入。
+`build` 同时更新目录、JSON 和首页的模板计数；首页其他内容保持原样。`check` 也会核对首页计数，防止新增模板后遗漏更新。
+
+提交时一起更新这些生成内容。检查会拒绝重复 ID、缺少索引信息、无效入口以及未更新的生成文件。只有同时具备 `profile.json`、`README.md` 和 `SKILL.md` 的目录计为模板；空分类、媒体文件和辅助工具不计入。

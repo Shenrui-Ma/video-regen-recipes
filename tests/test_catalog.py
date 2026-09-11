@@ -63,5 +63,18 @@ class CatalogTests(unittest.TestCase):
         data=m.collect(ROOT/'templates')
         self.assertEqual(json.loads((ROOT/'templates/catalog.json').read_text()),data)
         self.assertEqual((ROOT/'templates/README.md').read_text(),m.markdown(data))
+        homepage=(ROOT/'README.md').read_text()
+        self.assertEqual(homepage,m.homepage_count(homepage,data['template_count']))
+
+    def test_homepage_count_preserves_surrounding_content(self):
+        before='# Project\n\nIntro\n\n### 🎬 已收录 [8 个视频模板](templates/) · 持续更新\n\n![Hero](assets/hero.png)\n\n## TODO\n- [ ] Windows\n'
+        after=m.homepage_count(before,9)
+        self.assertEqual(after,before.replace('[8 个视频模板]','[9 个视频模板]'))
+        self.assertEqual(m.homepage_count(after,9),after)
+
+    def test_missing_or_duplicate_homepage_counter_fails(self):
+        line='### 🎬 已收录 [8 个视频模板](templates/) · 持续更新\n'
+        for text in ['# Project\n',line+line]:
+            with self.assertRaisesRegex(ValueError,'exactly one'):m.homepage_count(text,9)
 
 if __name__=='__main__':unittest.main()
