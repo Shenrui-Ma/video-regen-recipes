@@ -22,6 +22,10 @@ async function main(){
   const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1});const external=[];
   await page.route('**/*',route=>{if(route.request().url().startsWith('file:'))return route.continue();external.push(route.request().url());return route.abort();});
   await page.goto(pathToFileURL(path.resolve(html)).href,{timeout:120000});
+  if(await page.locator('#svg-files').count()){
+   const folder=path.dirname(path.resolve(html));
+   await page.locator('#svg-files').setInputFiles(['redraw.svg','foundations.svg'].map(name=>path.join(folder,name)));
+  }
   await page.waitForFunction(()=>window.replay&&typeof window.replay.renderAt==='function',{},{timeout:120000});
   const info=await page.evaluate(()=>{
    if(document.querySelector('canvas,img,image,foreignObject,iframe,script[src],link[rel="stylesheet"]'))throw Error('The Demo must be native SVG without raster or external resources');

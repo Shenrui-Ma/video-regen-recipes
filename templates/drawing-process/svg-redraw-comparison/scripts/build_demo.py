@@ -8,6 +8,7 @@ parser.add_argument('--reference',type=Path,required=True)
 parser.add_argument('--regions',type=Path,required=True)
 parser.add_argument('--svg',type=Path,required=True)
 parser.add_argument('--output',type=Path,required=True)
+parser.add_argument('--inline',action='store_true',help='Produce a large standalone HTML instead of the default local-vector bundle')
 args=parser.parse_args();ROOT=args.output.parent;SOURCE=args.reference
 if args.output.exists():raise ValueError('Choose a new HTML output')
 ROOT.mkdir(parents=True,exist_ok=True)
@@ -82,6 +83,11 @@ art=f'''<svg id="art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" a
 style=(Path(__file__).resolve().parents[1]/'web'/'player.css').read_text()
 script=(Path(__file__).resolve().parents[1]/'web'/'player.js').read_text()
 page='<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>基于大模型的SVG临摹重绘</title><style>'+style+'</style></head><body><main><h1>基于大模型的SVG临摹重绘</h1><p class="sub">原生 SVG 路径 · 无 Canvas · 无图片嵌入 · 单文件离线播放</p><div class="frame">'+art+'</div><nav><button id="play">播放</button><button id="reset">重置</button><button id="final">查看完成图</button><span id="phase"></span><input id="slider" aria-label="绘制进度" type="range" min="0" max="40" step=".05" value="0"><span id="stamp"></span></nav><p class="small">连续色域轮廓矢量化，按构图、线稿、固有色、阴影、高光与细节重放。仅原生矢量，不是模型思考录屏。颜色存在量化误差，不声明逐像素零误差。</p></main><script>'+script+'</script></body></html>'
-args.output.write_text(page)
-args.output.with_suffix('.info.json').write_text(json.dumps({'bytes':len(page.encode()),'painting_batches':len(paint_groups),'duration_seconds':40,'external_resources':False,'canvas':False,'raster_embedding':False},indent=2))
-print('Demo ready:',len(page.encode()),'bytes;',len(paint_groups),'painting batches',flush=True)
+from package_demo import package_page
+if args.inline:
+ args.output.write_text(page)
+ info={'html_bytes':len(page.encode()),'requires_local_svg_files':False}
+else:
+ info=package_page(page,args.svg,args.output)
+args.output.with_suffix('.info.json').write_text(json.dumps({**info,'painting_batches':len(paint_groups),'duration_seconds':40,'external_code':False,'canvas':False,'raster_embedding':False},indent=2))
+print('Demo ready:',info['html_bytes'],'bytes;',len(paint_groups),'painting batches',flush=True)

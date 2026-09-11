@@ -12,13 +12,15 @@
 
 **参考图 → SVG 临摹与质量检查 → 纯 SVG 绘制 Demo → 逐帧截图 → 视频合成。**
 
-不使用 Canvas，不需要 ComfyUI 或视频推理模型。网页不包含位图、Base64图片、外链或外部运行依赖。
+不使用 Canvas，不需要 ComfyUI 或视频推理模型。网页不包含位图或 Base64 图片，脚本与样式内联；轻量示例单独加载本地 SVG 数据，无需联网。
 
 ## 实际示例
 
 - [对比视频](examples/preview.mp4)：40秒、24fps，上原图、下绘制过程。
-- [纯 SVG Demo](examples/demo.html)：下载后离线打开，可播放、暂停、拖动或查看完成图。
+- [轻量 SVG Demo](examples/demo.html)：HTML 小于 200 KB；下载后打开，按页面提示选择同目录的 `redraw.svg` 与 `foundations.svg`，即可离线播放、暂停、拖动或查看完成图。
 - [独立 SVG](examples/redraw.svg) · [完整提示词](prompts/author-original.prompt.txt) · [操作步骤](references/workflow.md)
+
+轻量化保留全部路径与绘制阶段：完整 SVG 约 16.34 MB，阶段数据 [foundations.svg](examples/foundations.svg) 约 0.61 MB。缩小的是 HTML 并消除重复内嵌，不是降低画面精度。通过本地 HTTP 服务打开可自动加载两个文件。
 
 本例采用连续色域轮廓矢量化及语义分层，静态SVG平均每通道色差为1.30/255，视觉接近原图，但并非严格逐像素1:1。它不是大模型逐笔手工绘画或思考过程录像。
 

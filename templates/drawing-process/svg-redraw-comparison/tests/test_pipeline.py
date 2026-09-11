@@ -7,6 +7,7 @@ from clean_png import clean,parse,chunk,SIGNATURE
 from _contours import contours
 from _regions import read_regions
 from _validate_svg import read_contours
+from package_demo import package_page
 
 class PipelineTests(unittest.TestCase):
  def test_lossless_png_cleanup(self):
@@ -36,11 +37,27 @@ class PipelineTests(unittest.TestCase):
   for node in ['<image href="data:image/png;base64,AAAA"/>','<script/>','<foreignObject/>']:
    with self.assertRaises(ValueError):read_contours(self.valid().replace('</svg>',node+'</svg>'),2,1,['background'])
   with self.assertRaises(ValueError):read_contours(self.valid().replace('fill="#aabbcc"','onload="alert(1)" fill="#aabbcc"'),2,1,['background'])
- def test_published_demo_is_self_contained_native_svg(self):
+ def test_published_demo_is_lightweight_with_verified_local_vectors(self):
   text=(ROOT/'examples/demo.html').read_text()
+  self.assertLess(len(text.encode()),200000)
   for marker in ['<canvas','<img','<image','<foreignObject','data:image','<script src=','http://','https://']:
    if marker=='http://':
     self.assertNotIn(marker,text.replace('http://www.w3.org/2000/svg',''))
    else:self.assertNotIn(marker,text)
   self.assertIn('window.replay=',text)
+  import re
+  manifest=json.loads(re.search(r'<script type="application/json" id="art-manifest">(.*?)</script>',text).group(1))
+  for name in ['redraw.svg','foundations.svg']:
+   self.assertEqual(hashlib.sha256((ROOT/'examples'/name).read_bytes()).hexdigest(),manifest[name])
+ def test_packaging_keeps_paths_and_rejects_mismatch(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=Path(tmp);source=root/'source.svg';source.write_text(self.valid().replace('<path fill=','<path id="tone-1" fill='))
+   path='<path id="tone-1" fill="#aabbcc" d="M0 0h2v1h-2z"/>'
+   art='<svg id="art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1"><g id="construction"/><g id="flat-colors"/><g id="ink"/><g id="final-contours"><g data-stage="shadow">'+path+'</g></g></svg>'
+   page='<html><div class="frame">'+art+'</div><script>oldPlayer()</script></html>'
+   out=root/'new/demo.html';info=package_page(page,source,out)
+   self.assertLess(info['html_bytes'],200000);self.assertFalse(info['simplified'])
+   self.assertEqual((out.parent/'redraw.svg').read_bytes(),source.read_bytes())
+   self.assertNotIn('M0 0h2v1h-2z',out.read_text())
+   with self.assertRaisesRegex(ValueError,'paths differ'):package_page(page.replace('#aabbcc','#ffffff'),source,root/'bad/demo.html')
 if __name__=='__main__':unittest.main()
