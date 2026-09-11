@@ -81,5 +81,32 @@
     "fallback_condition": "no character or reference image supplied and no existing project character",
     "named_character_without_image": "prepare a matching reference; do not substitute fallback",
     "existing_video_reuse": "only for an explicit reuse, re-edit or soundtrack-only request"
+  },
+  "index": {
+    "title": "一点一滴刺痛我的心",
+    "aliases": [
+      "一滴一滴刺痛我的心",
+      "刺痛我的心",
+      "Bit by Bit Heartache"
+    ],
+    "category": "角色主题短片",
+    "tags": [
+      "动作重演",
+      "舞蹈",
+      "音乐短片"
+    ],
+    "summary": "用指定角色制作连续动作与配乐短片。",
+    "customizable": [
+      "角色",
+      "服装",
+      "配乐"
+    ],
+    "request_example": "用我喜欢的角色，做一支《一点一滴刺痛我的心》。",
+    "requirements": [
+      "ComfyUI + MiniMax H3（重新生成）",
+      "原生 AV latent 续接（重新生成）",
+      "FFmpeg"
+    ],
+    "status_label": "已有片段可重剪；新角色需配置续接"
   }
 }

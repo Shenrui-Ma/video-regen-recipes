@@ -94,5 +94,33 @@
     "fallback_condition": "no character or reference image supplied and no existing project character",
     "named_character_without_image": "prepare a matching reference; do not substitute fallback",
     "existing_video_reuse": "only for an explicit reuse, re-edit or soundtrack-only request"
+  },
+  "index": {
+    "title": "XX不是罪过",
+    "aliases": [
+      "不是罪过",
+      "XX不是罪",
+      "Not a Sin"
+    ],
+    "category": "角色主题短片",
+    "tags": [
+      "动作重演",
+      "舞蹈",
+      "音乐短片"
+    ],
+    "summary": "用指定角色重演动作、镜头和音乐节奏。",
+    "customizable": [
+      "角色",
+      "服装",
+      "配乐"
+    ],
+    "request_example": "用我喜欢的角色，做一支《XX不是罪过》。",
+    "requirements": [
+      "ComfyUI + MiniMax H3",
+      "联合音视频续接适配",
+      "RIFE",
+      "FFmpeg"
+    ],
+    "status_label": "说明已整理；续接执行包待完善"
   }
 }

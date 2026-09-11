@@ -44,5 +44,43 @@
     "sources": "sources.md",
     "evidence": "evidence/README.md"
   },
-  "author": "Shenrui Ma（四倍体果蝇）"
+  "author": "Shenrui Ma（四倍体果蝇）",
+  "index": {
+    "title": "MyGO / Ave Mujica AI 番剧",
+    "aliases": [
+      "MyGO",
+      "MyGO!!!!!",
+      "Ave Mujica",
+      "Mujica",
+      "少女乐队AI番剧"
+    ],
+    "category": "番剧对白与叙事场景",
+    "tags": [
+      "少女乐队",
+      "剧情",
+      "多人对白",
+      "番剧"
+    ],
+    "summary": "从剧情想法制作带角色对白、字幕和剪辑的短篇。",
+    "customizable": [
+      "剧情",
+      "角色",
+      "服装",
+      "场景",
+      "台词",
+      "配乐"
+    ],
+    "request_example": "做一集 MyGO 或 Ave Mujica 短篇，剧情是……。",
+    "requirements": [
+      "ComfyUI + MiniMax H3",
+      "角色图与音色参考",
+      "FFmpeg",
+      "ASR"
+    ],
+    "variants": [
+      "MyGO",
+      "Ave Mujica"
+    ],
+    "status_label": "构建与执行工具已提供；新环境待实测"
+  }
 }

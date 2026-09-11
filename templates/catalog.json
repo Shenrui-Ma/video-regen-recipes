@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "path_base": "directory containing catalog.json",
+  "template_count": 3,
+  "templates": [
+    {
+      "id": "bit-by-bit-heartache",
+      "title": "一点一滴刺痛我的心",
+      "category": "角色主题短片",
+      "summary": "用指定角色制作连续动作与配乐短片。",
+      "request_example": "用我喜欢的角色，做一支《一点一滴刺痛我的心》。",
+      "status_label": "已有片段可重剪；新角色需配置续接",
+      "aliases": [
+        "一滴一滴刺痛我的心",
+        "刺痛我的心",
+        "Bit by Bit Heartache"
+      ],
+      "tags": [
+        "动作重演",
+        "舞蹈",
+        "音乐短片"
+      ],
+      "customizable": [
+        "角色",
+        "服装",
+        "配乐"
+      ],
+      "requirements": [
+        "ComfyUI + MiniMax H3（重新生成）",
+        "原生 AV latent 续接（重新生成）",
+        "FFmpeg"
+      ],
+      "variants": [],
+      "status": "default-edit-assets-ready; new-character-runtime-not-packaged",
+      "guide": "character-short/bit-by-bit-heartache/README.md",
+      "agent_entry": "character-short/bit-by-bit-heartache/SKILL.md",
+      "profile": "character-short/bit-by-bit-heartache/profile.json"
+    },
+    {
+      "id": "mygo-ave-mujica-episode",
+      "title": "MyGO / Ave Mujica AI 番剧",
+      "category": "番剧对白与叙事场景",
+      "summary": "从剧情想法制作带角色对白、字幕和剪辑的短篇。",
+      "request_example": "做一集 MyGO 或 Ave Mujica 短篇，剧情是……。",
+      "status_label": "构建与执行工具已提供；新环境待实测",
+      "aliases": [
+        "MyGO",
+        "MyGO!!!!!",
+        "Ave Mujica",
+        "Mujica",
+        "少女乐队AI番剧"
+      ],
+      "tags": [
+        "少女乐队",
+        "剧情",
+        "多人对白",
+        "番剧"
+      ],
+      "customizable": [
+        "剧情",
+        "角色",
+        "服装",
+        "场景",
+        "台词",
+        "配乐"
+      ],
+      "requirements": [
+        "ComfyUI + MiniMax H3",
+        "角色图与音色参考",
+        "FFmpeg",
+        "ASR"
+      ],
+      "variants": [
+        "MyGO",
+        "Ave Mujica"
+      ],
+      "status": "adapted-template-offline-checked",
+      "guide": "anime-dialogue-scene/mygo-ave-mujica/README.md",
+      "agent_entry": "anime-dialogue-scene/mygo-ave-mujica/SKILL.md",
+      "profile": "anime-dialogue-scene/mygo-ave-mujica/profile.json"
+    },
+    {
+      "id": "not-a-sin-h3-slowref-continuation",
+      "title": "XX不是罪过",
+      "category": "角色主题短片",
+      "summary": "用指定角色重演动作、镜头和音乐节奏。",
+      "request_example": "用我喜欢的角色，做一支《XX不是罪过》。",
+      "status_label": "说明已整理；续接执行包待完善",
+      "aliases": [
+        "不是罪过",
+        "XX不是罪",
+        "Not a Sin"
+      ],
+      "tags": [
+        "动作重演",
+        "舞蹈",
+        "音乐短片"
+      ],
+      "customizable": [
+        "角色",
+        "服装",
+        "配乐"
+      ],
+      "requirements": [
+        "ComfyUI + MiniMax H3",
+        "联合音视频续接适配",
+        "RIFE",
+        "FFmpeg"
+      ],
+      "variants": [],
+      "status": "documented-historical-case",
+      "guide": "character-short/not-a-sin/README.md",
+      "agent_entry": "character-short/not-a-sin/SKILL.md",
+      "profile": "character-short/not-a-sin/profile.json"
+    }
+  ]
+}

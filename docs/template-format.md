@@ -24,3 +24,7 @@ templates/<template-id>/
 标明“整理中”“已验证配置”或“待修复”；“已验证”只指实际跑过的环境与输入。
 ComfyUI 默认按[本地方式](comfyui-local.md)使用，[远程方式](comfyui-remote.md)单独处理连接与文件传输；模板不写死服务地址或机器路径。
 共用内容引用仓库中的 [H3 工作流](../workflows/comfyui/h3/)与[公共方法](../shared/)，不必复制。一个充分验证的配置即可提交。
+
+## 加入索引
+
+为 `profile.json` 填写 `index` 信息后，运行 `python3 scripts/catalog.py build` 和 `python3 scripts/catalog.py check`；详细字段见[索引说明](template-index.md)。
