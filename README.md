@@ -30,6 +30,10 @@
 
 [模板怎么写](docs/template-format.md) · [ComfyUI 工作流库](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit) · [H3 制作流程](docs/local-h3.md) · [图片与声音](docs/assets-and-audio.md)
 
+## 使用责任声明
+
+使用者应确保所用素材及生成、传播的内容符合法律法规与公序良俗，不侵犯他人合法权益。因使用者违法、侵权或不当使用本项目产生的责任，由使用者依法承担，本项目作者及维护者不承担相应责任。
+
 ## 许可
 
 原创代码与文档采用 [MIT License](LICENSE)。模型和第三方素材遵循各自许可。
