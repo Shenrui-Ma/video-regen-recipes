@@ -2,7 +2,8 @@
 
 **一句话，让 Agent 在本地复刻热点 MEME／鬼畜／手书视频，也可在 Updream 等线上工具快速复用。**
 
-### 🎬 已收录 [8 个视频模板](templates/) · 持续更新
+<!-- Template count is generated from profile.json files by scripts/catalog.py. -->
+### 🎬 已收录 [10 个视频模板](templates/) · 持续更新
 
 ![Video ReGen Recipes 封面](assets/hero.png)
 
@@ -10,11 +11,12 @@
 
 ## 怎么用
 
-**[选模板](templates/) → 准备素材 → 生成视频 → 剪辑成片。**
+**[选模板](templates/) → 准备素材 → 按模板执行 → 交付音频或成片。**
 
 - **Agent 入口**：可让 Codex、Claude Code、Hermes Agent、OpenClaw 等支持 Skills 的 Agent 读取模板，见[使用与适配状态](docs/agent-compatibility.md)。
 - **视频生成**：聚焦 ComfyUI + MiniMax H3，默认使用[本地 ComfyUI](docs/comfyui-local.md)，也可连接[远程服务器](docs/comfyui-remote.md)。
 - **图片与声音**：工具不限，可使用 ComfyUI、NovelAI、GPT Image、语音服务或已有素材。
+- **翻唱与 MV**：[少女乐队翻唱](templates/singing-cover/girls-band-ddsp/)独立交付音频；已有母带可直接做[律动环 MV](templates/music-visualizer/rhythm-ring/)，无需先运行翻唱或 H3。
 
 [参考图 Skills](skills/) 可独立使用；视频模板的完整执行包仍在整理，各项验证状态见对应说明。
 

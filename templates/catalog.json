@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "path_base": "directory containing catalog.json",
-  "template_count": 8,
+  "template_count": 10,
   "templates": [
     {
       "id": "bit-by-bit-heartache",
@@ -123,6 +123,65 @@
       "profile": "character-showcase/video-collection/profile.json"
     },
     {
+      "id": "girls-band-ddsp-cover",
+      "title": "少女乐队 DDSP-SVC 翻唱",
+      "category": "SVC 翻唱",
+      "summary": "以 DDSP-SVC 6.2 分声部转换角色音色，经人工审听和混音交付母带、分轨与哈希；MV 可选且独立。",
+      "request_example": "用高松灯音色将我提供的歌曲做成原调翻唱，保留和声，交付母带和分轨。",
+      "status_label": "历史资料已整理；离线预检已测，新环境 GPU 推理与听审待验证",
+      "aliases": [
+        "少女乐队翻唱",
+        "SVC翻唱",
+        "DDSP翻唱",
+        "高松灯翻唱",
+        "千早爱音翻唱",
+        "STARBOY",
+        "Billie Jean"
+      ],
+      "tags": [
+        "SVC",
+        "DDSP-SVC",
+        "MyGO",
+        "Ave Mujica",
+        "少女乐队",
+        "音频",
+        "翻唱"
+      ],
+      "customizable": [
+        "歌曲",
+        "角色",
+        "主唱与和声角色",
+        "原调或移调",
+        "去混响选择",
+        "局部修复",
+        "混音",
+        "节选"
+      ],
+      "requirements": [
+        "有权使用的歌曲或已审听分轨",
+        "独立 Linux NVIDIA GPU 环境",
+        "DDSP-SVC 6.2 与配对角色及共享权重",
+        "pymss 2.0.14（需要分离时）",
+        "FFmpeg/ffprobe",
+        "Python 3.10+（离线预检仅标准库）",
+        "人工审听"
+      ],
+      "variants": [
+        "高松灯",
+        "千早爱音",
+        "若叶睦",
+        "喵梦",
+        "丰川祥子",
+        "长崎素世",
+        "椎名立希",
+        "三角初华"
+      ],
+      "status": "adapted-template-offline-checked",
+      "guide": "singing-cover/girls-band-ddsp/README.md",
+      "agent_entry": "singing-cover/girls-band-ddsp/SKILL.md",
+      "profile": "singing-cover/girls-band-ddsp/profile.json"
+    },
+    {
       "id": "html-product-showcase",
       "title": "HTML 产品展示动画",
       "category": "产品展示与解释动画",
@@ -242,6 +301,49 @@
       "guide": "character-short/not-a-sin/README.md",
       "agent_entry": "character-short/not-a-sin/SKILL.md",
       "profile": "character-short/not-a-sin/profile.json"
+    },
+    {
+      "id": "rhythm-ring-mv",
+      "title": "律动环 MV",
+      "category": "音乐可视化",
+      "summary": "把任意已确认母带、图片和可选歌词做成双环律动视频，与歌声转换完全解耦。",
+      "request_example": "用这份音频和角色图做一支律动环 MV，保留原混音，加上校对好的双语歌词。",
+      "status_label": "独立渲染器已做合成音视频测试；不等于原片逐像素复刻",
+      "aliases": [
+        "音频律动环",
+        "双环音乐可视化",
+        "音频驱动MV",
+        "律动歌词视频"
+      ],
+      "tags": [
+        "律动环",
+        "MV",
+        "音频可视化",
+        "歌词字幕",
+        "FFmpeg"
+      ],
+      "customizable": [
+        "音乐",
+        "图片",
+        "标题",
+        "署名",
+        "环颜色",
+        "歌词",
+        "画幅",
+        "帧率",
+        "节选范围"
+      ],
+      "requirements": [
+        "Python 3.10+ + Pillow",
+        "FFmpeg / ffprobe",
+        "已确认音频、可用图片与字体",
+        "可选：按最终音频校对的歌词时间轴"
+      ],
+      "variants": [],
+      "status": "independent-renderer-synthetic-media-tested; historical-project-not-recovered",
+      "guide": "music-visualizer/rhythm-ring/README.md",
+      "agent_entry": "music-visualizer/rhythm-ring/SKILL.md",
+      "profile": "music-visualizer/rhythm-ring/profile.json"
     },
     {
       "id": "svg-redraw-comparison",

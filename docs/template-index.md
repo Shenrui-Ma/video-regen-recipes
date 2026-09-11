@@ -22,6 +22,7 @@ python3 scripts/catalog.py search --tag 舞蹈
 4. 读取选中条目的 `agent_entry`，再按其流程准备角色、调用工具、生成和剪辑。JSON中的路径相对 `catalog.json` 所在目录；CLI JSON结果中的路径相对 `templates/`。
 5. MyGO 与 Ave Mujica 是同一模板的两个剧情入口，按用户选择使用对应示例。备用角色不覆盖用户的角色要求。
 6. 角色图像合集与角色视频合集是两个通用入口；指定“泳装动态立绘”时优先选对应子模板，再按其引用加载通用视频流程。子模板有独立镜头、节奏与执行入口，可单独索引；单纯换角色素材不新增模板。
+7. 少女乐队 SVC 翻唱与律动环 MV 是两个独立模板。要换歌声音色时选择翻唱；已有音频只做画面时直接选择律动环。翻唱可推荐 MV，但不把它作为完成翻唱的必要步骤；`MyGO` 等题材词同时命中剧情与翻唱时，按用户要做的事情区分。
 
 ## 新增模板
 
@@ -41,5 +42,9 @@ python3 scripts/catalog.py check
 ```
 
 `build` 同时更新目录、JSON 和首页的模板计数；首页其他内容保持原样。`check` 也会核对首页计数，防止新增模板后遗漏更新。
+
+计数的唯一来源是有效模板记录的数量，程序变量为 `catalog['template_count']`，保存于 `templates/catalog.json`；不单独维护另一个数字。GitHub README 不执行变量或 JavaScript，因此首页显示构建后的文字。[目录工作流](../.github/workflows/catalog.yml)在 `main` 的模板/索引相关提交后自动重建并提交变化，也可在 Actions 手动运行；PR 只做只读检查，不向贡献者分支写入。若分支保护禁止机器人直接提交，请在本地运行上述 `build` 并随变更提交，不要关闭保护或提供私人令牌。
+
+自动同步遇到 main 并发推进时，最多三次从最新 main 重新生成与校验，不强推旧索引；超过次数会明确失败，可在 Actions 重跑。`scripts/ci_sync_catalog.sh` 仅用于临时 CI checkout，本地维护仍用 `catalog.py build`，不会切换你的工作分支。
 
 提交时一起更新这些生成内容。检查会拒绝重复 ID、缺少索引信息、无效入口以及未更新的生成文件。只有同时具备 `profile.json`、`README.md` 和 `SKILL.md` 的目录计为模板；空分类、媒体文件和辅助工具不计入。

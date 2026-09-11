@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "compatibility_profile": "ddsp-svc-6.2-tutorial-pc-vocoder-2025.02",
+  "author": "路边墨缇斯",
+  "author_evidence": "source-package-search-index-excerpt; tutorial uploader unknown",
+  "tutorial_uploader": null,
+  "source_url": "https://www.bilibili.com/video/BV1JU2LBZEt5/",
+  "usage_notice": "Source package records custom non-commercial terms; review original notice and all other rights before use. No authorization is inherited.",
+  "hash_basis": "Expected bytes from v1.0 models/models.json and eight original manifests; source package later reports matching remote bytes. Not a new weight check or inference in this template.",
+  "training_steps_basis": "Archive filenames and manifests; checkpoint internals were not deserialized.",
+  "bundle_sha256": "60542760ddf38c37d714f4f3ad1e7f2e86fb475154d5c5d0de46dcb323fa868e",
+  "voices": [
+    {
+      "id": "anon-12000", "name": "千早爱音", "training_steps": 12000, "speaker_id": 1,
+      "checkpoint": {"path": "voices/anon-12000/model.pt", "bytes": 280285658, "sha256": "af40a5c7c94317867e65a38e09b9f6285dd32cf0346e3bf7e1768048cb60f370"},
+      "config": {"path": "voices/anon-12000/config.yaml", "bytes": 1172, "sha256": "25a8b50464cee2d34f9c2d9e1ea0dad6937216cd28511a3982ff6da3690e749b"}
+    },
+    {
+      "id": "mutsumi-20000", "name": "若叶睦", "training_steps": 20000, "speaker_id": 1,
+      "checkpoint": {"path": "voices/mutsumi-20000/model.pt", "bytes": 280285658, "sha256": "645d997bfc4807e19a2c953f5b1db032f80627b8019289a3eab52a9c87017997"},
+      "config": {"path": "voices/mutsumi-20000/config.yaml", "bytes": 1172, "sha256": "25a8b50464cee2d34f9c2d9e1ea0dad6937216cd28511a3982ff6da3690e749b"}
+    },
+    {
+      "id": "nyamu-14000", "name": "喵梦 / 祐天寺若麦", "training_steps": 14000, "speaker_id": 1,
+      "checkpoint": {"path": "voices/nyamu-14000/model.pt", "bytes": 280285658, "sha256": "b8aba6b8622bc22f5734f5280193880628e4e12c7e853e8771446d29641bb4cd"},
+      "config": {"path": "voices/nyamu-14000/config.yaml", "bytes": 1172, "sha256": "25a8b50464cee2d34f9c2d9e1ea0dad6937216cd28511a3982ff6da3690e749b"}
+    },
+    {
+      "id": "sakiko-20000", "name": "丰川祥子", "training_steps": 20000, "speaker_id": 1,
+      "checkpoint": {"path": "voices/sakiko-20000/model.pt", "bytes": 280285658, "sha256": "05080eaffde64345d081b1d3cadff19fff8d2a9ad31b46f228a57d69d7b19fa3"},
+      "config": {"path": "voices/sakiko-20000/config.yaml", "bytes": 1172, "sha256": "25a8b50464cee2d34f9c2d9e1ea0dad6937216cd28511a3982ff6da3690e749b"}
+    },
+    {
+      "id": "soyo-14000", "name": "长崎素世", "training_steps": 14000, "speaker_id": 1,
+      "checkpoint": {"path": "voices/soyo-14000/model.pt", "bytes": 280285658, "sha256": "dd711c2548bdab3caddb302bce64d5eb3480ce46b2701bea41cc4ee93ae67f43"},
+      "config": {"path": "voices/soyo-14000/config.yaml", "bytes": 1172, "sha256": "25a8b50464cee2d34f9c2d9e1ea0dad6937216cd28511a3982ff6da3690e749b"}
+    },
+    {
+      "id": "taki-20000", "name": "椎名立希", "training_steps": 20000, "speaker_id": 1,
+      "checkpoint": {"path": "voices/taki-20000/model.pt", "bytes": 280285658, "sha256": "909e49dd89a0ff2580b7190a2af4fe9608f731fdd0309755dcd870aba6cd0c48"},
+      "config": {"path": "voices/taki-20000/config.yaml", "bytes": 1172, "sha256": "25a8b50464cee2d34f9c2d9e1ea0dad6937216cd28511a3982ff6da3690e749b"}
+    },
+    {
+      "id": "tomori-30000", "name": "高松灯", "training_steps": 30000, "speaker_id": 1,
+      "checkpoint": {"path": "voices/tomori-30000/model.pt", "bytes": 280285658, "sha256": "a448f4a3fd44b4fbd53132efe589b0cf8b072fa63a42061200f428602a2ad684"},
+      "config": {"path": "voices/tomori-30000/config.yaml", "bytes": 1172, "sha256": "25a8b50464cee2d34f9c2d9e1ea0dad6937216cd28511a3982ff6da3690e749b"}
+    },
+    {
+      "id": "uika-28000", "name": "三角初华", "training_steps": 28000, "speaker_id": 1,
+      "checkpoint": {"path": "voices/uika-28000/model.pt", "bytes": 280285658, "sha256": "5c4957f2f6a3780f96b33eb4c087c1e46ac86aa124351b45770bb1976d399a8c"},
+      "config": {"path": "voices/uika-28000/config.yaml", "bytes": 1172, "sha256": "25a8b50464cee2d34f9c2d9e1ea0dad6937216cd28511a3982ff6da3690e749b"}
+    }
+  ]
+}

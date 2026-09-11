@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "girls-band-ddsp-cover",
+  "status": "adapted-template-offline-checked",
+  "new_environment_validation": "pending-linux-gpu-inference-and-listening",
+  "video_model": null,
+  "audio_backend": "DDSP-SVC 6.2",
+  "default_deployment": "local-control-linux-gpu-inference",
+  "author": "Shenrui Ma（四倍体果蝇）",
+  "model_author": "路边墨缇斯",
+  "tutorial_uploader": null,
+  "code_author": "yxlllc",
+  "baseline": {
+    "compatibility_profile": "ddsp-svc-6.2-tutorial-pc-vocoder-2025.02",
+    "pymss": "2.0.14",
+    "pymss_core": "0.1.4",
+    "sample_rate": 44100,
+    "sample_format": "PCM_24",
+    "key_semitones": 0,
+    "speaker_id": 1,
+    "inference_steps": 50,
+    "current_gpu_inference": "not-run",
+    "current_listening_review": "not-performed"
+  },
+  "examples": [
+    {"title": "𝑺𝑻𝑨𝑹𝑩𝑶𝒀 高松灯", "url": "https://www.bilibili.com/video/BV1BPgq6hEey/", "voice_id": "tomori-30000"},
+    {"title": "𝑩𝒊𝒍𝒍𝒊𝒆 𝑱𝒆𝒂𝒏 —— 千早爱音", "url": "https://www.bilibili.com/video/BV1dQKY6ME3t/", "voice_id": "anon-12000"}
+  ],
+  "files": {"guide": "README.md", "agent_entry": "SKILL.md", "sources": "sources.md"},
+  "index": {
+    "title": "少女乐队 DDSP-SVC 翻唱",
+    "aliases": ["少女乐队翻唱", "SVC翻唱", "DDSP翻唱", "高松灯翻唱", "千早爱音翻唱", "STARBOY", "Billie Jean"],
+    "category": "SVC 翻唱",
+    "tags": ["SVC", "DDSP-SVC", "MyGO", "Ave Mujica", "少女乐队", "音频", "翻唱"],
+    "summary": "以 DDSP-SVC 6.2 分声部转换角色音色，经人工审听和混音交付母带、分轨与哈希；MV 可选且独立。",
+    "customizable": ["歌曲", "角色", "主唱与和声角色", "原调或移调", "去混响选择", "局部修复", "混音", "节选"],
+    "request_example": "用高松灯音色将我提供的歌曲做成原调翻唱，保留和声，交付母带和分轨。",
+    "requirements": ["有权使用的歌曲或已审听分轨", "独立 Linux NVIDIA GPU 环境", "DDSP-SVC 6.2 与配对角色及共享权重", "pymss 2.0.14（需要分离时）", "FFmpeg/ffprobe", "Python 3.10+（离线预检仅标准库）", "人工审听"],
+    "variants": ["高松灯", "千早爱音", "若叶睦", "喵梦", "丰川祥子", "长崎素世", "椎名立希", "三角初华"],
+    "status_label": "历史资料已整理；离线预检已测，新环境 GPU 推理与听审待验证"
+  }
+}

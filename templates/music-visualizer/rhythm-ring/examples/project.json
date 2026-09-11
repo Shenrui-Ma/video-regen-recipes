@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "audio": "assets/master.wav",
+  "audio_sha256": "REPLACE_WITH_APPROVED_MASTER_SHA256",
+  "image": "assets/illustration.png",
+  "font": "assets/font.ttf",
+  "output": "output/rhythm-ring-v1.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 60,
+  "start": 0,
+  "title": "歌曲名",
+  "credit": "演唱 / 音色来源 / 制作署名",
+  "colors": ["#69E0CD", "#FF799A"],
+  "cues": []
+}

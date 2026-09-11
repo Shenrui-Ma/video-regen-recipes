@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "compatibility_profile": "ddsp-svc-6.2-tutorial-pc-vocoder-2025.02",
+  "hash_basis": "Expected SHA-256 from source-package v1.0 models/models.json; not new local verification. Null byte size means no size assertion, not zero bytes.",
+  "dependencies": [
+    {
+      "id": "contentvec-legacy-500", "stage": "ddsp", "author": "auspicious3000 / ContentVec",
+      "source_url": "https://github.com/auspicious3000/contentvec",
+      "download_url": "https://ibm.box.com/s/z1wgl1stco8ffooyatzdwsqn2psd9lrr",
+      "license_status": "Code MIT; independent weight notice not established in source evidence.",
+      "artifacts": [
+        {"path": "pretrain/contentvec/checkpoint_best_legacy_500.pt", "bytes": 1330114945, "sha256": "60d936ec5a566776fc392e69ad8b630d14eb588111233fe313436e200a7b187b"}
+      ]
+    },
+    {
+      "id": "rmvpe-230917", "stage": "ddsp", "author": "yxlllc; original research Dream-High",
+      "source_url": "https://github.com/yxlllc/RMVPE/releases/tag/230917",
+      "license_status": "Selected weight license unclear in source evidence; do not inherit RVC or another implementation's license.",
+      "artifacts": [
+        {"path": "pretrain/rmvpe/model.pt", "bytes": null, "sha256": "19dc1809cf4cdb0a18db93441816bc327e14e5644b72eeaae5220560c6736fe2"}
+      ]
+    },
+    {
+      "id": "pc-nsf-hifigan-2025.02", "stage": "ddsp", "author": "OpenVPI / DiffSinger Community Vocoder Project",
+      "source_url": "https://github.com/openvpi/vocoders/releases/tag/pc-nsf-hifigan-44.1k-hop512-128bin-2025.02",
+      "license_status": "Pretrained weights CC BY-NC-SA 4.0 per recorded release; read archive notice before use or redistribution.",
+      "artifacts": [
+        {"path": "pretrain/pc_nsf_hifigan_44.1k_hop512_128bin_2025.02/model.ckpt", "bytes": null, "sha256": "d6dd28909d2a1a2dcf74b3e3aa0b82b48695b87979fdf41561940aeecd85c67f"},
+        {"path": "pretrain/pc_nsf_hifigan_44.1k_hop512_128bin_2025.02/config.json", "bytes": null, "sha256": "983bb78f45f6790e573033bfab46163743e0182d564fc5eca6938743cca6a2ea"}
+      ]
+    },
+    {
+      "id": "bs_roformer_voc_hyperacev2", "stage": "separation", "author": "pcunwa / unwa",
+      "source_url": "https://huggingface.co/pcunwa/BS-Roformer-HyperACE",
+      "license_status": "Original weights unclear; mirror Apache-2.0 is not proof of original authorization.",
+      "artifacts": [
+        {"path": "separation/vocal/vocal_extraction/bs_roformer_voc_hyperacev2.ckpt", "bytes": 288724430, "sha256": "54cf516f621f2f460bf660ed137e244b8931bf7a2ce85ddceecff816dbc4d668", "source_url": "https://huggingface.co/pcunwa/BS-Roformer-HyperACE/resolve/5b1f8283125d5e4a3614d0e3635a636e09c84059/v2_voc/bs_roformer_voc_hyperacev2.ckpt"},
+        {"path": "separation/vocal/vocal_extraction/bs_roformer_voc_hyperacev2.yaml", "bytes": null, "sha256": "18c9edecb4168e92b3aaba6b3b9c22448b3a4ebc445becc4b4ae808e57d29f7f", "source_url": "https://huggingface.co/baicai1145/pymss/resolve/f02318ef92c43472777ed7aeeded3d2b29a68b58/vocal/vocal_extraction/bs_roformer_voc_hyperacev2.yaml"}
+      ]
+    },
+    {
+      "id": "bs_karaoke_gabox_IS", "stage": "separation", "author": "GaboxR67",
+      "source_url": "https://huggingface.co/GaboxR67/MelBandRoformers",
+      "license_status": "Original weights unclear; mirror Apache-2.0 is not proof of original authorization.",
+      "artifacts": [
+        {"path": "separation/karaoke/bs_karaoke_gabox_IS.ckpt", "bytes": 204483448, "sha256": "db8357825398d4231031ad1ab4aa12a94bcaad8d67e8ce5e4b3c5b48fdee1d4f", "source_url": "https://huggingface.co/GaboxR67/MelBandRoformers/resolve/7860d31d8cc1c73b46c1cbdc2b497210c97478ae/bsroformers/bs_karaoke_gabox_IS.ckpt"},
+        {"path": "separation/karaoke/bs_karaoke_gabox_IS.yaml", "bytes": 2004, "sha256": "8360384097cc7a0b229b2918f70270bf7f5e64630d933ff359ceb6eaadf40fd9", "source_url": "https://huggingface.co/baicai1145/pymss/resolve/f02318ef92c43472777ed7aeeded3d2b29a68b58/karaoke/bs_karaoke_gabox_IS.yaml"}
+      ]
+    },
+    {
+      "id": "Lead_VocalDereverb", "stage": "separation", "author": "GaboxR67",
+      "source_url": "https://huggingface.co/GaboxR67/MelBandRoformers",
+      "license_status": "Original weights unclear; mirror Apache-2.0 is not proof of original authorization.",
+      "known_bad_copy": {"bytes": 255995904, "sha256": "e227c8ba976052c39d2206174ed51092538b70a5086e0732cf1fd57d80af1339", "action": "Reject this historical corrupt or incomplete copy; do not alter expected hashes."},
+      "artifacts": [
+        {"path": "separation/reverb_echo_control/dereverb/Lead_VocalDereverb.ckpt", "bytes": 913031195, "sha256": "097c13b298414905651867ef315d881bbf2604a5c04be28820ed5946338b3eb4", "source_url": "https://huggingface.co/GaboxR67/MelBandRoformers/resolve/7860d31d8cc1c73b46c1cbdc2b497210c97478ae/melbandroformers/experimental/Lead_VocalDereverb.ckpt"},
+        {"path": "separation/reverb_echo_control/dereverb/Lead_VocalDereverb.yaml", "bytes": 1315, "sha256": "075e90763f8a0048c13085b7ea0141875a73f19b8ecd1223599d06ea14661cca", "source_url": "https://huggingface.co/baicai1145/pymss/resolve/f02318ef92c43472777ed7aeeded3d2b29a68b58/reverb_echo_control/dereverb/Lead_VocalDereverb.yaml"}
+      ]
+    }
+  ]
+}
