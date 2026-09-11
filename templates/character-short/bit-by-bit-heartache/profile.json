@@ -71,5 +71,15 @@
     "editing": "references/editing.md",
     "prompt": "prompts/ref2va.template.txt",
     "sources": "sources.md"
+  },
+  "character_selection": {
+    "priority": [
+      "user_character_or_image",
+      "existing_project_character",
+      "fallback_assets"
+    ],
+    "fallback_condition": "no character or reference image supplied and no existing project character",
+    "named_character_without_image": "prepare a matching reference; do not substitute fallback",
+    "existing_video_reuse": "only for an explicit reuse, re-edit or soundtrack-only request"
   }
 }
