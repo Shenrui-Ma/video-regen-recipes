@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "title": "开场前的暗号",
+  "franchise": "Ave Mujica",
+  "fps": 24,
+  "width": 768,
+  "height": 448,
+  "steps": 20,
+  "model_files": {
+    "diffusion_model": "REPLACE_WITH_INSTALLED_DIFFUSION_MODEL_NAME",
+    "text_encoder": "REPLACE_WITH_INSTALLED_TEXT_ENCODER_NAME",
+    "video_vae": "REPLACE_WITH_INSTALLED_VIDEO_VAE_NAME",
+    "audio_vae": "REPLACE_WITH_INSTALLED_AUDIO_VAE_NAME"
+  },
+  "characters": {
+    "sakiko": {
+      "name": "豊川 祥子",
+      "appearance": "REPLACE_WITH_VISIBLE_FEATURES_AND_FIXED_OUTFIT_AFTER_VIEWING_REFERENCE",
+      "identity_image": "assets/characters/sakiko/identity.png",
+      "turnaround_image": "assets/characters/sakiko/turnaround.png",
+      "voice_audio": "assets/voices/sakiko/reference.wav"
+    },
+    "uika": {
+      "name": "三角 初華",
+      "appearance": "REPLACE_WITH_VISIBLE_FEATURES_AND_FIXED_OUTFIT_AFTER_VIEWING_REFERENCE",
+      "identity_image": "assets/characters/uika/identity.png",
+      "turnaround_image": "assets/characters/uika/turnaround.png",
+      "voice_audio": "assets/voices/uika/reference.wav"
+    },
+    "mutsumi": {
+      "name": "若葉 睦",
+      "appearance": "REPLACE_WITH_VISIBLE_FEATURES_AND_FIXED_OUTFIT_AFTER_VIEWING_REFERENCE",
+      "identity_image": "assets/characters/mutsumi/identity.png",
+      "turnaround_image": "assets/characters/mutsumi/turnaround.png",
+      "voice_audio": "assets/voices/mutsumi/reference.wav"
+    },
+    "umiri": {
+      "name": "八幡 海鈴",
+      "appearance": "REPLACE_WITH_VISIBLE_FEATURES_AND_FIXED_OUTFIT_AFTER_VIEWING_REFERENCE",
+      "identity_image": "assets/characters/umiri/identity.png",
+      "turnaround_image": "assets/characters/umiri/turnaround.png",
+      "voice_audio": "assets/voices/umiri/reference.wav"
+    },
+    "nyamu": {
+      "name": "祐天寺 にゃむ",
+      "appearance": "REPLACE_WITH_VISIBLE_FEATURES_AND_FIXED_OUTFIT_AFTER_VIEWING_REFERENCE",
+      "identity_image": "assets/characters/nyamu/identity.png",
+      "turnaround_image": "assets/characters/nyamu/turnaround.png",
+      "voice_audio": "assets/voices/nyamu/reference.wav"
+    }
+  },
+  "scenes": {
+    "room": {
+      "description": "An original quiet backstage room, a small table, chairs and a closed stage door, warm practical lights with soft shadows. Follow the supplied scene image for stable geometry.",
+      "image": "assets/scenes/room/reference.png"
+    }
+  },
+  "shots": [
+    {
+      "id": "01",
+      "scene": "room",
+      "cast": [
+        "sakiko",
+        "uika"
+      ],
+      "frames": 243,
+      "seed": 210001,
+      "visual_description": "A fixed medium two-shot in a quiet backstage room. @sakiko is on the right beside a closed door, checking a simple unmarked cue card. @uika stands on the left at a respectful distance. @uika watches @sakiko’s hand, asks her short question and waits. @sakiko lowers the card before replying. Keep costumes consistent with the selected reference set; do not mix stage and everyday outfits. Use restrained expressions rather than exaggerated crying. End with both looking toward the door, which remains closed.",
+      "dialogue": [
+        {
+          "character": "uika",
+          "text": "始める合図、決めた？",
+          "delivery": "Softly checking in."
+        },
+        {
+          "character": "sakiko",
+          "text": "まだです。少しだけ、待って。",
+          "delivery": "Controlled, with a small hesitation."
+        }
+      ],
+      "ambience": "Quiet indoor room tone, gentle clothing movement and small object sounds. Keep dialogue clear. No audience-only background music."
+    },
+    {
+      "id": "02",
+      "scene": "room",
+      "cast": [
+        "umiri",
+        "nyamu"
+      ],
+      "frames": 243,
+      "seed": 210002,
+      "visual_description": "A medium two-shot in the same backstage room. @umiri stands at frame left near a chair, while @nyamu stands at frame right and rests both hands loosely in front of her. @nyamu leans forward only slightly when asking her question. @umiri answers without changing position, briefly shifting her gaze toward the closed door. Both faces remain visible. Keep the room quiet, lighting consistent and background objects fixed. End with @nyamu straightening up and listening, not interrupting or speaking over the answer.",
+      "dialogue": [
+        {
+          "character": "nyamu",
+          "text": "ねえ、今日は誰が合図するの？",
+          "delivery": "Curious with contained energy."
+        },
+        {
+          "character": "umiri",
+          "text": "みんなが見える人で、いいと思います。",
+          "delivery": "Even, practical and clear."
+        }
+      ],
+      "ambience": "Quiet indoor room tone, gentle clothing movement and small object sounds. Keep dialogue clear. No audience-only background music."
+    },
+    {
+      "id": "03",
+      "scene": "room",
+      "cast": [
+        "mutsumi",
+        "uika"
+      ],
+      "frames": 243,
+      "seed": 210003,
+      "visual_description": "A stable medium shot beside the backstage table. @mutsumi stands on the right and @uika on the left. @mutsumi lifts her eyes toward @uika and makes a brief observation. @uika gives her time to finish, then responds with a small smile and a slow nod. Their hands remain relaxed and visible where possible. No dramatic personality change or horror transformation is requested. The cue card rests untouched on the table. End with both turning slightly toward the room center while staying on their own side of the frame.",
+      "dialogue": [
+        {
+          "character": "mutsumi",
+          "text": "顔を見れば、わかる。",
+          "delivery": "Quiet and concise."
+        },
+        {
+          "character": "uika",
+          "text": "うん。ちゃんと、見てるよ。",
+          "delivery": "Sincere reassurance."
+        }
+      ],
+      "ambience": "Quiet indoor room tone, gentle clothing movement and small object sounds. Keep dialogue clear. No audience-only background music."
+    },
+    {
+      "id": "04",
+      "scene": "room",
+      "cast": [
+        "nyamu",
+        "sakiko"
+      ],
+      "frames": 243,
+      "seed": 210004,
+      "visual_description": "A medium two-shot near the backstage doorway. @nyamu is on the left; @sakiko is on the right, now holding the cue card at her side. @nyamu makes one small open-hand gesture while speaking, without touching @sakiko. @sakiko listens, takes a short breath and replies with a subtle nod. Keep the exchange calm and readable rather than a confrontation. The door and camera axis remain unchanged. Finish with @sakiko placing the card flat on the nearby table, signaling that the decision is made.",
+      "dialogue": [
+        {
+          "character": "nyamu",
+          "text": "難しい合図じゃなくて、いいじゃん。",
+          "delivery": "Casual and encouraging."
+        },
+        {
+          "character": "sakiko",
+          "text": "では、目が合ったら。",
+          "delivery": "Composed, with a hint of relief."
+        }
+      ],
+      "ambience": "Quiet indoor room tone, gentle clothing movement and small object sounds. Keep dialogue clear. No audience-only background music."
+    },
+    {
+      "id": "05",
+      "scene": "room",
+      "cast": [
+        "umiri",
+        "mutsumi"
+      ],
+      "frames": 243,
+      "seed": 210005,
+      "visual_description": "A fixed medium two-shot beside the backstage chairs. @umiri stands on the left and @mutsumi on the right, each looking toward the same off-screen point near the door. @umiri states the plan, then closes her mouth and waits. @mutsumi answers with one small nod. Keep facial identity stable during the gaze shift; do not add a third speaking character. No musical performance begins yet. At the end, both settle into a still, ready posture, leaving a short quiet beat for the cut.",
+      "dialogue": [
+        {
+          "character": "umiri",
+          "text": "それなら、迷いませんね。",
+          "delivery": "Calm confidence."
+        },
+        {
+          "character": "mutsumi",
+          "text": "うん。合わせる。",
+          "delivery": "Soft and certain."
+        }
+      ],
+      "ambience": "Quiet indoor room tone, gentle clothing movement and small object sounds. Keep dialogue clear. No audience-only background music."
+    },
+    {
+      "id": "06",
+      "scene": "room",
+      "cast": [
+        "sakiko",
+        "uika",
+        "mutsumi",
+        "umiri",
+        "nyamu"
+      ],
+      "frames": 226,
+      "seed": 210006,
+      "visual_description": "A wide, stationary shot of all five characters in the same backstage room. @sakiko is near the center by the closed door; @uika stands to her left, @mutsumi just behind @uika, @umiri to her right and @nyamu at the outer right. Only @sakiko speaks. After her line, each character gives at most one small nod and turns attention toward the door. Do not make them cross through one another or perform complicated synchronized movement. Preserve the selected outfits and a coherent light direction. End before the door opens, on a shared moment of readiness.",
+      "dialogue": [
+        {
+          "character": "sakiko",
+          "text": "それでは、行きましょう。",
+          "delivery": "Clear and resolute."
+        }
+      ],
+      "ambience": "Quiet indoor room tone, gentle clothing movement and small object sounds. Keep dialogue clear. No audience-only background music."
+    }
+  ],
+  "dialogue_language": "Japanese"
+}

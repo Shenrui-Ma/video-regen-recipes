@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "title": "排练前的便签",
+  "franchise": "MyGO!!!!!",
+  "fps": 24,
+  "width": 768,
+  "height": 448,
+  "steps": 20,
+  "model_files": {
+    "diffusion_model": "REPLACE_WITH_INSTALLED_DIFFUSION_MODEL_NAME",
+    "text_encoder": "REPLACE_WITH_INSTALLED_TEXT_ENCODER_NAME",
+    "video_vae": "REPLACE_WITH_INSTALLED_VIDEO_VAE_NAME",
+    "audio_vae": "REPLACE_WITH_INSTALLED_AUDIO_VAE_NAME"
+  },
+  "characters": {
+    "tomori": {
+      "name": "高松 燈",
+      "appearance": "REPLACE_WITH_VISIBLE_FEATURES_AND_FIXED_OUTFIT_AFTER_VIEWING_REFERENCE",
+      "identity_image": "assets/characters/tomori/identity.png",
+      "turnaround_image": "assets/characters/tomori/turnaround.png",
+      "voice_audio": "assets/voices/tomori/reference.wav"
+    },
+    "anon": {
+      "name": "千早 愛音",
+      "appearance": "REPLACE_WITH_VISIBLE_FEATURES_AND_FIXED_OUTFIT_AFTER_VIEWING_REFERENCE",
+      "identity_image": "assets/characters/anon/identity.png",
+      "turnaround_image": "assets/characters/anon/turnaround.png",
+      "voice_audio": "assets/voices/anon/reference.wav"
+    },
+    "rana": {
+      "name": "要 楽奈",
+      "appearance": "REPLACE_WITH_VISIBLE_FEATURES_AND_FIXED_OUTFIT_AFTER_VIEWING_REFERENCE",
+      "identity_image": "assets/characters/rana/identity.png",
+      "turnaround_image": "assets/characters/rana/turnaround.png",
+      "voice_audio": "assets/voices/rana/reference.wav"
+    },
+    "soyo": {
+      "name": "長崎 そよ",
+      "appearance": "REPLACE_WITH_VISIBLE_FEATURES_AND_FIXED_OUTFIT_AFTER_VIEWING_REFERENCE",
+      "identity_image": "assets/characters/soyo/identity.png",
+      "turnaround_image": "assets/characters/soyo/turnaround.png",
+      "voice_audio": "assets/voices/soyo/reference.wav"
+    },
+    "taki": {
+      "name": "椎名 立希",
+      "appearance": "REPLACE_WITH_VISIBLE_FEATURES_AND_FIXED_OUTFIT_AFTER_VIEWING_REFERENCE",
+      "identity_image": "assets/characters/taki/identity.png",
+      "turnaround_image": "assets/characters/taki/turnaround.png",
+      "voice_audio": "assets/voices/taki/reference.wav"
+    }
+  },
+  "scenes": {
+    "room": {
+      "description": "An original quiet band practice room, a small table, chairs, one entrance, soft afternoon light. Use the supplied scene image as the layout and lighting reference.",
+      "image": "assets/scenes/room/reference.png"
+    }
+  },
+  "shots": [
+    {
+      "id": "01",
+      "scene": "room",
+      "cast": [
+        "tomori",
+        "anon"
+      ],
+      "frames": 243,
+      "seed": 210001,
+      "visual_description": "A fixed medium two-shot in the reference practice room. @anon stands on the left beside a table and carefully lifts a folded note. @tomori stands on the right, initially looking down at it. Show their faces and hands without cropping either head. @anon turns the note slightly toward @tomori, asks her question, then closes her mouth and waits. @tomori looks up before replying quietly. Keep the note unprinted at this distance; no readable text is needed. Finish with both characters looking toward the room entrance. The camera remains on the same side of the table.",
+      "dialogue": [
+        {
+          "character": "anon",
+          "text": "このメモ、誰が置いたの？",
+          "delivery": "Curious, conversational and brief."
+        },
+        {
+          "character": "tomori",
+          "text": "待ってるって、書いてある。",
+          "delivery": "Quiet and slightly hesitant, with a short pause."
+        }
+      ],
+      "ambience": "Quiet indoor room tone, gentle clothing movement and small object sounds. Keep dialogue clear. No audience-only background music."
+    },
+    {
+      "id": "02",
+      "scene": "room",
+      "cast": [
+        "soyo",
+        "taki"
+      ],
+      "frames": 243,
+      "seed": 210002,
+      "visual_description": "A medium two-shot from inside the same practice room facing its entrance. @taki stands near the doorway on the right and glances at a simple wall clock without a readable close-up. @soyo waits on the left with one hand on a chair back. @taki lowers her gaze and speaks to @soyo rather than to the camera. @soyo answers with a small reassuring smile. Let the pauses read through their eyes and shoulders. Neither character crosses behind the other. Finish on a shared glance toward the table established in the previous segment.",
+      "dialogue": [
+        {
+          "character": "taki",
+          "text": "集合、もうすぐだよ。",
+          "delivery": "Direct but not angry."
+        },
+        {
+          "character": "soyo",
+          "text": "まだ一人、来てないみたい。",
+          "delivery": "Gentle, measured and observant."
+        }
+      ],
+      "ambience": "Quiet indoor room tone, gentle clothing movement and small object sounds. Keep dialogue clear. No audience-only background music."
+    },
+    {
+      "id": "03",
+      "scene": "room",
+      "cast": [
+        "tomori",
+        "rana"
+      ],
+      "frames": 243,
+      "seed": 210003,
+      "visual_description": "A steady medium shot of the table and a nearby chair. @rana steps into the left side of frame and stops beside the folded note. @tomori is already at the right side of the table. @rana lightly points toward the note while making her short statement, then lets her arm rest naturally. @tomori looks from the note to @rana and answers with a tentative smile. Show one clear pointing gesture rather than repeated hand movement. Retain the established outfit and room lighting. End with @rana meeting @tomori’s gaze; do not introduce another character.",
+      "dialogue": [
+        {
+          "character": "rana",
+          "text": "それ、私が書いた。",
+          "delivery": "Matter-of-fact and unhurried."
+        },
+        {
+          "character": "tomori",
+          "text": "一緒に、音を出したかったの？",
+          "delivery": "Soft surprise that turns into warmth."
+        }
+      ],
+      "ambience": "Quiet indoor room tone, gentle clothing movement and small object sounds. Keep dialogue clear. No audience-only background music."
+    },
+    {
+      "id": "04",
+      "scene": "room",
+      "cast": [
+        "anon",
+        "soyo"
+      ],
+      "frames": 243,
+      "seed": 210004,
+      "visual_description": "A medium two-shot in the practice room with the table at frame edge. @anon stands on the left and relaxes her shoulders as the misunderstanding resolves. @soyo stands on the right facing her at a slight angle. @anon gives a brief apologetic smile while speaking. @soyo answers, then draws an empty chair a small distance away from the table with one controlled movement. Keep the chair legs and hands stable. Finish with both turning their attention toward the rehearsal area, without a camera reversal or a sudden background change.",
+      "dialogue": [
+        {
+          "character": "anon",
+          "text": "じゃあ、待たせちゃったね。",
+          "delivery": "Bright, lightly apologetic."
+        },
+        {
+          "character": "soyo",
+          "text": "今からでも、間に合うよ。",
+          "delivery": "Warm encouragement."
+        }
+      ],
+      "ambience": "Quiet indoor room tone, gentle clothing movement and small object sounds. Keep dialogue clear. No audience-only background music."
+    },
+    {
+      "id": "05",
+      "scene": "room",
+      "cast": [
+        "taki",
+        "rana"
+      ],
+      "frames": 243,
+      "seed": 210005,
+      "visual_description": "A medium shot in the same room, with @taki on the left and @rana on the right. Both face inward toward the empty rehearsal space rather than the viewer. @taki raises one hand slightly to suggest a starting cue, speaks, and lowers it before @rana replies. @rana gives a small nod. Keep this a preparation moment; do not show complex instrument playing or add singing. The camera makes at most a gentle, short forward movement. End with both characters ready and still, leaving a clear edit point into the group shot.",
+      "dialogue": [
+        {
+          "character": "taki",
+          "text": "最初の一音、合わせよう。",
+          "delivery": "Focused and supportive."
+        },
+        {
+          "character": "rana",
+          "text": "うん。もう、待たない。",
+          "delivery": "Simple, calm agreement."
+        }
+      ],
+      "ambience": "Quiet indoor room tone, gentle clothing movement and small object sounds. Keep dialogue clear. No audience-only background music."
+    },
+    {
+      "id": "06",
+      "scene": "room",
+      "cast": [
+        "tomori",
+        "anon",
+        "rana",
+        "soyo",
+        "taki"
+      ],
+      "frames": 226,
+      "seed": 210006,
+      "visual_description": "A wide, static group shot in the familiar practice room. @tomori stands nearest the center, @anon at the left foreground, @rana slightly behind the center, @soyo at the right foreground and @taki beside her. Keep all five faces distinct and the previously established outfits unchanged. Only @tomori speaks; the others listen with closed mouths and restrained smiles. After the line, hold the shared moment for a short beat while @anon gives one small nod. No coordinated instrument performance, overlapping dialogue, titles, new scene or extra person. Finish in a stable composition.",
+      "dialogue": [
+        {
+          "character": "tomori",
+          "text": "ここから、みんなで。",
+          "delivery": "Quiet but newly confident."
+        }
+      ],
+      "ambience": "Quiet indoor room tone, gentle clothing movement and small object sounds. Keep dialogue clear. No audience-only background music."
+    }
+  ],
+  "dialogue_language": "Japanese"
+}

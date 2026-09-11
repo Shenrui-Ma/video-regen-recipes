@@ -1,0 +1,51 @@
+使用说明（这一段不提交给生图模型）：
+一次只选 A、B、C 中一个模式，填完该模式全部 {{占位符}}，删除其他模式。
+按实际上传顺序写明每张图片职责；身份图、布局图、背景图不能互相冒充。
+已有文字不足以判断角色外观时先查看身份图，不自行补造服装、瞳色或饰物。
+输出比例、尺寸、模型和质量由所选生图 Skill 的真实参数控制，不能仅靠提示词声明。
+
+=== A. 单人三视图：附该角色的一张身份图 ===
+
+Create one production character turnaround sheet for {{CHARACTER_NAME}}.
+The attached image is the identity and outfit reference for this one character.
+Show exactly three separate full-body views of the SAME person: front,
+true 90-degree side profile, and back, arranged horizontally on a plain white background.
+Use equal figure heights, one shared ground line, generous spacing, a relaxed neutral pose,
+and complete head-to-shoes framing. Hands and props: {{HAND_AND_PROP_REQUIREMENTS}}.
+Preserve these visible identity features: {{IDENTITY_FEATURES}}.
+Preserve this outfit version: {{OUTFIT_DESCRIPTION}}.
+Infer unseen details conservatively; do not add accessories or redesign the costume.
+Use {{VISUAL_STYLE}} consistently across all three views.
+No text, titles, labels, borders, inset portraits, extra people, or costume changes.
+This is an AI-inferred design reference, not a reproduction of an unseen official model sheet.
+
+=== B. 可复用空场景：按需要附已有场景图 ===
+
+Create one empty background reference for a short anime scene.
+Location: {{LOCATION}}. Camera: {{CAMERA_AND_FRAMING}}.
+Spatial layout: {{LAYOUT_AND_FIXED_OBJECTS}}.
+Lighting and time of day: {{LIGHTING}}.
+Visual treatment: {{VISUAL_STYLE}}.
+Leave usable foreground and movement space for {{PLANNED_ACTION_AND_CAST_SIZE}}.
+Preserve these recurring anchors: {{CONTINUITY_ANCHORS}}.
+Background reference instruction: {{BACKGROUND_REFERENCE_INSTRUCTION}}.
+No characters, mannequins, subtitles, labels, watermarks, or readable signage.
+Deliver one coherent location and camera view, not a collage or storyboard page.
+
+=== C. 布局图角色化：附布局图，再按顺序附身份图 ===
+
+Create one finished anime storyboard reference frame.
+The first attached image is a camera-projected blocking diagram, not a visual-style reference.
+The remaining images are identity references in this exact order:
+{{ORDERED_IMAGE_TO_CHARACTER_MAPPING}}.
+Transform the diagram into the actual characters while preserving its projected placement,
+depth, shared ground plane, occlusion, and camera composition.
+Scene and visual treatment: {{SCENE_LIGHTING_AND_STYLE}}.
+Character count: {{CAST_COUNT}}. Identity and outfit requirements: {{IDENTITY_AND_OUTFIT_RULES}}.
+Character positions, facing directions, and instrument or prop ownership: {{BLOCKING_RULES}}.
+Camera and coordinate convention: {{CAMERA_AND_COORDINATE_CONVENTION}}.
+Action visible in this one frame: {{ACTION_MOMENT}}.
+Keep local movement within {{ALLOWED_MOVEMENT}} and preserve {{CONTINUITY_ANCHORS}}.
+Remove all diagram labels, grids, arrows, text, and placeholder figures.
+No extra performers, swapped instruments, duplicate characters, comic panels,
+subtitles, or watermarks. Show a single composed moment, not a flat character lineup.
