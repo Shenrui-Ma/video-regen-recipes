@@ -1,6 +1,6 @@
 # Video ReGen Recipes
 
-**一句话，让Agent在本地复刻热点MEME/鬼畜/手书视频。**
+**本地一句话复刻，线上复用提示词。**
 
 ![Video ReGen Recipes 概念片场](assets/hero.png)
 
@@ -13,6 +13,7 @@
 **[选模板](templates/) → 准备素材 → 生成视频 → 剪辑成片。**
 
 - **视频生成**：聚焦 ComfyUI + MiniMax H3，默认使用[本地 ComfyUI](docs/comfyui-local.md)，也可连接[远程服务器](docs/comfyui-remote.md)。
+- **线上创作**：也可参考模板的提示词与分镜，适配 Updream 等线上工具。
 - **图片与声音**：工具不限，可使用 ComfyUI、NovelAI、GPT Image、语音服务或已有素材。
 
 [参考图 Skills](skills/) 可独立使用；视频模板的完整执行包仍在整理，各项验证状态见对应说明。
