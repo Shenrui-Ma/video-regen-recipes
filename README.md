@@ -29,4 +29,4 @@
 
 原创配方：**Shenrui Ma（四倍体果蝇）**。
 
-<a href="https://space.bilibili.com/12595237"><img src="assets/icons/bilibili.svg" width="20" height="20" alt="Bilibili logo"> Bilibili</a> · <a href="https://www.xiaohongshu.com/user/profile/68483ecb000000001b019555"><img src="assets/icons/xiaohongshu.svg" width="20" height="20" alt="Rednote logo"> Rednote / 小红书</a>
+<a href="https://space.bilibili.com/12595237"><img src="assets/icons/bilibili.svg" width="20" height="20" alt="Bilibili logo"> Bilibili</a> · <a href="https://www.xiaohongshu.com/user/profile/68483ecb000000001b019555"><img src="assets/icons/xiaohongshu.svg" width="20" height="20" alt="Rednote logo"> Rednote / 小红书</a> · <a href="https://civitai.red/user/Shenrui_Ma"><img src="assets/icons/civitai.ico" width="20" height="20" alt="Civitai logo"> Civitai / C站</a>
