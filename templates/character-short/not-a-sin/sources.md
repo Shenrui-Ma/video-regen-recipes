@@ -1,31 +1,20 @@
-# 来源、作者贡献与许可
+# 来源与许可
 
-## 本配方作者
+## 配方作者
 
-**Shenrui Ma（马深睿）**。本配方来自其《银狼不是罪过》的连续试制与修正，由 Agent 协助执行和整理。作者贡献是对参考处理、H3 本地生成、整链续接、帧时间线、音乐回装与交付后期的组合设计及迭代，不以发明底层模型或算法为由署名。
+**Shenrui Ma（马深睿）**，由 Agent 协助执行与整理。贡献是《银狼不是罪过》中参考处理、本地 H3 续接、时间线、音乐回装和后期的组合设计与迭代。
 
-## 启发案例：DeepSeek不是罪过
+## 启发与素材
 
-- 作者：**uulumine゛**。
-- [B 站作品 BV1LQ7j6WEyD](https://www.bilibili.com/video/BV1LQ7j6WEyD/)。
-- 方法证据：2026-09-10 立项研究记录的作者置顶评论，评论 ID `307103666416`。本次文档整理未重新读取该评论。
-- 研究记录归纳的作者路线：角色三视图、5 秒动作参考、小云雀／Updream 中的 Seedance 2.0 fast、等长输出、Pr／剪映拼接与音乐替换。
-- 研究记录注明作者简介禁止商业化。公开方法不代表允许再分发原视频、角色图或歌曲。本仓库仅引用案例与归纳方法，不复制其完整素材。
-
-## 银狼路线怎样形成自己的版本
-
-最初尝试以《若叶睦不是罪过》作动作来源，后来切换为用户提供的 `486不是罪过.mp4` 及一份分段时间表。它们是不同输入版本，不能混成一次运行。最终完整案例以后一来源为准。
-
-与启发案例相比，本配方改用本地／自托管 H3，以单张角色身份图为历史基线，增加 RIFE 半速参考、基于已发布音视频尾部的整链 Motion Context、帧级复原速和原音乐回装。最终还选配 RIFE 60fps 与 RTX VSR。它是受启发后独立迭代的二创制作配方，不是原作者 Seedance 路线的等效实现或质量胜出证明。
-
-`486不是罪过.mp4` 的公开作者及原始作品链接尚未核实，不能从文件名认定人物、作者或权利人。分段表标题为《小多不是罪过》，标题亦不能代替来源身份核查。因此这里只公开方法、帧计划和校验信息；驱动视频与音乐由使用者自备，不随仓库分发。
+- 启发作品：[《DeepSeek不是罪过》](https://www.bilibili.com/video/BV1LQ7j6WEyD/)，作者 **uulumine゛**。
+- 2026-09-10 研究记录引用作者置顶评论 `307103666416`：角色三视图、5 秒动作参考、Updream／小云雀的 Seedance 2.0 fast、等长输出、Pr／剪映拼接与换音乐。记录注明作者简介禁止商业化；本次整理未重读评论。
+- 本配方采用本地 H3、单张角色图、RIFE 半速参考及音视频续接，是独立迭代的方法，不代表与上游路线等效或质量更高。
+- 早期驱动片为《若叶睦不是罪过》，最终改用用户提供的 `486不是罪过.mp4`，分段表标题为《小多不是罪过》。两者是不同输入版本；最终来源的公开作者与链接待核实，文件名和表名不能证明身份。驱动视频与音乐需自备。
 
 ## 上游技术
 
-- [MiniMax H3](https://github.com/MiniMax-AI/MiniMax-H3)、[模型卡与许可](https://huggingface.co/MiniMaxAI/MiniMax-H3)、[官方提示词规范](https://github.com/MiniMax-AI/MiniMax-H3/tree/main/skills/h3-prompt-writing)。
-- [ComfyUI](https://github.com/Comfy-Org/ComfyUI) 与实际安装的第三方节点分别保留其许可。
-- [RIFE](https://github.com/hzwer/ECCV2022-RIFE) 是插帧技术来源；实际节点实现、模型文件和版本必须在执行记录中单列，不把论文仓库视为已锁定的运行依赖。
-- RTX VSR 属于 NVIDIA 视频增强技术；具体使用的运行实现须自行准备与核验。
-- [FFmpeg](https://ffmpeg.org/) 用于媒体处理和检查。
+- [MiniMax H3](https://github.com/MiniMax-AI/MiniMax-H3) · [模型卡与许可](https://huggingface.co/MiniMaxAI/MiniMax-H3) · [提示词规范](https://github.com/MiniMax-AI/MiniMax-H3/tree/main/skills/h3-prompt-writing)
+- [ComfyUI](https://github.com/Comfy-Org/ComfyUI)、[RIFE](https://github.com/hzwer/ECCV2022-RIFE)、[FFmpeg](https://ffmpeg.org/)
+- NVIDIA RTX VSR：可选视频增强。以上链接不代表已锁定运行依赖，具体节点、模型与版本需另行记录。
 
-本仓库原创说明与配方文本适用仓库 MIT 许可；该许可不覆盖角色 IP、原片、音乐、模型权重、第三方代码或品牌。银狼为《崩坏：星穹铁道》角色，署名与非商业声明不自动构成其素材再分发许可。
+仓库原创文本采用 MIT 许可，不覆盖角色 IP、原片、音乐、模型权重或第三方代码。银狼为《崩坏：星穹铁道》角色；公开方法、署名或非商业声明不自动授予素材再分发权。
