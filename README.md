@@ -12,6 +12,7 @@
 
 **[选模板](templates/) → 准备素材 → 生成视频 → 剪辑成片。**
 
+- **Agent 入口**：可让 Codex、Claude Code、Hermes Agent、OpenClaw 等支持 Skills 的 Agent 读取模板，见[使用与适配状态](docs/agent-compatibility.md)。
 - **视频生成**：聚焦 ComfyUI + MiniMax H3，默认使用[本地 ComfyUI](docs/comfyui-local.md)，也可连接[远程服务器](docs/comfyui-remote.md)。
 - **图片与声音**：工具不限，可使用 ComfyUI、NovelAI、GPT Image、语音服务或已有素材。
 
@@ -23,6 +24,7 @@
 - [x] 整理从素材生成到后期剪辑的 Skills 与工具
 - [ ] 适配 Updream、Runway 等工具的 Computer Use 操作
 - [ ] 逐一完成各模板的 Windows 端测试
+- [ ] 适配更多 Agent 产品，如 Trae、WorkBuddy
 
 ## 参与贡献
 
