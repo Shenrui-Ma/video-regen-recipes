@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "path_base": "directory containing catalog.json",
-  "template_count": 7,
+  "template_count": 8,
   "templates": [
     {
       "id": "bit-by-bit-heartache",
@@ -121,6 +121,50 @@
       "guide": "character-showcase/video-collection/README.md",
       "agent_entry": "character-showcase/video-collection/SKILL.md",
       "profile": "character-showcase/video-collection/profile.json"
+    },
+    {
+      "id": "html-product-showcase",
+      "title": "HTML 产品展示动画",
+      "category": "产品展示与解释动画",
+      "summary": "围绕产品特点设计分镜与动效，导出可编辑网页和展示视频。",
+      "request_example": "为这个产品做一支展示动画，重点表现……，面向……用户。",
+      "status_label": "方法与工具已整理；公开版未重新渲染",
+      "aliases": [
+        "HTML产品动画",
+        "产品演示",
+        "产品介绍视频",
+        "产品宣传片",
+        "HTML Motion"
+      ],
+      "tags": [
+        "HTML",
+        "CSS",
+        "SVG",
+        "产品",
+        "功能演示",
+        "信息动画"
+      ],
+      "customizable": [
+        "产品",
+        "卖点",
+        "观众",
+        "分镜",
+        "画风",
+        "比例",
+        "语言",
+        "配音"
+      ],
+      "requirements": [
+        "Node.js + Playwright + Chromium",
+        "FFmpeg / ffprobe",
+        "Python 3.10+（时间线）",
+        "产品资料及可用素材"
+      ],
+      "variants": [],
+      "status": "adapted-skill-offline-checked-not-rendered",
+      "guide": "product-demo/html-product-showcase/README.md",
+      "agent_entry": "product-demo/html-product-showcase/SKILL.md",
+      "profile": "product-demo/html-product-showcase/profile.json"
     },
     {
       "id": "mygo-ave-mujica-episode",

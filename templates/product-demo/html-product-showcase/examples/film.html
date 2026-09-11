@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>产品动效技术骨架</title>
+<style>
+*{box-sizing:border-box;animation:none!important;transition:none!important}
+html,body{margin:0;width:100%;height:100%;font-family:system-ui,sans-serif;overflow:hidden}
+#stage{width:100vw;height:100vh;background:#101a26;color:#eef7fa;display:flex;flex-direction:column;padding:5vh 6vw;gap:3vh}
+header{flex:none}small{color:#6ddbbb;font-size:clamp(14px,1.5vw,28px);letter-spacing:.1em}
+h1{font-size:clamp(28px,4vw,76px);line-height:1.2;margin:2vh 0 0}
+#board{flex:1;min-height:0;position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:6vw;align-items:center;padding:4vh 2vw}
+.card{position:relative;z-index:1;background:#203143;border:2px solid #537082;border-radius:24px;padding:3vh 2vw;min-height:23vh;display:flex;flex-direction:column;justify-content:center;gap:2vh}
+.card b{font-size:clamp(22px,2.3vw,44px)}.card span{font-size:clamp(16px,1.6vw,30px);line-height:1.4;color:#b7cbd4}
+.badge{font-size:clamp(16px,1.5vw,28px);color:#6ddbbb}
+svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:2}
+footer{color:#aac0cc;font-size:clamp(14px,1.4vw,26px);line-height:1.4;min-height:8vh;flex:none}
+#preview{position:fixed;bottom:10px;right:10px;z-index:20;background:#eef7fa;color:#101a26;padding:8px;border-radius:10px;display:flex;gap:10px}
+html[data-render] #preview{display:none}
+@media(max-aspect-ratio:1/1){
+ #stage{padding:4vh 7vw;gap:2vh}h1{font-size:6vw}small{font-size:2.8vw}
+ #board{grid-template-columns:1fr;grid-template-rows:repeat(3,1fr);gap:4vh;padding:2vh 3vw}
+ .card{min-height:0;padding:2vh 4vw;gap:1vh}.card b{font-size:4.4vw}.card span{font-size:3.2vw}.badge{font-size:3vw}footer{font-size:2.8vw}
+}
+</style>
+<div id="stage">
+ <header id="heading" data-protected><small>概念演示</small><h1 id="title">把散乱信息，整理成清晰结构</h1></header>
+ <main id="board">
+  <section class="card" id="card-0" data-protected><b>材料</b><span>保留输入内容</span><div class="badge">01</div></section>
+  <section class="card" id="card-1" data-protected><b>结构</b><span>建立清晰关系</span><div class="badge">02</div></section>
+  <section class="card" id="card-2" data-protected><b>结果</b><span>让下一步更明确</span><div class="badge" id="result">03</div></section>
+  <svg id="routes" aria-hidden="true"><path id="route" fill="none" stroke="#6ddbbb" stroke-width="3"/><circle id="marker" r="7" fill="#effff8"/></svg>
+ </main>
+ <footer id="caption" data-protected>交互示意；不代表某个产品的真实界面或性能。</footer>
+</div>
+<div id="preview"><button id="play">播放 / 重播</button><input id="seek" type="range" min="0" max="12" step="0.01" value="0" aria-label="时间"></div>
+<script src="../scripts/motion.js"></script>
+<script>
+'use strict';
+const renderMode=new URLSearchParams(location.search).has('render');
+if(renderMode)document.documentElement.dataset.render='true';
+const cards=[0,1,2].map(i=>document.getElementById('card-'+i));
+const route=document.getElementById('route'),marker=document.getElementById('marker');
+const {phase,out,lerp,stagger}=Motion;
+window.setShotTime=function(t){
+ if(!Number.isFinite(t))throw new Error('Expected finite time');t=Math.max(0,Math.min(12,t));
+ document.getElementById('title').textContent=t<6?'把散乱信息，整理成清晰结构':'用一次变化，解释产品价值';
+ cards.forEach((card,i)=>{
+  const p=stagger(t,i,.15,.65,.2),focus=out(phase(t,8.5,9.2));
+  card.style.opacity=String(.15+.85*p);
+  card.style.transform=`translateY(${lerp(18,0,p)}px)`;
+  card.style.borderColor=i===2?`rgb(${Math.round(lerp(83,109,focus))},${Math.round(lerp(112,219,focus))},${Math.round(lerp(130,187,focus))})`:'#537082';
+  card.style.backgroundColor=i===2&&t>=9.2?'#214839':'#203143';
+ });
+ const board=document.getElementById('board').getBoundingClientRect();
+ document.getElementById('routes').setAttribute('viewBox',`0 0 ${board.width} ${board.height}`);
+ const points=cards.map(c=>{const r=c.getBoundingClientRect();return [r.left+r.width/2-board.left,r.top+r.height/2-board.top];});
+ const portrait=innerWidth<=innerHeight;
+ const anchors=cards.map(c=>{const r=c.getBoundingClientRect();return portrait?[r.left-board.left+r.width/2,r.top-board.top+r.height]:[r.right-board.left,r.top-board.top+r.height/2];});
+ const endRect=cards[2].getBoundingClientRect();
+ const end=portrait?[points[2][0],endRect.top-board.top]:[endRect.left-board.left,points[2][1]];
+ // Demonstration route connects output of the middle entity to input of the result.
+ const a=anchors[1];route.setAttribute('d',`M ${a[0]} ${a[1]} L ${end[0]} ${end[1]}`);
+ const length=route.getTotalLength(),p=out(phase(t,6.3,8.5));
+ route.style.opacity=t>=6?1:0;route.style.strokeDasharray=String(length);route.style.strokeDashoffset=String(length*(1-p));
+ const point=route.getPointAtLength(length*p);marker.setAttribute('cx',point.x);marker.setAttribute('cy',point.y);marker.style.opacity=t>=6.3&&t<8.5?1:0;
+ document.getElementById('result').textContent=t>=9.2?'✓ 关系已明确':'03';
+ document.documentElement.dataset.shotTime=String(t);
+ document.getElementById('seek').value=String(t);
+};
+let animation=null;
+document.getElementById('play').onclick=()=>{
+ if(animation!==null)cancelAnimationFrame(animation);
+ const start=performance.now();function tick(now){const t=Math.min(12,(now-start)/1000);setShotTime(t);animation=t<12?requestAnimationFrame(tick):null;}
+ animation=requestAnimationFrame(tick);
+};
+document.getElementById('seek').oninput=e=>{if(animation!==null)cancelAnimationFrame(animation);animation=null;setShotTime(Number(e.target.value));};
+// The preview clock is activated only by the user; the renderer never starts it.
+window.addEventListener('resize',()=>setShotTime(Number(document.documentElement.dataset.shotTime)||0));
+setShotTime(0);
+</script>
+</html>

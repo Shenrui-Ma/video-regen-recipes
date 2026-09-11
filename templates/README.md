@@ -1,14 +1,22 @@
 # 模板索引
 
-目前收录 **7 个视频模板**。按名称、别名或类型查找，再把一句话需求交给对应 Skill。
+目前收录 **8 个视频模板**。按名称、别名或类型查找，再把一句话需求交给对应 Skill。
 
 剧情示例、备用角色素材、参考图 Skill 和空目录不重复计为模板。
 
 [给 Agent 的索引](catalog.json) · [搜索与维护说明](../docs/template-index.md)
 
-类型：[番剧对白与叙事场景](#category-1) · [绘制过程与对比视频](#category-2) · [角色主题短片](#category-3) · [角色展示合集](#category-4)
+类型：[产品展示与解释动画](#category-1) · [番剧对白与叙事场景](#category-2) · [绘制过程与对比视频](#category-3) · [角色主题短片](#category-4) · [角色展示合集](#category-5)
 
 <a id="category-1"></a>
+
+## 产品展示与解释动画
+
+| 模板 | 别名 / 标签 | 一句话开始 | 使用状态 |
+| --- | --- | --- | --- |
+| [HTML 产品展示动画](product-demo/html-product-showcase/README.md) · [执行](product-demo/html-product-showcase/SKILL.md) | HTML产品动画、产品演示、产品介绍视频、产品宣传片、HTML Motion、HTML、CSS、SVG、产品、功能演示、信息动画 | 为这个产品做一支展示动画，重点表现……，面向……用户。 | 方法与工具已整理；公开版未重新渲染 |
+
+<a id="category-2"></a>
 
 ## 番剧对白与叙事场景
 
@@ -16,7 +24,7 @@
 | --- | --- | --- | --- |
 | [MyGO / Ave Mujica AI 番剧](anime-dialogue-scene/mygo-ave-mujica/README.md) · [执行](anime-dialogue-scene/mygo-ave-mujica/SKILL.md) | MyGO、MyGO!!!!!、Ave Mujica、Mujica、少女乐队AI番剧、少女乐队、剧情、多人对白、番剧 | 做一集 MyGO 或 Ave Mujica 短篇，剧情是……。 | 构建与执行工具已提供；新环境待实测 |
 
-<a id="category-2"></a>
+<a id="category-3"></a>
 
 ## 绘制过程与对比视频
 
@@ -24,7 +32,7 @@
 | --- | --- | --- | --- |
 | [基于大模型的SVG临摹重绘](drawing-process/svg-redraw-comparison/README.md) · [执行](drawing-process/svg-redraw-comparison/SKILL.md) | SVG临摹、SVG重绘、SVG绘画过程、GPT6画图、原图对比、SVG、临摹、绘画过程、对比视频 | 把这张图临摹成SVG，导出原图与绘制过程的对比视频。 | 纯SVG Demo与40秒对比视频已导出；非逐像素零误差 |
 
-<a id="category-3"></a>
+<a id="category-4"></a>
 
 ## 角色主题短片
 
@@ -33,7 +41,7 @@
 | [一点一滴刺痛我的心](character-short/bit-by-bit-heartache/README.md) · [执行](character-short/bit-by-bit-heartache/SKILL.md) | 一滴一滴刺痛我的心、刺痛我的心、Bit by Bit Heartache、动作重演、舞蹈、音乐短片 | 用我喜欢的角色，做一支《一点一滴刺痛我的心》。 | 已有片段可重剪；新角色需配置续接 |
 | [XX不是罪过](character-short/not-a-sin/README.md) · [执行](character-short/not-a-sin/SKILL.md) | 不是罪过、XX不是罪、Not a Sin、动作重演、舞蹈、音乐短片 | 用我喜欢的角色，做一支《XX不是罪过》。 | 说明已整理；续接执行包待完善 |
 
-<a id="category-4"></a>
+<a id="category-5"></a>
 
 ## 角色展示合集
 

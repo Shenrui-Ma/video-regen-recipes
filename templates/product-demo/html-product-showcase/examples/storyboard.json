@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "example_only": true,
+  "product": "概念示例：信息整理工具",
+  "audience": "需要组织材料的用户",
+  "goal": "说明从信息整理到关系明确的过程；不宣称真实性能",
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "audio": "none",
+    "language": "zh-CN"
+  },
+  "assets": [],
+  "scenes": [
+    {
+      "id": "organize",
+      "frames": 180,
+      "overlap_out_frames": 0,
+      "claim": "把输入按作用组织起来",
+      "evidence": "概念演示中的材料、结构与结果卡片；非真实产品录屏",
+      "visual_change": "依阅读顺序入场并稳定展示各项含义",
+      "beats": [
+        {
+          "start_frame": 0,
+          "end_frame": 45,
+          "intent": "按阅读顺序引导注意力"
+        },
+        {
+          "start_frame": 45,
+          "end_frame": 180,
+          "intent": "稳定阅读结构"
+        }
+      ]
+    },
+    {
+      "id": "connect",
+      "frames": 180,
+      "overlap_out_frames": 0,
+      "claim": "将处理步骤与结果关联",
+      "evidence": "概念路径与结果状态变化",
+      "visual_change": "沿同一路径显露连线与标记，结果进入完成状态",
+      "beats": [
+        {
+          "start_frame": 0,
+          "end_frame": 84,
+          "intent": "路径演示因果方向"
+        },
+        {
+          "start_frame": 84,
+          "end_frame": 180,
+          "intent": "高亮结果后稳定阅读"
+        }
+      ]
+    }
+  ]
+}
