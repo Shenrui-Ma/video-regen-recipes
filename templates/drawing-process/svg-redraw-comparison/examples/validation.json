@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "files": {
+    "assets/reference.png": {
+      "bytes": 2871516,
+      "sha256": "4d79bc42248a45152065ca637ef5ed716ecb2956c82cf351c14ade6213e0e23f"
+    },
+    "examples/redraw.svg": {
+      "bytes": 52775,
+      "sha256": "d5a14111c231b20ca407826dcb9cc0271df6c6137bff8181332307049ee2ff53"
+    },
+    "examples/demo.html": {
+      "bytes": 3888327,
+      "sha256": "00cf81d1506c069b9a55a9c4bb590b6dcafc96047e5ced626d5681de11bc25f7"
+    },
+    "examples/preview.mp4": {
+      "bytes": 875129,
+      "sha256": "abaa84767f8fa1c754241509bbf9022810b3cbc7b3437bf14145945a08ee50ca"
+    }
+  },
+  "reference_preparation": "lossless recompression; decoded RGBA unchanged; no metadata",
+  "video": {
+    "frames": 480,
+    "fps": 30,
+    "width": 768,
+    "height": 1088,
+    "duration_seconds": 16,
+    "audio": false,
+    "full_decode": "passed"
+  },
+  "browser_checks": {
+    "blank_start": true,
+    "reference_static": true,
+    "seek_deterministic": true,
+    "final_hold_stable": true,
+    "stages_differ": true,
+    "controls_checked": true
+  },
+  "unit_tests_passed": 7,
+  "drawing_quality": "simplified vector pipeline example; not a high-fidelity/model benchmark",
+  "drawing_model_recorded": false
+}

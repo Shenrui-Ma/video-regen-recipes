@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "path_base": "directory containing catalog.json",
-  "template_count": 3,
+  "template_count": 4,
   "templates": [
     {
       "id": "bit-by-bit-heartache",
@@ -112,6 +112,46 @@
       "guide": "character-short/not-a-sin/README.md",
       "agent_entry": "character-short/not-a-sin/SKILL.md",
       "profile": "character-short/not-a-sin/profile.json"
+    },
+    {
+      "id": "svg-redraw-comparison",
+      "title": "基于大模型的SVG临摹重绘",
+      "category": "绘制过程与对比视频",
+      "summary": "把参考图与从空白到完成的SVG绘制过程合成对比视频。",
+      "request_example": "把这张图临摹成SVG，导出原图与绘制过程的对比视频。",
+      "status_label": "Demo与视频已实际导出；新图还原效果需验收",
+      "aliases": [
+        "SVG临摹",
+        "SVG重绘",
+        "SVG绘画过程",
+        "GPT6画图",
+        "原图对比"
+      ],
+      "tags": [
+        "SVG",
+        "临摹",
+        "绘画过程",
+        "对比视频"
+      ],
+      "customizable": [
+        "参考图",
+        "绘制细节",
+        "排版",
+        "时长",
+        "帧率",
+        "配乐"
+      ],
+      "requirements": [
+        "可看图并生成SVG代码的大模型",
+        "Python 3.10+",
+        "Node.js + Playwright + Chromium",
+        "FFmpeg"
+      ],
+      "variants": [],
+      "status": "example-rendered; new-image-fidelity-requires-review",
+      "guide": "drawing-process/svg-redraw-comparison/README.md",
+      "agent_entry": "drawing-process/svg-redraw-comparison/SKILL.md",
+      "profile": "drawing-process/svg-redraw-comparison/profile.json"
     }
   ]
 }
