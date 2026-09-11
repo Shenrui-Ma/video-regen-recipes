@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "character-image-collection",
+  "status": "adapted-template-offline-checked",
+  "new_environment_validation": "pending",
+  "video_model": null,
+  "image_backend": "ComfyUI",
+  "default_deployment": "local",
+  "author": "Shenrui Ma（四倍体果蝇）",
+  "baseline": {
+    "image_count": 6,
+    "duration_seconds": 36,
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "mode": "A",
+    "video_inference": false
+  },
+  "files": {
+    "guide": "README.md",
+    "agent_entry": "SKILL.md",
+    "sources": "sources.md"
+  },
+  "index": {
+    "title": "角色图像合集",
+    "aliases": [
+      "角色图片合集",
+      "图片集锦",
+      "立绘展示",
+      "图片轮播"
+    ],
+    "category": "角色展示合集",
+    "tags": [
+      "角色展示",
+      "图片合集",
+      "ComfyUI",
+      "缩放",
+      "交叉溶解"
+    ],
+    "summary": "一句话指定角色，由 ComfyUI 生图并剪成缩放展示或静态溶解视频。",
+    "customizable": [
+      "角色",
+      "服装",
+      "场景",
+      "图片数量",
+      "时长",
+      "配乐",
+      "转场"
+    ],
+    "request_example": "用……角色做一支海边图像合集。",
+    "requirements": [
+      "ComfyUI + 兼容生图模型，或已有图片",
+      "Python + Pillow",
+      "FFmpeg"
+    ],
+    "variants": [
+      "原始缩放与模糊",
+      "静态纯溶解"
+    ],
+    "status_label": "已整理生图与剪辑链路；公开版待实测"
+  }
+}

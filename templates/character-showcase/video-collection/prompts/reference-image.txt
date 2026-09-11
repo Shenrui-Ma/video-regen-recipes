@@ -1,0 +1,16 @@
+用途：为同一角色的动态立绘视频生成一张首帧图。
+
+角色：{{character_identity}}
+身份依据：{{authorized_reference_or_text_description}}
+固定特征：{{hair_face_eyes_accessories}}
+服装：{{fixed_outfit}}
+画风：{{visual_style}}
+镜头编号：{{shot_id}}
+景别与姿态：{{framing_and_start_pose}}
+场景：{{background}}
+下一步动作：{{small_motion_to_allow}}
+输出尺寸：{{workflow_supported_width}} × {{workflow_supported_height}}
+
+保持身份、服装、配饰与其他镜头一致。主体边缘完整、手部可辨，动作需要的方向留有空间；首帧姿态应当支持指定的小幅运动。不要加入文字、拼贴边框、多格漫画或水印。不要为了凑齐参考而改成其他角色。
+
+Agent 使用说明：将上述语义转换为所选 SDXL/Anima 模型实际支持的提示格式，结合作者建议及真实 LoRA 触发词。将图片引用绑定到真实图像条件节点；纯文本提到“参考图”不等于已经引用。反向提示词只写入工作流支持的负面条件，不虚构字段。

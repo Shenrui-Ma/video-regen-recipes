@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "kind": "swimsuit-generation-and-edit-plan",
+  "purpose": "Reusable role-neutral adaptation of the eight-shot historical timing, not a rendered-media manifest.",
+  "paths_relative_to": "user_project",
+  "shots": [
+    {
+      "id": "01",
+      "character_slot": "main",
+      "first_frame": "images/01.png",
+      "video": "clips/01.mp4",
+      "first_frame_composition": "池边侧坐，脚已抬起，水花在画面内",
+      "timed_actions": "[00:00-00:01] Hold the reference pool-edge seated pose with one foot raised. [00:01-00:07] Alternate gentle rhythmic kicks into the water with synchronized splashes, then smile. [00:07-00:08.5] Decelerate and return near the initial side view. [00:08.5-00:10] Give one small V sign and a restrained smile.",
+      "h3": {
+        "workflow_id": "h3-i2v-live-portrait",
+        "width": 864,
+        "height": 1344,
+        "length": 243,
+        "steps": 20,
+        "sampler": "res_multistep",
+        "scheduler": "simple",
+        "native_fps": 24,
+        "rife_target_fps": 60,
+        "seed": null
+      },
+      "historical_output_frames_60fps": 607,
+      "edit": {
+        "source_start_seconds": 3,
+        "source_end_seconds": 7,
+        "speed": 1
+      },
+      "natural_sounds": "Quiet poolside or seaside ambience, light wind, water movement and physical sounds synchronized to visible actions.",
+      "nonverbal_rule": "No added vocalization unless explicitly requested."
+    },
+    {
+      "id": "02",
+      "character_slot": "main",
+      "first_frame": "images/02.png",
+      "video": "clips/02.mp4",
+      "first_frame_composition": "池边正面坐姿，双腿靠近水面",
+      "timed_actions": "[00:00-00:07.5] Continue playful non-uniform alternating kicks from the front-facing seated pose with matching splashes. [00:07.5-00:12] Briefly lose balance and wave both hands twice to recover, with one small cartoon sweat mark. [00:12-00:15] Fall forward out of frame into the pool with one synchronized splash; the camera and swimsuit remain unchanged.",
+      "h3": {
+        "workflow_id": "h3-i2v-live-portrait",
+        "width": 864,
+        "height": 1344,
+        "length": 362,
+        "steps": 20,
+        "sampler": "res_multistep",
+        "scheduler": "simple",
+        "native_fps": 24,
+        "rife_target_fps": 60,
+        "seed": null
+      },
+      "historical_output_frames_60fps": 905,
+      "edit": {
+        "source_start_seconds": 6,
+        "source_end_seconds": 15.083333333333334,
+        "speed": 1.4
+      },
+      "natural_sounds": "Quiet poolside or seaside ambience, light wind, water movement and physical sounds synchronized to visible actions.",
+      "nonverbal_rule": "No added vocalization unless explicitly requested."
+    },
+    {
+      "id": "03",
+      "character_slot": "main",
+      "first_frame": "images/03.png",
+      "video": "clips/03.mp4",
+      "first_frame_composition": "水边上半身，发丝与一只手边界清晰",
+      "timed_actions": "[00:00-00:05] Separate and smooth one small lock beside the temple with one existing hand; the hair moves strand by strand with a light breeze. [00:05-00:07] Lower the same arm naturally and fold the arms. [00:07-00:10] Give a restrained pout, turn the head slightly aside, then glance back once.",
+      "h3": {
+        "workflow_id": "h3-i2v-live-portrait",
+        "width": 864,
+        "height": 1344,
+        "length": 243,
+        "steps": 20,
+        "sampler": "res_multistep",
+        "scheduler": "simple",
+        "native_fps": 24,
+        "rife_target_fps": 60,
+        "seed": null
+      },
+      "historical_output_frames_60fps": 607,
+      "edit": {
+        "source_start_seconds": 0,
+        "source_end_seconds": 10.116666666666667,
+        "speed": 1.2
+      },
+      "natural_sounds": "Quiet poolside or seaside ambience, light wind, water movement and physical sounds synchronized to visible actions.",
+      "nonverbal_rule": "No added vocalization unless explicitly requested."
+    },
+    {
+      "id": "04",
+      "character_slot": "main",
+      "first_frame": "images/04.png",
+      "video": "clips/04.mp4",
+      "first_frame_composition": "半身站姿，一只手扶腰",
+      "timed_actions": "[00:00-00:04] Hold the half-body pose with a shy glance and small wind-driven hair movement. [00:04-00:07] Raise the hand from the waist into a relaxed gesture near the shoulder. [00:07-00:09] Let the existing accessories sway and glance aside. [00:09-00:15] Introduce a small continuous cartoon steam puff and a restrained blush; if requested, replace both eyes with exactly two clear cartoon spiral symbols until the end. Keep the same body, face shape, swimsuit and setting.",
+      "h3": {
+        "workflow_id": "h3-i2v-live-portrait",
+        "width": 864,
+        "height": 1344,
+        "length": 362,
+        "steps": 20,
+        "sampler": "res_multistep",
+        "scheduler": "simple",
+        "native_fps": 24,
+        "rife_target_fps": 60,
+        "seed": null
+      },
+      "historical_output_frames_60fps": 905,
+      "edit": {
+        "source_start_seconds": 0,
+        "source_end_seconds": 15.083333333333334,
+        "speed": 1
+      },
+      "natural_sounds": "Quiet poolside or seaside ambience, light wind, water movement and physical sounds synchronized to visible actions.",
+      "nonverbal_rule": "No added vocalization unless explicitly requested."
+    },
+    {
+      "id": "05",
+      "character_slot": "main",
+      "first_frame": "images/05.png",
+      "video": "clips/05.mp4",
+      "first_frame_composition": "池边站姿，一手扶腰，一手空闲",
+      "timed_actions": "[00:00-00:05] Hold the hand-on-hip stance as hair moves in the breeze. [00:05-00:08] Make a small slow camera push-in while the free hand tidies the hair beside the head. [00:08-00:10] Lower that hand into one friendly wave and give one restrained wink.",
+      "h3": {
+        "workflow_id": "h3-i2v-live-portrait",
+        "width": 864,
+        "height": 1344,
+        "length": 243,
+        "steps": 20,
+        "sampler": "res_multistep",
+        "scheduler": "simple",
+        "native_fps": 24,
+        "rife_target_fps": 60,
+        "seed": null
+      },
+      "historical_output_frames_60fps": 607,
+      "edit": {
+        "source_start_seconds": 0,
+        "source_end_seconds": 10.116666666666667,
+        "speed": 1.2
+      },
+      "natural_sounds": "Quiet poolside or seaside ambience, light wind, water movement and physical sounds synchronized to visible actions.",
+      "nonverbal_rule": "No added vocalization unless explicitly requested."
+    },
+    {
+      "id": "06",
+      "character_slot": "main",
+      "first_frame": "images/06.png",
+      "video": "clips/06.mp4",
+      "first_frame_composition": "交叉手臂的上半身，略显害羞",
+      "timed_actions": "[00:00-00:02] Hold the crossed-arm pose with subtle breathing and wind-driven hair movement. [00:02-00:04] Glance briefly to one side and then the other with varied timing. [00:04-00:06] A small white cartoon steam-puff symbol appears above the head and disperses without covering the face. [00:06-00:10] Relax the hands back to the initial pose with a restrained shy expression.",
+      "h3": {
+        "workflow_id": "h3-i2v-live-portrait",
+        "width": 864,
+        "height": 1344,
+        "length": 240,
+        "steps": 20,
+        "sampler": "res_multistep",
+        "scheduler": "simple",
+        "native_fps": 24,
+        "rife_target_fps": 60,
+        "seed": null
+      },
+      "historical_output_frames_60fps": 607,
+      "edit": {
+        "source_start_seconds": 0,
+        "source_end_seconds": 5,
+        "speed": 1
+      },
+      "natural_sounds": "Quiet poolside or seaside ambience, light wind, water movement and physical sounds synchronized to visible actions.",
+      "nonverbal_rule": "No added vocalization unless explicitly requested."
+    },
+    {
+      "id": "07",
+      "character_slot": "main",
+      "first_frame": "images/07.png",
+      "video": "clips/07.mp4",
+      "first_frame_composition": "背侧身，右手已抬起，脚跟略抬",
+      "timed_actions": "[00:00-00:02] Wave with the already raised hand as the raised heel lowers into shallow water with one splash. [00:02-00:05] Place both hands on the hips. [00:05-00:08] Turn smoothly from the back-side pose to a clear side view without resetting the camera. [00:08-00:10] Give one wink and a small smile.",
+      "h3": {
+        "workflow_id": "h3-i2v-live-portrait",
+        "width": 864,
+        "height": 1344,
+        "length": 243,
+        "steps": 20,
+        "sampler": "res_multistep",
+        "scheduler": "simple",
+        "native_fps": 24,
+        "rife_target_fps": 60,
+        "seed": null
+      },
+      "historical_output_frames_60fps": 607,
+      "edit": {
+        "source_start_seconds": 0,
+        "source_end_seconds": 6,
+        "speed": 1
+      },
+      "natural_sounds": "Quiet poolside or seaside ambience, light wind, water movement and physical sounds synchronized to visible actions.",
+      "nonverbal_rule": "No added vocalization unless explicitly requested."
+    },
+    {
+      "id": "08",
+      "character_slot": "main",
+      "first_frame": "images/08.png",
+      "video": "clips/08.mp4",
+      "first_frame_composition": "池边安静坐姿，头发和水面清晰",
+      "timed_actions": "[00:00-00:05] Stay seated while the camera pushes in slightly; a light breeze moves a few hair strands and the water ripples. [00:05-00:08] Raise one hand in a short natural path and hold it loosely in front of the upper body. [00:08-00:10] Shift the eyes toward the open water and hold the calm seated pose.",
+      "h3": {
+        "workflow_id": "h3-i2v-live-portrait",
+        "width": 864,
+        "height": 1344,
+        "length": 243,
+        "steps": 20,
+        "sampler": "res_multistep",
+        "scheduler": "simple",
+        "native_fps": 24,
+        "rife_target_fps": 60,
+        "seed": null
+      },
+      "historical_output_frames_60fps": 607,
+      "edit": {
+        "source_start_seconds": 0,
+        "source_end_seconds": 10.116666666666667,
+        "speed": 1
+      },
+      "natural_sounds": "Quiet poolside or seaside ambience, light wind, water movement and physical sounds synchronized to visible actions.",
+      "nonverbal_rule": "No added vocalization unless explicitly requested."
+    }
+  ],
+  "edit_defaults": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "transition_seconds": 0.2,
+    "opening_blur_seconds": 0.5,
+    "opening_blur_sigma": 30,
+    "background_blur_sigma": 35,
+    "ending_fade_seconds": 1,
+    "pad_to_target_duration": false,
+    "audio_mode": "source+bgm when supplied; source otherwise",
+    "bgm_gain_db": -12
+  },
+  "expected_duration_from_historical_ranges_seconds": 62.14920634920636,
+  "historical_encoded_frames": 3729,
+  "historical_encoded_duration_seconds": 62.15,
+  "new_run_validation": "Use actual source durations and frame counts; regenerate an insufficient shot instead of silently changing its edit range."
+}

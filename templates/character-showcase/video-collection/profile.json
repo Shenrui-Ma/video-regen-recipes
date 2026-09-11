@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "character-video-collection",
+  "author": "Shenrui Ma（四倍体果蝇）",
+  "status": "workflow-linked; editing-config-offline-checked; new-generation-not-run",
+  "default_deployment": "local ComfyUI",
+  "generation": {
+    "reference_images_skill": "comfyui-reference-images",
+    "video_model": "MiniMax-H3",
+    "toolkit_workflow_id": "h3-i2v-live-portrait",
+    "mode": "independent first-frame I2V",
+    "default_shots": 3,
+    "target_seconds_per_shot": 10,
+    "width": 864,
+    "height": 1344,
+    "sample_length": 243,
+    "steps": 20,
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "motion_interpolation": "RIFE 24 to 60 fps in linked graph",
+    "published_duration": "record actual output after trim and interpolation",
+    "cross_shot_latent": false
+  },
+  "editing": {
+    "skill": "character-showcase-editing",
+    "default_mode": "D",
+    "supported_modes": ["C", "D"],
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "transition_frames": 30,
+    "end_fade_frames": 30,
+    "default_video_speed": 1,
+    "default_audio_mode": "silent",
+    "still_video": {
+      "image_frames": 360,
+      "scale_speed": 1,
+      "pair_order": "image then matching video"
+    }
+  },
+  "files": {
+    "guide": "README.md",
+    "agent_entry": "SKILL.md",
+    "generation": "references/generation.md",
+    "editing": "references/editing.md",
+    "video_example": "examples/video-collection.json",
+    "still_video_example": "examples/still-video.json",
+    "sources": "sources.md"
+  },
+  "index": {
+    "title": "角色视频合集",
+    "aliases": ["动态立绘合集", "原图转动态视频混剪", "角色动态展示"],
+    "category": "角色展示合集",
+    "tags": ["动态立绘", "图生视频", "视频合集", "原图对比", "ComfyUI", "H3"],
+    "summary": "从一句话生成角色首帧与独立动态片段，再剪成视频合集或图→视频混剪。",
+    "customizable": ["角色", "服装", "动作", "场景", "镜头数", "素材顺序", "配乐"],
+    "request_example": "用我喜欢的角色，做一支三个镜头的动态立绘合集。",
+    "requirements": ["ComfyUI + 图像模型（生图）", "MiniMax H3 与 Toolkit I2V 图（新视频）", "Python + Pillow + FFmpeg（剪辑）"],
+    "variants": ["C 原图→动态视频", "D 视频合集"],
+    "status_label": "已关联 I2V 图与剪辑工具；新环境待实测"
+  }
+}

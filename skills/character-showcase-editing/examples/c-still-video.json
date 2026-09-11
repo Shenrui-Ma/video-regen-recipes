@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 60
+  },
+  "audio": {
+    "mode": "silent"
+  },
+  "mode": "C",
+  "output": "output/c-still-video.mp4",
+  "transition_frames": 30,
+  "clips": [
+    {
+      "id": "image-1",
+      "kind": "image",
+      "path": "assets/images/01.png",
+      "pair_id": "pair-1",
+      "frames": 272,
+      "scale_speed": 1.3333333333333333
+    },
+    {
+      "id": "video-1",
+      "kind": "video",
+      "path": "assets/videos/01.mp4",
+      "pair_id": "pair-1",
+      "source_duration_seconds": 10,
+      "speed": 1.1
+    },
+    {
+      "id": "image-2",
+      "kind": "image",
+      "path": "assets/images/02.png",
+      "pair_id": "pair-2",
+      "frames": 272,
+      "scale_speed": 1.3333333333333333
+    },
+    {
+      "id": "video-2",
+      "kind": "video",
+      "path": "assets/videos/02.mp4",
+      "pair_id": "pair-2",
+      "source_duration_seconds": 10,
+      "speed": 1.1
+    }
+  ]
+}

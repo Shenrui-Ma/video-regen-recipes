@@ -1,0 +1,11 @@
+正向提示骨架（根据所选 SDXL / Anima 模型卡调整语言与标签）：
+{{character_identity}}, {{consistent_outfit}}, {{style}}, solo,
+{{framing}}, {{pose}}, {{expression}}, {{scene}}, {{lighting}},
+clear face, coherent anatomy, detailed costume, clean composition
+
+负向提示骨架：
+low quality, blurry face, extra limbs, extra fingers, duplicate person,
+text, watermark, cropped head, inconsistent outfit
+
+每张明确写人物身份与固定服装，不只写“同上一张”。姿态、背景与景别按本次镜头计划替换。
+提示骨架不是可直接提交的 API 图，提交前不得留下占位符。

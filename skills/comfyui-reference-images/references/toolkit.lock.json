@@ -21,7 +21,18 @@
       "format": "parameterized-comfyui-api",
       "status": "adapted; not rerun",
       "guide": "workflows/images/sdxl-two-pass-cowboy-shot/README.md"
+    },
+    {
+      "id": "h3-i2v-live-portrait",
+      "path": "workflows/h3/i2v-live-portrait/api.template.json",
+      "sha256": "d68e490716e1787a951f687162c9d7fb29184c0a4cc8397a1c726b6db45bc908",
+      "family": "MiniMax-H3",
+      "mode": "first-frame-i2v-native-audio-rife",
+      "format": "parameterized-comfyui-api",
+      "status": "adapted; not rerun",
+      "guide": "workflows/h3/i2v-live-portrait/README.md",
+      "parameters": "workflows/h3/i2v-live-portrait/parameters.json"
     }
   ],
-  "revision": "eed34dbe95c55d29322401713952fccd4ae181ef"
+  "revision": "767f7926d44d9b4bde3e30dbaf40ee1845d88793"
 }

@@ -1,4 +1,4 @@
-# 参考图 Skills
+# 共用 Skills
 
 按所用工具选择一个 Skill。每个目录可独立使用，包含完整 `SKILL.md` 与配套说明；有脚本的目录需一并保留。
 
@@ -7,6 +7,7 @@
 | [ComfyUI 参考图](comfyui-reference-images/SKILL.md) | SDXL / Anima，默认本地；按需在 Civitai、Hugging Face 查找和核验模型 |
 | [GPT Image 2 high](gpt-image2-reference-images/SKILL.md) | 多参考图绑定、角色与场景生成、单次调用和输出恢复 |
 | [NovelAI 官方 API](novelai-reference-images/SKILL.md) | 文生图、图生图、提示词与参考功能说明 |
+| [角色合集剪辑](character-showcase-editing/SKILL.md) | 图片缩放、纯溶解、图接视频、视频合集与音轨处理 |
 
 ## 使用
 
@@ -22,5 +23,6 @@ Agent 需要文件、网络或相应生图工具权限；视觉验收还需要�
 - GPT Image 2 / NovelAI：请求与异常处理通过离线测试，未执行真实付费生成。
 - NovelAI：当前模型的完整 API 配置需先核实，高级参考功能尚未纳入附带客户端。
 - 视频模板的完整执行包仍在整理，参考图 Skill 不代表视频流程已可一键运行。
+- 角色合集：已提供参数化剪辑执行器及离线计划检查，公开配置未重新渲染；生成链路见各模板。
 
 详见[验证记录](../docs/skill-validation.md)。

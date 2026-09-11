@@ -1,0 +1,7 @@
+For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.
+
+integrated_multimodal_description: [Shot 1] Keep the same character shown in <Picture 1>: {{character_identity}}. Preserve the exact face, eye design, hairstyle, swimsuit, accessories, body proportions, lighting and setting in the first frame. {{first_frame_facts}} One continuous {{source_duration_description}} shot, using the full duration without looping. {{timed_actions}} Use natural acceleration, brief holds, varied timing and deceleration. Keep expression changes restrained except for the explicitly requested cartoon effect. Preserve stable anatomy and the same clothing. No cuts, scene reset, identity drift, extra people, duplicated limbs, fused fingers or unrequested camera movement.
+
+overall_soundscape: {{natural_sounds}} Only sounds synchronized with visible actions and the environment. {{nonverbal_rule}} No intelligible dialogue, narration, singing, humming, melody, beat or instruments.
+
+non_diegetic_music: N/A

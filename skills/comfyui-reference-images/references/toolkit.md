@@ -6,7 +6,7 @@
 
 ## 获取工作流
 
-设置 `SKILL_DIR` 为本 Skill 目录、`PROJECT_DIR` 为自己的项目。需要角色图时选择 `sdxl-two-pass-cowboy-shot`；需要独立H3对白时选择 `h3-ref2va-dialogue`。
+设置 `SKILL_DIR` 为本 Skill 目录、`PROJECT_DIR` 为自己的项目。角色图选 `sdxl-two-pass-cowboy-shot`，独立 H3 对白选 `h3-ref2va-dialogue`，首帧动态立绘选 `h3-i2v-live-portrait`。最后一种包含原生音频和 RIFE 24→60fps，不是 Ref2VA。
 
 ```bash
 python3 "$SKILL_DIR/scripts/resolve_workflow.py" sdxl-two-pass-cowboy-shot --output "$PROJECT_DIR/workflows/character.api.template.json"
@@ -15,6 +15,8 @@ python3 "$SKILL_DIR/scripts/resolve_workflow.py" sdxl-two-pass-cowboy-shot --out
 有本机 toolkit checkout 时设置 `COMFYUI_TOOLKIT_DIR` 或加 `--toolkit-dir`；离线可加 `--offline`。解析器优先复用已校验的输出文件，然后使用指定本机仓库，否则读取锁定的GitHub文件。哈希不符就停止，不覆盖或改用最新文件。
 
 下载文件仍是带占位符的模板。按工作流自己的参数说明填写模型、素材、提示词和种子，再检查 `/object_info` 后执行；获取工作流不代表下载模型、安装节点或开始推理。
+
+可用 `scripts/prepare_graph.py` 离线绑定参数；实际提交及断线恢复见[批量执行说明](batch-generation.md)。固定图只是节点图，不代表通用执行器具有幂等提交能力；提交状态不明时禁止重发。
 
 Toolkit 目前没有收录所有H3续接模式。需要原生AV latent/Motion Context时，不能用独立对白图顶替；继续按对应配方检查实际实现，缺少时报告缺项。
 

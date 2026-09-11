@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "path_base": "directory containing catalog.json",
-  "template_count": 4,
+  "template_count": 7,
   "templates": [
     {
       "id": "bit-by-bit-heartache",
@@ -35,6 +35,92 @@
       "guide": "character-short/bit-by-bit-heartache/README.md",
       "agent_entry": "character-short/bit-by-bit-heartache/SKILL.md",
       "profile": "character-short/bit-by-bit-heartache/profile.json"
+    },
+    {
+      "id": "character-image-collection",
+      "title": "角色图像合集",
+      "category": "角色展示合集",
+      "summary": "一句话指定角色，由 ComfyUI 生图并剪成缩放展示或静态溶解视频。",
+      "request_example": "用……角色做一支海边图像合集。",
+      "status_label": "已整理生图与剪辑链路；公开版待实测",
+      "aliases": [
+        "角色图片合集",
+        "图片集锦",
+        "立绘展示",
+        "图片轮播"
+      ],
+      "tags": [
+        "角色展示",
+        "图片合集",
+        "ComfyUI",
+        "缩放",
+        "交叉溶解"
+      ],
+      "customizable": [
+        "角色",
+        "服装",
+        "场景",
+        "图片数量",
+        "时长",
+        "配乐",
+        "转场"
+      ],
+      "requirements": [
+        "ComfyUI + 兼容生图模型，或已有图片",
+        "Python + Pillow",
+        "FFmpeg"
+      ],
+      "variants": [
+        "原始缩放与模糊",
+        "静态纯溶解"
+      ],
+      "status": "adapted-template-offline-checked",
+      "guide": "character-showcase/image-collection/README.md",
+      "agent_entry": "character-showcase/image-collection/SKILL.md",
+      "profile": "character-showcase/image-collection/profile.json"
+    },
+    {
+      "id": "character-video-collection",
+      "title": "角色视频合集",
+      "category": "角色展示合集",
+      "summary": "从一句话生成角色首帧与独立动态片段，再剪成视频合集或图→视频混剪。",
+      "request_example": "用我喜欢的角色，做一支三个镜头的动态立绘合集。",
+      "status_label": "已关联 I2V 图与剪辑工具；新环境待实测",
+      "aliases": [
+        "动态立绘合集",
+        "原图转动态视频混剪",
+        "角色动态展示"
+      ],
+      "tags": [
+        "动态立绘",
+        "图生视频",
+        "视频合集",
+        "原图对比",
+        "ComfyUI",
+        "H3"
+      ],
+      "customizable": [
+        "角色",
+        "服装",
+        "动作",
+        "场景",
+        "镜头数",
+        "素材顺序",
+        "配乐"
+      ],
+      "requirements": [
+        "ComfyUI + 图像模型（生图）",
+        "MiniMax H3 与 Toolkit I2V 图（新视频）",
+        "Python + Pillow + FFmpeg（剪辑）"
+      ],
+      "variants": [
+        "C 原图→动态视频",
+        "D 视频合集"
+      ],
+      "status": "workflow-linked; editing-config-offline-checked; new-generation-not-run",
+      "guide": "character-showcase/video-collection/README.md",
+      "agent_entry": "character-showcase/video-collection/SKILL.md",
+      "profile": "character-showcase/video-collection/profile.json"
     },
     {
       "id": "mygo-ave-mujica-episode",
@@ -152,6 +238,46 @@
       "guide": "drawing-process/svg-redraw-comparison/README.md",
       "agent_entry": "drawing-process/svg-redraw-comparison/SKILL.md",
       "profile": "drawing-process/svg-redraw-comparison/profile.json"
+    },
+    {
+      "id": "swimsuit-live-portraits",
+      "title": "泳装动态立绘视频集",
+      "category": "角色展示合集",
+      "summary": "从 ComfyUI 首帧到 H3 动态片段，按八段节奏生成约一分钟泳装合集。",
+      "request_example": "用我喜欢的角色，一句话做一支泳装动态立绘视频集。",
+      "status_label": "真实案例已整理；新角色链路未重跑",
+      "aliases": [
+        "泳装合集",
+        "泳装视频合集",
+        "动态立绘合集",
+        "Swimsuit Live Portraits"
+      ],
+      "tags": [
+        "泳装",
+        "动态立绘",
+        "图生视频",
+        "多镜头",
+        "自然声"
+      ],
+      "customizable": [
+        "角色",
+        "泳装",
+        "场景",
+        "动作",
+        "配乐",
+        "镜头数量"
+      ],
+      "requirements": [
+        "Python + Pillow",
+        "ComfyUI（参考图）",
+        "ComfyUI + MiniMax H3 + RIFE（动态视频）",
+        "FFmpeg"
+      ],
+      "variants": [],
+      "status": "historical-eight-shot-case-documented; new-character-pipeline-offline-checked-not-rerun",
+      "guide": "character-showcase/swimsuit-live-portraits/README.md",
+      "agent_entry": "character-showcase/swimsuit-live-portraits/SKILL.md",
+      "profile": "character-showcase/swimsuit-live-portraits/profile.json"
     }
   ]
 }

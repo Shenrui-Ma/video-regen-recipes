@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "mode": "C",
+  "canvas": {"width": 1080, "height": 1920, "fps": 60},
+  "layout": {"mode": "blurred", "fit": "contain"},
+  "transition_frames": 30,
+  "end_fade_frames": 30,
+  "audio": {"mode": "silent"},
+  "clips": [
+    {"id": "still-01", "pair_id": "shot-01", "kind": "image", "path": "images/shot-01.png", "frames": 360, "scale_speed": 1},
+    {"id": "video-01", "pair_id": "shot-01", "kind": "video", "path": "videos/shot-01.mp4", "source_duration_seconds": 10, "source_start_seconds": 0, "speed": 1},
+    {"id": "still-02", "pair_id": "shot-02", "kind": "image", "path": "images/shot-02.png", "frames": 360, "scale_speed": 1},
+    {"id": "video-02", "pair_id": "shot-02", "kind": "video", "path": "videos/shot-02.mp4", "source_duration_seconds": 10, "source_start_seconds": 0, "speed": 1},
+    {"id": "still-03", "pair_id": "shot-03", "kind": "image", "path": "images/shot-03.png", "frames": 360, "scale_speed": 1},
+    {"id": "video-03", "pair_id": "shot-03", "kind": "video", "path": "videos/shot-03.mp4", "source_duration_seconds": 10, "source_start_seconds": 0, "speed": 1}
+  ],
+  "output": "output/still-video-collection.mp4"
+}

@@ -1,0 +1,14 @@
+{
+  "diffusion_model": null,
+  "text_encoder": null,
+  "video_vae": null,
+  "audio_vae": null,
+  "first_frame": null,
+  "prompt": "保持首帧人物的身份、服装、配饰、背景和构图。固定镜头，人物轻微呼吸并自然眨眼，头发与衣料轻微摆动，不切换场景，不增加人物。",
+  "width": 864,
+  "height": 1344,
+  "length": 243,
+  "seed": 123456,
+  "output_prefix": "showcase/shot-01",
+  "rife_model": null
+}

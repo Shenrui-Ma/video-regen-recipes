@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "mode": "D",
+  "output": "output/swimsuit-live-portraits.mp4",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 60
+  },
+  "layout": {
+    "mode": "blurred-fill",
+    "fit": "contain"
+  },
+  "intro_frames": 0,
+  "intro_blur_frames": 30,
+  "end_fade_frames": 60,
+  "transition_frames": 12,
+  "audio": {
+    "mode": "source",
+    "source_gain_db": 0
+  },
+  "clips": [
+    {
+      "id": "01",
+      "kind": "video",
+      "path": "clips/01.mp4",
+      "source_duration_seconds": 10.116666666666667,
+      "source_start_seconds": 3,
+      "source_take_seconds": 4,
+      "speed": 1
+    },
+    {
+      "id": "02",
+      "kind": "video",
+      "path": "clips/02.mp4",
+      "source_duration_seconds": 15.083333333333334,
+      "source_start_seconds": 6,
+      "source_take_seconds": 9.083333333333334,
+      "speed": 1.4
+    },
+    {
+      "id": "03",
+      "kind": "video",
+      "path": "clips/03.mp4",
+      "source_duration_seconds": 10.116666666666667,
+      "source_start_seconds": 0,
+      "source_take_seconds": 10.116666666666667,
+      "speed": 1.2
+    },
+    {
+      "id": "04",
+      "kind": "video",
+      "path": "clips/04.mp4",
+      "source_duration_seconds": 15.083333333333334,
+      "source_start_seconds": 0,
+      "source_take_seconds": 15.083333333333334,
+      "speed": 1
+    },
+    {
+      "id": "05",
+      "kind": "video",
+      "path": "clips/05.mp4",
+      "source_duration_seconds": 10.116666666666667,
+      "source_start_seconds": 0,
+      "source_take_seconds": 10.116666666666667,
+      "speed": 1.2
+    },
+    {
+      "id": "06",
+      "kind": "video",
+      "path": "clips/06.mp4",
+      "source_duration_seconds": 10.116666666666667,
+      "source_start_seconds": 0,
+      "source_take_seconds": 5,
+      "speed": 1
+    },
+    {
+      "id": "07",
+      "kind": "video",
+      "path": "clips/07.mp4",
+      "source_duration_seconds": 10.116666666666667,
+      "source_start_seconds": 0,
+      "source_take_seconds": 6,
+      "speed": 1
+    },
+    {
+      "id": "08",
+      "kind": "video",
+      "path": "clips/08.mp4",
+      "source_duration_seconds": 10.116666666666667,
+      "source_start_seconds": 0,
+      "source_take_seconds": 10.116666666666667,
+      "speed": 1
+    }
+  ]
+}

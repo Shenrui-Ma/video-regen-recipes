@@ -9,6 +9,8 @@ description: 用本地或自托管远程 ComfyUI 制作角色参考图、场景�
 
 先按[Toolkit 关联规则](references/toolkit.md)查找和获取匹配工作流，再执行以下步骤。具体图优先复用固定版本，未找到才按模型发布方流程补齐。
 
+需要一组合集图片或视频首帧时，读[批量准备与任务恢复](references/batch-generation.md)。`scripts/prepare_graph.py` 只做离线参数绑定；生成仍需明确提交并等待 ComfyUI 结果。
+
 ## 按顺序执行
 
 每步达到“通过条件”再继续。未知值保留 `null`，不要猜节点、模型或任务状态。

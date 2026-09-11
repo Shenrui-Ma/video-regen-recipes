@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "template": "swimsuit-live-portraits",
+  "request": "用一个海蓝色短发的原创成年角色做一支约一分钟泳装动态立绘视频集，从 ComfyUI 生首帧，H3 生成动态片段，保留水声和自然环境声。",
+  "characters": [
+    {
+      "slot": "main",
+      "name": "原创成年角色",
+      "identity": "海蓝色短发、琥珀色眼睛，面部设计在所有镜头保持一致",
+      "swimsuit": "同一套白蓝配色运动泳装",
+      "lora": null,
+      "identity_reference": null
+    }
+  ],
+  "scene": "夏日泳池，同一套明亮柔和光照",
+  "image_backend": "comfyui",
+  "video_workflow_id": "h3-i2v-live-portrait",
+  "comfyui_base_url": "http://127.0.0.1:8188",
+  "shot_plan": "eight-shot-plan.json",
+  "bgm": null,
+  "source_audio": true,
+  "output": "output/swimsuit-live-portraits.mp4",
+  "generation_status": "not_started"
+}

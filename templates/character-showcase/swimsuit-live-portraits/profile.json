@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "id": "swimsuit-live-portraits",
+  "author": "Shenrui Ma（四倍体果蝇）",
+  "parent_template": "character-video-collection",
+  "status": "historical-eight-shot-case-documented; new-character-pipeline-offline-checked-not-rerun",
+  "generation": {
+    "reference_images": "ComfyUI SDXL or other compatible configured workflow",
+    "mode": "independent-first-frame-i2v",
+    "workflow_id": "h3-i2v-live-portrait",
+    "width": 864,
+    "height": 1344,
+    "steps": 20,
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "native_fps": 24,
+    "rife_fps": 60,
+    "shot_lengths": [
+      243,
+      362,
+      243,
+      362,
+      243,
+      240,
+      243,
+      243
+    ],
+    "optional_upscale": "RTX VSR 3x ULTRA; used historically, not required for new runs"
+  },
+  "editing": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "transition_seconds": 0.2,
+    "opening_blur_seconds": 0.5,
+    "ending_fade_seconds": 1,
+    "source_audio": "preserved",
+    "bgm_gain_db": -12,
+    "historical_encoded_duration_seconds": 62.15
+  },
+  "files": {
+    "guide": "README.md",
+    "agent_entry": "SKILL.md",
+    "generation": "references/generation.md",
+    "shots": "examples/eight-shot-plan.json",
+    "editing": "references/editing.md",
+    "evidence": "references/evidence.md"
+  },
+  "index": {
+    "title": "泳装动态立绘视频集",
+    "aliases": [
+      "泳装合集",
+      "泳装视频合集",
+      "动态立绘合集",
+      "Swimsuit Live Portraits"
+    ],
+    "category": "角色展示合集",
+    "tags": [
+      "泳装",
+      "动态立绘",
+      "图生视频",
+      "多镜头",
+      "自然声"
+    ],
+    "summary": "从 ComfyUI 首帧到 H3 动态片段，按八段节奏生成约一分钟泳装合集。",
+    "customizable": [
+      "角色",
+      "泳装",
+      "场景",
+      "动作",
+      "配乐",
+      "镜头数量"
+    ],
+    "request_example": "用我喜欢的角色，一句话做一支泳装动态立绘视频集。",
+    "requirements": [
+      "Python + Pillow",
+      "ComfyUI（参考图）",
+      "ComfyUI + MiniMax H3 + RIFE（动态视频）",
+      "FFmpeg"
+    ],
+    "status_label": "真实案例已整理；新角色链路未重跑"
+  },
+  "parent_entry": "../video-collection/SKILL.md"
+}

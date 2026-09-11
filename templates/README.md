@@ -1,12 +1,12 @@
 # 模板索引
 
-目前收录 **4 个视频模板**。按名称、别名或类型查找，再把一句话需求交给对应 Skill。
+目前收录 **7 个视频模板**。按名称、别名或类型查找，再把一句话需求交给对应 Skill。
 
 剧情示例、备用角色素材、参考图 Skill 和空目录不重复计为模板。
 
 [给 Agent 的索引](catalog.json) · [搜索与维护说明](../docs/template-index.md)
 
-类型：[番剧对白与叙事场景](#category-1) · [绘制过程与对比视频](#category-2) · [角色主题短片](#category-3)
+类型：[番剧对白与叙事场景](#category-1) · [绘制过程与对比视频](#category-2) · [角色主题短片](#category-3) · [角色展示合集](#category-4)
 
 <a id="category-1"></a>
 
@@ -32,6 +32,16 @@
 | --- | --- | --- | --- |
 | [一点一滴刺痛我的心](character-short/bit-by-bit-heartache/README.md) · [执行](character-short/bit-by-bit-heartache/SKILL.md) | 一滴一滴刺痛我的心、刺痛我的心、Bit by Bit Heartache、动作重演、舞蹈、音乐短片 | 用我喜欢的角色，做一支《一点一滴刺痛我的心》。 | 已有片段可重剪；新角色需配置续接 |
 | [XX不是罪过](character-short/not-a-sin/README.md) · [执行](character-short/not-a-sin/SKILL.md) | 不是罪过、XX不是罪、Not a Sin、动作重演、舞蹈、音乐短片 | 用我喜欢的角色，做一支《XX不是罪过》。 | 说明已整理；续接执行包待完善 |
+
+<a id="category-4"></a>
+
+## 角色展示合集
+
+| 模板 | 别名 / 标签 | 一句话开始 | 使用状态 |
+| --- | --- | --- | --- |
+| [角色图像合集](character-showcase/image-collection/README.md) · [执行](character-showcase/image-collection/SKILL.md) | 角色图片合集、图片集锦、立绘展示、图片轮播、角色展示、图片合集、ComfyUI、缩放、交叉溶解 | 用……角色做一支海边图像合集。 | 已整理生图与剪辑链路；公开版待实测 |
+| [角色视频合集](character-showcase/video-collection/README.md) · [执行](character-showcase/video-collection/SKILL.md) | 动态立绘合集、原图转动态视频混剪、角色动态展示、动态立绘、图生视频、视频合集、原图对比、ComfyUI、H3 | 用我喜欢的角色，做一支三个镜头的动态立绘合集。 | 已关联 I2V 图与剪辑工具；新环境待实测 |
+| [泳装动态立绘视频集](character-showcase/swimsuit-live-portraits/README.md) · [执行](character-showcase/swimsuit-live-portraits/SKILL.md) | 泳装合集、泳装视频合集、动态立绘合集、Swimsuit Live Portraits、泳装、动态立绘、图生视频、多镜头、自然声 | 用我喜欢的角色，一句话做一支泳装动态立绘视频集。 | 真实案例已整理；新角色链路未重跑 |
 
 ## 快速查找
 

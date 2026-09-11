@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "kind": "generation-plan-example",
+  "character": null,
+  "outfit": null,
+  "style": "anime illustration",
+  "defaults_origin": "new reusable defaults, not a historical run",
+  "workflow_id": "sdxl-two-pass-cowboy-shot",
+  "items": [
+    {
+      "id": "image-01",
+      "pose": "面向镜头自然站立",
+      "scene": "海边步道",
+      "framing": "cowboy shot",
+      "seed": null,
+      "positive_prompt": null,
+      "negative_prompt": null,
+      "file": "images/image-01.png",
+      "prompt_id": null,
+      "status": "planned",
+      "visual_review": "pending"
+    },
+    {
+      "id": "image-02",
+      "pose": "回头微笑",
+      "scene": "树荫下",
+      "framing": "cowboy shot",
+      "seed": null,
+      "positive_prompt": null,
+      "negative_prompt": null,
+      "file": "images/image-02.png",
+      "prompt_id": null,
+      "status": "planned",
+      "visual_review": "pending"
+    },
+    {
+      "id": "image-03",
+      "pose": "扶帽沿",
+      "scene": "海边栈道",
+      "framing": "cowboy shot",
+      "seed": null,
+      "positive_prompt": null,
+      "negative_prompt": null,
+      "file": "images/image-03.png",
+      "prompt_id": null,
+      "status": "planned",
+      "visual_review": "pending"
+    },
+    {
+      "id": "image-04",
+      "pose": "靠着栏杆",
+      "scene": "远处海面",
+      "framing": "cowboy shot",
+      "seed": null,
+      "positive_prompt": null,
+      "negative_prompt": null,
+      "file": "images/image-04.png",
+      "prompt_id": null,
+      "status": "planned",
+      "visual_review": "pending"
+    },
+    {
+      "id": "image-05",
+      "pose": "坐姿休息",
+      "scene": "咖啡馆外",
+      "framing": "cowboy shot",
+      "seed": null,
+      "positive_prompt": null,
+      "negative_prompt": null,
+      "file": "images/image-05.png",
+      "prompt_id": null,
+      "status": "planned",
+      "visual_review": "pending"
+    },
+    {
+      "id": "image-06",
+      "pose": "轻轻挥手",
+      "scene": "傍晚海岸",
+      "framing": "cowboy shot",
+      "seed": null,
+      "positive_prompt": null,
+      "negative_prompt": null,
+      "file": "images/image-06.png",
+      "prompt_id": null,
+      "status": "planned",
+      "visual_review": "pending"
+    }
+  ]
+}

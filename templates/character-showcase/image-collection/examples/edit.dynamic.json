@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "mode": "A",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 60
+  },
+  "total_frames": 2160,
+  "transition_frames": 25,
+  "intro_frames": 0,
+  "end_fade_frames": 60,
+  "layout": {
+    "mode": "blurred",
+    "fit": "contain"
+  },
+  "audio": {
+    "mode": "silent"
+  },
+  "clips": [
+    {
+      "id": "image-01",
+      "kind": "image",
+      "path": "images/image-01.png"
+    },
+    {
+      "id": "image-02",
+      "kind": "image",
+      "path": "images/image-02.png"
+    },
+    {
+      "id": "image-03",
+      "kind": "image",
+      "path": "images/image-03.png"
+    },
+    {
+      "id": "image-04",
+      "kind": "image",
+      "path": "images/image-04.png"
+    },
+    {
+      "id": "image-05",
+      "kind": "image",
+      "path": "images/image-05.png"
+    },
+    {
+      "id": "image-06",
+      "kind": "image",
+      "path": "images/image-06.png"
+    }
+  ],
+  "output": "output/images-dynamic.mp4"
+}

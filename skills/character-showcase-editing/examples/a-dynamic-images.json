@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 60
+  },
+  "audio": {
+    "mode": "silent"
+  },
+  "mode": "A",
+  "total_frames": 1800,
+  "output": "output/a-dynamic-images.mp4",
+  "clips": [
+    {
+      "id": "image-1",
+      "kind": "image",
+      "path": "assets/images/01.png"
+    },
+    {
+      "id": "image-2",
+      "kind": "image",
+      "path": "assets/images/02.png"
+    },
+    {
+      "id": "image-3",
+      "kind": "image",
+      "path": "assets/images/03.png"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "mode": "D",
+  "canvas": {"width": 1080, "height": 1920, "fps": 60},
+  "layout": {"mode": "blurred", "fit": "contain"},
+  "transition_frames": 30,
+  "end_fade_frames": 30,
+  "audio": {"mode": "silent"},
+  "clips": [
+    {
+      "id": "shot-01",
+      "kind": "video",
+      "path": "videos/shot-01.mp4",
+      "source_duration_seconds": 10,
+      "source_start_seconds": 0,
+      "speed": 1
+    },
+    {
+      "id": "shot-02",
+      "kind": "video",
+      "path": "videos/shot-02.mp4",
+      "source_duration_seconds": 10,
+      "source_start_seconds": 0,
+      "speed": 1
+    },
+    {
+      "id": "shot-03",
+      "kind": "video",
+      "path": "videos/shot-03.mp4",
+      "source_duration_seconds": 10,
+      "source_start_seconds": 0,
+      "speed": 1
+    }
+  ],
+  "output": "output/video-collection.mp4"
+}
