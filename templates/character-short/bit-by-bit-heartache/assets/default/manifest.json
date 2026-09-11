@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "preset": "yaoguang",
+  "author": "Shenrui Ma（四倍体果蝇）",
+  "assets": [
+    {
+      "path": "yaoguang.png",
+      "role": "character_identity",
+      "bytes": 5146149,
+      "sha256": "97d0d6f5e85b0f0e1b95f5fe8df938402907081e6672c4c0a3f0b4bce87f3bc3",
+      "width": 2352,
+      "height": 2352,
+      "processing": "text and EXIF metadata removed; compressed image data unchanged"
+    },
+    {
+      "path": "driver.mp4",
+      "role": "driver",
+      "bytes": 59882501,
+      "sha256": "16806c7e5e3214fd52f65a6d45243ee806805b815e016cb92552c7533f0ebe32",
+      "processing": "stream copy; metadata removed",
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 3840,
+          "height": 2160,
+          "avg_frame_rate": "17680000/392889",
+          "nb_read_frames": "1105",
+          "duration": "24.555000"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "aac",
+          "avg_frame_rate": "0/0",
+          "nb_read_frames": "1057",
+          "sample_rate": "44100",
+          "channels": 2,
+          "duration": "24.543492"
+        }
+      ]
+    },
+    {
+      "path": "music.m4a",
+      "role": "soundtrack",
+      "bytes": 474969,
+      "sha256": "0da44f53822c7c8ab54fe4b8b089c01c03e89a198e81a2b3cb4d5c8867e4c6c6",
+      "processing": "stream copy; metadata removed",
+      "streams": [
+        {
+          "codec_type": "audio",
+          "codec_name": "aac",
+          "avg_frame_rate": "0/0",
+          "nb_read_frames": "1779",
+          "sample_rate": "44100",
+          "channels": 2,
+          "duration": "41.308299"
+        }
+      ]
+    },
+    {
+      "path": "clips/part-01.mp4",
+      "role": "editing_source",
+      "bytes": 5027044,
+      "sha256": "5dacb45830e41f852b6ba4751671e8dd64976f0ce570f4cea55ef77430501d09",
+      "processing": "stream copy; metadata removed; audio omitted",
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 1344,
+          "height": 768,
+          "avg_frame_rate": "24/1",
+          "nb_read_frames": "158",
+          "duration": "6.583333"
+        }
+      ]
+    },
+    {
+      "path": "clips/part-02.mp4",
+      "role": "editing_source",
+      "bytes": 3479889,
+      "sha256": "e4a8ab9265f617149653979c547b238a4aa8e154e08667c98a86bc4d803afd00",
+      "processing": "stream copy; metadata removed; audio omitted",
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 1344,
+          "height": 768,
+          "avg_frame_rate": "24/1",
+          "nb_read_frames": "158",
+          "duration": "6.583333"
+        }
+      ]
+    },
+    {
+      "path": "clips/part-03.mp4",
+      "role": "editing_source",
+      "bytes": 2696339,
+      "sha256": "b89312f5954ece2f786b6eccdc934fe5388904dcc3980c7d35a3f0c260161a1c",
+      "processing": "stream copy; metadata removed; audio omitted",
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 1344,
+          "height": 768,
+          "avg_frame_rate": "24/1",
+          "nb_read_frames": "175",
+          "duration": "7.291667"
+        }
+      ]
+    },
+    {
+      "path": "clips/part-04.mp4",
+      "role": "editing_source",
+      "bytes": 4389104,
+      "sha256": "57ccfef30bd340869cc9f41a797c6c9b6851c1fed270f715750b305cdab04645",
+      "processing": "stream copy; metadata removed; audio omitted",
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 1344,
+          "height": 768,
+          "avg_frame_rate": "24/1",
+          "nb_read_frames": "175",
+          "duration": "7.291667"
+        }
+      ]
+    }
+  ],
+  "editing_clip_role": "parts 1-2 are published 158-frame clips; parts 3-4 are canonical 175-frame decodes; no continuation latents are included"
+}

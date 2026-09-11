@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "bit-by-bit-heartache",
+  "author": "Shenrui Ma（四倍体果蝇）",
+  "default_preset": "yaoguang",
+  "status": "default-edit-assets-ready; new-character-runtime-not-packaged",
+  "generation": {
+    "mode": "Ref2VA with native canonical AV latent continuation",
+    "width": 1344,
+    "height": 768,
+    "fps": 24,
+    "steps": 20,
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "visible_frames": [
+      158,
+      158,
+      141,
+      141
+    ],
+    "sample_frames": [
+      158,
+      192,
+      175,
+      175
+    ],
+    "head_trim_frames": [
+      0,
+      22,
+      22,
+      22
+    ],
+    "video_context_frames": [
+      0,
+      22,
+      22,
+      22
+    ],
+    "audio_context_parameter": [
+      0,
+      24,
+      24,
+      24
+    ],
+    "reference_audio_connected": false
+  },
+  "default_edit": {
+    "fps": 60,
+    "source_frames": [
+      158,
+      158,
+      175,
+      175
+    ],
+    "visible_frames_at_60fps": [
+      395,
+      373,
+      382,
+      437
+    ],
+    "total_frames": 1587,
+    "duration_seconds": 26.45,
+    "motion_interpolation": false,
+    "music_fade_out_seconds": 0.5
+  },
+  "files": {
+    "guide": "README.md",
+    "agent_entry": "SKILL.md",
+    "assets": "assets/default/manifest.json",
+    "generation": "references/generation.md",
+    "editing": "references/editing.md",
+    "prompt": "prompts/ref2va.template.txt",
+    "sources": "sources.md"
+  }
+}

@@ -7,3 +7,7 @@
 制作说明已公开；执行包整理中，新角色复现待验证。
 
 [制作指南](not-a-sin/README.md) · [历史案例](not-a-sin/evidence/README.md) · [来源与署名](not-a-sin/sources.md)
+
+## [一点一滴刺痛我的心](bit-by-bit-heartache/)
+
+附默认爻光参考图、驱动、音乐和四段剪辑素材；可直接重剪，也可沿本地H3原生latent续接换角色生成。

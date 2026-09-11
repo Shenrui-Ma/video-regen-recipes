@@ -1,0 +1,19 @@
+subject_definitions:
+<Subject 1> is the character in the supplied identity image. {{CHARACTER_DESCRIPTION}}. Keep {{FIXED_OUTFIT}} consistent throughout this clip.
+<Video 1> provides the current segment's motion, framing, background layout and cut timing. Replace its main performer with <Subject 1>.
+
+summary:
+[reference generation + video editing] Generate the current character-replacement segment with {{VISIBLE_FRAMES}} published frames at 24 fps. The supplied video guides the action and setting; continuation context is connected separately by the workflow when this is not the first segment.
+
+retention_analysis:
+<Subject 1>: fully_preserved - retain the referenced face, hair, outfit and accessories while adapting pose and expression.
+<Video 1>: partially_preserved - replace the performer while following the motion and scene timing. Preserve background anchors: {{BACKGROUND_ANCHORS}}.
+
+detailed_description:
+The target is a coherent anime character performance in the reference setting. [Shot 1] {{CURRENT_SEGMENT_ACTION_AND_CAMERA}}. Use <Subject 1> as the single main performer. Keep her identity and costume stable through the referenced movement. Maintain the reference's camera orientation, lighting, background geometry and existing cuts. Keep hands and body proportions coherent, avoid duplicate performers, and carry the action naturally into the end of this segment. The desired published duration excludes the workflow's protected context frames.
+
+overall_soundscape:
+No new dialogue or singing is requested. The final soundtrack is supplied during editing; no reference audio is connected in this baseline.
+
+non_diegetic_music:
+N/A
