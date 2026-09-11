@@ -1,75 +1,90 @@
-# 从参考图到对比视频
+# 纯 SVG 临摹到对比视频
 
-## 环境与文件
+## 环境
 
-需要 Python 3.10+、Node.js、可用的 Playwright＋Chromium，以及带 libx264 的 FFmpeg/ffprobe。优先使用宿主已有环境；没有 Chromium 时可用导出器 `--browser` 指向已安装的 Chromium/Chrome。这里不需要 H3、ComfyUI 或图片生成 API。
+视频导出需要现有 Node.js、Playwright、Chromium/Chrome、FFmpeg/ffprobe。可选的轮廓辅助工具另需 Python 3.10+、Pillow、NumPy。生成的HTML本身不依赖这些库，打开时不联网、不调用Canvas。
 
-模型负责生成矢量图，浏览器负责重放，FFmpeg负责编码。以下设置 `TEMPLATE_DIR` 为本模板目录，`PROJECT_DIR` 为用户项目目录，所有输出用新文件名。
+`TEMPLATE_DIR` 指本模板目录，`PROJECT_DIR` 指用户项目。原图、SVG、HTML、视频分别保存，不在模板安装目录运行生成任务或覆盖已接受版本。
 
-```text
-project/
-├── original.png         # 用户原文件，不覆盖
-├── reference.png        # 无损重编码、去元数据的输入
-├── redraw.svg           # 本图的矢量重绘
-├── demo.html            # 自包含播放器
-└── comparison.mp4       # 视频交付
-```
-
-## 1. 清理参考图
+## 1. 清理参考
 
 ```bash
 python3 "$TEMPLATE_DIR/scripts/clean_png.py" "$PROJECT_DIR/original.png" "$PROJECT_DIR/reference.png"
 ```
 
-工具重压缩PNG的IDAT数据，保留必要的图像/调色板/透明信息，移除可选元数据；不调整大小或重画像素。输入若有影响显示的色彩配置或方向信息，先检查清理前后显示与解码像素，不能直接假定外观不变。附带参考已通过RGBA逐像素一致性验证。
+这是IDAT无损重压缩与元数据清理，不缩放像素。原图若含影响显示的方向或色彩配置，先检查转换；本示例已验证1536×1024的解码RGBA像素完全一致。
 
-## 2. 让大模型写SVG
+## 2. 两条明确区分的 SVG 制作方式
 
-实际附加 `reference.png`，使用[提示词](../prompts/redraw.prompt.txt)，把结果保存为 `redraw.svg`。先检查最终构图，再检查分阶段结构。不要上传自己的环境配置，也不要把原图文件名写进公开提示词。
+**大模型直接临摹：** 实际附加图片，使用[作者完整提示词](../prompts/author-original.prompt.txt)，输出内含原生SVG的完整HTML。随后逐项检查静态还原质量，并接好可控制时间的绘制流程。这条方式的实际效果需单独验证；提示词本身不保证高相似度。
 
-默认例子的 SVG 是简化的流程演示，用于测试图形播放与导出，不能作为新图的通用人物或高相似度承诺。
+**轮廓辅助：** 本例采用此方式，使用连续色域边界生成原生闭合路径。它不是位图嵌入，但存在颜色量化误差；必须披露方法。先根据本图制作 `regions.json`：
 
-## 3. 生成可播放网页
+```json
+{
+  "reference_sha256": "干净参考图的完整SHA256",
+  "width": 1536,
+  "height": 1024,
+  "regions": [
+    {"id": "background", "polygon": []},
+    {"id": "character-face", "polygon": [[100,100],[200,100],[200,200],[100,200]]}
+  ]
+}
+```
+
+区域坐标对应原图像素，后写区域覆盖之前区域；必须按真实人物、服装、脸部、环境等分区。上面坐标只是格式示意，不能直接用于参考图。[示例区域](../examples/regions.json)只适用于附带图片，工具用哈希拒绝错配。
+
+```bash
+python3 "$TEMPLATE_DIR/scripts/trace_reference.py" \
+  --reference "$PROJECT_DIR/reference.png" --regions "$PROJECT_DIR/regions.json" \
+  --output-dir "$PROJECT_DIR/vector-v1"
+```
+
+输出 `faithful.svg`、量化检查图与指标。先打开SVG并与原图比较，不以路径数量或文件大小证明质量。对本例的实际浏览器渲染，平均每通道绝对色差为1.3002/255、PSNR为42.6144dB，非零色差不能换算成“100%还原”。
+
+## 3. 构建无 Canvas 的 Demo
+
+轮廓辅助输出可使用：
 
 ```bash
 python3 "$TEMPLATE_DIR/scripts/build_demo.py" \
-  --reference "$PROJECT_DIR/reference.png" --svg "$PROJECT_DIR/redraw.svg" \
-  --output "$PROJECT_DIR/demo.html" --layout auto --panel-width 768 \
-  --lead-seconds 1 --draw-seconds 24 --hold-seconds 3
+  --reference "$PROJECT_DIR/reference.png" --regions "$PROJECT_DIR/regions.json" \
+  --svg "$PROJECT_DIR/vector-v1/faithful.svg" --output "$PROJECT_DIR/demo.html"
 ```
 
-`auto` 对横图使用上下、对竖图使用左右。可以显式选 `stacked` 或 `side-by-side`。原图和SVG需相同比例，完整显示，不通过拉伸或裁切制造相似。
+参考图只在离线构建时用于提取线稿和底色，最终HTML只存SVG路径、内联CSS和JS；不含图片、Base64、Canvas或外部资源。此构建器只接受本包轮廓格式，不是任意SVG的转换器。
 
-输出是自包含HTML，下载后可离线打开。画面标签在图像外，播放栏不会进入导出视频。总时长为开场等待＋绘制＋结尾停留。例子为1＋12＋3＝16秒；上方原图1536×1024按比例显示为768×512，下方相同，加两条32像素标签栏后输出768×1088。
+默认40秒：构图0–2秒、线稿2–8秒、固有色8–14秒、阴影14–23秒、高光23–28秒、细节28–36秒、完成停留36–40秒。首次打开显示完成图，点击播放从空白开始。
 
-阶段比例：起稿0–13%、线稿10–34%、铺色34–66%、明暗66–84%、细节84–100%。这是可解释的绘制步骤重放，不是实际大模型生成代码的耗时记录。阶段内部按独立图形推进；线条和颜色是不同显现方式。
+使用大模型自写HTML时应遵守同样的资源限制，并提供：
 
-## 4. 导出MP4
+```javascript
+window.replay = {
+  duration: 40,
+  renderAt(seconds) { /* 将本页SVG所有绘制状态确定地设置到该时刻 */ }
+};
+```
 
-在具备 Playwright 的 Node 环境运行：
+这里只定义接口，不能把空函数当作播放实现。若是CSS动画或SVG SMIL，适配它们的实际时间控制；不要改用Canvas。
+
+## 4. 合成对比视频
 
 ```bash
 node "$TEMPLATE_DIR/scripts/export_video.cjs" \
-  --html "$PROJECT_DIR/demo.html" --output "$PROJECT_DIR/comparison.mp4" --fps 30
+  --html "$PROJECT_DIR/demo.html" --reference "$PROJECT_DIR/reference.png" \
+  --output "$PROJECT_DIR/comparison.mp4" --fps 24 --panel-width 768 --layout auto
 ```
 
-需要指定现有浏览器时加 `--browser` 和其可执行文件路径；FFmpeg不在PATH时可加 `--ffmpeg` / `--ffprobe`。这些路径只放在用户运行环境，不写进模板。
+已安装浏览器可用 `--browser` 指定其可执行文件。工具对原生SVG做DOM截图，再由FFmpeg独立合成原图；从不使用网页Canvas或在SVG里加入参考图片。输入横图时上下拼接，竖图时左右拼接；也可显式选择 `stacked` / `side-by-side`。
 
-只打开本工具构建并检查过的HTML，不运行来源不明的网页代码。每帧固定取 `frame_index / fps`，共 `ceil(duration × fps)` 帧；结尾停留确保完整图被记录。导出器不会播放网页控制栏或依赖屏幕录制速度。
+例子输出40秒、24fps、960帧、768×1024、静音H.264 MP4。导出采样为 `frame_index / fps`，不是实际录屏速度。加音乐另做后期，保留静音母版；不能让音乐长度截短绘制过程。
 
-输出为静音H.264 MP4。若要音乐，另做音频合成并保留静音母版；避免因音乐长度自动截短视频。
+## 5. 验收与恢复
 
-## 5. 验收与复用
+- 查开始、线稿、底色、细节、结束；页面中的原生矢量文件不包含位图。
+- 同一时间点重复渲染结果一致；暂停、拖动、重置正常。
+- 视频几何、解码帧数、FPS和完整解码通过；原图始终在上/左，绘制过程在下/右。
+- 保留参考、SVG、HTML、视频哈希以及模型/辅助算法、参数与残余误差。
+- 导出中断只重新导出，SVG重做才重新构建HTML。禁止用上一版粗稿视频充当新版结果。
 
-至少查看空白起点、线稿、铺色、最终四个时刻，确认原图面板始终不变、绘图区不是位图覆盖，且正向播放和拖动到同一时刻得到同样画面。校验输出帧数、分辨率、FPS并完整解码。
-
-```bash
-ffprobe -v error -count_frames -show_streams -show_format -of json "$PROJECT_DIR/comparison.mp4"
-ffmpeg -v error -xerror -i "$PROJECT_DIR/comparison.mp4" -map 0:v:0 -f null -
-```
-
-保存参考图/最终SVG/HTML/视频的SHA-256、模型和提示词、排版、时长与帧率。图像还原质量与导出管线分开验收；修改矢量细节只需重新构建和导出，不重新准备原图。
-
-## 维护检查
-
-在模板目录运行 `python3 -m unittest discover -s tests -q`。已配置Playwright时运行 `node tests/check_player.cjs`；需要现有浏览器可设置 `CHROMIUM_EXECUTABLE`。这些检查不调用绘图模型。
+文件较大属于高密度矢量示例的代价；不要为了减少文件大小悄悄改成位图或丢失细节。

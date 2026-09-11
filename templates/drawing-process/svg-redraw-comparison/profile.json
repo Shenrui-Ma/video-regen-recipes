@@ -4,15 +4,16 @@
   "author": "Shenrui Ma（四倍体果蝇）",
   "status": "example-rendered; new-image-fidelity-requires-review",
   "default_layout": "auto-landscape-stacked-portrait-side-by-side",
-  "renderer": "browser SVG + canvas",
+  "renderer": "native SVG DOM screenshots + FFmpeg reference composition",
   "video_encoder": "FFmpeg H.264",
   "comfyui_required": false,
   "drawing_phases": [
-    "sketch",
+    "construction",
     "ink",
-    "color",
-    "shadow",
-    "detail"
+    "base-colors",
+    "shadows",
+    "highlights",
+    "details"
   ],
   "files": {
     "guide": "README.md",
@@ -22,7 +23,10 @@
     "svg_example": "examples/redraw.svg",
     "demo": "examples/demo.html",
     "preview": "examples/preview.mp4",
-    "sources": "sources.md"
+    "sources": "sources.md",
+    "author_prompt": "prompts/author-original.prompt.txt",
+    "regions": "examples/regions.json",
+    "validation": "examples/validation.json"
   },
   "index": {
     "title": "基于大模型的SVG临摹重绘",
@@ -40,7 +44,7 @@
       "绘画过程",
       "对比视频"
     ],
-    "summary": "把参考图与从空白到完成的SVG绘制过程合成对比视频。",
+    "summary": "纯SVG临摹与绘制流程重放，再与原图合成对比视频。",
     "customizable": [
       "参考图",
       "绘制细节",
@@ -51,11 +55,11 @@
     ],
     "request_example": "把这张图临摹成SVG，导出原图与绘制过程的对比视频。",
     "requirements": [
-      "可看图并生成SVG代码的大模型",
-      "Python 3.10+",
+      "可看图并编写SVG/HTML的大模型",
       "Node.js + Playwright + Chromium",
-      "FFmpeg"
+      "FFmpeg",
+      "Pillow + NumPy（可选轮廓辅助）"
     ],
-    "status_label": "Demo与视频已实际导出；新图还原效果需验收"
+    "status_label": "纯SVG Demo与40秒对比视频已导出；非逐像素零误差"
   }
 }

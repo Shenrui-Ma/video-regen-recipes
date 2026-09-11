@@ -1,56 +1,46 @@
-import importlib.util
-import json
+import hashlib,importlib.util,json
 from pathlib import Path
-import struct
-import tempfile
-import unittest
-import zlib
-
+import struct,sys,tempfile,unittest,zlib
 ROOT=Path(__file__).resolve().parents[1]
-def module(name):
-    spec=importlib.util.spec_from_file_location(name,ROOT/'scripts'/f'{name}.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
-cleaner=module('clean_png');builder=module('build_demo')
-
-def png(w=16,h=16):
-    header=struct.pack('>IIBBBBB',w,h,8,2,0,0,0)
-    data=b''.join(b'\0'+b'\x10\x20\x30'*w for _ in range(h))
-    return cleaner.SIGNATURE+cleaner.chunk(b'IHDR',header)+cleaner.chunk(b'tEXt',b'note\0fixture metadata')+cleaner.chunk(b'IDAT',zlib.compress(data))+cleaner.chunk(b'IEND',b'')
-
-def svg(w=16,h=16):
-    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}">'+''.join(f'<g data-phase="{name}"><path d="M1 1L8 8" fill="none" stroke="black"/></g>' for name in ['sketch','color','shadow','ink','detail'])+'</svg>'
+sys.path.insert(0,str(ROOT/'scripts'))
+from clean_png import clean,parse,chunk,SIGNATURE
+from _contours import contours
+from _regions import read_regions
+from _validate_svg import read_contours
 
 class PipelineTests(unittest.TestCase):
-    def test_png_reencoding_preserves_image_data_removes_metadata(self):
-        original=png();result=cleaner.clean(original)
-        self.assertEqual([k for k,_ in cleaner.parse(result)],[b'IHDR',b'IDAT',b'IEND'])
-        streams=lambda data:zlib.decompress(b''.join(v for k,v in cleaner.parse(data) if k==b'IDAT'))
-        self.assertEqual(streams(original),streams(result))
-    def test_png_corruption_rejected(self):
-        data=bytearray(png());data[20]^=1
-        with self.assertRaises(ValueError):cleaner.clean(bytes(data))
-    def test_raster_script_and_external_content_rejected(self):
-        for bad in ['<image href="data:image/png;base64,AAAA"/>','<script>alert(1)</script>','<foreignObject/>','<path onload="alert(1)"/>','<path fill="url(https://example.com/a)"/>']:
-            with self.subTest(bad=bad),self.assertRaises(ValueError):builder.validate_svg(svg().replace('</svg>',bad+'</svg>'))
-    def test_missing_stage_and_unstaged_drawing_rejected(self):
-        with self.assertRaises(ValueError):builder.validate_svg(svg().replace('data-phase="ink"','data-phase="other"'))
-        with self.assertRaises(ValueError):builder.validate_svg(svg().replace('</svg>','<rect width="16" height="16"/></svg>'))
-    def test_example_is_vector_only_and_has_all_phases(self):
-        self.assertEqual(builder.validate_svg((ROOT/'examples/redraw.svg').read_text()),[1536,1024])
-    def test_layout_selection_and_no_overwrite(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            p=Path(tmp);reference=p/'ref.png';vector=p/'art.svg';output=p/'demo.html'
-            reference.write_bytes(cleaner.clean(png(16,24)));vector.write_text(svg(16,24))
-            result=builder.build(reference,vector,output,panel_width=128)
-            self.assertEqual(result['layout'],'side-by-side')
-            self.assertIn('window.REPLAY_CONFIG=',output.read_text())
-            with self.assertRaises(ValueError):builder.build(reference,vector,output,panel_width=128)
-    def test_aspect_ratio_and_timing_rejected_before_output(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            p=Path(tmp);reference=p/'ref.png';vector=p/'art.svg';output=p/'demo.html'
-            reference.write_bytes(png());vector.write_text(svg(16,24))
-            with self.assertRaises(ValueError):builder.build(reference,vector,output)
-            vector.write_text(svg())
-            with self.assertRaises(ValueError):builder.build(reference,vector,output,draw=float('nan'))
-            self.assertFalse(output.exists())
-
+ def test_lossless_png_cleanup(self):
+  raw=b'\0'+bytes([10,20,30])*2
+  original=SIGNATURE+chunk(b'IHDR',struct.pack('>IIBBBBB',2,1,8,2,0,0,0))+chunk(b'tEXt',b'note\0fixture')+chunk(b'IDAT',zlib.compress(raw))+chunk(b'IEND',b'')
+  output=clean(original)
+  self.assertEqual([k for k,_ in parse(output)],[b'IHDR',b'IDAT',b'IEND'])
+  self.assertEqual(zlib.decompress(b''.join(v for k,v in parse(output) if k==b'IDAT')),raw)
+ def test_boundary_is_closed(self):
+  path,count=contours({0:1,1:3,3:2,2:0},1)
+  self.assertEqual(count,1);self.assertEqual(path,'M0 0h1v1h-1v-1z')
+ def test_reference_bound_regions(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   p=Path(tmp)/'regions.json';p.write_text(json.dumps({'width':2,'height':1,'reference_sha256':hashlib.sha256(b'fixture').hexdigest(),'regions':[{'id':'background','polygon':[]}]}))
+   self.assertEqual(read_regions(p,2,1,b'fixture'),[('background',[])])
+   with self.assertRaises(ValueError):read_regions(p,2,1,b'other')
+ def test_bad_region_geometry_rejected(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   p=Path(tmp)/'r.json';p.write_text(json.dumps({'width':2,'height':1,'reference_sha256':hashlib.sha256(b'f').hexdigest(),'regions':[{'id':'background','polygon':[]},{'id':'subject','polygon':[[0,0],[3,0],[1,1]]}]}))
+   with self.assertRaises(ValueError):read_regions(p,2,1,b'f')
+ def valid(self):
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1"><g id="complete-vector-art"><g data-region="background"><path fill="#aabbcc" d="M0 0h2v1h-2z"/></g></g></svg>'
+ def test_vector_validation(self):
+  read_contours(self.valid(),2,1,['background'])
+  with self.assertRaises(ValueError):read_contours(self.valid(),2,1,['another'])
+ def test_raster_and_active_content_rejected(self):
+  for node in ['<image href="data:image/png;base64,AAAA"/>','<script/>','<foreignObject/>']:
+   with self.assertRaises(ValueError):read_contours(self.valid().replace('</svg>',node+'</svg>'),2,1,['background'])
+  with self.assertRaises(ValueError):read_contours(self.valid().replace('fill="#aabbcc"','onload="alert(1)" fill="#aabbcc"'),2,1,['background'])
+ def test_published_demo_is_self_contained_native_svg(self):
+  text=(ROOT/'examples/demo.html').read_text()
+  for marker in ['<canvas','<img','<image','<foreignObject','data:image','<script src=','http://','https://']:
+   if marker=='http://':
+    self.assertNotIn(marker,text.replace('http://www.w3.org/2000/svg',''))
+   else:self.assertNotIn(marker,text)
+  self.assertIn('window.replay=',text)
 if __name__=='__main__':unittest.main()

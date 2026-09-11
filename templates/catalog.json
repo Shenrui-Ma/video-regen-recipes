@@ -117,9 +117,9 @@
       "id": "svg-redraw-comparison",
       "title": "基于大模型的SVG临摹重绘",
       "category": "绘制过程与对比视频",
-      "summary": "把参考图与从空白到完成的SVG绘制过程合成对比视频。",
+      "summary": "纯SVG临摹与绘制流程重放，再与原图合成对比视频。",
       "request_example": "把这张图临摹成SVG，导出原图与绘制过程的对比视频。",
-      "status_label": "Demo与视频已实际导出；新图还原效果需验收",
+      "status_label": "纯SVG Demo与40秒对比视频已导出；非逐像素零误差",
       "aliases": [
         "SVG临摹",
         "SVG重绘",
@@ -142,10 +142,10 @@
         "配乐"
       ],
       "requirements": [
-        "可看图并生成SVG代码的大模型",
-        "Python 3.10+",
+        "可看图并编写SVG/HTML的大模型",
         "Node.js + Playwright + Chromium",
-        "FFmpeg"
+        "FFmpeg",
+        "Pillow + NumPy（可选轮廓辅助）"
       ],
       "variants": [],
       "status": "example-rendered; new-image-fidelity-requires-review",

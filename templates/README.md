@@ -22,7 +22,7 @@
 
 | 模板 | 别名 / 标签 | 一句话开始 | 使用状态 |
 | --- | --- | --- | --- |
-| [基于大模型的SVG临摹重绘](drawing-process/svg-redraw-comparison/README.md) · [执行](drawing-process/svg-redraw-comparison/SKILL.md) | SVG临摹、SVG重绘、SVG绘画过程、GPT6画图、原图对比、SVG、临摹、绘画过程、对比视频 | 把这张图临摹成SVG，导出原图与绘制过程的对比视频。 | Demo与视频已实际导出；新图还原效果需验收 |
+| [基于大模型的SVG临摹重绘](drawing-process/svg-redraw-comparison/README.md) · [执行](drawing-process/svg-redraw-comparison/SKILL.md) | SVG临摹、SVG重绘、SVG绘画过程、GPT6画图、原图对比、SVG、临摹、绘画过程、对比视频 | 把这张图临摹成SVG，导出原图与绘制过程的对比视频。 | 纯SVG Demo与40秒对比视频已导出；非逐像素零误差 |
 
 <a id="category-3"></a>
 
