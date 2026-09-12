@@ -1,0 +1,27 @@
+{
+  "method": "SHA256 of FFmpeg decoded, ordered yuv420p rawvideo bytes; one decoder thread",
+  "scope": "Prepared video-only slices equal the recovered historical segment video frames. Containers and audio differ. No H3 inference or visual/audio review.",
+  "all_four_match": true,
+  "segments": [
+    {
+      "segment": 1,
+      "decoded_yuv420p_sha256": "6d27b2a88281e9f4bf10ceb74fcc9b793d8645fd5cd2473bf750e8c954034959",
+      "decoded_bytes": 244629504
+    },
+    {
+      "segment": 2,
+      "decoded_yuv420p_sha256": "cc6c9aa1ed03631daf43f8399743fff18750330bfd0c74fa29ffbc93e849fbbb",
+      "decoded_bytes": 244629504
+    },
+    {
+      "segment": 3,
+      "decoded_yuv420p_sha256": "4055d20d778b6956160b020f9d92c8ecfff56ba39226272df50a5a2e2045bd0e",
+      "decoded_bytes": 218308608
+    },
+    {
+      "segment": 4,
+      "decoded_yuv420p_sha256": "8d61ffc78d3a095f073cf4132f46fab740b4fbb18170b235fdc020e04f4b2528",
+      "decoded_bytes": 218308608
+    }
+  ]
+}

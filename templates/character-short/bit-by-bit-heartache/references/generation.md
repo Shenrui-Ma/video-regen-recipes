@@ -1,6 +1,6 @@
 # 换角色：四段本地 H3 生成
 
-默认素材的剪辑无需执行本页。换角色时，采用[本地 ComfyUI](../../../../docs/comfyui-local.md)或[自托管远程实例](../../../../docs/comfyui-remote.md)，先确认实际安装的 H3 版本、模型和续接节点。
+默认素材的剪辑无需执行本页。对照爻光原版时，先读[复现材料](reproduction.md)：已补实际提示词、逐段参数、原生续接语义和可校验的577帧驱动附件。换角色时，采用[本地 ComfyUI](../../../../docs/comfyui-local.md)或[自托管远程实例](../../../../docs/comfyui-remote.md)，先确认实际安装的 H3 版本、模型和续接节点。
 
 具体生图工作流优先使用 [ComfyUI Toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)的SDXL两次采样角色图，按[关联规则](../../../../skills/comfyui-reference-images/references/toolkit.md)取固定版本。当前Toolkit的H3对白图是独立分段，不能替代本页原生latent续接。
 
