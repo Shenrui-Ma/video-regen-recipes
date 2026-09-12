@@ -1,6 +1,6 @@
 # 模板索引
 
-目前收录 **10 个视频模板**。按名称、别名或类型查找，再把一句话需求交给对应 Skill。
+目前收录 **11 个视频模板**。按名称、别名或类型查找，再把一句话需求交给对应 Skill。
 
 剧情示例、备用角色素材、参考图 Skill 和空目录不重复计为模板。
 
@@ -14,6 +14,7 @@
 
 | 模板 | 别名 / 标签 | 一句话开始 | 使用状态 |
 | --- | --- | --- | --- |
+| [指定角色 RVC 训练与翻唱](singing-cover/character-rvc/README.md) · [执行](singing-cover/character-rvc/SKILL.md) | 角色RVC训练、RVC翻唱、RVC保姆级教程、角色音色训练、莫斯提马中文RVC、Mostima RVC、RVC、声音转换、角色训练、素材筛选、翻唱、音频 | 为我指定的角色寻找中文语音来源，核验使用范围后训练 RVC 模型，并将我提供的歌曲做成原调翻唱。 | 历史资料已整理；离线 helper 已测，新角色训练、GPU 推理与听审待验证 |
 | [少女乐队 DDSP-SVC 翻唱](singing-cover/girls-band-ddsp/README.md) · [执行](singing-cover/girls-band-ddsp/SKILL.md) | 少女乐队翻唱、SVC翻唱、DDSP翻唱、高松灯翻唱、千早爱音翻唱、STARBOY、Billie Jean、SVC、DDSP-SVC、MyGO、Ave Mujica、少女乐队、音频、翻唱 | 用高松灯音色将我提供的歌曲做成原调翻唱，保留和声，交付母带和分轨。 | 历史资料已整理；离线预检已测，新环境 GPU 推理与听审待验证 |
 
 <a id="category-2"></a>

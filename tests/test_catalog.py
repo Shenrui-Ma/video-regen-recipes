@@ -109,4 +109,12 @@ class CatalogTests(unittest.TestCase):
         self.assertNotEqual(cover['category'],visualizer['category'])
         self.assertEqual(m.search(data,'律动环')[0]['id'],'rhythm-ring-mv')
 
+    def test_rvc_training_has_its_own_entry_and_does_not_replace_ddsp(self):
+        data=m.collect(ROOT/'templates')
+        self.assertEqual(m.search(data,'RVC训练')[0]['id'],'character-rvc-training-cover')
+        self.assertEqual(m.search(data,'莫斯提马中文RVC')[0]['id'],'character-rvc-training-cover')
+        ids={item['id'] for item in data['templates']}
+        self.assertIn('girls-band-ddsp-cover',ids)
+        self.assertIn('rhythm-ring-mv',ids)
+
 if __name__=='__main__':unittest.main()

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "character-rvc-training-cover",
+  "status": "adapted-template-offline-checked",
+  "new_environment_validation": "pending-linux-gpu-training-inference-and-listening",
+  "video_model": null,
+  "audio_backend": "RVC v2 / 48k / F0",
+  "default_deployment": "isolated-linux-nvidia-gpu; local-or-user-configured-remote",
+  "author": "Shenrui Ma（四倍体果蝇）",
+  "code_author": "RVCProject / RVC-Project",
+  "baseline": {
+    "commit": "4338f12c3c28c80b3ac015e2d0df66c41592746d",
+    "python": "3.12",
+    "torch": "2.7.1+cu118",
+    "feature_dimensions": 768,
+    "training_sample_rate": 48000,
+    "speaker_id": 0,
+    "f0_method": "rmvpe",
+    "key_semitones": 0,
+    "current_training": "not-run",
+    "current_gpu_inference": "not-run",
+    "current_listening_review": "not-performed"
+  },
+  "historical_example": {
+    "character": "莫斯提马 / Mostima",
+    "series": "明日方舟",
+    "language": "zh-CN",
+    "actor": "若舞",
+    "source_url": "https://www.bilibili.com/video/BV17a411d7ex/",
+    "source_kind": "reposted-voice-compilation-not-official-account",
+    "rights_status": "unknown",
+    "training_character_rows": 86,
+    "mute_rows": 2,
+    "index_feature_files": 87,
+    "independent_validation_set": "not-evidenced",
+    "checkpoint_selection": "historical-e150-script-choice-not-proven-best",
+    "published_rvc_result_url": null
+  },
+  "files": {"guide": "README.md", "agent_entry": "SKILL.md", "sources": "sources.md"},
+  "index": {
+    "title": "指定角色 RVC 训练与翻唱",
+    "aliases": ["角色RVC训练", "RVC翻唱", "RVC保姆级教程", "角色音色训练", "莫斯提马中文RVC", "Mostima RVC"],
+    "category": "SVC 翻唱",
+    "tags": ["RVC", "声音转换", "角色训练", "素材筛选", "翻唱", "音频"],
+    "summary": "为指定角色发现语音来源、筛选分组留出、训练与选择 RVC 模型、校验索引，再分声部转换歌曲并混音交付。",
+    "customizable": ["角色", "作品", "语言与配音演员", "语音来源", "分组留出", "训练参数", "checkpoint", "歌曲", "移调", "索引率", "主唱与和声", "混音"],
+    "request_example": "为我指定的角色寻找中文语音来源，核验使用范围后训练 RVC 模型，并将我提供的歌曲做成原调翻唱。",
+    "requirements": ["角色、作品与目标语言", "有权训练和转换的录音", "歌曲或已审听分轨", "独立 Linux NVIDIA GPU 环境", "固定 RVC v2/48k/F0 源码与配对资产", "FFmpeg/ffprobe", "Python 3.10+（离线 helper 仅标准库）", "人工筛选与听审"],
+    "variants": ["指定角色新训练", "已验证 RVC 模型复用", "莫斯提马中文若舞历史示例"],
+    "status_label": "历史资料已整理；离线 helper 已测，新角色训练、GPU 推理与听审待验证"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "parameters": {
+    "stage": "index",
+    "rvc_commit": "4338f12c3c28c80b3ac015e2d0df66c41592746d",
+    "version": "v2",
+    "feature_policy": "all-training-source-hubert-no-holdout",
+    "n_cpu": 16
+  },
+  "resources": {
+    "features": "index-work/3_feature768",
+    "hubert_config": "dependencies/hubert_base/config.json",
+    "hubert_weights": "dependencies/hubert_base/pytorch_model.bin",
+    "index_source": "source/train_index.py"
+  }
+}

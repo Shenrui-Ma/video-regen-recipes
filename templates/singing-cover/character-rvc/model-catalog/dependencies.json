@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "compatibility_profile": "rvc-4338f12-v2-48k-f0-hf-hubert",
+  "code_url": "https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/tree/4338f12c3c28c80b3ac015e2d0df66c41592746d",
+  "asset_source_url": "https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main",
+  "asset_download_revision": null,
+  "hash_basis": "Imported from v1.0 source-package read-only audit records; not newly downloaded or hashed by this template implementation. main is mutable; historical download revision is unknown.",
+  "license_status": "RVC code MIT does not establish licenses for all weights, recordings or voice rights. Review each original notice before use or redistribution.",
+  "dependencies": [
+    {
+      "id": "hf-hubert-base",
+      "purpose": "Local Transformers HuBERT/ContentVec directory; v2 768-dimensional features, not legacy hubert_base.pt",
+      "artifacts": [
+        {"path": "assets/hubert_base/config.json", "bytes": 1492, "sha256": "0346950779dfb7f9316fa74ed846e2b8a22a08eedfdc5387b73f327cb1a4a7cf"},
+        {"path": "assets/hubert_base/preprocessor_config.json", "bytes": 225, "sha256": "7c1976a680fb7acc757cd36fb08eef878fa36c70b4c9d2d595df9c608bbbbf0e"},
+        {"path": "assets/hubert_base/pytorch_model.bin", "bytes": 189206711, "sha256": "cc8c20f4b90a520757260197a3ff2505705a7adbd20ad9eeaa4e1a9b38442ef5"}
+      ]
+    },
+    {
+      "id": "rvc-rmvpe",
+      "purpose": "F0 extraction and RVC inference; do not substitute another implementation's RMVPE file",
+      "artifacts": [
+        {"path": "assets/rmvpe/rmvpe.pt", "bytes": 181184272, "sha256": "6d62215f4306e3ca278246188607209f09af3dc77ed4232efdd069798c4ec193"}
+      ]
+    },
+    {
+      "id": "pretrained-v2-f0-48k",
+      "purpose": "Paired generator/discriminator pretraining assets, not a character model",
+      "artifacts": [
+        {"path": "assets/pretrained_v2/f0G48k.pth", "bytes": 75465569, "sha256": "b5d51f589cc3632d4eae36a315b4179397695042edc01d15312e1bddc2b764a4"},
+        {"path": "assets/pretrained_v2/f0D48k.pth", "bytes": 142875703, "sha256": "2269b73c7a4cf34da09aea99274dabf99b2ddb8a42cbfb065fb3c0aa9a2fc748"}
+      ]
+    },
+    {
+      "id": "mute-v2-48k-f0",
+      "purpose": "mute.zip extracted into logs; one compatible row repeated twice, not character speech",
+      "artifacts": [
+        {"path": "logs/mute/0_gt_wavs/mute48k.wav", "bytes": 288078, "sha256": "2f2bb4daaa106e351aebb001e5a25de985c0b472f22e8d60676bc924a79056ee"},
+        {"path": "logs/mute/3_feature768/mute.npy", "bytes": 457856, "sha256": "16ef62b957887ac9f0913aa5158f18983afff1ef5a3e4c5fd067ac20fc380d54"},
+        {"path": "logs/mute/2a_f0/mute.wav.npy", "bytes": 1332, "sha256": "9b9acf9ab7facdb032e1d687fe35182670b0b94566c4b209ae48c239d19956a6"},
+        {"path": "logs/mute/2b-f0nsf/mute.wav.npy", "bytes": 2536, "sha256": "30792849c8e72d67e6691754077f2888b101cb741e9c7f193c91dd9692870c87"}
+      ]
+    }
+  ],
+  "separation_reference": "../../girls-band-ddsp/model-catalog/dependencies.json",
+  "ddsp_weights_required": false
+}
