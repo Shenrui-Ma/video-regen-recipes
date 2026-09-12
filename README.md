@@ -1,13 +1,13 @@
 # Video ReGen Recipes
 
-**一句话，让 Agent 在本地复刻热点 MEME／鬼畜／手书视频，也可在 Updream 等线上工具快速复用。**
+**一句话，本地，让 Agent 复刻热点 MEME／鬼畜／手书视频，也可在 Updream 等线上工具快速复用。**
 
 <!-- Template count is generated from profile.json files by scripts/catalog.py. -->
 ### 🎬 已收录 [11 个视频模板](templates/) · 持续更新
 
 ![Video ReGen Recipes 封面](assets/hero.png)
 
-本仓库搜集各类二创模板，旨在降低短视频制作门槛。通过可复用的模板与 Skills，教会你的 Agent 部署和调用本地视频工作流，串联参考图、声音、视频生成与后期剪辑，让你用一句话开始创作属于自己的版本。
+本仓库搜集各类二创模板，旨在降低本地视频门槛。通过可复用的模板与 Skills，教会你的 Agent 部署和调用本地视频工作流，串联参考图、声音、视频生成与后期剪辑，让你用一句话开始创作属于自己的版本。
 
 ## 怎么用
 
