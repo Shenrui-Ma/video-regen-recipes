@@ -16,6 +16,6 @@
 
 视频默认使用本地 ComfyUI + H3；环境未就绪时由 Agent 检查并协助配置。已有片段也可用于明确要求的重剪或换音乐。
 
-[生成流程](references/generation.md) · [原版复现对照](references/reproduction.md) · [剪辑与交付](references/editing.md) · [素材目录](assets/README.md) · [参数](profile.json) · [来源与验证](sources.md)
+[部署与分段](references/deployment.md) · [节点来源](references/node-sources.md) · [工作流恢复](references/workflow-recovery.md) · [生成流程](references/generation.md) · [原版复现对照](references/reproduction.md) · [剪辑与交付](references/editing.md) · [素材目录](assets/README.md) · [参数](profile.json) · [来源与验证](sources.md)
 
 原创配方：**Shenrui Ma（四倍体果蝇）**。新角色生成需要匹配的 H3 续接实现，当前尚未打包为完整安装器。

@@ -139,7 +139,7 @@ motion_context_audio_end_frame = u/q
 - `patch_payload.py` 的 `_patched_extra_conds` 在 keyframes 与 refs 共存且有上述 marker 时，将视频 payload 按“keyframe视频、reference视频”顺序拼接，音频同理，避免 refs 覆盖 keyframe 内容。未带 marker 的 Apply 不触发该修复分支。layout 有位置而 payload 无内容仍会失败。
 - 两个 marker 字符串是节点／两补丁共享的接口，不能独立改名。layout patch 探测 `PackedLayout.__init__` 是否接受 `frame_count`，而不是仅相信版本字符串；源码注释提及不同 Comfy 版本，不代表本页已固定或验证那些版本。
 - 补丁包含重复／其他包装器检测。遇到另一副本时可能让先加载的副本接管；因此 `is_applied=True` 仍不能证明正在用这里的 SHA。检查真正生效的函数来源；不要叠装多个副本或仅靠重命名文件夹禁用。
-- `HermesH3Continuation/__init__.py` 明确注册左列四个 API 类名；`nodes.py` 明确包含右列四个类名的 `NODE_CLASS_MAPPINGS`。**本次未取得并核验右列包的顶层注册入口**。部署者须确认自己的 Comfy 自定义节点入口实际导出这些 mappings，且 `/object_info` 中的 API 类名和字段相符，不能凭 UI display name 判断。
+- 注册入口补查：现已从安装目录取回原生包的 `__init__.py`，核对其上游为 NikoDemon80/ComfyUI-H3-Motion-Context，详见[完整来源与版本边界](node-sources.md)。旧缓存目录缺入口不等于无法恢复完整包。当前安装含本地修改且不是历史版本锁；仍须在目标实例核对 `/object_info` 的真实 API 类名与字段。
 
 ## 7. 社区复现者对照清单
 

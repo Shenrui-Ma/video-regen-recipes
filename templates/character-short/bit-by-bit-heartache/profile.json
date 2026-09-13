@@ -12,37 +12,10 @@
     "steps": 20,
     "sampler": "res_multistep",
     "scheduler": "simple",
-    "visible_frames": [
-      158,
-      158,
-      141,
-      141
-    ],
-    "sample_frames": [
-      158,
-      192,
-      175,
-      175
-    ],
-    "head_trim_frames": [
-      0,
-      22,
-      22,
-      22
-    ],
-    "video_context_frames": [
-      0,
-      22,
-      22,
-      22
-    ],
-    "audio_context_parameter": [
-      0,
-      24,
-      24,
-      24
-    ],
-    "reference_audio_connected": false
+    "reference_audio_connected": false,
+    "segment_policy": "hardware-calibrated",
+    "segment_count": null,
+    "plan_script": "scripts/plan_segments.py"
   },
   "default_edit": {
     "fps": 60,
@@ -70,7 +43,9 @@
     "generation": "references/generation.md",
     "editing": "references/editing.md",
     "prompt": "prompts/ref2va.template.txt",
-    "sources": "sources.md"
+    "sources": "sources.md",
+    "deployment": "references/deployment.md",
+    "node_sources": "references/node-sources.md"
   },
   "character_selection": {
     "priority": [
@@ -108,5 +83,45 @@
       "FFmpeg"
     ],
     "status_label": "已有片段可重剪；新角色需配置续接"
+  },
+  "historical_generation": {
+    "mode": "Ref2VA with native canonical AV latent continuation",
+    "width": 1344,
+    "height": 768,
+    "fps": 24,
+    "steps": 20,
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "visible_frames": [
+      158,
+      158,
+      141,
+      141
+    ],
+    "sample_frames": [
+      158,
+      192,
+      175,
+      175
+    ],
+    "head_trim_frames": [
+      0,
+      22,
+      22,
+      22
+    ],
+    "video_context_frames": [
+      0,
+      22,
+      22,
+      22
+    ],
+    "audio_context_parameter": [
+      0,
+      24,
+      24,
+      24
+    ],
+    "reference_audio_connected": false
   }
 }
