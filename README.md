@@ -32,8 +32,6 @@ Agent 会先询问你的意见，按需部署本地推理服务，再一键生�
 
 ## 参与贡献
 
-**核心贡献者**：[ShaoZhenLiu](https://github.com/ShaoZhenLiu)
-
 欢迎分享视频案例、提示词、工作流和复现经验，见[贡献指南](CONTRIBUTING.md)。
 
 **维护者测试**：使用[复现测试提示词](docs/testing/reproduction.prompt.md)，严格按模板复现，避免 Agent 靠额外搜索或临时补救掩盖模板缺漏，并完整记录遇到的问题。欢迎提交测试反馈。
