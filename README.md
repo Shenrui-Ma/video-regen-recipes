@@ -9,7 +9,7 @@
 
 本仓库搜集各类二创模板，旨在降低本地视频门槛。通过可复用的模板与 Skills，教会你的 Agent 部署和调用本地视频工作流，串联参考图、声音、视频生成与后期剪辑，让你用一句话开始创作属于自己的版本。
 
-## Getting Started
+## 快速开始
 
 <p>
   <a href="https://openai.com/codex/" title="Codex"><img src="assets/icons/codex.png" width="48" height="48" alt="Codex logo"></a>&nbsp;&nbsp;
@@ -24,7 +24,7 @@
 
 Agent 会先询问你的意见，按需部署本地推理服务，再一键生成二创视频。
 
-## Documentation
+## 文档导航
 
 | 文档 | 内容 |
 | --- | --- |
