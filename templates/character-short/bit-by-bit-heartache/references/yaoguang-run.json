@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "recipe": "bit-by-bit-heartache",
+  "preset": "yaoguang",
+  "evidence_kind": "historical-sidecars-and-recovered-source",
+  "settings": {
+    "mode": "Ref2VA with canonical AV latent continuation",
+    "width": 1344,
+    "height": 768,
+    "fps": 24,
+    "steps": 20,
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "denoise": 1.0,
+    "guider": "BasicGuider",
+    "cfg": null,
+    "lora": null,
+    "clip_projection": null,
+    "fast": false,
+    "ref_image_size": {
+      "value": "match",
+      "evidence": "recovered CLI config and reconstructed API graph; not a field in the final sidecars"
+    },
+    "reference_audio_connected": false
+  },
+  "models": {
+    "transformer": {
+      "filename": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "historical_sha256": null
+    },
+    "text_encoder": {
+      "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "historical_sha256": null
+    },
+    "video_vae": {
+      "filename": "minimax_h3_video_vae_fp16.safetensors",
+      "historical_sha256": null
+    },
+    "audio_vae": {
+      "filename": "minimax_h3_audio_vae_fp32.safetensors",
+      "historical_sha256": null
+    }
+  },
+  "segments": [
+    {
+      "segment": 1,
+      "prompt_id": "681d28a3-f483-4c06-8c57-52bfaac903ae",
+      "seed": "214235573447273430",
+      "prompt_file": "prompts/yaoguang.historical.txt",
+      "prompt_sha256": "3a3c183c678220df4506354e76fe11647c12d856fbb4a08843408b56cedf64f2",
+      "visible_frames": 158,
+      "sample_frames": 158,
+      "head_trim_frames": 0,
+      "published_interval": [
+        0,
+        158
+      ],
+      "unpublished_tail_frames": 0,
+      "video_context_frames": 0,
+      "audio_context_parameter": 0,
+      "continue_audio": false,
+      "predecessor_segment": null,
+      "historical_driver_filename": "seg1_ref24_1344x768.mp4",
+      "historical_driver_file_sha256": "ded54c5174df806e10ec96c31d1cc2c34af260b6eb31679eb14c42ec3abf9fca",
+      "encoder_route": "local"
+    },
+    {
+      "segment": 2,
+      "prompt_id": "e25301d7-25d5-4c2f-beaa-6681d037e6f8",
+      "seed": "1459903066845096071",
+      "prompt_file": "prompts/yaoguang.historical.txt",
+      "prompt_sha256": "3a3c183c678220df4506354e76fe11647c12d856fbb4a08843408b56cedf64f2",
+      "visible_frames": 158,
+      "sample_frames": 192,
+      "head_trim_frames": 22,
+      "published_interval": [
+        22,
+        180
+      ],
+      "unpublished_tail_frames": 12,
+      "video_context_frames": 22,
+      "audio_context_parameter": 24,
+      "continue_audio": true,
+      "predecessor_segment": 1,
+      "historical_driver_filename": "seg2_ref24_1344x768.mp4",
+      "historical_driver_file_sha256": "3a065fcb5e7918ed6f0495ce0c55a612b24b878da8693d89cb9e89f21ad44e22",
+      "encoder_route": "local"
+    },
+    {
+      "segment": 3,
+      "prompt_id": "5e37bc27-b7f2-41a2-a17e-00c13664c95e",
+      "seed": "7850450784904972903",
+      "prompt_file": "prompts/yaoguang.historical.txt",
+      "prompt_sha256": "3a3c183c678220df4506354e76fe11647c12d856fbb4a08843408b56cedf64f2",
+      "visible_frames": 141,
+      "sample_frames": 175,
+      "head_trim_frames": 22,
+      "published_interval": [
+        22,
+        163
+      ],
+      "unpublished_tail_frames": 12,
+      "video_context_frames": 22,
+      "audio_context_parameter": 24,
+      "continue_audio": true,
+      "predecessor_segment": 2,
+      "historical_driver_filename": "seg3_ref24_1344x768.mp4",
+      "historical_driver_file_sha256": "197f07710d598f2161c05a16d98dc09d1ae274934bc6314609dc006c50f9be10",
+      "encoder_route": "local"
+    },
+    {
+      "segment": 4,
+      "prompt_id": "fdea97d0-16a0-450b-aa3a-7b5aaf518016",
+      "seed": "8295737831123548902",
+      "prompt_file": "prompts/yaoguang.historical.txt",
+      "prompt_sha256": "3a3c183c678220df4506354e76fe11647c12d856fbb4a08843408b56cedf64f2",
+      "visible_frames": 141,
+      "sample_frames": 175,
+      "head_trim_frames": 22,
+      "published_interval": [
+        22,
+        163
+      ],
+      "unpublished_tail_frames": 12,
+      "video_context_frames": 22,
+      "audio_context_parameter": 24,
+      "continue_audio": true,
+      "predecessor_segment": 3,
+      "historical_driver_filename": "seg4_ref24_1344x768.mp4",
+      "historical_driver_file_sha256": "5f147f48ce08b37b639d6e7d45d48713cce3910f8a5e8e9afe279759596f3a70",
+      "encoder_route": "local"
+    }
+  ],
+  "environment": {
+    "comfyui_version": {
+      "value": "0.30.0",
+      "evidence": "historical service-ready response"
+    },
+    "memory_mode": {
+      "value": "highvram",
+      "evidence": "historical process arguments"
+    },
+    "gpu_model": null,
+    "torch_version": null,
+    "cuda_version": null,
+    "exact_python_version": null,
+    "node_package_commits": null,
+    "attention_cache_patches": {
+      "Sage": null,
+      "H3SLA": null,
+      "EasyCache": null,
+      "SolAttn": null
+    },
+    "unknown_policy": "null means not established for these exact four historical runs; do not fill from current machines"
+  },
+  "identity_image": {
+    "input_dimensions": [
+      2352,
+      2352
+    ],
+    "historical_png_sha256": "6c0c38fc5832e6c813e0312f43c7c53c3c091155fcb87cf681866c7adfab8789",
+    "public_png_sha256": "97d0d6f5e85b0f0e1b95f5fe8df938402907081e6672c4c0a3f0b4bce87f3bc3",
+    "preprocessing": "Loaded the existing square PNG as ref_image; no separate pre-upload resize/crop found in the recovered CLI path. Public copy removes metadata, not compressed image data."
+  },
+  "driver": {
+    "historical_full_frames": 577,
+    "historical_part_frames": [
+      327,
+      262
+    ],
+    "part_ranges": [
+      [
+        0,
+        328
+      ],
+      [
+        12,
+        263
+      ]
+    ],
+    "segment_ranges": [
+      [
+        0,
+        158
+      ],
+      [
+        151,
+        309
+      ],
+      [
+        302,
+        443
+      ],
+      [
+        436,
+        577
+      ]
+    ],
+    "full_file_sha256": "e63386ab88bf4a11dc2fd859b0075099229cad44d77366a220c6e0bb0ba0ca0d",
+    "full_file_bytes": 160208343,
+    "download_url": "https://github.com/Shenrui-Ma/video-regen-recipes/releases/download/heartache-reference-20260824/heartache-driver-577f.mp4"
+  },
+  "editing": {
+    "fps": 60,
+    "source_frames": [
+      158,
+      158,
+      175,
+      175
+    ],
+    "placement_ranges": [
+      [
+        0,
+        395
+      ],
+      [
+        395,
+        790
+      ],
+      [
+        768,
+        1205
+      ],
+      [
+        1150,
+        1587
+      ]
+    ],
+    "visible_prefix_frames": [
+      395,
+      373,
+      382,
+      437
+    ],
+    "total_frames": 1587,
+    "motion_interpolation": false,
+    "historical_duplicate_samples": {
+      "segment2_to_3": {
+        "left_inclusive": [
+          148,
+          157
+        ],
+        "right_inclusive": [
+          0,
+          9
+        ],
+        "count": 10
+      },
+      "segment3_to_4": {
+        "left_inclusive": [
+          153,
+          174
+        ],
+        "right_inclusive": [
+          0,
+          21
+        ],
+        "count": 22
+      }
+    },
+    "scope": "Manual PR timeline for the bundled original clips only; not an automatic rule for new generations"
+  },
+  "verification": {
+    "new_gpu_inference": false,
+    "windows_4060_inference": false,
+    "full_original_history_graphs_recovered": false,
+    "note": "Exact prompt and seeds are recovered. Missing model hashes/version locks prevent a bit-identical inference claim."
+  }
+}
