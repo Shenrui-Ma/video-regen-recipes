@@ -1,5 +1,7 @@
 # 爻光原版复现对照
 
+本页四段参数仅用于历史对照；新任务按[部署与硬件分段](deployment.md)执行。工作流及注册入口补查结果见[恢复说明](workflow-recovery.md)与[节点来源](node-sources.md)。
+
 对应 [Issue #1](https://github.com/Shenrui-Ma/video-regen-recipes/issues/1)。本页补充原版运行证据，供已经用其他节点跑通生成的复现者对照。节点同名、参数接近、能够生成，都不证明上下文行为或输入相同。
 
 ## 先取这些材料
