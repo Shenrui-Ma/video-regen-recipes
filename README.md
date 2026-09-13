@@ -11,6 +11,13 @@
 
 ## 怎么用
 
+<p>
+  <a href="https://openai.com/codex/" title="Codex"><img src="assets/icons/codex.png" width="48" height="48" alt="Codex logo"></a>&nbsp;&nbsp;
+  <a href="https://claude.com/product/claude-code" title="Claude Code"><img src="assets/icons/claude-code.png" width="48" height="48" alt="Claude Code logo"></a>&nbsp;&nbsp;
+  <a href="https://hermes-agent.nousresearch.com/" title="Hermes Agent"><img src="assets/icons/hermes-agent.png" width="48" height="48" alt="Hermes Agent logo"></a>&nbsp;&nbsp;
+  <a href="https://openclaw.ai/" title="OpenClaw"><img src="assets/icons/openclaw.svg" width="48" height="48" alt="OpenClaw logo"></a>
+</p>
+
 让 Codex、Claude Code、Hermes Agent、OpenClaw 等支持 Skills 的 Agent 读取[模板](templates/)，见[使用与适配状态](docs/agent-compatibility.md)。
 
 Agent 会先询问你的意见，按需部署本地推理服务，再一键生成二创视频。
