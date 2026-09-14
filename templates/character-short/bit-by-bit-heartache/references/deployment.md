@@ -2,7 +2,7 @@
 
 目标：测试者的 Agent 读取模板后，检查并安装环境、准备输入、生成视频和导出。原作者的四段参数只供历史对照；新任务不要求四段。
 
-当前已提供独立运行入口、完整公开依赖锁与工作流。安装步骤见[install.md](install.md)，当前依赖以[dependencies.lock.json](dependencies.lock.json)为准；[node-sources.md](node-sources.md)保留历史来源，不能当成当前安装清单。封装验收范围见[validation.md](validation.md)。
+当前已提供独立运行入口、完整公开依赖锁与工作流。安装步骤见[环境说明](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)，当前依赖以[环境依赖锁](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/dependencies.lock.json)为准；[node-sources.md](node-sources.md)保留历史来源，不能当成当前安装清单。封装验收范围见[validation.md](validation.md)。
 
 ## 1. 检查并部署
 

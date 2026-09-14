@@ -17,6 +17,6 @@
 
 原生latent续接、22帧头部裁切、后两段canonical选源和1587帧时间线来自历史记录。没有把已发布视频重编码续接、早期独立四段或旧RIFE母版混入当前方法。
 
-当前[公开依赖锁](references/dependencies.lock.json)提供H3模型权重的固定来源、大小和SHA，安装脚本按固定版本获取公开节点。权重、私人latent和成片不内嵌轻量包。历史剪辑素材仅用于用户明确授权的重剪；新角色仍需实际生成，不能仅凭相同seed宣称逐像素复现。
+当前[环境依赖锁](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/dependencies.lock.json)提供H3模型权重的固定来源、大小和SHA，安装脚本按固定版本获取公开节点。权重、私人latent和成片不内嵌轻量包。历史剪辑素材仅用于用户明确授权的重剪；新角色仍需实际生成，不能仅凭相同seed宣称逐像素复现。
 
 技术依赖：[MiniMax H3](https://github.com/MiniMax-AI/MiniMax-H3)、[模型卡](https://huggingface.co/MiniMaxAI/MiniMax-H3)、[ComfyUI](https://github.com/Comfy-Org/ComfyUI)、[FFmpeg](https://ffmpeg.org/)。可选RTX VSR和RIFE依其实际实现与许可使用。

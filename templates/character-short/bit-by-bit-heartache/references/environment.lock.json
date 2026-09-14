@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit",
+  "environment": "environments/h3",
+  "commit": "feee30d818aee9a6ee5f8ec098aea1f4d906c935",
+  "guide": "environments/h3/README.md",
+  "tree_url": "https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3",
+  "dependency_lock": "environments/h3/dependencies.lock.json",
+  "entry_points": {
+    "install": "environments/h3/scripts/install.py",
+    "patches": "environments/h3/scripts/apply_patches.py",
+    "models": "environments/h3/scripts/model_commands.py",
+    "preflight": "environments/h3/scripts/preflight.py"
+  },
+  "note": "H3 推理环境不在本模板内维护。安装、依赖锁、补丁、模型命令与预检都以该 commit 的 environments/h3 为准；本模板只引用它，不复制其脚本或 vendor 内容。"
+}

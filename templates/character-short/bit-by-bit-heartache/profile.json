@@ -48,7 +48,8 @@
     "node_sources": "references/node-sources.md",
     "character_preprocessing": "references/background-removal.md",
     "media_preflight": "references/media-preflight.md",
-    "first_segment_validation": "references/first-segment-validation.json"
+    "first_segment_validation": "references/first-segment-validation.json",
+    "environment_lock": "references/environment.lock.json"
   },
   "character_selection": {
     "priority": [
@@ -130,12 +131,11 @@
   "runtime": {
     "entry": "scripts/runtime/heartache.py",
     "asset_manifest": "assets/runtime-assets.json",
-    "installer": "scripts/environment/install.py",
-    "preflight": "scripts/environment/preflight.py",
     "clean_install_inference_verified": false,
     "distribution_mode": "portable-no-media",
     "existing_environment_first_segment_verified": true,
-    "first_segment_validation": "references/first-segment-validation.json"
+    "first_segment_validation": "references/first-segment-validation.json",
+    "environment_lock": "references/environment.lock.json"
   },
   "version": "0.3.0"
 }

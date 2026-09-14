@@ -2,15 +2,19 @@
   "schema_version": 1,
   "scope": "historical-recovered-H3-graphs-only; not-current-install-manifest",
   "status": "historical-source-record; private Save/Load/Trim are not current dependencies",
-  "current_dependency_lock": "dependencies.lock.json",
-  "current_install_guide": "install.md",
+  "current_dependency_lock": "https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/dependencies.lock.json",
+  "current_install_guide": "https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md",
   "current_public_replacement": {
     "save": "Core LTXVSeparateAVLatent then two Core SaveLatent nodes (video and audio)",
     "load": "Two Core LoadLatent nodes then LTXVConcatAVLatent into MiniMaxH3MotionContext.context_latent",
     "trim": "Current Core graph and runtime media trimming; no private TrimMiniMaxH3MotionContext",
     "historical_cache_byte_parity_claimed": false,
     "private_package_required": false,
-    "current_counts": {"total": 22, "core": 21, "public_custom": 1}
+    "current_counts": {
+      "total": 22,
+      "core": 21,
+      "public_custom": 1
+    }
   },
   "node_sources": {
     "BasicGuider": {
@@ -160,5 +164,6 @@
       "historical_commit": null,
       "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
     }
-  }
+  },
+  "environment_reference": "references/environment.lock.json"
 }

@@ -1,6 +1,6 @@
 # 原生续接工作流恢复范围
 
-> 历史来源记录：本页描述旧实现/回收阶段。新安装使用 [当前生成路径](generation.md)与[安装说明](install.md)，不需要旧私有Save/Load/Trim节点。
+> 历史来源记录：本页描述旧实现/回收阶段。新安装使用 [当前生成路径](generation.md)与[环境说明](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)，不需要旧私有Save/Load/Trim节点。
 
 
 当时的串行控制器、四份重建 API 图及部分 History 回读仍有保存。当前运行图不再放在本仓库：Toolkit 的 [H3 Core AV latent 续接包](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/af3dea3d05450eb2910f43f795a2eb6f346d06dc/workflows/h3/ref2va-core-continuation) 提供首段／续段两份参数化图，具体 commit 与逐文件 SHA 见 [workflow.lock.json](workflow.lock.json)。

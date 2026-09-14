@@ -26,8 +26,11 @@ class SkillContractTests(unittest.TestCase):
         p=json.loads((T/'profile.json').read_text())
         self.assertNotIn('not-packaged',p['status'])
         self.assertEqual(p['runtime']['entry'],'scripts/runtime/heartache.py')
-        for key in ('entry','asset_manifest','installer','preflight'):
+        for key in ('entry','asset_manifest','environment_lock'):
             self.assertTrue((T/p['runtime'][key]).is_file(), key)
+        lock = json.loads((T/p['runtime']['environment_lock']).read_text())
+        self.assertEqual(lock['environment'], 'environments/h3')
+        self.assertRegex(lock['commit'], r'^[0-9a-f]{40}$')
         self.assertFalse(p['runtime']['clean_install_inference_verified'])
 
 if __name__=='__main__': unittest.main()

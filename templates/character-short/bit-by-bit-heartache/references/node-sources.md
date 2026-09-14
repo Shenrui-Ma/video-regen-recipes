@@ -1,6 +1,6 @@
 # 节点来源：历史记录与当前公开环境
 
-**本页及 [node-sources.json](node-sources.json) 的 `node_sources` 是历史恢复图的来源记录，不是当前安装清单。当前运行图由 [workflow.lock.json](workflow.lock.json) 锁定到 toolkit 的 Core 续接包，其依赖以 [dependencies.lock.json](dependencies.lock.json) 为准，安装与验收见 [install.md](install.md)。**
+**本页及 [node-sources.json](node-sources.json) 的 `node_sources` 是历史恢复图的来源记录，不是当前安装清单。当前运行图由 [workflow.lock.json](workflow.lock.json) 锁定到 toolkit 的 Core 续接包，其依赖以 [环境依赖锁](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/dependencies.lock.json) 为准，安装与验收见 [环境说明](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)。**
 
 ## 当前公开链路
 
@@ -19,9 +19,9 @@
 
 历史恢复图曾有 20 类节点：16 类 Core，4 类非 Core，分属两个包。该计数不再描述当前工作流。JSON 保留逐类历史映射，便于识别旧图，不表示仍待用户安装它们。
 
-1. `MiniMaxH3MotionContext`：上述公开包。历史核查的 checkout 有本地 `nodes.py` 修改；现在已随 `vendor/motion-context/payload-before-audio.patch` 发布固定 before/after 源码、哈希和许可。仍不把当前补丁基底认定为当年运行锁。
+1. `MiniMaxH3MotionContext`：上述公开包。历史核查的 checkout 有本地 `nodes.py` 修改；现在已随 Toolkit `environments/h3/vendor/motion-context/payload-before-audio.patch` 发布固定 before/after 源码、哈希和许可。仍不把当前补丁基底认定为当年运行锁。
 2. `SaveMiniMaxH3AVLatent`、`LoadMiniMaxH3AVLatent`、`TrimMiniMaxH3MotionContext`：历史作者本地 `HermesH3Continuation/__init__.py`，源码 SHA-256 `edf270a641808282f5d3ff51a260518821a59ad1dffcd27e23e6f6794787c573`。没有独立公开发行包或已确认的软件许可，仓库与许可在 JSON 保留 null。当前图已移除依赖，不发布私有源码，也不要求复现者搜索同名节点。
 
 ## Core 模块归属
 
-加载器/latent 文件读写主要在 `nodes`；采样在 `comfy_extras.nodes_custom_sampler`；联合 AV 拆分/合并在 `comfy_extras.nodes_lt`；画面批次裁切在 `comfy_extras.nodes_images`；音频解码在 `comfy_extras.nodes_audio`；视频读写在 `comfy_extras.nodes_video`；H3 参考生成在 `comfy_extras.nodes_minimax_h3`。逐类当前来源与端口 contract 见当前锁及 `vendor/audit/object-info.contract.json`；该 contract 不含服务用户文件枚举。
+加载器/latent 文件读写主要在 `nodes`；采样在 `comfy_extras.nodes_custom_sampler`；联合 AV 拆分/合并在 `comfy_extras.nodes_lt`；画面批次裁切在 `comfy_extras.nodes_images`；音频解码在 `comfy_extras.nodes_audio`；视频读写在 `comfy_extras.nodes_video`；H3 参考生成在 `comfy_extras.nodes_minimax_h3`。逐类当前来源与端口 contract 见当前锁及 Toolkit `environments/h3/vendor/audit/object-info.contract.json`；该 contract 不含服务用户文件枚举。

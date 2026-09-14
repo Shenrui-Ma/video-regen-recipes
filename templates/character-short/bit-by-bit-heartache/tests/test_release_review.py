@@ -25,8 +25,12 @@ class ReleaseReviewTests(unittest.TestCase):
             self.assertEqual(run['fps'], 24)
             self.assertTrue(run['full_decode'])
             self.assertEqual(len(run['video_sha256']), 64)
-        self.assertIn('references/dependencies.lock.json', (ROOT / 'LICENSES.md').read_text())
-        self.assertNotIn('references/environment.lock.json', (ROOT / 'LICENSES.md').read_text())
+        licences = (ROOT / 'LICENSES.md').read_text()
+        self.assertIn('environments/h3/dependencies.lock.json', licences)
+        self.assertIn('environments/h3/vendor/', licences)
+        env_lock = json.loads((ROOT/'references/environment.lock.json').read_text())
+        self.assertEqual(env_lock['environment'], 'environments/h3')
+        self.assertIn(env_lock['commit'], licences)
 
 if __name__ == '__main__':
     unittest.main()
