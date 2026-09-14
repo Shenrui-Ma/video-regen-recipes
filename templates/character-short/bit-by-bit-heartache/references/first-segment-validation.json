@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "source_release": "0.2.0",
+  "existing_environment_first_segment_verified": true,
+  "clean_install_inference_verified": false,
+  "full_new_character_continuation_verified": false,
+  "new_release_gpu_rerun_performed": false,
+  "environment": {
+    "platform": "Linux x86_64",
+    "gpu": "NVIDIA A100 80GB PCIe",
+    "python": "3.10",
+    "pytorch": "2.5.1+cu121",
+    "comfyui": "0.30.0"
+  },
+  "runs": [
+    {
+      "reference_preprocessing": "original RGB reference; local audio recovery",
+      "frames": 107,
+      "fps": 24,
+      "width": 1344,
+      "height": 768,
+      "duration_seconds": 4.458333333333333,
+      "video_sha256": "2031899757950851a698c16b8349cef0aaf62d118cf4cfefbaf8ed3726b3abe8",
+      "bytes": 2618849,
+      "full_decode": true,
+      "delivery_readback_sha_verified": true,
+      "seed": "7351058684125329829",
+      "steps": 20
+    },
+    {
+      "reference_preprocessing": "RMBG-2.0 alpha composited on white RGB",
+      "frames": 107,
+      "fps": 24,
+      "width": 1344,
+      "height": 768,
+      "duration_seconds": 4.458333333333333,
+      "video_sha256": "e0b54aa1390f2f6286ddcf90a220f24a867e3cc14e3e5771bddf8f924e4aaaaf",
+      "bytes": 3438319,
+      "full_decode": true,
+      "delivery_readback_sha_verified": true,
+      "seed": "7351058684125329829",
+      "steps": 20
+    }
+  ],
+  "notes": [
+    "Real first-segment H3 outputs, not test fixtures. Raw logs and Telegram routing remain in private job records.",
+    "Reference preprocessing and existing-environment inference do not prove a fresh Linux install or full new-character continuation.",
+    "Original reference background carried into the first preview per user feedback; the second run used an explicit white RGB composite.",
+    "Frame/hash checks are technical verification, not an independent visual-quality score."
+  ]
+}

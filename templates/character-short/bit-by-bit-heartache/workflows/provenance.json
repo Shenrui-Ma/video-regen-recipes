@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "origin": "Adapted from successful first-segment and third-segment API graphs; private path/prompt bindings replaced. First save/decode uses successful continuation Core pattern, not a new inference result.",
+  "source_file_sha256": {
+    "first_api": "f41c3880e4a74901e05c54538ecc8192784a01e1e869f3d8f49879eb04808bad",
+    "continuation_api": "76f591d82b0a98dc0007155e0cedb9fd707ada2110829290749252b9a1792911",
+    "object_info": "4581e329d16a87be51d2c55a528c450c9f58c81bd978fa038cb95f9072ca5063"
+  },
+  "verified_ports": {
+    "MiniMaxH3MotionContext": {
+      "output_0": "CONDITIONING",
+      "output_1": "INT trim_frames"
+    },
+    "SaveLatent": {
+      "output_0": "LATENT"
+    }
+  },
+  "clean_install_inference_verified": false,
+  "audio_policy": "Save generated audio latent for continuation. Publish silent video and add one continuous supplied music track after concat."
+}

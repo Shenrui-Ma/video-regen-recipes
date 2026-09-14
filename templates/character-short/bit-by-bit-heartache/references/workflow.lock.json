@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit",
+  "commit": "3dd7bae380d24b48c152e8fb90a4b82861ff7f54",
+  "install_ready": false,
+  "inference_verified": false,
+  "graphs": [
+    {
+      "path": "workflows/h3/heartache-native/recovered-segment-01.api.json",
+      "sha256": "f2ffe54420d5e2cfc48e2eb26995802cac2b3c1a4114f9dff911c30d07e47377",
+      "url": "https://raw.githubusercontent.com/Shenrui-Ma/shenrui-comfyui-toolkit/3dd7bae380d24b48c152e8fb90a4b82861ff7f54/workflows/h3/heartache-native/recovered-segment-01.api.json"
+    },
+    {
+      "path": "workflows/h3/heartache-native/recovered-segment-02.api.json",
+      "sha256": "4c47193d4649056b066f04f2d8c5b4f66567bf93fbd66909e8a34e510c386cec",
+      "url": "https://raw.githubusercontent.com/Shenrui-Ma/shenrui-comfyui-toolkit/3dd7bae380d24b48c152e8fb90a4b82861ff7f54/workflows/h3/heartache-native/recovered-segment-02.api.json"
+    },
+    {
+      "path": "workflows/h3/heartache-native/recovered-segment-03.api.json",
+      "sha256": "8582cf72ed6cdf0a51b93fb818bc11f4dc542005d64e8f446eb38ecc5f43478d",
+      "url": "https://raw.githubusercontent.com/Shenrui-Ma/shenrui-comfyui-toolkit/3dd7bae380d24b48c152e8fb90a4b82861ff7f54/workflows/h3/heartache-native/recovered-segment-03.api.json"
+    },
+    {
+      "path": "workflows/h3/heartache-native/recovered-segment-04.api.json",
+      "sha256": "50f6d0e440612b12399880a2c5a597131f675bb2830e0d15c6b1422a9011dcb3",
+      "url": "https://raw.githubusercontent.com/Shenrui-Ma/shenrui-comfyui-toolkit/3dd7bae380d24b48c152e8fb90a4b82861ff7f54/workflows/h3/heartache-native/recovered-segment-04.api.json"
+    },
+    {
+      "path": "workflows/h3/heartache-native/first.api.template.json",
+      "sha256": "808ab69c8f9c2fdfb086c52b8e933fb2843b390631f73af68096906d4d074949",
+      "url": "https://raw.githubusercontent.com/Shenrui-Ma/shenrui-comfyui-toolkit/3dd7bae380d24b48c152e8fb90a4b82861ff7f54/workflows/h3/heartache-native/first.api.template.json"
+    },
+    {
+      "path": "workflows/h3/heartache-native/continue.api.template.json",
+      "sha256": "ab9539c79282a9054ec00bf32a8fc335837a49e96f525e5394a5012bf0f973fb",
+      "url": "https://raw.githubusercontent.com/Shenrui-Ma/shenrui-comfyui-toolkit/3dd7bae380d24b48c152e8fb90a4b82861ff7f54/workflows/h3/heartache-native/continue.api.template.json"
+    }
+  ]
+}

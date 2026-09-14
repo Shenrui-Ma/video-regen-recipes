@@ -1,66 +1,43 @@
-# 换角色：四段本地 H3 生成
+# 新角色生成：当前可执行路径
 
-默认素材的剪辑无需执行本页。对照爻光原版时，先读[复现材料](reproduction.md)：已补实际提示词、逐段参数、原生续接语义和可校验的577帧驱动附件。换角色时，采用[本地 ComfyUI](../../../../docs/comfyui-local.md)或[自托管远程实例](../../../../docs/comfyui-remote.md)，先确认实际安装的 H3 版本、模型和续接节点。
+从独立模板根目录按 [README](../README.md)执行。全部H3首段、续接、输入和后处理脚本都随包提供；无需其他个人Skill或私有Save/Load节点。
 
-具体生图工作流优先使用 [ComfyUI Toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)的SDXL两次采样角色图，按[关联规则](../../../../skills/comfyui-reference-images/references/toolkit.md)取固定版本。当前Toolkit的H3对白图是独立分段，不能替代本页原生latent续接。
+## 输入和条件
 
-## 1. 准备参考
+角色参考图→LoadImage→Ref2VA图像条件；577帧驱动→LoadVideo→GetVideoComponents.images→Ref2VA视频条件。驱动音轨不接入模型；正式配乐在发布画面拼接后重铺。参考条件提供身份和动作引导，不等于硬首帧或逐帧骨骼约束。
 
-默认角色图可直接使用，也可换成新图。新图由[ComfyUI](../../../../skills/comfyui-reference-images/SKILL.md)、[GPT Image 2 high](../../../../skills/gpt-image2-reference-images/SKILL.md)或其他已配置入口准备；不要沿用默认角色的名字、服装描述或 LoRA。
+固定基础为1344×768、24fps、20步、res_multistep/simple、BasicGuider、denoise=1。固定模型与依赖见[安装说明](install.md)，角色文字使用[prompt模板](../prompts/ref2va.template.txt)。不得把历史爻光描述沿用于新角色。
 
-驱动原片为3840×2160，1105帧，容器约24.5555秒，平均帧率约45fps。先读取实际元数据；它不是24fps或60fps源片。默认生成画布1344×768，和源片比例不同：历史使用直接缩放，新项目若改为等比补边或裁切，应明确记录并重新核对构图。
+## 采样与发布计划
 
-历史参考制作经过两次处理：
+`plan_segments.py`以实测容量求计划；采样帧按17k+5网格对齐。首段最多发布全部采样帧，后段保留22帧context成本，仅发布其后新画面；末段补齐网格的尾帧不进入发布结果。驱动切片与该段context+新增画面对齐，不能把历史四段的切点套到新计划。
 
-1. 在13.644438秒处分开原片，分别转24fps、1344×768。
-2. 第一部分取 `[0,328)`，第二部分取 `[12,263)` 后拼回；实际解码为577帧，不能把计划上界579当实际帧数。
+例如实测最大107采样帧时，首段发布107，后续满段各发布85；总长由实际驱动577帧决定。这仅是容量示例。新机器先做完整首段和续接校准，记录模型常驻、RAM、显存与解码峰值。
 
-再按下列区间拆分。所有范围都是从0开始、右端不含：
+## 真续接
 
-| 段 | 577帧参考中的区间 | 帧数 |
-| --- | --- | ---: |
-| 1 | [0,158) | 158 |
-| 2 | [151,309) | 158 |
-| 3 | [302,443) | 141 |
-| 4 | [436,577) | 141 |
+1. Sampler产生完整联合AV latent。
+2. Core `LTXVSeparateAVLatent`拆成video/audio，分别用Core `SaveLatent`保存，外部sidecar保存发布区间、前驱及SHA。
+3. 下一段Core `LoadLatent`两路读取，`LTXVConcatAVLatent`合并，接到公开`MiniMaxH3MotionContext.context_latent`。
+4. MotionContext的第二输出是INT裁切量，连`ImageFromBatch.batch_index`；length为计划发布帧数。
+5. 保留完整latent与已经裁过context的发布画面，两者用途不同；后期只拼发布画面，不再次裁22帧。
 
-这是历史参考准备方案，已改变源时间线。重新处理后必须核对真实帧数；未得到相同参考不能假称逐帧复刻。新角色／新视频可重新分段，7帧参考重叠不等于生成结果应该删7帧。
+Core LoadLatent会读成F32。这里只声明已核验F32往返，不泛化到其他dtype。私有canonical旧格式的字段及历史四段区别留在[历史续接记录](native-continuation.md)，不作为新安装的依赖。
 
-## 2. 固定基础采样
+## 运行和恢复
 
-1344×768、24fps、20步，`res_multistep` / `simple`、denoise=1.0、BasicGuider。无 CFG 字段、negative conditioning、Turbo LoRA 或 clip projection，不凭经验补参数。
+用`scripts/runtime/heartache.py`准备、检查、显式执行。每段runner先写提交意图，取得prompt_id后只围绕原ID查history；提交结果不明时禁止自动重投。用户取消后停止后续提交，完整保留已完成前驱。
 
-历史组合为 INT8 convrot Ref2VA 主模型、Qwen3VL 32B NVFP4 AWQ 编码器、视频 VAE FP16、音频 VAE FP32。查[H3 模型卡](https://huggingface.co/MiniMaxAI/MiniMax-H3)及运行实例的模型枚举，记录实际文件哈希和节点版本，不根据名称认定权重内容相同。
+采样成功但解码失败时，不应重新采样。已有两路latent可接无Sampler解码图恢复；确认header/shape、前驱、history和SHA后，完成原发布区间。修改前驱采样则必须新建版本并重验全部依赖下游。
 
-使用[通用提示词](../prompts/ref2va.template.txt)，角色图作为身份参考，驱动帧作为动作和背景参考，均不属于硬首帧。参考视频经 `GetVideoComponents` 只连接 images；它的 audio 没有进入 Ref2VA，提示词不能声称真实音轨已经绑定。
+## 参考背景与后处理预检
 
-## 3. 真实续接与裁切
+只借用人物身份而不保留参考图背景时，可先使用[去背景流程](background-removal.md)。保留alpha图，再明确合成纯色RGB送入H3，防止忽略alpha时读入隐藏背景颜色。该步骤不改变动作驱动、seed或采样规格。
 
-```text
-角色 LoadImage + 驱动 LoadVideo → GetVideoComponents.images
- → Ref2VA conditioning + joint latent
- → 首段直接采样；后段加入前段 canonical AV latent 的 Motion Context
- → 保存完整 canonical AV latent
- → 视频/音频分别解码 → 后段裁context并取发布长度 → 保存片段
-```
+按[媒体预检](media-preflight.md)在实际runner的PATH测试AAC和完整后处理。发布视频已成功而配乐失败时，仅恢复后处理，不重新采样。
 
-所需能力为 `SaveMiniMaxH3AVLatent`、`LoadMiniMaxH3AVLatent`、`MiniMaxH3MotionContext`、`TrimMiniMaxH3MotionContext`。这些名称是原实现的节点合同，不代表任意 ComfyUI 安装都已具备。部署前核对 `/object_info`、代码和配套依赖；本包未提供这些适配节点的独立安装器。
+## 后处理
 
-| 段 | 发布帧 | 采样帧 | 视频context | 实际头部裁切 | canonical保留区间 |
-| --- | ---: | ---: | ---: | ---: | --- |
-| 1 | 158 | 158 | 0 | 0 | [0,158) |
-| 2 | 158 | 192 | 22 | 22 | [22,180) |
-| 3 | 141 | 175 | 22 | 22 | [22,163) |
-| 4 | 141 | 175 | 22 | 22 | [22,163) |
+拼接连续发布画面，原曲从时间线零点连续铺设、最后半秒淡出。每个阶段可生成第一至N段累计成片。技术校验包括区间连续、帧数、尺寸、24fps、视频画面未被换源、音轨覆盖时长、完整解码和SHA；身份、动作和接缝视觉效果由使用者确认。
 
-采样按 `17k+5` 对齐；后段裁22帧再取发布长度，仍有12帧canonical尾部未发布，**不能用采样减发布得到的34帧统一删头**。音频context参数24在本实现对应1秒、40个音频latent步，换实现须重新验证映射。
-
-每个后段从前一段保存的完整 latent 取上下文，不从已发布 MP4 的尾部重编码。它可能引用未发布的尾部，所以同时保存 canonical 解码与发布片段，用于检查接缝。相同seed不证明两种续接路线相同。
-
-## 4. 提交与返修
-
-先完成首段的采样、两路解码和落盘，再继续后段。每段保存真实图、种子、Prompt ID、输入哈希、前驱latent哈希、canonical和发布产物。断线围绕原ID查队列/History；没有结果不代表没有执行。
-
-逐段看人物、动作、背景与边界。前段重新采样会影响后续 latent 依赖；新建版本并重验依赖链。不得套用番剧独立分段的“只改一段就结束”规则。
-
-生成完成后进入[后期](editing.md)。本包的爻光默认切点只适用于附带素材；换人物后必须重新确定接缝。
+[原版逐帧/逐字节对照材料](reproduction.md)与新角色再生成是两种验收目标：随机性、量化、硬件和不同分段都可能改变像素结果。

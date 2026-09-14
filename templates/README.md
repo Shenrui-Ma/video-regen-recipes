@@ -47,7 +47,7 @@
 
 | 模板 | 别名 / 标签 | 一句话开始 | 使用状态 |
 | --- | --- | --- | --- |
-| [一点一滴刺痛我的心](character-short/bit-by-bit-heartache/README.md) · [执行](character-short/bit-by-bit-heartache/SKILL.md) | 一滴一滴刺痛我的心、刺痛我的心、Bit by Bit Heartache、动作重演、舞蹈、音乐短片 | 用我喜欢的角色，做一支《一点一滴刺痛我的心》。 | 已有片段可重剪；新角色需配置续接 |
+| [一点一滴刺痛我的心](character-short/bit-by-bit-heartache/README.md) · [执行](character-short/bit-by-bit-heartache/SKILL.md) | 一滴一滴刺痛我的心、刺痛我的心、Bit by Bit Heartache、动作重演、舞蹈、音乐短片 | 用我喜欢的角色，做一支《一点一滴刺痛我的心》。 | 独立运行入口已提供；新机GPU运行需校准 |
 | [XX不是罪过](character-short/not-a-sin/README.md) · [执行](character-short/not-a-sin/SKILL.md) | 不是罪过、XX不是罪、Not a Sin、动作重演、舞蹈、音乐短片 | 用我喜欢的角色，做一支《XX不是罪过》。 | 说明已整理；续接执行包待完善 |
 
 <a id="category-6"></a>

@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "scope": "historical-recovered-H3-graphs-only; not-current-install-manifest",
+  "status": "historical-source-record; private Save/Load/Trim are not current dependencies",
+  "current_dependency_lock": "dependencies.lock.json",
+  "current_install_guide": "install.md",
+  "current_public_replacement": {
+    "save": "Core LTXVSeparateAVLatent then two Core SaveLatent nodes (video and audio)",
+    "load": "Two Core LoadLatent nodes then LTXVConcatAVLatent into MiniMaxH3MotionContext.context_latent",
+    "trim": "Current Core graph and runtime media trimming; no private TrimMiniMaxH3MotionContext",
+    "historical_cache_byte_parity_claimed": false,
+    "private_package_required": false,
+    "current_counts": {"total": 22, "core": 21, "public_custom": 1}
+  },
+  "node_sources": {
+    "BasicGuider": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "comfy_extras.nodes_custom_sampler",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "BasicScheduler": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "comfy_extras.nodes_custom_sampler",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "CLIPLoader": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "nodes",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "CreateVideo": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "comfy_extras.nodes_video",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "GetVideoComponents": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "comfy_extras.nodes_video",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "KSamplerSelect": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "comfy_extras.nodes_custom_sampler",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "LoadImage": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "nodes",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "LoadMiniMaxH3AVLatent": {
+      "kind": "custom",
+      "package": "HermesH3Continuation",
+      "repository": null,
+      "commit": null,
+      "license": null,
+      "source_status": "author-local-source; public-install-package-pending",
+      "source_sha256": "edf270a641808282f5d3ff51a260518821a59ad1dffcd27e23e6f6794787c573"
+    },
+    "LoadVideo": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "comfy_extras.nodes_video",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "MiniMaxH3MotionContext": {
+      "kind": "custom",
+      "package": "H3MotionContextOfficial",
+      "repository": "https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context",
+      "commit": "f80e36bc1d7887a143b12e6645313fd6b9cd2aee",
+      "license": "GPL-3.0",
+      "source_status": "current-installed-checkout; local-nodes.py-modification; not-historical-lock"
+    },
+    "MiniMaxH3ReferenceToVideo": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "comfy_extras.nodes_minimax_h3",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "RandomNoise": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "comfy_extras.nodes_custom_sampler",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "SamplerCustomAdvanced": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "comfy_extras.nodes_custom_sampler",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "SaveMiniMaxH3AVLatent": {
+      "kind": "custom",
+      "package": "HermesH3Continuation",
+      "repository": null,
+      "commit": null,
+      "license": null,
+      "source_status": "author-local-source; public-install-package-pending",
+      "source_sha256": "edf270a641808282f5d3ff51a260518821a59ad1dffcd27e23e6f6794787c573"
+    },
+    "SaveVideo": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "comfy_extras.nodes_video",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "TrimMiniMaxH3MotionContext": {
+      "kind": "custom",
+      "package": "HermesH3Continuation",
+      "repository": null,
+      "commit": null,
+      "license": null,
+      "source_status": "author-local-source; public-install-package-pending",
+      "source_sha256": "edf270a641808282f5d3ff51a260518821a59ad1dffcd27e23e6f6794787c573"
+    },
+    "UNETLoader": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "nodes",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "VAEDecode": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "nodes",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "VAEDecodeAudio": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "comfy_extras.nodes_audio",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    },
+    "VAELoader": {
+      "kind": "core",
+      "repository": "https://github.com/Comfy-Org/ComfyUI",
+      "python_module": "nodes",
+      "historical_commit": null,
+      "inspected_current_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5"
+    }
+  }
+}

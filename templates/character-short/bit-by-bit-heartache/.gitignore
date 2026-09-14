@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.part
+work/
+outputs/
+dist/
+# Downloadable pinned video; use scripts/distribution/fetch_assets.py
+assets/reference/*.mp4

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "optional": true,
+  "bundled": false,
+  "node": {
+    "repository": "https://github.com/1038lab/ComfyUI-RMBG",
+    "previously_recorded_repository": "https://github.com/AILab-AI/ComfyUI-RMBG",
+    "revision": "bd509b4750c81221b938684489c87187b0172208",
+    "relative_directory": "custom_nodes/ComfyUI-RMBG",
+    "class_type": "RMBG",
+    "license_url": "https://github.com/1038lab/ComfyUI-RMBG/blob/bd509b4750c81221b938684489c87187b0172208/LICENSE",
+    "license_observed": "GPL-3.0 license text",
+    "clean_install_inference_verified": false,
+    "evidence_note": "Recorded preview environment used this base revision with local modifications. The public pinned INPUT_TYPES and return slots were inspected for the packaged API graph; this is not a clean-install GPU verification. The previously recorded AILab-AI URL returned 404 during review; the public 1038lab repository and pinned revision were reachable."
+  },
+  "model": {
+    "repo_id": "1038lab/RMBG-2.0",
+    "revision": "1cd4787601caeb4c8e826dba7ea8e2163b5208df",
+    "relative_directory": "models/RMBG/RMBG-2.0",
+    "files": {
+      "config.json": {"bytes": 405, "sha256": "c97ea21569daf66b205491a4635147dd3bc42c7c168b89d7d75b53f67ef548ae"},
+      "birefnet.py": {"bytes": 91320, "sha256": "8f498727f4bdb7dfaa4d66190f0ebf55392bda62c1b4f224be39f9b750a8915d"},
+      "BiRefNet_config.py": {"bytes": 298, "sha256": "e7b8c2a74f6cea6a59553d517f71d47f2c1d90e670a13416af17c25fe2f3dc52"},
+      "model.safetensors": {"bytes": 884878856, "sha256": "566ed80c3d95f87ada6864d4cbe2290a1c5eb1c7bb0b123e984f60f76b02c3a7"}
+    },
+    "hash_evidence": "SHA256 and sizes computed from existing preview model files; safetensors hash additionally matches the pinned Hugging Face LFS metadata. No model files are distributed by this template."
+  },
+  "license": {
+    "upstream_confirmation_required": true,
+    "official_model_card": "https://huggingface.co/briaai/RMBG-2.0",
+    "official_terms_link": "https://creativecommons.org/licenses/by-nc/4.0/deed.en",
+    "official_card_observed": "CC BY-NC 4.0 for non-commercial use; commercial use requires a BRIA agreement.",
+    "mirror_license_confirmed": false,
+    "note": "The 1038lab mirror metadata does not establish permission for these exact files. Confirm applicable upstream model, code, and redistribution terms before downloading or using them. Official raw LICENSE retrieval required authentication; public model-card text was readable. Node and model licenses are separate."
+  }
+}

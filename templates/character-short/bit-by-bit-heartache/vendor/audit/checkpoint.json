@@ -1,0 +1,20 @@
+{
+  "phase": "public_sources_and_live_read_only_audit",
+  "timestamp": "2026-09-13T17:35:07.150158+00:00",
+  "core_commit": "6f7cd7fceaaf60d2669b554936394a7412c6fde5",
+  "core_version": "0.30.0",
+  "core_tracked_diff_empty": true,
+  "motion_commit": "f80e36bc1d7887a143b12e6645313fd6b9cd2aee",
+  "motion_diff": "diff --git a/nodes.py b/nodes.py\nindex 928f977..89a0998 100644\n--- a/nodes.py\n+++ b/nodes.py\n@@ -557,8 +557,12 @@ class MiniMaxH3MotionContext:\n         audio_ref = None\n         a_frames = 0\n         audio_src = \"off\"\n+        # Video keyframes can coexist with Ref2VA refs even when a staged\n+        # continuation has no audio.  Stock extra_conds() otherwise lets refs\n+        # overwrite these keyframe latents while the layout still reserves\n+        # their rows, producing a deterministic shape mismatch.\n+        _ensure_payload_patch()\n         if context_latent is not None or context_audio is not None:\n-            _ensure_payload_patch()\n             # the audio window is independent of the video one: audio cond\n             # rows cost rows but never cost delivered frames\n             a_frames = int(audio_context_length) or span\n",
+  "model_revision": "a98869194787969724c7425d95d0ed73ce9202af",
+  "model_license_revision": "42ed227ee7df40d41602854ae760620d6eb651fe",
+  "no_inference": true,
+  "no_service_changes": true,
+  "next": [
+    "vendor GPL patch",
+    "locked manifest",
+    "read-only capability preflight",
+    "safe new-directory installer",
+    "CPU-only tests"
+  ]
+}

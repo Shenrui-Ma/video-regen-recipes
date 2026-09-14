@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "mode": "read_only",
+  "network_methods": [
+    "GET /object_info",
+    "GET /system_stats"
+  ],
+  "host": {
+    "platform": "Darwin",
+    "architecture": "arm64",
+    "python": "3.11.15",
+    "libc": [
+      "",
+      ""
+    ]
+  },
+  "target": {
+    "os": "Darwin",
+    "architecture": "arm64"
+  },
+  "schema_origin": "live_GET",
+  "required_node_count": 22,
+  "graphs": {
+    "first": [
+      {
+        "code": "enum_value_mismatch",
+        "node": "14",
+        "input": "codec"
+      },
+      {
+        "code": "input_not_staged",
+        "node": "21",
+        "input": "image"
+      },
+      {
+        "code": "input_not_staged",
+        "node": "22",
+        "input": "file"
+      }
+    ],
+    "continue": [
+      {
+        "code": "enum_value_mismatch",
+        "node": "14",
+        "input": "codec"
+      },
+      {
+        "code": "input_not_staged",
+        "node": "21",
+        "input": "image"
+      },
+      {
+        "code": "input_not_staged",
+        "node": "22",
+        "input": "file"
+      },
+      {
+        "code": "input_not_staged",
+        "node": "51",
+        "input": "latent"
+      },
+      {
+        "code": "input_not_staged",
+        "node": "52",
+        "input": "latent"
+      }
+    ]
+  },
+  "issues": [
+    {
+      "code": "unsupported_platform",
+      "os": "Darwin",
+      "architecture": "arm64",
+      "reason": "Pinned CPython 3.10 Linux x86_64 CUDA/Triton wheels; no macOS/MPS, Windows, ROCm or ARM recipe."
+    },
+    {
+      "workflow": "first",
+      "code": "enum_value_mismatch",
+      "node": "14",
+      "input": "codec"
+    },
+    {
+      "workflow": "continue",
+      "code": "enum_value_mismatch",
+      "node": "14",
+      "input": "codec"
+    }
+  ],
+  "pending": [
+    "No --comfy-root: installed source hashes and model bytes not inspected.",
+    "No --python-site: target Python package versions and installed INT8 fix unverified.",
+    "first: template placeholder not staged: 21/image",
+    "first: template placeholder not staged: 22/file",
+    "continue: template placeholder not staged: 21/image",
+    "continue: template placeholder not staged: 22/file",
+    "continue: template placeholder not staged: 51/latent",
+    "continue: template placeholder not staged: 52/latent",
+    "GPU memory/RAM capacity, fresh Linux installation and inference not tested by this read-only command."
+  ],
+  "static_checks_pass": false,
+  "ready_for_inference": false,
+  "no_inference_performed": true,
+  "service_summary": {
+    "system": {
+      "os": "linux",
+      "comfyui_version": "0.30.0",
+      "python_version": "3.10.19 | packaged by conda-forge | (main, Oct 22 2025, 22:29:10) [GCC 14.3.0]",
+      "pytorch_version": "2.5.1+cu121"
+    },
+    "devices": [
+      {
+        "name": "cuda:0 NVIDIA A100 80GB PCIe : cudaMallocAsync",
+        "type": "cuda",
+        "index": 0,
+        "vram_total": 84987740160,
+        "vram_free": 42466393648,
+        "torch_vram_total": 43486543872,
+        "torch_vram_free": 1545387568
+      }
+    ]
+  }
+}

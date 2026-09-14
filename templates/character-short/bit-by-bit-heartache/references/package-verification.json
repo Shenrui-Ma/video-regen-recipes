@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "version": "0.3.0",
+  "status": "portable-package-verified",
+  "offline_tests": {
+    "source": 61,
+    "independent_unpack": 61,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "python": "3.13.13",
+    "pillow": "12.3.0",
+    "platform": "macOS"
+  },
+  "verification": {
+    "bundle_hashes_and_inventory": true,
+    "markdown_links": true,
+    "no_bundled_media_or_weights": true,
+    "public_driver_and_soundtrack_download_sha_verified": true,
+    "driver_frames": 577,
+    "driver_fps": 24,
+    "driver_full_decode": true,
+    "offline_prepare_with_real_inputs": true,
+    "graph_smoke_and_dry_run": true,
+    "actual_alpha_to_RGB_matches_previous_H3_input_sha": true,
+    "existing_real_107_frame_assembly": true,
+    "decoded_frames_match_inputs": true,
+    "assembly_repeat_idempotent": true,
+    "generation_source_untouched": true
+  },
+  "character_rgb_sha256": "762aef37242ea7be4a92d7e27f29dec306a2489c2168a534d53bfb553f76908c",
+  "real_assembly_sha256": "2031899757950851a698c16b8349cef0aaf62d118cf4cfefbaf8ed3726b3abe8",
+  "existing_environment_first_segment_verified": true,
+  "clean_install_inference_verified": false,
+  "full_new_character_continuation_verified": false,
+  "new_gpu_inference_performed_for_this_release": false,
+  "first_segment_evidence": "first-segment-validation.json",
+  "notes": [
+    "Tests include explicitly labeled CPU fixtures; real output checks separately reuse existing H3 artifacts.",
+    "Clean Python/unpack verification is not a fresh Linux/CUDA/ComfyUI installation.",
+    "Optional RMBG source/model manifests and image compositing are verified; no new GPU segmentation or H3 sampling was submitted."
+  ]
+}

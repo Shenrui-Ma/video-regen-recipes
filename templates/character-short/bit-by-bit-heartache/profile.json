@@ -3,8 +3,91 @@
   "id": "bit-by-bit-heartache",
   "author": "Shenrui Ma（四倍体果蝇）",
   "default_preset": "yaoguang",
-  "status": "default-edit-assets-ready; new-character-runtime-not-packaged",
+  "status": "portable-lightweight; first-segment-existing-environment-verified; clean-install-inference-unverified",
   "generation": {
+    "mode": "Ref2VA with native canonical AV latent continuation",
+    "width": 1344,
+    "height": 768,
+    "fps": 24,
+    "steps": 20,
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "reference_audio_connected": false,
+    "segment_policy": "hardware-calibrated",
+    "segment_count": null,
+    "plan_script": "scripts/plan_segments.py"
+  },
+  "default_edit": {
+    "fps": 60,
+    "source_frames": [
+      158,
+      158,
+      175,
+      175
+    ],
+    "visible_frames_at_60fps": [
+      395,
+      373,
+      382,
+      437
+    ],
+    "total_frames": 1587,
+    "duration_seconds": 26.45,
+    "motion_interpolation": false,
+    "music_fade_out_seconds": 0.5
+  },
+  "files": {
+    "guide": "README.md",
+    "agent_entry": "SKILL.md",
+    "assets": "assets/default/manifest.json",
+    "generation": "references/generation.md",
+    "editing": "references/editing.md",
+    "prompt": "prompts/ref2va.template.txt",
+    "sources": "sources.md",
+    "deployment": "references/deployment.md",
+    "node_sources": "references/node-sources.md",
+    "character_preprocessing": "references/background-removal.md",
+    "media_preflight": "references/media-preflight.md",
+    "first_segment_validation": "references/first-segment-validation.json"
+  },
+  "character_selection": {
+    "priority": [
+      "user_character_or_image",
+      "existing_project_character",
+      "fallback_assets"
+    ],
+    "fallback_condition": "no character or reference image supplied and no existing project character",
+    "named_character_without_image": "prepare a matching reference; do not substitute fallback",
+    "existing_video_reuse": "only for an explicit reuse, re-edit or soundtrack-only request"
+  },
+  "index": {
+    "title": "一点一滴刺痛我的心",
+    "aliases": [
+      "一滴一滴刺痛我的心",
+      "刺痛我的心",
+      "Bit by Bit Heartache"
+    ],
+    "category": "角色主题短片",
+    "tags": [
+      "动作重演",
+      "舞蹈",
+      "音乐短片"
+    ],
+    "summary": "用指定角色制作连续动作与配乐短片。",
+    "customizable": [
+      "角色",
+      "服装",
+      "配乐"
+    ],
+    "request_example": "用我喜欢的角色，做一支《一点一滴刺痛我的心》。",
+    "requirements": [
+      "ComfyUI + MiniMax H3（重新生成）",
+      "原生 AV latent 续接（重新生成）",
+      "FFmpeg"
+    ],
+    "status_label": "独立运行入口已提供；新机GPU运行需校准"
+  },
+  "historical_generation": {
     "mode": "Ref2VA with native canonical AV latent continuation",
     "width": 1344,
     "height": 768,
@@ -44,69 +127,15 @@
     ],
     "reference_audio_connected": false
   },
-  "default_edit": {
-    "fps": 60,
-    "source_frames": [
-      158,
-      158,
-      175,
-      175
-    ],
-    "visible_frames_at_60fps": [
-      395,
-      373,
-      382,
-      437
-    ],
-    "total_frames": 1587,
-    "duration_seconds": 26.45,
-    "motion_interpolation": false,
-    "music_fade_out_seconds": 0.5
+  "runtime": {
+    "entry": "scripts/runtime/heartache.py",
+    "asset_manifest": "assets/runtime-assets.json",
+    "installer": "scripts/environment/install.py",
+    "preflight": "scripts/environment/preflight.py",
+    "clean_install_inference_verified": false,
+    "distribution_mode": "portable-no-media",
+    "existing_environment_first_segment_verified": true,
+    "first_segment_validation": "references/first-segment-validation.json"
   },
-  "files": {
-    "guide": "README.md",
-    "agent_entry": "SKILL.md",
-    "assets": "assets/default/manifest.json",
-    "generation": "references/generation.md",
-    "editing": "references/editing.md",
-    "prompt": "prompts/ref2va.template.txt",
-    "sources": "sources.md"
-  },
-  "character_selection": {
-    "priority": [
-      "user_character_or_image",
-      "existing_project_character",
-      "fallback_assets"
-    ],
-    "fallback_condition": "no character or reference image supplied and no existing project character",
-    "named_character_without_image": "prepare a matching reference; do not substitute fallback",
-    "existing_video_reuse": "only for an explicit reuse, re-edit or soundtrack-only request"
-  },
-  "index": {
-    "title": "一点一滴刺痛我的心",
-    "aliases": [
-      "一滴一滴刺痛我的心",
-      "刺痛我的心",
-      "Bit by Bit Heartache"
-    ],
-    "category": "角色主题短片",
-    "tags": [
-      "动作重演",
-      "舞蹈",
-      "音乐短片"
-    ],
-    "summary": "用指定角色制作连续动作与配乐短片。",
-    "customizable": [
-      "角色",
-      "服装",
-      "配乐"
-    ],
-    "request_example": "用我喜欢的角色，做一支《一点一滴刺痛我的心》。",
-    "requirements": [
-      "ComfyUI + MiniMax H3（重新生成）",
-      "原生 AV latent 续接（重新生成）",
-      "FFmpeg"
-    ],
-    "status_label": "已有片段可重剪；新角色需配置续接"
-  }
+  "version": "0.3.0"
 }
