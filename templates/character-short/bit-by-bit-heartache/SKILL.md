@@ -23,7 +23,7 @@ metadata:
 
 - Agent 可用 `terminal`、`read_file`、`write_file`，必要时用 `web_search`、`vision_analyze`确认角色输入。所有脚本路径相对于本目录。
 - Python、FFmpeg/ffprobe；离线准备可在 macOS/Linux 完成。固定生成环境为 Linux x86_64、Python 3.10、NVIDIA/CUDA。不能把 Mac 上的离线测试当作 H3 原生推理支持。
-- 模型、节点、源码和许可按 [环境说明](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)准备；本机 RAM/显存必须足够加载模型，并完成同配置首段与续接校准。
+- 默认**复用用户已有的 ComfyUI 与模型**，不要求为了这个模板重装或对齐版本。只有在缺节点、缺模型、版本冲突或推理报错、需要判断该改成什么版本时，才查 [环境参考记录](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)，按需取用其中一段。本机 RAM/显存必须足够加载模型，并完成同配置首段与续接校准。
 - [README](README.md)有完整命令。[角色输入](references/character-input.md)处理一句话、图片和公开 URL。[验收说明](references/validation.md)区分已有实跑证据与本次封装测试。
 
 ## 下载提醒规则
@@ -33,7 +33,7 @@ metadata:
 ## 执行顺序
 
 1. **绑定角色。** 优先用户参考图，其次当前项目已确认图。未提供图片时，按角色名字和作品查找官方角色立绘，核对身份与来源后作为参考；角色信息不足时只补问必要信息。用户已指定角色时不得替换成默认人物。保存输入 SHA、来源、描述和授权范围；得到可解码的 `character.png`。若只要人物、参考背景与驱动场景无关，按[可选去背景](references/background-removal.md)先处理；透明结果须明确合成纯色RGB，不能仅去掉alpha通道。
-2. **备齐依赖。** 用 `terminal` 执行 `python3 <toolkit>/environments/h3/scripts/preflight.py --help`，按安装说明检查完整首段及续接节点、模型和公开兼容补丁。按[媒体预检](references/media-preflight.md)在实际runner环境测试AAC及后处理。既有节点未加载时区分禁用、导入失败与缺安装。正常加载已启用节点，不默认增加白名单。
+2. **确认依赖可用。** 先用用户现有实例推理；报错或缺少节点/模型时再定位是哪一层（缺节点 / 缺模型 / wheel 冲突 / 源码补丁），需要版本依据时查 [环境参考记录]。可选地只读核对现有实例：`python3 <toolkit>/environments/h3/scripts/preflight.py --comfy-root ... --url ... --workflow-lock references/workflow.lock.json`，这是诊断而非前置步骤。按[媒体预检](references/media-preflight.md)在实际runner环境测试AAC及后处理。既有节点未加载时区分禁用、导入失败与缺安装。正常加载已启用节点，不默认增加白名单。
 3. **核验素材。** 用 `terminal` 执行 `python3 scripts/distribution/fetch_assets.py`，再执行 `python3 scripts/distribution/fetch_assets.py --check`。运行驱动是 `assets/reference/heartache-driver-577f.mp4`，不要误用历史45fps原视频。校验 SHA、帧数、尺寸、完整解码。
 4. **按硬件分段。** 不照搬历史四段或一次测试的七段。固定1344×768、24fps、20步、`res_multistep/simple`；以同配置实测单段容量传入 `--max-sample-frames`。首次上机按 README 校准；容量预估不可标成实测。
 5. **离线准备。** 用 `terminal` 执行 `python3 scripts/runtime/heartache.py prepare --help`，提供角色图、容量和独立输出目录。核对 `run.json`、逐段 API/editor 图、驱动切片和发布计划；此步骤不发起采样。

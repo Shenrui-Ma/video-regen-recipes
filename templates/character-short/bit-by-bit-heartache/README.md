@@ -17,7 +17,7 @@
 
 ## 1. 准备环境与素材
 
-全部命令从本目录运行。先读[环境说明](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)，检查已有ComfyUI和模型；需要新环境时按固定版本创建独立环境，不覆盖共享环境。模型已齐全且可用时直接复用，不重复提醒下载或空间占用；仅在确认缺失后，下载前告知缺失模型、需下载的数据量和预计新增磁盘占用，只计算缺失项。检查失败不能当作模型缺失，详见[下载提醒规则](SKILL.md#下载提醒规则)。
+全部命令从本目录运行。默认用用户已有的 ComfyUI 和模型；只有缺依赖或推理报错需要排查版本时，才查[环境参考记录](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)，按需取用其中一段。确实要另建一套时用不存在的目标目录，绝不覆盖共享环境。模型已齐全且可用时直接复用，不重复提醒下载或空间占用；仅在确认缺失后，下载前告知缺失模型、需下载的数据量和预计新增磁盘占用，只计算缺失项。检查失败不能当作模型缺失，详见[下载提醒规则](SKILL.md#下载提醒规则)。
 
 ```bash
 # 只输出安装计划，审核后再在合适的Linux机器执行

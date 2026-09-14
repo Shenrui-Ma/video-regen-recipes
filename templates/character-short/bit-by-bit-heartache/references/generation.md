@@ -6,7 +6,7 @@
 
 角色参考图→LoadImage→Ref2VA图像条件；577帧驱动→LoadVideo→GetVideoComponents.images→Ref2VA视频条件。驱动音轨不接入模型；正式配乐在发布画面拼接后重铺。参考条件提供身份和动作引导，不等于硬首帧或逐帧骨骼约束。
 
-固定基础为1344×768、24fps、20步、res_multistep/simple、BasicGuider、denoise=1。固定模型与依赖见[环境说明](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)，角色文字使用[prompt模板](../prompts/ref2va.template.txt)。不得把历史爻光描述沿用于新角色。
+固定基础为1344×768、24fps、20步、res_multistep/simple、BasicGuider、denoise=1。模型与依赖版本参考见[环境参考记录](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)（默认复用用户已有环境），角色文字使用[prompt模板](../prompts/ref2va.template.txt)。不得把历史爻光描述沿用于新角色。
 
 ## 采样与发布计划
 

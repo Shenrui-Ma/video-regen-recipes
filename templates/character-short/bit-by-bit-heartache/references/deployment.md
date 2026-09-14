@@ -2,12 +2,12 @@
 
 目标：测试者的 Agent 读取模板后，检查并安装环境、准备输入、生成视频和导出。原作者的四段参数只供历史对照；新任务不要求四段。
 
-当前已提供独立运行入口、完整公开依赖锁与工作流。安装步骤见[环境说明](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)，当前依赖以[环境依赖锁](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/dependencies.lock.json)为准；[node-sources.md](node-sources.md)保留历史来源，不能当成当前安装清单。封装验收范围见[validation.md](validation.md)。
+当前已提供独立运行入口、完整公开依赖锁与工作流。环境的版本参考见[环境参考记录](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)（默认先复用用户已有环境），当前依赖以[环境依赖锁](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/dependencies.lock.json)为准；[node-sources.md](node-sources.md)保留历史来源，不能当成当前安装清单。封装验收范围见[validation.md](validation.md)。
 
 ## 1. 检查并部署
 
 1. 检查操作系统、GPU型号、可用显存、驱动、RAM和磁盘。已有服务时只读检查，避免覆盖正在使用的环境。
-2. 按install.md在使用者授权的新目录创建固定Linux x86_64、Python3.10、CUDA环境；执行锁定wheel安装、pip check和两个hash-gated补丁，不安装浮动最新版。
+2. 能复用用户已有环境就直接推理；确需另建时，在使用者授权的新目录按环境参考记录创建Linux x86_64、Python3.10、CUDA环境，执行锁定wheel安装、pip check和两个hash-gated补丁，不安装浮动最新版。
 3. 从当前锁的不可变公开URL取得模型，核对许可、放置位置、大小与SHA。当前图使用Core双路Save/Load和公开MotionContext，不依赖历史私有Save/Load/Trim包。
 4. 启动本次独立实例并做preflight，确认首段和续段schema；在得到生成授权后，用短段和一次真续接校准完整链路与容量。
 
