@@ -1,6 +1,6 @@
 # H3 独立环境安装与只读验收
 
-本手册针对当前公开的 `workflows/first.api.json` 和 `workflows/continue.api.json`，不重建历史作者环境。唯一当前依赖入口是 [dependencies.lock.json](dependencies.lock.json)；[node-sources.md](node-sources.md) / JSON 是历史来源记录，不是安装清单。
+本手册针对当前公开的运行图——由 [workflow.lock.json](workflow.lock.json) 锁定到 toolkit 的 H3 Core AV latent 续接包，runtime 按锁取回并校验——不重建历史作者环境。唯一当前依赖入口是 [dependencies.lock.json](dependencies.lock.json)；[node-sources.md](node-sources.md) / JSON 是历史来源记录，不是安装清单。
 
 **验收边界：本页安装计划、源码补丁和CPU环境测试已检查，完整干净Linux安装未验。后续已在既有环境完成真实H3首段试跑，范围见[首段实跑记录](first-segment-validation.json)；不能扩大为本页全部安装步骤或新机器全片推理已通过。**
 

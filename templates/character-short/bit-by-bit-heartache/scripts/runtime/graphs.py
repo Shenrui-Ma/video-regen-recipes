@@ -1,20 +1,75 @@
-"""Portable bindings and LiteGraph editor export for the successful Core AV pattern."""
+"""Portable bindings and LiteGraph editor export for the Core AV continuation pattern.
+
+The graphs are not maintained here. They live in the companion toolkit repository
+as parameterized templates; references/workflow.lock.json pins the commit and the
+per-file SHA-256, and this module fetches, verifies and caches them before binding
+the template's {{name}} placeholders.
+"""
 import copy
+import hashlib
 import json
 from pathlib import Path
+import re
 import sys
+import urllib.request
 
 TEMPLATE = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(TEMPLATE / 'scripts'))
 from plan_segments import plan_segments
 
+GRAPH_CACHE = TEMPLATE / 'workflows' / '_toolkit_graphs'
+TOKEN = re.compile(r'\{\{([A-Za-z_][A-Za-z0-9_]*)\}\}')
+
 
 def load(name):
+    """Load a bundled local artifact (the node schema); graphs come from the lock."""
     return json.loads((TEMPLATE / 'workflows' / name).read_text(encoding='utf-8'))
 
 
+def toolkit_lock():
+    return json.loads((TEMPLATE / 'references/workflow.lock.json').read_text(encoding='utf-8'))
+
+
+def load_graph(name, cache_dir=None):
+    """Return the pinned parameterized graph, fetching and verifying it on a cache miss."""
+    lock = toolkit_lock()
+    entry = next((row for row in lock['graphs'] if row['name'] == name), None)
+    if entry is None:
+        raise ValueError('GRAPH_NOT_PINNED: ' + name)
+    cache = Path(cache_dir) if cache_dir else GRAPH_CACHE
+    target = cache / entry['path'].split('/')[-1]
+    if target.is_file() and hashlib.sha256(target.read_bytes()).hexdigest() == entry['sha256']:
+        return json.loads(target.read_text(encoding='utf-8'))
+    with urllib.request.urlopen(entry['url'], timeout=60) as response:
+        data = response.read()
+    if hashlib.sha256(data).hexdigest() != entry['sha256']:
+        raise ValueError('GRAPH_HASH_MISMATCH: ' + name)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(data)
+    return json.loads(data.decode('utf-8'))
+
+
+def bind(graph, values):
+    """Replace whole-value {{name}} placeholders with typed values; never interpolate."""
+    def walk(value):
+        if isinstance(value, str):
+            match = TOKEN.fullmatch(value)
+            if match:
+                if match.group(1) not in values:
+                    raise ValueError('MISSING_BINDING: ' + match.group(1))
+                return values[match.group(1)]
+            if '{{' in value or '}}' in value:
+                raise ValueError('UNBOUND_PLACEHOLDER')
+        if isinstance(value, list):
+            return [walk(item) for item in value]
+        if isinstance(value, dict):
+            return {key: walk(item) for key, item in value.items()}
+        return value
+    return walk(graph)
+
+
 def build(row, character, reference, description, seed, video=None, audio=None,
-          prefix='heartache', models=None):
+          prefix='heartache', models=None, cache_dir=None):
     if type(seed) is not int or not 0 <= seed < 2**64:
         raise ValueError('SEED_MUST_BE_UINT64')
     if row['sample_frames'] < 5 or row['sample_frames'] % 17 != 5:
@@ -22,12 +77,7 @@ def build(row, character, reference, description, seed, video=None, audio=None,
     if row['visible_frames'] < 1 or row['publish_end'] != row['head_trim_frames'] + row['visible_frames'] or row['publish_end'] > row['sample_frames']:
         raise ValueError('PUBLISH_RANGE')
     continuation = row['predecessor'] is not None
-    g = load(('continue' if continuation else 'first') + '.api.json')
-    g['21']['inputs']['image'] = character
-    g['22']['inputs']['file'] = reference
-    g['6']['inputs']['noise_seed'] = seed
-    g['5']['inputs']['length'] = row['sample_frames']
-    g['54']['inputs']['length'] = row['visible_frames']
+    template = load_graph('continue' if continuation else 'first', cache_dir)
     text = (TEMPLATE / 'prompts/ref2va.template.txt').read_text(encoding='utf-8')
     replacements = {
         'CHARACTER_DESCRIPTION': description,
@@ -40,21 +90,38 @@ def build(row, character, reference, description, seed, video=None, audio=None,
         text = text.replace('{{' + key + '}}', value)
     if '{{' in text or '}}' in text:
         raise ValueError('UNBOUND_PROMPT')
-    g['5']['inputs']['prompt'] = text
-    for node, part in [('61', 'video'), ('62', 'audio'), ('14', 'silent')]:
-        g[node]['inputs']['filename_prefix'] = f"{prefix}/seg{row['segment']:02d}-{part}"
+    # 模型名是模板参数：这里是本模板用的默认值，调用方可用 models={...} 覆盖。
+    values = {
+        'diffusion_model': 'minimax_h3_ref2va_pruned_int8_convrot.safetensors',
+        'text_encoder': 'qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors',
+        'video_vae': 'minimax_h3_video_vae_fp16.safetensors',
+        'audio_vae': 'minimax_h3_audio_vae_fp32.safetensors',
+        'prompt': text,
+        'width': 1344,
+        'height': 768,
+        'sample_frames': row['sample_frames'],
+        'seed': seed,
+        'steps': 20,
+        'video_prefix': f"{prefix}/seg{row['segment']:02d}-silent",
+        'video_latent_prefix': f"{prefix}/seg{row['segment']:02d}-video",
+        'audio_latent_prefix': f"{prefix}/seg{row['segment']:02d}-audio",
+        'reference_image': character,
+        'reference_video': reference,
+        'visible_frames': row['visible_frames'],
+    }
+    model_fields = {'transformer': 'diffusion_model', 'text_encoder': 'text_encoder',
+                    'video_vae': 'video_vae', 'audio_vae': 'audio_vae'}
+    for key, value in (models or {}).items():
+        values[model_fields[key]] = value
     if continuation:
         if not video or not audio or str(row['head_trim_frames']) not in ('5', '22', '39', '56'):
             raise ValueError('CONTINUATION_REQUIRES_BOTH_PARTS_AND_SUPPORTED_CONTEXT')
-        g['51']['inputs']['latent'] = video
-        g['52']['inputs']['latent'] = audio
-        g['53']['inputs']['context_length'] = str(row['head_trim_frames'])
+        values.update({'previous_video_latent': video, 'previous_audio_latent': audio,
+                       'context_length': str(row['head_trim_frames']),
+                       'audio_context_length': 24})
     elif row['head_trim_frames'] != 0:
         raise ValueError('FIRST_HAS_CONTEXT')
-    for key, value in (models or {}).items():
-        node, field = {'transformer': ('1', 'unet_name'), 'text_encoder': ('2', 'clip_name'),
-                       'video_vae': ('3', 'vae_name'), 'audio_vae': ('4', 'vae_name')}[key]
-        g[node]['inputs'][field] = value
+    g = bind(template, values)
     validate_graph(g)
     return g
 

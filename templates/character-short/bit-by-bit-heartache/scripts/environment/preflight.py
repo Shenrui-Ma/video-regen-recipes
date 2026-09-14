@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Read-only H3 environment checks. No torch import, installs, or prompt POST."""
 import hashlib
+import json
 from pathlib import Path
+import urllib.request
 
 
 def digest(path):
@@ -78,6 +80,28 @@ def input_spec(fields, name):
     children = template.get('input', {}).get('required', {})
     return next(iter(children.values())) if len(children) == 1 else None
 
+
+
+def load_locked_graph(name, root):
+    """Fetch a pinned parameterized graph from references/workflow.lock.json.
+
+    The graphs are not packaged with this template; the lock fixes the toolkit
+    commit and the per-file SHA-256. Verified copies are cached locally.
+    """
+    lock = json.loads((root / 'references' / 'workflow.lock.json').read_text(encoding='utf-8'))
+    entry = next((row for row in lock['graphs'] if row['name'] == name), None)
+    if entry is None:
+        raise ValueError('GRAPH_NOT_PINNED: ' + name)
+    cache = root / 'workflows' / '_toolkit_graphs' / entry['path'].split('/')[-1]
+    if cache.is_file() and hashlib.sha256(cache.read_bytes()).hexdigest() == entry['sha256']:
+        return json.loads(cache.read_text(encoding='utf-8'))
+    with urllib.request.urlopen(entry['url'], timeout=60) as response:
+        data = response.read()
+    if hashlib.sha256(data).hexdigest() != entry['sha256']:
+        raise ValueError('GRAPH_HASH_MISMATCH: ' + name)
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    cache.write_bytes(data)
+    return json.loads(data.decode('utf-8'))
 
 def check_graph(graph, info):
     issues = []
@@ -273,7 +297,7 @@ def main(argv=None):
     issues.extend(check_nodes(lock['nodes'], info, inventory, argv_live))
     graph_results = {}
     for name in ('first', 'continue'):
-        graph = json.loads((root / 'workflows' / (name + '.api.json')).read_text())
+        graph = load_locked_graph(name, root)
         graph_issues = check_graph(graph, info)
         graph_results[name] = graph_issues
         for issue in graph_issues:

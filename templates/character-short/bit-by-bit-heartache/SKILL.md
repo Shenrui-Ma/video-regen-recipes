@@ -49,7 +49,7 @@ metadata:
 - 采样成功后解码失败，先使用已保存 latent恢复，不重复采样。若发布视频已完整保存而配乐失败，只恢复后处理；残留不完整文件不能当成已验证成片。音轨太短时不能用 `-shortest` 截掉视频。
 - OOM先判断是模型加载还是采样/解码峰值；仅减段长不能解决最低模型驻留容量不足。不擅降分辨率、步数或替换量化模型。
 - `STOP`只阻止后续提交；操作共享ComfyUI的interrupt前必须确认正在运行的prompt属于本任务。工具超时先查PID、history和文件，不重复启动。
-- 历史 `references/workflow.lock.json` 和旧四段剪辑保留为来源记录；当前可执行图在 `workflows/first.*`、`workflows/continue.*`，当前运行方法以README为准。
+- 运行图不在本仓库维护：`references/workflow.lock.json` 固定 toolkit 的 commit 与逐文件 SHA-256，runtime 取回并校验后再绑定参数（缓存在 `workflows/_toolkit_graphs/`）。`workflows/*.editor.json` 只是可读的预览图，`node-schema.json` 用于离线校验。
 
 ## 验收
 

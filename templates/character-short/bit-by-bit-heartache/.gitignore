@@ -11,3 +11,5 @@ assets/default/*.mp4
 assets/default/*.m4a
 assets/default/*.png
 assets/default/clips/
+# Fetched, hash-verified toolkit graphs (regenerated from references/workflow.lock.json)
+workflows/_toolkit_graphs/

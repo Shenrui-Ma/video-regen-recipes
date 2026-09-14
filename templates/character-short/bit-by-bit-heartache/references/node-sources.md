@@ -1,6 +1,6 @@
 # 节点来源：历史记录与当前公开环境
 
-**本页及 [node-sources.json](node-sources.json) 的 `node_sources` 是历史恢复图的来源记录，不是当前安装清单。当前 `first.api.json` / `continue.api.json` 依赖以 [dependencies.lock.json](dependencies.lock.json) 为准，安装与验收见 [install.md](install.md)。**
+**本页及 [node-sources.json](node-sources.json) 的 `node_sources` 是历史恢复图的来源记录，不是当前安装清单。当前运行图由 [workflow.lock.json](workflow.lock.json) 锁定到 toolkit 的 Core 续接包，其依赖以 [dependencies.lock.json](dependencies.lock.json) 为准，安装与验收见 [install.md](install.md)。**
 
 ## 当前公开链路
 

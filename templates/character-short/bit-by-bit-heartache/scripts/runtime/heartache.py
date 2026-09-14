@@ -8,7 +8,8 @@ import subprocess
 import sys
 import uuid
 
-from graphs import TEMPLATE, build, load, plan_segments, to_editor, from_editor, validate_graph
+from graphs import (TEMPLATE, build, load, load_graph, plan_segments, to_editor,
+                    from_editor, validate_graph)
 from local_io import contained, copy_verified, digest, history_file, stop_gate
 from media import prepare_references, probe, validate_segment_latent, verify_video, assemble, preflight_media
 from run_segment import API, RunnerError, atomic_json, run as run_segment, state_lock
@@ -26,7 +27,7 @@ def smoke(args):
         schema = API(args.host, args.timeout, 1).request('/object_info')
     checked = []
     for name in ('first', 'continue'):
-        graph = load(name + '.api.json')
+        graph = load_graph(name)
         validate_graph(graph, schema)
         if from_editor(to_editor(graph, schema)) != graph:
             raise ValueError('EDITOR_ROUNDTRIP')
