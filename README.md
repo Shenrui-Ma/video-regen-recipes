@@ -1,6 +1,6 @@
 # Video ReGen Recipes
 
-**一句话，本地，让 Agent 复刻热点 MEME／鬼畜／手书视频，也可在 Updream 等线上工具快速复用。**
+**一句话，本地，让 Agent 用 Minimax H3 复刻热点 MEME／鬼畜／手书视频。**
 
 <!-- Template count is generated from profile.json files by scripts/catalog.py. -->
 ### 🎬 已收录 [11 个视频模板](templates/) · 持续更新
