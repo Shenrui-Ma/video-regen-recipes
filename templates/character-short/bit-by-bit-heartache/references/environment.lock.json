@@ -12,5 +12,13 @@
     "models": "environments/h3/scripts/model_commands.py",
     "preflight": "environments/h3/scripts/preflight.py"
   },
-  "note": "H3 环境的版本参考记录，用于排查「该改成什么版本」这类问题，不是推理前置条件。模板默认复用用户已有的 ComfyUI 与模型，不要求对齐此处版本；仅在报错、节点缺失或版本冲突时按需取用其中一段。确需另建独立环境时，以该 commit 的 environments/h3 为准；安装只接受不存在的新目录，绝不覆盖用户已有环境。"
+  "note": "H3 环境的版本参考记录，用于排查「该改成什么版本」这类问题，不是推理前置条件。模板默认复用用户已有的 ComfyUI 与模型，不要求对齐此处版本；仅在报错、节点缺失或版本冲突时按需取用其中一段。确需另建独立环境时，以该 commit 的 environments/h3 为准；安装只接受不存在的新目录，绝不覆盖用户已有环境。",
+  "optional_workflows": [
+    {
+      "id": "rmbg-2-character-alpha",
+      "path": "workflows/images/rmbg-2-alpha",
+      "tree_url": "https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafd/workflows/images/rmbg-2-alpha",
+      "purpose": "可选的辅助步骤：角色图去背景，输出透明图与蒙版。用户没要求就跳过；下游要 RGB 时先按底色合成。"
+    }
+  ]
 }

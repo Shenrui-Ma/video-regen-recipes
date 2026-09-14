@@ -24,7 +24,7 @@ python3 scripts/character/prepare_character.py --image ./cutout.png --background
 
 将`./character-white/character.png`交给H3的`--character-image`。不要误传同目录透明的`source.png`。已是透明立绘时无需运行RMBG；普通JPEG的白底合成也不会自动识别/去除已有背景。
 
-**RMBG是可选前处理，不是默认生成依赖。** 仅在用户需要去背景时，按[background-removal.md](background-removal.md)使用独立`workflows/rmbg.api.json`，保留原参考、alpha和mask后再运行本helper。本helper不会安装RMBG、下载权重、提交ComfyUI任务或调用生图模型。
+**RMBG是可选前处理，不是默认生成依赖。** 仅在用户需要去背景时，按[background-removal.md](background-removal.md)使用 Toolkit 的[去背景工作流](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafd/workflows/images/rmbg-2-alpha/)，保留原参考、alpha和mask后再运行本helper。本helper不会安装RMBG、下载权重、提交ComfyUI任务或调用生图模型。
 
 ## 用户未提供图片
 

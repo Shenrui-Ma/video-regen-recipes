@@ -1,55 +1,59 @@
-"""Offline checks for the optional RMBG API graph; no model or GPU execution."""
+"""Offline checks for the optional RMBG step.
+
+This template no longer carries the background-removal graph: it references the
+toolkit package instead. These tests keep the pointer honest and make sure the
+cut-out step stays out of the H3 graphs. No model or GPU execution.
+"""
 import json
 from pathlib import Path
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
+PIN = '667eafd'
 
 
 class BackgroundRemovalTests(unittest.TestCase):
-    def test_optional_model_manifest_pins_files_without_license_assumption(self):
-        path = ROOT / 'references/rmbg-model-manifest.json'
-        self.assertTrue(path.is_file(), 'Optional model dependency manifest is missing')
-        manifest = json.loads(path.read_text())
-        self.assertTrue(manifest['optional'])
-        self.assertFalse(manifest['bundled'])
-        self.assertEqual(manifest['model']['repo_id'], '1038lab/RMBG-2.0')
-        self.assertEqual(manifest['model']['revision'], '1cd4787601caeb4c8e826dba7ea8e2163b5208df')
-        self.assertEqual(manifest['model']['relative_directory'], 'models/RMBG/RMBG-2.0')
-        self.assertEqual(set(manifest['model']['files']), {'config.json', 'birefnet.py', 'BiRefNet_config.py', 'model.safetensors'})
-        self.assertEqual(manifest['model']['files']['model.safetensors']['sha256'],
-                         '566ed80c3d95f87ada6864d4cbe2290a1c5eb1c7bb0b123e984f60f76b02c3a7')
-        for details in manifest['model']['files'].values():
-            self.assertRegex(details['sha256'], r'^[0-9a-f]{64}$')
-            self.assertGreater(details['bytes'], 0)
-        self.assertEqual(manifest['node']['revision'], 'bd509b4750c81221b938684489c87187b0172208')
-        self.assertFalse(manifest['node']['clean_install_inference_verified'])
-        self.assertTrue(manifest['license']['upstream_confirmation_required'])
-        self.assertNotIn('Apache', json.dumps(manifest['license']))
+    def test_template_no_longer_carries_the_rmbg_graph(self):
+        for stale in ('workflows/rmbg.api.json',
+                      'references/rmbg-models.json',
+                      'references/rmbg-model-manifest.json'):
+            self.assertFalse((ROOT / stale).is_file(), stale)
 
-    def test_optional_graph_retains_alpha_and_mask_without_generation(self):
-        path = ROOT / 'workflows/rmbg.api.json'
-        self.assertTrue(path.is_file(), 'Portable optional RMBG graph is missing')
-        graph = json.loads(path.read_text())
-        self.assertEqual(set(graph), {'1', '2', '3', '4'})
-        self.assertEqual(graph['1'], {'class_type': 'LoadImage', 'inputs': {'image': '__CHARACTER_IMAGE__'}})
-        self.assertEqual(graph['2'], {
-            'class_type': 'RMBG', 'inputs': {
-                'image': ['1', 0], 'model': 'RMBG-2.0', 'sensitivity': 1.0,
-                'process_res': 1024, 'mask_blur': 0, 'mask_offset': 0,
-                'invert_output': False, 'refine_foreground': False,
-                'background': 'Alpha', 'background_color': '#FFFFFF',
-            },
-        })
-        # Slot 1 is MASK; slot 2 is the saveable MASK_IMAGE, not the cutout.
-        self.assertEqual(graph['3'], {'class_type': 'SaveImage', 'inputs': {
-            'images': ['2', 0], 'filename_prefix': '__OUTPUT_PREFIX__/alpha'}})
-        self.assertEqual(graph['4'], {'class_type': 'SaveImage', 'inputs': {
-            'images': ['2', 2], 'filename_prefix': '__OUTPUT_PREFIX__/mask'}})
-        # The opt-in graph must not become a dependency of existing H3 graphs.
-        for other in (ROOT / 'workflows').glob('*.api.json'):
-            if other != path:
-                self.assertNotIn('"class_type": "RMBG"', other.read_text())
+    def test_environment_lock_points_at_the_optional_workflow(self):
+        lock = json.loads((ROOT / 'references/environment.lock.json').read_text())
+        rows = lock['optional_workflows']
+        self.assertEqual(len(rows), 1)
+        row = rows[0]
+        self.assertEqual(row['id'], 'rmbg-2-character-alpha')
+        self.assertEqual(row['path'], 'workflows/images/rmbg-2-alpha')
+        self.assertIn(PIN, row['tree_url'])
+        self.assertIn('去背景', row['purpose'])
+
+    def test_guide_references_the_toolkit_package_and_keeps_the_rules(self):
+        text = (ROOT / 'references/background-removal.md').read_text()
+        self.assertIn('workflows/images/rmbg-2-alpha', text)
+        self.assertNotIn('workflows/rmbg.api.json', text)
+        # 槽位语义与白底合成必须留下：丢掉任何一条都会误导使用者
+        for kept in ('输出0', '输出2', 'character-white', '#FFFFFF'):
+            self.assertIn(kept, text, kept)
+        # 节点许可与模型授权是两件事
+        self.assertIn('GPL-3.0', text)
+        self.assertIn('BRIA', text)
+        # 占位符名要与 toolkit 的图一致
+        self.assertIn('{{input_image}}', text)
+        self.assertIn('{{alpha_prefix}}', text)
+        self.assertIn('{{mask_prefix}}', text)
+
+    def test_character_input_points_at_the_toolkit_package(self):
+        text = (ROOT / 'references/character-input.md').read_text()
+        self.assertIn('rmbg-2-alpha', text)
+        self.assertNotIn('workflows/rmbg.api.json', text)
+
+    def test_rmbg_is_not_a_dependency_of_the_h3_graphs(self):
+        graphs = list((ROOT / 'workflows').glob('*.api.json')) + list((ROOT / 'workflows').glob('*.editor.json'))
+        self.assertTrue(graphs, 'expected the H3 graphs to be present')
+        for other in graphs:
+            self.assertNotIn('"class_type": "RMBG"', other.read_text(), other.name)
 
 
 if __name__ == '__main__':
