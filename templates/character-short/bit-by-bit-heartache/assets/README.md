@@ -24,7 +24,7 @@ python scripts/distribution/fetch_assets.py --assets default/clips/part-01.mp4 d
 
 ## 可验证的公开来源
 
-[`runtime-assets.json`](runtime-assets.json) 为每项素材记录公开 HTTPS URL、精确字节数、SHA-256、用途及 `download_by_default`。原仓库素材 URL 固定到提交；runtime 动作参考使用公开 release URL，并以 SHA-256 固定内容。下载器对两者均验证字节数和 SHA-256；同名文件已匹配则跳过，不匹配则拒绝覆盖。
+[`runtime-assets.json`](runtime-assets.json) 为每项素材记录公开 HTTPS URL、精确字节数、SHA-256、用途及 `download_by_default`。音乐与 runtime 动作参考使用公开 release URL；可选历史素材 URL 固定到历史提交，不再随仓库 tree 分发。下载器验证字节数和 SHA-256；同名文件已匹配则跳过，不匹配则拒绝覆盖。
 
 | 清单路径 | 默认获取 | 用途 |
 | --- | --- | --- |

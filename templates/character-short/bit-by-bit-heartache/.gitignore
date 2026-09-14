@@ -6,3 +6,8 @@ outputs/
 dist/
 # Downloadable pinned video; use scripts/distribution/fetch_assets.py
 assets/reference/*.mp4
+# Historical media removed from the Git tree; fetch from pinned URLs via fetch_assets.py
+assets/default/*.mp4
+assets/default/*.m4a
+assets/default/*.png
+assets/default/clips/
