@@ -35,6 +35,15 @@ Agent 会先询问你的意见，按需部署本地推理服务，再一键生�
 | [H3 制作流程](docs/local-h3.md) · [工作流库](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit) | 本地视频生成与配套工作流 |
 | [模板怎么写](docs/template-format.md) · [复现测试](docs/testing/README.md) | 贡献模板与维护者测试 |
 
+## 配套资源
+
+模板依赖两个外部仓库：
+
+- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)：通用 ComfyUI 工作流（H3 Ref2VA、原生续接、Core AV latent 续接、RMBG 角色去背景）、H3 环境参考记录，以及执行与只读预检脚本。
+- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)：模板媒体素材库，存放驱动视频、配乐、参考图和历史剪辑片段，按固定 revision 分发并按 SHA-256 校验。
+
+模板各自用 `references/workflow.lock.json` 和 `references/environment.lock.json` 固定所用版本，不会自动跟随上游更新；想知道某个模板具体依赖哪个 commit，看它目录里的这两个文件。
+
 ## TODO
 
 - [x] 内置参考图生成（ComfyUI、NovelAI、GPT-Image2）

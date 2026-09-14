@@ -23,7 +23,7 @@ metadata:
 
 - Agent 可用 `terminal`、`read_file`、`write_file`，必要时用 `web_search`、`vision_analyze`确认角色输入。所有脚本路径相对于本目录。
 - Python、FFmpeg/ffprobe；离线准备可在 macOS/Linux 完成。固定生成环境为 Linux x86_64、Python 3.10、NVIDIA/CUDA。不能把 Mac 上的离线测试当作 H3 原生推理支持。
-- 默认**复用用户已有的 ComfyUI 与模型**，不要求为了这个模板重装或对齐版本。只有在缺节点、缺模型、版本冲突或推理报错、需要判断该改成什么版本时，才查 [环境参考记录](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)，按需取用其中一段。本机 RAM/显存必须足够加载模型，并完成同配置首段与续接校准。
+- 默认**复用用户已有的 ComfyUI 与模型**，不要求为了这个模板重装或对齐版本。只有在缺节点、缺模型、版本冲突或推理报错、需要判断该改成什么版本时，才查 [环境参考记录](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafddb9f42bb6c72ad27b665def9ada36df45/environments/h3/README.md)，按需取用其中一段。本机 RAM/显存必须足够加载模型，并完成同配置首段与续接校准。
 - [README](README.md)有完整命令。[角色输入](references/character-input.md)处理一句话、图片和公开 URL。[验收说明](references/validation.md)区分已有实跑证据与本次封装测试。
 
 ## 下载提醒规则

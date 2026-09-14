@@ -1,6 +1,6 @@
 # 节点来源：历史记录与当前公开环境
 
-**本页及 [node-sources.json](node-sources.json) 的 `node_sources` 是历史恢复图的来源记录，不是当前安装清单。当前运行图由 [workflow.lock.json](workflow.lock.json) 锁定到 toolkit 的 Core 续接包，其依赖以 [环境依赖锁](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/dependencies.lock.json) 为准，安装与验收见 [环境参考记录](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)。**
+**本页及 [node-sources.json](node-sources.json) 的 `node_sources` 是历史恢复图的来源记录，不是当前安装清单。当前运行图由 [workflow.lock.json](workflow.lock.json) 锁定到 toolkit 的 Core 续接包，其依赖以 [环境依赖锁](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafddb9f42bb6c72ad27b665def9ada36df45/environments/h3/dependencies.lock.json) 为准，安装与验收见 [环境参考记录](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafddb9f42bb6c72ad27b665def9ada36df45/environments/h3/README.md)。**
 
 ## 当前公开链路
 

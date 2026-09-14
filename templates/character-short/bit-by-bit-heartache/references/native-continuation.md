@@ -1,6 +1,6 @@
 # 原生 AV latent 续接：参数语义与对照检查
 
-> 历史来源记录：本页描述旧实现/回收阶段。新安装使用 [当前生成路径](generation.md)与[环境说明](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)，不需要旧私有Save/Load/Trim节点。
+> 历史来源记录：本页描述旧实现/回收阶段。新安装使用 [当前生成路径](generation.md)与[环境说明](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafddb9f42bb6c72ad27b665def9ada36df45/environments/h3/README.md)，不需要旧私有Save/Load/Trim节点。
 
 
 本页补充 [generation.md](generation.md) 的续接规则，供 Issue #1 的社区复现者核对自己的实现。**这里只公开参数语义与当前回收源文件的 SHA-256，不发布节点实现，不保证其他同名节点行为一致。**“原生”在本页指直接使用前段联合视频／音频 latent 的路线，不表示这些自定义节点是官方内置节点。

@@ -2,8 +2,8 @@
   "schema_version": 1,
   "scope": "historical-recovered-H3-graphs-only; not-current-install-manifest",
   "status": "historical-source-record; private Save/Load/Trim are not current dependencies",
-  "current_dependency_lock": "https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/dependencies.lock.json",
-  "current_install_guide": "https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md",
+  "current_dependency_lock": "https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafddb9f42bb6c72ad27b665def9ada36df45/environments/h3/dependencies.lock.json",
+  "current_install_guide": "https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafddb9f42bb6c72ad27b665def9ada36df45/environments/h3/README.md",
   "current_public_replacement": {
     "save": "Core LTXVSeparateAVLatent then two Core SaveLatent nodes (video and audio)",
     "load": "Two Core LoadLatent nodes then LTXVConcatAVLatent into MiniMaxH3MotionContext.context_latent",

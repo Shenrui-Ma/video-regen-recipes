@@ -15,9 +15,14 @@
 
 模型权重不内嵌。生成环境为Linux x86_64、CPython3.10和NVIDIA/CUDA；macOS可做素材准备与后处理，不能据此认定支持该H3模型的原生推理。显存/RAM容量要现场确认，不提供未经实测的显卡档位保证。
 
+## 配套资源
+
+- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)：本模板的运行图不在本目录内维护，从这里按 `references/workflow.lock.json` 固定的版本取用；H3 环境的版本参考记录在它的 [`environments/h3/`](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafddb9f42bb6c72ad27b665def9ada36df45/environments/h3/README.md)，需要去背景时用它 [`workflows/images/rmbg-2-alpha/`](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafddb9f42bb6c72ad27b665def9ada36df45/workflows/images/rmbg-2-alpha/) 的可选工作流。
+- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)：本模板的驱动视频、配乐、参考图与历史剪辑片段都放在这里，按固定 revision 分发并按 SHA-256 校验；`scripts/distribution/fetch_assets.py` 会按 `assets/runtime-assets.json` 的记录取用。模板目录不再自带这些媒体。
+
 ## 1. 准备环境与素材
 
-全部命令从本目录运行。默认用用户已有的 ComfyUI 和模型；只有缺依赖或推理报错需要排查版本时，才查[环境参考记录](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/README.md)，按需取用其中一段。确实要另建一套时用不存在的目标目录，绝不覆盖共享环境。模型已齐全且可用时直接复用，不重复提醒下载或空间占用；仅在确认缺失后，下载前告知缺失模型、需下载的数据量和预计新增磁盘占用，只计算缺失项。检查失败不能当作模型缺失，详见[下载提醒规则](SKILL.md#下载提醒规则)。
+全部命令从本目录运行。默认用用户已有的 ComfyUI 和模型；只有缺依赖或推理报错需要排查版本时，才查[环境参考记录](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafddb9f42bb6c72ad27b665def9ada36df45/environments/h3/README.md)，按需取用其中一段。确实要另建一套时用不存在的目标目录，绝不覆盖共享环境。模型已齐全且可用时直接复用，不重复提醒下载或空间占用；仅在确认缺失后，下载前告知缺失模型、需下载的数据量和预计新增磁盘占用，只计算缺失项。检查失败不能当作模型缺失，详见[下载提醒规则](SKILL.md#下载提醒规则)。
 
 ```bash
 # 只输出安装计划，审核后再在合适的Linux机器执行

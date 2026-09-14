@@ -52,7 +52,7 @@ python scripts/distribution/package_skill.py --verify ../heartache-lightweight.z
 python scripts/distribution/package_skill.py --full --output ../heartache-with-local-assets.zip
 ```
 
-`BUNDLE-MANIFEST.json` 记录包含文件及被省略文件的字节数与 SHA-256；省略清单的兼容字段名为 `omitted_downloadable_assets`，**不代表其中每个任意本地二进制都有公开下载源**。素材获取以 `runtime-assets.json` 为准；模型来源、固定版本及位置另见 [环境依赖锁](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/feee30d818aee9a6ee5f8ec098aea1f4d906c935/environments/h3/dependencies.lock.json)，模型下载／安装是单独步骤，不由 `fetch_assets.py` 执行。默认包不含任何模型权重；`--full` 会带入已存在的本地二进制（包括权重），分享前须自行检查体积及授权。
+`BUNDLE-MANIFEST.json` 记录包含文件及被省略文件的字节数与 SHA-256；省略清单的兼容字段名为 `omitted_downloadable_assets`，**不代表其中每个任意本地二进制都有公开下载源**。素材获取以 `runtime-assets.json` 为准；模型来源、固定版本及位置另见 [环境依赖锁](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafddb9f42bb6c72ad27b665def9ada36df45/environments/h3/dependencies.lock.json)，模型下载／安装是单独步骤，不由 `fetch_assets.py` 执行。默认包不含任何模型权重；`--full` 会带入已存在的本地二进制（包括权重），分享前须自行检查体积及授权。
 
 ## 授权
 
