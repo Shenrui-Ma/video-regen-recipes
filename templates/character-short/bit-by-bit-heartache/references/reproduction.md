@@ -9,7 +9,7 @@
 - [四段运行参数 JSON](yaoguang-run.json)：种子、Prompt ID、采样/发布区间、模型文件名及证据等级。
 - [实际提示词原文](../prompts/yaoguang.historical.txt)：四段逐字相同，不是占位模板展开后的四套新词。
 - [原生续接语义](native-continuation.md)：AV latent、音频换算、窗口、Trim及两种MotionContext的区别。
-- [历史577帧驱动母片](https://github.com/Shenrui-Ma/video-regen-recipes/releases/download/heartache-reference-20260824/heartache-driver-577f.mp4)：160,208,343字节，作为Release附件提供，不放进Git历史。
+- [历史577帧驱动母片](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/driver/heartache-driver-577f.mp4)：160,208,343字节，SHA-256 `e63386ab88bf4a11dc2fd859b0075099229cad44d77366a220c6e0bb0ba0ca0d`。现由 [Video ReGen 媒体库](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets) 按 revision 提供，取自 `main` 时另按该哈希校验；旧的 [Release 附件](https://github.com/Shenrui-Ma/video-regen-recipes/releases/download/heartache-reference-20260824/heartache-driver-577f.mp4) 是同一哈希的镜像，两者可互换，不放进Git历史。
 - [参考画面校验记录](reference-check.json)：新脚本切出的四段，与找回的历史四段参考逐段比较解码后的YUV画面字节，全部一致。容器、音轨和文件SHA不同。
 
 这些材料没有包含完整模型、原始latent或可独立安装的全部续接节点。新角色运行链仍需配置；不能把准备参考的脚本当成H3生成器。

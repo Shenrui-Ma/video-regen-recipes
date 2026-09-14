@@ -8,7 +8,7 @@
       "role": "motion_reference",
       "bytes": 160208343,
       "sha256": "e63386ab88bf4a11dc2fd859b0075099229cad44d77366a220c6e0bb0ba0ca0d",
-      "url": "https://github.com/Shenrui-Ma/video-regen-recipes/releases/download/heartache-reference-20260824/heartache-driver-577f.mp4",
+      "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/driver/heartache-driver-577f.mp4",
       "video": {
         "width": 1344,
         "height": 768,
@@ -16,70 +16,103 @@
         "frames": 577
       },
       "note": "Frozen source used by successful runtime. Do not substitute the 45fps raw default/driver.mp4 or legacy generated clips.",
-      "download_by_default": true
+      "download_by_default": true,
+      "asset_id": "heartache.driver.mother-577f",
+      "mirrors": [
+        "https://github.com/Shenrui-Ma/video-regen-recipes/releases/download/heartache-reference-20260824/heartache-driver-577f.mp4"
+      ]
     },
     {
       "path": "default/music.m4a",
       "role": "soundtrack",
       "bytes": 474969,
       "sha256": "0da44f53822c7c8ab54fe4b8b089c01c03e89a198e81a2b3cb4d5c8867e4c6c6",
-      "url": "https://github.com/Shenrui-Ma/video-regen-recipes/releases/download/heartache-reference-20260824/music.m4a",
-      "download_by_default": true
+      "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/music/music.m4a",
+      "download_by_default": true,
+      "asset_id": "heartache.music.default",
+      "mirrors": [
+        "https://github.com/Shenrui-Ma/video-regen-recipes/releases/download/heartache-reference-20260824/music.m4a"
+      ]
     },
     {
       "path": "default/yaoguang.png",
       "role": "default_character",
       "bytes": 5146149,
       "sha256": "97d0d6f5e85b0f0e1b95f5fe8df938402907081e6672c4c0a3f0b4bce87f3bc3",
-      "url": "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/yaoguang.png",
+      "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/character/yaoguang.png",
       "note": "Optional historical Yaoguang identity image; explicitly select only for a requested Yaoguang example, never as a substitute for a named or supplied character.",
-      "download_by_default": false
+      "download_by_default": false,
+      "asset_id": "heartache.yaoguang.identity",
+      "mirrors": [
+        "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/yaoguang.png"
+      ]
     },
     {
       "path": "default/driver.mp4",
       "role": "historical_raw_driver",
       "bytes": 59882501,
       "sha256": "16806c7e5e3214fd52f65a6d45243ee806805b815e016cb92552c7533f0ebe32",
-      "url": "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/driver.mp4",
+      "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/driver/driver.mp4",
       "download_by_default": false,
-      "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents."
+      "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents.",
+      "asset_id": "heartache.driver.source-4k",
+      "mirrors": [
+        "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/driver.mp4"
+      ]
     },
     {
       "path": "default/clips/part-01.mp4",
       "role": "historical_editing_source",
       "bytes": 5027044,
       "sha256": "5dacb45830e41f852b6ba4751671e8dd64976f0ce570f4cea55ef77430501d09",
-      "url": "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/clips/part-01.mp4",
+      "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/clips/part-01.mp4",
       "download_by_default": false,
-      "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents."
+      "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents.",
+      "asset_id": "heartache.clip.part-01",
+      "mirrors": [
+        "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/clips/part-01.mp4"
+      ]
     },
     {
       "path": "default/clips/part-02.mp4",
       "role": "historical_editing_source",
       "bytes": 3479889,
       "sha256": "e4a8ab9265f617149653979c547b238a4aa8e154e08667c98a86bc4d803afd00",
-      "url": "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/clips/part-02.mp4",
+      "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/clips/part-02.mp4",
       "download_by_default": false,
-      "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents."
+      "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents.",
+      "asset_id": "heartache.clip.part-02",
+      "mirrors": [
+        "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/clips/part-02.mp4"
+      ]
     },
     {
       "path": "default/clips/part-03.mp4",
       "role": "historical_editing_source",
       "bytes": 2696339,
       "sha256": "b89312f5954ece2f786b6eccdc934fe5388904dcc3980c7d35a3f0c260161a1c",
-      "url": "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/clips/part-03.mp4",
+      "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/clips/part-03.mp4",
       "download_by_default": false,
-      "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents."
+      "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents.",
+      "asset_id": "heartache.clip.part-03",
+      "mirrors": [
+        "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/clips/part-03.mp4"
+      ]
     },
     {
       "path": "default/clips/part-04.mp4",
       "role": "historical_editing_source",
       "bytes": 4389104,
       "sha256": "57ccfef30bd340869cc9f41a797c6c9b6851c1fed270f715750b305cdab04645",
-      "url": "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/clips/part-04.mp4",
+      "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/clips/part-04.mp4",
       "download_by_default": false,
-      "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents."
+      "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents.",
+      "asset_id": "heartache.clip.part-04",
+      "mirrors": [
+        "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/clips/part-04.mp4"
+      ]
     }
   ],
-  "selection": "Default: motion reference and soundtrack only. Optional historical character, raw driver and clips require --assets with exact paths relative to assets/."
+  "selection": "Default: motion reference and soundtrack only. Optional historical character, raw driver and clips require --assets with exact paths relative to assets/.",
+  "source_note": "Primary downloads come from the Video ReGen media library at a pinned revision; each row keeps its previous release or raw-commit location in mirrors, with the same SHA-256."
 }
