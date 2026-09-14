@@ -17,8 +17,8 @@
 
 ## 配套资源
 
-- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)：本模板的运行图不在本目录内维护，从这里按 `references/workflow.lock.json` 固定的版本取用；H3 环境的版本参考记录在它的 [`environments/h3/`](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafddb9f42bb6c72ad27b665def9ada36df45/environments/h3/README.md)，需要去背景时用它 [`workflows/images/rmbg-2-alpha/`](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit/tree/667eafddb9f42bb6c72ad27b665def9ada36df45/workflows/images/rmbg-2-alpha/) 的可选工作流。
-- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)：本模板的驱动视频、配乐、参考图与历史剪辑片段都放在这里，按固定 revision 分发并按 SHA-256 校验；`scripts/distribution/fetch_assets.py` 会按 `assets/runtime-assets.json` 的记录取用。模板目录不再自带这些媒体。
+- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)
+- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)
 
 ## 1. 准备环境与素材
 
