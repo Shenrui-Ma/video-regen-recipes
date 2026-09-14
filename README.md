@@ -37,10 +37,10 @@ Agent 会先询问你的意见，按需部署本地推理服务，再一键生�
 
 ## TODO
 
-- [x] 打通参考图生成链路（ComfyUI、NovelAI、GPT-Image2）
+- [x] 内置参考图生成（ComfyUI、NovelAI、GPT-Image2）
 - [x] 本地 MiniMax H3 及 ComfyUI 部署可复现
 - [ ] 适配 Updream、Runway 等工具的 Computer Use 操作
-- [ ] 逐一完成各模板的 Windows 端测试
+- [ ] 完善 Windows 端测试
 - [ ] 适配更多 Agent 产品，如 Trae、WorkBuddy
 
 ## 参与贡献
