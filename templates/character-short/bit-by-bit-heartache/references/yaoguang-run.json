@@ -200,10 +200,7 @@
     "full_file_bytes": 160208343,
     "asset_id": "heartache.driver.mother-577f",
     "library_revision": "19afd33c5405bcbe1e286cdb35a6c784180e179d",
-    "download_url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/driver/heartache-driver-577f.mp4",
-    "mirrors": [
-      "https://github.com/Shenrui-Ma/video-regen-recipes/releases/download/heartache-reference-20260824/heartache-driver-577f.mp4"
-    ]
+    "download_url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/driver/heartache-driver-577f.mp4"
   },
   "editing": {
     "fps": 60,

@@ -17,10 +17,7 @@
       },
       "note": "Frozen source used by successful runtime. Do not substitute the 45fps raw default/driver.mp4 or legacy generated clips.",
       "download_by_default": true,
-      "asset_id": "heartache.driver.mother-577f",
-      "mirrors": [
-        "https://github.com/Shenrui-Ma/video-regen-recipes/releases/download/heartache-reference-20260824/heartache-driver-577f.mp4"
-      ]
+      "asset_id": "heartache.driver.mother-577f"
     },
     {
       "path": "default/music.m4a",
@@ -29,10 +26,7 @@
       "sha256": "0da44f53822c7c8ab54fe4b8b089c01c03e89a198e81a2b3cb4d5c8867e4c6c6",
       "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/music/music.m4a",
       "download_by_default": true,
-      "asset_id": "heartache.music.default",
-      "mirrors": [
-        "https://github.com/Shenrui-Ma/video-regen-recipes/releases/download/heartache-reference-20260824/music.m4a"
-      ]
+      "asset_id": "heartache.music.default"
     },
     {
       "path": "default/yaoguang.png",
@@ -42,10 +36,7 @@
       "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/character/yaoguang.png",
       "note": "Optional historical Yaoguang identity image; explicitly select only for a requested Yaoguang example, never as a substitute for a named or supplied character.",
       "download_by_default": false,
-      "asset_id": "heartache.yaoguang.identity",
-      "mirrors": [
-        "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/yaoguang.png"
-      ]
+      "asset_id": "heartache.yaoguang.identity"
     },
     {
       "path": "default/driver.mp4",
@@ -55,10 +46,7 @@
       "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/driver/driver.mp4",
       "download_by_default": false,
       "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents.",
-      "asset_id": "heartache.driver.source-4k",
-      "mirrors": [
-        "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/driver.mp4"
-      ]
+      "asset_id": "heartache.driver.source-4k"
     },
     {
       "path": "default/clips/part-01.mp4",
@@ -68,10 +56,7 @@
       "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/clips/part-01.mp4",
       "download_by_default": false,
       "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents.",
-      "asset_id": "heartache.clip.part-01",
-      "mirrors": [
-        "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/clips/part-01.mp4"
-      ]
+      "asset_id": "heartache.clip.part-01"
     },
     {
       "path": "default/clips/part-02.mp4",
@@ -81,10 +66,7 @@
       "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/clips/part-02.mp4",
       "download_by_default": false,
       "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents.",
-      "asset_id": "heartache.clip.part-02",
-      "mirrors": [
-        "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/clips/part-02.mp4"
-      ]
+      "asset_id": "heartache.clip.part-02"
     },
     {
       "path": "default/clips/part-03.mp4",
@@ -94,10 +76,7 @@
       "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/clips/part-03.mp4",
       "download_by_default": false,
       "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents.",
-      "asset_id": "heartache.clip.part-03",
-      "mirrors": [
-        "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/clips/part-03.mp4"
-      ]
+      "asset_id": "heartache.clip.part-03"
     },
     {
       "path": "default/clips/part-04.mp4",
@@ -107,12 +86,9 @@
       "url": "https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets/resolve/19afd33c5405bcbe1e286cdb35a6c784180e179d/templates/bit-by-bit-heartache/clips/part-04.mp4",
       "download_by_default": false,
       "note": "Optional historical edit-only asset; not the 577-frame runtime motion reference and not newly generated output or continuation latents.",
-      "asset_id": "heartache.clip.part-04",
-      "mirrors": [
-        "https://raw.githubusercontent.com/Shenrui-Ma/video-regen-recipes/a727c862db71ef9c93d1c9ea7a7437c510325da1/templates/character-short/bit-by-bit-heartache/assets/default/clips/part-04.mp4"
-      ]
+      "asset_id": "heartache.clip.part-04"
     }
   ],
   "selection": "Default: motion reference and soundtrack only. Optional historical character, raw driver and clips require --assets with exact paths relative to assets/.",
-  "source_note": "Primary downloads come from the Video ReGen media library at a pinned revision; each row keeps its previous release or raw-commit location in mirrors, with the same SHA-256."
+  "source_note": "Asset downloads come from the Video ReGen media library at a pinned revision; the library is the sole configured source."
 }
