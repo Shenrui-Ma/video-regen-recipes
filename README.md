@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://www.bilibili.com/video/BV1WhY364ECX"><img src="assets/showcase/mygo-episode.gif" width="24%" alt="MyGO / Ave Mujica AI 番剧"></a>
   <a href="https://www.bilibili.com/video/BV1BPgq6hEey"><img src="assets/showcase/starboy-tomori.gif" width="24%" alt="STARBOY 高松灯"></a>
-  <img src="assets/showcase/heartache-yaoguang.gif" width="24%" alt="一点一滴刺痛我的心：爻光">
+  <img src="assets/showcase/heartache-yaoguang-5s.gif" width="24%" alt="一点一滴刺痛我的心：爻光">
   <img src="assets/showcase/swimsuit-pool-party.gif" width="24%" alt="星穹铁道 泳池派对">
 </p>
 
