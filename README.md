@@ -3,7 +3,7 @@
 **一句话，本地，让 Agent 用 Minimax H3 复刻热点 MEME／鬼畜／手书视频。**
 
 <!-- Template count is generated from profile.json files by scripts/catalog.py. -->
-### 🎬 已收录 [21 个视频模板](templates/) · 持续更新
+### 🎬 已收录 [11 个视频模板](templates/) · 持续更新
 
 ![Video ReGen Recipes 封面](assets/hero.png)
 
