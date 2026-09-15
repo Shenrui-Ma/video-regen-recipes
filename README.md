@@ -7,17 +7,15 @@
 
 ![Video ReGen Recipes 封面](assets/hero.png)
 
+受够了在线平台的收费、版权、排队？
+本仓库搜集各类二创模板，旨在降低本地视频门槛。通过可复用的模板与 Skills，教会你的 Agent 部署和调用本地视频工作流，串联参考图、声音、视频生成与后期剪辑，让你用一句话开始创作属于自己的版本。
+
 <p align="center">
   <a href="https://www.bilibili.com/video/BV1WhY364ECX"><img src="assets/showcase/mygo-episode.gif" width="24%" alt="MyGO / Ave Mujica AI 番剧"></a>
   <a href="https://www.bilibili.com/video/BV1BPgq6hEey"><img src="assets/showcase/starboy-tomori.gif" width="24%" alt="STARBOY 高松灯"></a>
   <img src="assets/showcase/heartache-yaoguang.gif" width="24%" alt="一点一滴刺痛我的心：爻光">
   <img src="assets/showcase/swimsuit-silverwolf.gif" width="24%" alt="泳装动态立绘：银狼">
 </p>
-
-<p align="center"><sub>成片片段：MyGO 番剧 · STARBOY 高松灯 · 一点一滴刺痛我的心 · 泳装动态立绘</sub></p>
-
-受够了在线平台的收费、版权、排队？
-本仓库搜集各类二创模板，旨在降低本地视频门槛。通过可复用的模板与 Skills，教会你的 Agent 部署和调用本地视频工作流，串联参考图、声音、视频生成与后期剪辑，让你用一句话开始创作属于自己的版本。
 
 ## 快速开始
 
