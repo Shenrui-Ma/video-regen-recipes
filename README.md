@@ -8,8 +8,7 @@
 ![Video ReGen Recipes 封面](assets/hero.png)
 
 受够了在线平台的收费、版权、排队？
-本仓库搜集各类二创模板，旨在降低本地视频门槛。通过可复用的模板与 Skills，教会你的 Agent 部署和调用本地视频工作流，串联参考图、声音、视频生成与后期剪辑，让你用一句话开始创作属于自己的版本。
-
+本仓库搜集各类二创模板，旨在降低本地视频门槛。通过可复用的模板与 Skills，教会你的 Agent 部署本地视频工作流，涵盖参考图、语音克隆、后期剪辑。
 <p align="center">
   <a href="https://www.bilibili.com/video/BV1WhY364ECX"><img src="assets/showcase/mygo-episode.gif" width="24%" alt="MyGO / Ave Mujica AI 番剧"></a>
   <a href="https://www.bilibili.com/video/BV1BPgq6hEey"><img src="assets/showcase/starboy-tomori.gif" width="24%" alt="STARBOY 高松灯"></a>
@@ -30,7 +29,7 @@
 
 > 使用【模板名称】，用【角色或素材】制作视频。先读取对应的 SKILL.md，按模板完成素材准备、生成与剪辑。
 
-Agent 会先询问你的意见，按需部署本地推理服务，再一键生成二创视频。
+Agent 会先询问你的意见，按需下载需要的模型，再一键生成二创视频。
 
 ## 文档导航
 
