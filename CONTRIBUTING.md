@@ -7,6 +7,7 @@
 ## 怎样提交
 
 只有视频或提示词，可以先开 Issue，附上作者和来源链接。
+想让自己的模型或 Agent 代笔，把[模板制造提示词](docs/authoring.prompt.md)连同素材一起交给它，由它按仓库格式整理成初稿；整理完再按[复现测试提示词](docs/testing/reproduction.prompt.md)独立复测。
 提交模板请参考[模板格式](docs/template-format.md)，并说明：
 
 1. 想做什么效果，需要哪些素材，可以修改什么。
