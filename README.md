@@ -7,14 +7,15 @@
 
 ![Video ReGen Recipes 封面](assets/hero.png)
 
-受够了在线平台的收费、版权、排队？
-本仓库搜集各类二创模板，旨在降低本地视频门槛。通过可复用的模板与 Skills，教会你的 Agent 部署本地视频工作流，涵盖参考图、语音克隆、后期剪辑。
 <p align="center">
   <a href="https://www.bilibili.com/video/BV1WhY364ECX"><img src="assets/showcase/mygo-episode.gif" width="24%" alt="MyGO / Ave Mujica AI 番剧"></a>
   <a href="https://www.bilibili.com/video/BV1BPgq6hEey"><img src="assets/showcase/starboy-tomori.gif" width="24%" alt="STARBOY 高松灯"></a>
   <img src="assets/showcase/heartache-yaoguang.gif" width="24%" alt="一点一滴刺痛我的心：爻光">
   <img src="assets/showcase/swimsuit-silverwolf.gif" width="24%" alt="泳装动态立绘：银狼">
 </p>
+
+受够了在线平台的收费、版权、排队？
+本仓库搜集各类二创模板，旨在降低本地视频门槛。通过可复用的模板与 Skills，教会你的 Agent 部署本地视频工作流，涵盖参考图、语音克隆、后期剪辑。
 
 ## 快速开始
 
