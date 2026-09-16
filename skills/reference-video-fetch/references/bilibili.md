@@ -37,6 +37,7 @@ ERROR: ffmpeg exited with code 187
 
 ## 格式选择的约定
 
+- **默认不设上限**：取该视频匿名能给的最高画质；`--max-height` 只在需要省体积或降算力时显式设置。记录里的 `requested_max_height` 未设上限时为 `null`，`quality_limited` 仍会如实反映“匿名拿不到更高画质”的情况（配合 `--require-height` 可硬失败）。
 - **按短边算画质**：`min(width, height)`。竖屏 1080×1920 记为 1080p，否则竖屏素材会被 `height<=1080` 误排除。
 - **优先 h264（avc1）+ m4a**：后续 ffmpeg 裁切、抽帧、调色板生成的兼容性最好；没有 h264 时自动退到 hevc/av01。
 - **显式绑定格式 id**：先探测再按 id 下载，避免 yt-dlp 版本变化导致选择器行为漂移。

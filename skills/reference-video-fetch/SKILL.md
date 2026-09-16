@@ -17,7 +17,7 @@ description: 用 yt-dlp 匿名（不登录、不传 cookie）获取 B 站 / YouT
 
 ## 能力与限制（先讲给用户听）
 
-- **匿名画质随视频而异**。实测有视频匿名可取 1080p30；`1080p60`、`1080p+`、4K、番剧与付费内容通常需要登录或大会员。本工具**不传 cookie**，因此只能使用匿名可得的画质，不会偷偷降级也不假装拿到了更高画质。
+- **默认取匿名能给到的最高画质**。不传 `--max-height` 时按站点匿名上限来（实测有视频可到 1080p30，也有更高的只在登录后才放开）。`1080p60`、`1080p+`、4K、番剧与付费内容通常需要登录或大会员；本工具**不传 cookie**，所以只能取匿名可得的画质，不会偷偷降级也不假装拿到了更高画质。需要控制体积或后续算力时，用 `--max-height` 显式设上限。
 - **站点内容会变**。同一个 BV 号可能被删除、替换或改画质；记录里的 SHA-256 只代表本次抓到的版本，**不能当作 pinned 素材**，也不能承诺跨时间复现。
 - **只取片段不可靠**。CDN 直链缺少 Referer，`--download-sections` 一类的分段抓取会失败；要么整条下载，要么改用更低画质。
 - **竖屏按短边算**。格式选择用分辨率短边（1080×1920 记为 1080p），避免竖屏视频被误判成“超过 1080p”。
@@ -36,10 +36,10 @@ description: 用 yt-dlp 匿名（不登录、不传 cookie）获取 B 站 / YouT
 
    ```bash
    python3 scripts/fetch_reference.py --url "<视频页面链接>" --out <项目参考目录> \
-     --max-height 1080 --limit-rate 4M --sleep-requests 1
+     --limit-rate 4M --sleep-requests 1
    ```
 
-   需要“拿不到指定画质就失败”时加 `--require-height 1080`，避免悄悄用 360p 顶替。
+   默认取匿名最高画质；`--max-height 720` 之类的上限只在明确要省体积或降算力时使用。需要“拿不到指定画质就失败”时加 `--require-height 1080`，避免悄悄用 360p 顶替。
 
 3. **核对记录**。`<视频ID>.mp4.fetch.json` 至少应包含：`page_url`、`title`、`uploader`、`duration_seconds`、`selected_format_id`、`bytes`、`sha256`、`transport: no-login`、`redistribution: local-reference-only`、`notes`。
    记录里出现 `quality_limited: true` 或 `notes` 提到匿名上限时，要在交付说明里如实转述。

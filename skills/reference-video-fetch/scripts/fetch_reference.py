@@ -35,7 +35,7 @@ EXIT_TOO_LONG = 7
 EXIT_FAILED = 8
 
 SCHEMA_VERSION = 1
-DEFAULT_MAX_HEIGHT = 1080
+DEFAULT_MAX_HEIGHT = 0  # 0 = no cap: take the best quality the site serves anonymously
 DEFAULT_MAX_DURATION = 900
 
 BILIBILI_HOSTS = {'www.bilibili.com', 'bilibili.com', 'm.bilibili.com'}
@@ -200,9 +200,12 @@ def choose_formats(info, max_height):
     if not videos:
         raise FetchError(EXIT_UNAVAILABLE, '这个页面没有可下载的视频流')
     available = max(resolution_class(f) for f in videos)
-    allowed = [f for f in videos if resolution_class(f) <= max_height] or [
-        min(videos, key=lambda f: resolution_class(f))
-    ]
+    if max_height:
+        allowed = [f for f in videos if resolution_class(f) <= max_height] or [
+            min(videos, key=lambda f: resolution_class(f))
+        ]
+    else:
+        allowed = videos
     best_class = max(resolution_class(f) for f in allowed)
     pool = [f for f in allowed if resolution_class(f) == best_class]
     preferred = [f for f in pool if any(codec in (f.get('vcodec') or '') for codec in VIDEO_CODEC_PREFERENCE)]
@@ -247,7 +250,7 @@ def build_record(info, site, page_url, *, notes, path, selected, audio, availabl
         'fetched_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         'transport': transport,
         'redistribution': 'local-reference-only',
-        'requested_max_height': requested_height,
+        'requested_max_height': requested_height or None,
         'available_max_height': available,
         'quality_limited': bool(available and requested_height and available < requested_height),
         'selected_format_id': (selected or {}).get('format_id'),
@@ -336,7 +339,7 @@ def fetch(args, *, runner=subprocess.run, opener=None):
             f'匿名可获得的最高画质是 {available}p，低于要求的 {args.require_height}p',
             notes=notes,
         )
-    if available < args.max_height:
+    if args.max_height and available < args.max_height:
         notes.append(f'匿名上限为 {available}p（请求上限 {args.max_height}p）；未使用登录态')
     record = build_record(
         info, site, page_url, notes=notes, path=None, selected=chosen, audio=audio,
@@ -393,7 +396,10 @@ def parser():
     p.add_argument('--out', default='reference', help='下载目录，默认 ./reference')
     p.add_argument('--stem', help='输出文件名主干，默认用视频 ID')
     p.add_argument('--record', help='抓取记录 JSON 路径，默认与视频同名的 .fetch.json')
-    p.add_argument('--max-height', type=int, default=DEFAULT_MAX_HEIGHT, help='画质上限（按短边计算），默认 1080')
+    p.add_argument(
+        '--max-height', type=int, default=DEFAULT_MAX_HEIGHT,
+        help='可选画质上限（按短边计算）。默认 0 = 不设上限，取站点匿名可给的最高画质',
+    )
     p.add_argument('--require-height', type=int, help='要求的画质下限；匿名达不到时直接失败')
     p.add_argument('--max-duration', type=int, default=DEFAULT_MAX_DURATION, help='允许的最长时长（秒），默认 900')
     p.add_argument('--limit-rate', help='限速，例如 4M')
@@ -421,7 +427,7 @@ def main(argv=None):
     else:
         target = record['path'] or '（仅探测）'
         print(f"站点：{record['site']}｜标题：{record['title']}｜作者：{record['uploader']}")
-        print(f"时长：{record['duration_seconds']}s｜可用上限：{record['available_max_height']}p｜选用格式：{record['selected_format_id']}")
+        print(f"时长：{record['duration_seconds']}s｜采用画质：{record['available_max_height']}p｜选用格式：{record['selected_format_id']}")
         print(f"输出：{target}")
         for note in record['notes']:
             print(f'注意：{note}')

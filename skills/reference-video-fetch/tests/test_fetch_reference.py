@@ -140,6 +140,23 @@ class FormatChoiceTests(unittest.TestCase):
         self.assertEqual((chosen["format_id"], available), ("30016", 1080))
         self.assertEqual(fetch_reference.resolution_class(chosen), 360)
 
+    def test_no_cap_takes_the_best_available_quality(self):
+        info = {
+            "formats": [
+                format_row("720", 1280, 720),
+                format_row("1080", 1920, 1080),
+                format_row("2160", 3840, 2160, vcodec="av01.0.08M.08"),
+            ]
+        }
+        chosen, _, available = fetch_reference.choose_formats(info, fetch_reference.DEFAULT_MAX_HEIGHT)
+        self.assertEqual(fetch_reference.DEFAULT_MAX_HEIGHT, 0)
+        self.assertEqual((chosen["format_id"], available), ("2160", 2160))
+
+    def test_explicit_cap_still_wins_over_the_best_available(self):
+        info = {"formats": [format_row("720", 1280, 720), format_row("2160", 3840, 2160)]}
+        chosen, _, _ = fetch_reference.choose_formats(info, 1080)
+        self.assertEqual(chosen["format_id"], "720")
+
     def test_prefers_avc1_over_hevc_at_the_same_resolution(self):
         info = {
             "formats": [
@@ -283,6 +300,15 @@ class RecordContractTests(unittest.TestCase):
                     "redistribution", "requested_max_height", "available_max_height", "quality_limited",
                     "selected_format_id", "path", "bytes", "sha256", "notes"):
             self.assertIn(key, record)
+        self.assertFalse(record["quality_limited"])
+
+    def test_uncapped_record_says_so_instead_of_pretending_a_cap(self):
+        record = fetch_reference.build_record(
+            PORTRAIT_INFO, "bilibili", "https://www.bilibili.com/video/BV1LQ7j6WEyD/", notes=[],
+            path=None, selected=PORTRAIT_INFO["formats"][2], audio=None,
+            available=1080, requested_height=0,
+        )
+        self.assertIsNone(record["requested_max_height"])
         self.assertFalse(record["quality_limited"])
 
 
