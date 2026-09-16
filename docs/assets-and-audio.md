@@ -32,6 +32,42 @@
 | 通义、元宝 | 需要登录 | 免登录状态下不应假设能用 |
 | GPT Image / Gemini | 需要账号（多为付费档） | 大陆网络通常不可直接使用；按上一节的顺序先问用户 |
 
+### 把本地图送进网页工具、再把结果取回来（实测路径）
+
+2026-09-16 在 macOS + Chrome + opencli 1.7.22 上实测，适用于“换装 / 改图 / 去背景”这类需要**输入本地图片**的任务。按省事程度排序：
+
+1. **优先用能直接收图并落盘的适配器命令。** 例如 `opencli chatgpt image "<提示词>" --image <本地图> --op <输出目录>` 一条命令完成上传、生成、保存——不需要碰界面。编码类 Agent 自己有图像工具时（如 Codex 的 `imagegen`）更优先。
+2. **没有可用适配器时，用剪贴板 + 真实按键粘贴**，再从界面回收结果（下面的命令）。
+3. **零账号场景**：本地 ComfyUI；即梦（jimeng）可免登录**文生图**，但改图仍要手动上传。
+
+已验证可用的上传流程（豆包 / ChatGPT 通用）：
+
+```bash
+# 1) 把本地图放进 macOS 剪贴板（PNG）
+osascript -e 'set the clipboard to (read (POSIX file "/绝对路径/图.png") as «class PNGf»)'   # 注意引号
+# 2) 让光标进入输入框：用 opencli 点 contenteditable，并先打一个字符确认焦点
+opencli browser <session> click "<contenteditable 的 ref 或 CSS>"
+# 3) 把 Chrome 切到最前，发送“真实” Cmd+V（不是 opencli keys）
+osascript -e 'tell application "Google Chrome" to activate' -e 'delay 0.8' \
+          -e 'tell application "System Events" to keystroke "v" using command down'
+# 4) 输入提示词并发送
+opencli browser <session> type <composer-ref> "<提示词>"
+opencli browser <session> click "#flow-end-msg-send"          # 豆包
+opencli browser <session> click "[data-testid=send-button]"   # ChatGPT
+```
+
+### 已知坑（别再重犯）
+
+| 坑 | 现象 | 正确做法 |
+| --- | --- | --- |
+| `opencli browser keys "Meta+v"` | 只发按键、不带 paste 语义，图片不会进输入框 | 用上一步的 OS 级 Cmd+V；先确认光标在输入框里（打字验证） |
+| `opencli browser upload <ref> <file>` | 等不到 `Page.fileChooserOpened` 直接失败 | 别反复重试，改走剪贴板；等 opencli 升级后再评估 |
+| refs 会过期 | 页面一变，ref 指向别的元素，点出无关弹窗 | 重复动作改用 CSS 选择器 + `--nth`；写操作前先 `state` 刷新 |
+| 推广弹窗遮挡 | Escape 关不掉，后续点击被吞 | `find --css "[aria-label*=关闭]"` 找到关闭按钮再点，别硬按 Escape |
+| 点错页头按钮 | 把「下载电脑版」当图片下载，误下安装包 | 下载图片要在**大图查看器**里点下载图标；误下的文件移入废纸篓而不要直接删 |
+| 结果是 `blob:` 地址 | `curl` / `wget` 拿不到，网络捕获里也没有 | 走查看器下载，或优先用带 `--op` 的适配器命令（第 1 条） |
+| 多张同名图片 | 分不清上传图和生成图 | 用 `--nth` 区分；生成结果通常是最后一个 |
+
 ## 声音
 
 - 分清临时配音、音色／表演参考、最终对白、环境音与音乐。
