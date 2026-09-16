@@ -5,6 +5,8 @@ description: 使用 GPT Image 2 high 生成或修改视频制作所需的角色�
 
 # GPT Image 2 参考图
 
+**开工前先确认账号状态**：本 Skill 需要用户自己的 ChatGPT/OpenAI 账号。先问用户“现在有没有可用账号、是否已登录”；没有就改用[ComfyUI 参考图](../comfyui-reference-images/SKILL.md)或让用户提供现成图片，不要默认对方有会员。
+
 目标：得到可供视频模板使用的独立图片，以及可追溯的提示词、参考图和生成记录。默认 **`gpt-image-2` + `quality: high`**，一次一个画面。此 Skill 不生成视频。
 
 ## 执行顺序

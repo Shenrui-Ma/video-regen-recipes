@@ -5,6 +5,8 @@ description: 用本地或自托管远程 ComfyUI 制作角色参考图、场景�
 
 # ComfyUI 参考图
 
+**这是无需账号的默认后端**：本地 ComfyUI 优先，其次才是需要登录的托管服务。用户只想“改一张现成图”（换装、去背景）时，先确认是否有可用的本地工作流；没有再用[GPT Image 2](../gpt-image2-reference-images/SKILL.md)等需要账号的路线，并按[docs/assets-and-audio.md](../../docs/assets-and-audio.md)先问清账号状态。
+
 目标：交付适合下一镜头使用的图片，以及可追溯的生成记录。默认本地；图片工作流与服务器连接分开。需要能访问文件、HTTP API 和查看图片的 Agent。此目录可独立安装，不含模型权重或固定角色工作流。
 
 先按[Toolkit 关联规则](references/toolkit.md)查找和获取匹配工作流，再执行以下步骤。具体图优先复用固定版本，未找到才按模型发布方流程补齐。
