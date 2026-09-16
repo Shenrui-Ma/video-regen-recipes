@@ -23,7 +23,28 @@ templates/<template-id>/
 镜头、生成任务和剪辑片段分别编号并记录对应关系，便于只重做受影响的部分。
 标明“整理中”“已验证配置”或“待修复”；“已验证”只指实际跑过的环境与输入。
 ComfyUI 默认按[本地方式](comfyui-local.md)使用，[远程方式](comfyui-remote.md)单独处理连接与文件传输；模板不写死服务地址或机器路径。
-共用内容引用仓库中的 [H3 工作流](../workflows/comfyui/h3/)与[公共方法](../shared/)，不必复制。一个充分验证的配置即可提交。
+共用内容引用仓库的[共用 Skills](../skills/)与外部 [ComfyUI Toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)（按固定 revision + 文件哈希引用），不必复制进模板；模型与素材按[图片与声音](assets-and-audio.md)获取。仓库根目录的 `shared/` 与 `workflows/comfyui/h3/` 目前只是占位目录，实际共用内容以上述两处为准。一个充分验证的配置即可提交。
+
+## 交付契约（每个模板都要满足）
+
+目录至少包含：`README.md`、`SKILL.md`、`profile.json`、`sources.md`、`LICENSE`、`LICENSES.md`、`references/validation.md`。
+
+`SKILL.md` 前置字段写全 `name`、`description`、`version`、`author`、`license`、`platforms`，其中 `version` 与 `profile.json` 保持一致。`LICENSE` 是本模板的许可副本（原创代码与文档沿用仓库 MIT），`LICENSES.md` 逐项列出第三方组件、权重、字体与素材的条款边界。
+
+`profile.json.runtime` 记录**运行事实**，让 Agent 在开工前就能判断“能不能跑、跑到哪一步验证过”：
+
+| 字段 | 含义 |
+| --- | --- |
+| `distribution_mode` | `portable-*` = 可独立分发，目录内不得引用模板之外的任何路径（参考 heartache）；`repo-bound` = 仓库内模板，可引用 `skills/`、`docs/` 与同级模板 |
+| `entry` | 可执行入口脚本；没有就写 `null` |
+| `asset_manifest` | 运行必需素材清单（路径 + 字节 + SHA-256）；没有就写 `null` |
+| `environment_lock` | 环境或工作流的固定版本记录；没有就写 `null` |
+| `existing_environment_verified` | 是否在某个可用环境里真实产出过（历史案例算，没跑过就 false） |
+| `clean_install_inference_verified` | 干净安装后是否跑通推理；没跑就如实写 false |
+
+`repo-bound` 模板引用了 `skills/`、`docs/` 或同级模板时，必须在 `profile.json.requires` 的 `skills` / `docs` / `templates` 中声明。`tests/test_template_contract.py` 会校验目录齐全、前置字段、runtime 字段、链接可解析、外部依赖已声明，以及依赖路径真实存在。
+
+`references/validation.md` 写清三件事：已验证什么（含证据位置）、未验证什么（并给出两个 runtime 旗标的依据）、使用者机器仍需完成什么。不要把“整理时核对过文件”写成“已复现”。
 
 ## 加入索引
 

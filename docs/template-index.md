@@ -37,6 +37,8 @@ python3 scripts/catalog.py search --tag 舞蹈
 
 沿用顶层稳定 `id`、`status` 和 `files.guide` / `files.agent_entry`。重命名标题时保留 ID，并把旧名称加入别名。可参考任一已收录模板的实际字段。
 
+索引只展示面向用户的部分。判断“这个模板现在能不能跑、验证到哪一步”要读该模板 `profile.json` 的 `runtime`（入口、素材清单、环境固定版本与两个验证旗标），字段约定见[模板格式](template-format.md)。
+
 ```bash
 python3 scripts/catalog.py build
 python3 scripts/catalog.py check
