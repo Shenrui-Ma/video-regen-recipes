@@ -104,6 +104,46 @@ class AssetTests(unittest.TestCase):
                 with self.assertRaises(ValueError): m.acquire(p,{'path':path,'url':url,'sha256':'a'*64,'bytes':1})
             self.assertFalse(p.exists())
 
+    def manual_row(self):
+        body=b'offline manual fallback fixture'
+        return {'path':'default/music.m4a','bytes':len(body),'sha256':hashlib.sha256(body).hexdigest(),
+                'url':'https://example.invalid/music.m4a','role':'soundtrack','download_by_default':True}
+
+    def test_manual_mode_lists_url_target_and_hash_without_touching_network(self):
+        row=self.manual_row()
+        with tempfile.TemporaryDirectory() as td:
+            p=Path(td); manifest=p/'manifest.json'; manifest.write_text(json.dumps({'assets':[row]}))
+            with patch('urllib.request.urlopen',side_effect=AssertionError('network forbidden')):
+                result=subprocess.run([sys.executable,str(T/'scripts/distribution/fetch_assets.py'),
+                                       '--asset-root',str(p/'assets'),'--manifest',str(manifest),'--manual'],
+                                      capture_output=True,text=True)
+            self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+            entry=json.loads(result.stdout)['manual'][0]
+            self.assertEqual(entry['url'],row['url'])
+            self.assertEqual(entry['sha256'],row['sha256'])
+            self.assertEqual(entry['bytes'],row['bytes'])
+            self.assertTrue(entry['target'].endswith('assets/default/music.m4a'))
+            self.assertTrue(any('浏览器' in step for step in entry['steps']))
+            self.assertFalse((p/'assets').exists())
+
+    def test_failed_fetch_returns_manual_instructions(self):
+        body=b'offline manual fallback fixture'
+        row={'path':'default/music.m4a','bytes':len(body),'sha256':hashlib.sha256(body).hexdigest(),
+             'url':'https://127.0.0.1:9/music.m4a','role':'soundtrack','download_by_default':True}
+        with tempfile.TemporaryDirectory() as td:
+            p=Path(td); manifest=p/'manifest.json'; manifest.write_text(json.dumps({'assets':[row]}))
+            result=subprocess.run([sys.executable,str(T/'scripts/distribution/fetch_assets.py'),
+                                   '--asset-root',str(p/'assets'),'--manifest',str(manifest)],
+                                  capture_output=True,text=True)
+            self.assertEqual(result.returncode,3,result.stdout+result.stderr)
+            report=json.loads(result.stdout)
+            self.assertFalse(report['ok'])
+            entry=report['manual'][0]
+            self.assertEqual(entry['path'],'default/music.m4a')
+            self.assertIn('sha256',entry)
+            self.assertTrue(entry['error'])
+            self.assertFalse((p/'assets/default/music.m4a').exists())
+
 class PackageTests(unittest.TestCase):
     def test_default_package_is_text_only_and_full_retains_local_assets(self):
         m=load('package_skill')

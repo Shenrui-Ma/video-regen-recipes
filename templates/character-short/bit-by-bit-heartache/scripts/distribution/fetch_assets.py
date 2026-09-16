@@ -65,6 +65,14 @@ def acquire(root,row,cache=None):
     if not check(root,row): raise ValueError('Published asset readback failed')
     return {'path':row['path'],'status':'copied_verified_cache' if source and source.is_file() else 'downloaded_verified','sha256':row['sha256']}
 
+def manual_instructions(root,row):
+    """What the user needs to fetch by hand when the automatic path is unavailable."""
+    target=validate(root,row)
+    return {'path':row['path'],'url':row['url'],'target':str(target),'bytes':row['bytes'],'sha256':row['sha256'],
+            'steps':['在浏览器打开 URL 并下载（需要登录或网盘时由用户手动完成，不要代登录或转存）',
+                     '把文件放到 target 路径，文件名保持一致',
+                     '重新运行本脚本并加 --check，核对字节数与 SHA-256 后再继续']}
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--asset-root',type=Path,default=TEMPLATE/'assets')
@@ -73,6 +81,7 @@ def main():
     p.add_argument('--check',action='store_true',help='Read only; do not create files or use network')
     p.add_argument('--assets',nargs='+',metavar='PATH',help='Fetch/check only these manifest paths, including optional assets; paths are relative to assets/')
     p.add_argument('--without-default-character',action='store_true',help='Exclude the historical character image (already excluded by default)')
+    p.add_argument('--manual',action='store_true',help='Read only; print the per-asset manual download instructions and exit')
     a=p.parse_args(); rows=json.loads(a.manifest.read_text(encoding='utf-8'))['assets']
     if a.assets:
         unknown=set(a.assets)-{r['path'] for r in rows}
@@ -81,11 +90,19 @@ def main():
     else:
         rows=[r for r in rows if r.get('download_by_default',r['role']!='default_character')]
     if a.without_default_character: rows=[r for r in rows if r['role']!='default_character']
+    if a.manual:
+        print(json.dumps({'ok':True,'manual':[manual_instructions(a.asset_root,r) for r in rows]},ensure_ascii=False,indent=2)); return 0
     if a.check:
         statuses=[{'path':r['path'],'verified':check(a.asset_root,r)} for r in rows]
         ok=all(r['verified'] for r in statuses)
-        print(json.dumps({'ok':ok,'read_only':True,'assets':statuses},indent=2)); return 0 if ok else 2
-    statuses=[acquire(a.asset_root,r,a.cache_dir) for r in rows]
-    print(json.dumps({'ok':True,'assets':statuses},indent=2)); return 0
+        print(json.dumps({'ok':ok,'read_only':True,'assets':statuses},ensure_ascii=False,indent=2)); return 0 if ok else 2
+    statuses=[]; manual=[]
+    for r in rows:
+        try: statuses.append(acquire(a.asset_root,r,a.cache_dir))
+        except Exception as error:
+            manual.append({**manual_instructions(a.asset_root,r),'error':str(error)})
+    if manual:
+        print(json.dumps({'ok':False,'assets':statuses,'manual':manual},ensure_ascii=False,indent=2)); return 3
+    print(json.dumps({'ok':True,'assets':statuses},ensure_ascii=False,indent=2)); return 0
 
 if __name__=='__main__': raise SystemExit(main())
