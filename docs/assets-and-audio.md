@@ -86,15 +86,27 @@ opencli browser <session> click "[data-testid=send-button]"   # ChatGPT
 
 ### 普通用户（无 GPT / Gemini 订阅）用豆包改参考图：标准流程
 
-前置：用户在本机 Chrome 里**登录豆包**（扫码即可）；Agent 侧 `opencli doctor` 全绿。实测两次换装各用 51–60 秒，UI 显示「消耗 0」——但不要批量刷。
+前置：用户在本机 Chrome 里**登录豆包**（扫码即可）；Agent 侧 `opencli doctor` 全绿。实测三次换装各用 50–75 秒，UI 显示「消耗 0」——但不要批量刷。
 
 | 步骤 | 谁做 | 做法 |
 | --- | --- | --- |
-| 1. 放图 | Agent | 图片进剪贴板 → opencli 点输入框 → **按 URL 定位标签页** → 系统级 Cmd+V；截图确认缩略图出现 |
+| 1. 放图 | Agent | 图片进剪贴板 → opencli 点输入框 → **用唯一标记参数定位标签页** → 系统级 Cmd+V；截图确认缩略图出现 |
 | 2. 写提示词 | Agent | 用下面的模板，写清“只改什么 / 什么必须不变 / 白底 / 同尺寸” |
 | 3. 发送 | Agent | `click "#flow-end-msg-send"`，等 50–70 秒 |
-| 4. 取回 | **用户点一下** | 点开结果图 → 查看器右下角「↓」→ 文件落到 `~/Downloads`（这一步没有 CLI 钩子） |
+| 4. 取回 | Agent | 从 DOM 取结果图的签名 URL，再由本机带 `Referer` 取回（见下） |
 | 5. 归档 | Agent | 改名挪进项目目录，记录来源、原图、提示词、时间与结果哈希 |
+
+**取回结果的两种方式**（都验证过，推荐第一种）：
+
+```bash
+# 方式 A（推荐）：从页面取签名 URL，本机带 Referer 直接下载，不受浏览器下载策略影响
+opencli browser <session> eval "(()=>[...document.querySelectorAll('img')].filter(i=>i.src.includes('byteimg')&&i.naturalWidth>=1000).map(i=>i.src).join('\n'))()"
+# 拿到 URL 后用 python/curl 带 -H "Referer: https://www.doubao.com/" 取回
+
+# 方式 B：页面内 fetch + <a download>（第一次可用；连续第二次会被 Chrome 的“多文件下载”拦）
+```
+
+整个过程**可以全自动**：上传由 Agent 做（剪贴板 + 真实 Cmd+V，或页面内合成 `paste` 注入），下载由 Agent 做（方式 A）。人的角色是“事先登录豆包”和“事后确认结果”。
 
 改图提示词模板（实测有效）：
 
@@ -104,9 +116,18 @@ opencli browser <session> click "[data-testid=send-button]"   # ChatGPT
 背景改成干净的纯白背景（用于视频参考图）；不要文字、水印或多余装饰；输出与输入同尺寸。
 ```
 
-**完全手工版**（门槛最低，不需要任何工具）：在豆包网页/客户端里直接拖图 → 粘贴上面的提示词 → 生成后点下载。Agent 的价值在提示词、推进与归档，不在于替代这两次点击。
+**完全手工版**（不需要任何工具，适合不装 opencli 的用户）：在豆包网页/客户端里直接拖图 → 粘贴上面的提示词 → 生成后点下载。Agent 的价值在提示词、批量推进与归档。
 
 无 GPT 订阅时的其它选择：本地 ComfyUI（有显卡最自由，零账号）、即梦（免登录文生图，改图仍需手动上传）、通义/元宝（都要登录）。
+
+再补三个实测坑：
+
+| 坑 | 现象 | 正确做法 |
+| --- | --- | --- |
+| 多个豆包标签 | `osascript` 按 “doubao.com/chat” 匹配会命中别的标签，按键发错地方 | 给会话 URL 加**唯一标记参数**（如 `?cxtarget=swap3`），osascript 只匹配这个标记 |
+| 输入框里的旧附件 | 合成注入的测试附件删不掉（点 × 会打开预览） | 别清残留，**直接新开一个对话**做下一张 |
+| 连续程序化下载 | 第二次 `<a download>` 被 Chrome 的“多文件下载”拦截 | 改用方式 A（本机带 Referer 取签名 URL） |
+| `opencli browser open` | 会新开标签，原会话可能停在 `about:blank` | 之后重新 `open` 目标 URL，或先 `state` 确认当前页 |
 
 ## 声音
 
