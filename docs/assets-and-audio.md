@@ -68,6 +68,22 @@ opencli browser <session> click "[data-testid=send-button]"   # ChatGPT
 | 结果是 `blob:` 地址 | `curl` / `wget` 拿不到，网络捕获里也没有 | 走查看器下载，或优先用带 `--op` 的适配器命令（第 1 条） |
 | 多张同名图片 | 分不清上传图和生成图 | 用 `--nth` 区分；生成结果通常是最后一个 |
 
+### 侦察结论：豆包改图能不能做成适配器（2026-09-16）
+
+- **不能直连 API。** 抓到的豆包请求都带 `msToken` 与 `a_bogus`（字节系反爬签名），内部接口（`/alice/...`）完全依赖这套签名。伪造签名是高风险路线，不做。
+- **可行路线是“页面内驱动”**，与官方 `doubao` 适配器同一套思路：
+  - **上传**：在页面内构造 `DataTransfer` + `File`，向输入框派发合成的 `ClipboardEvent('paste')` —— 实测被接受（输入框立即出现附件缩略图），文件由站点自己的通道上传，不需要签名。
+  - **取回**：结果图是带签名的 `byteimg` HTTPS 地址（也可能渲染成 `blob:`），**在页面内 `fetch()` 可取到字节**（实测 200 / `image/png` / 2,587,128 字节 / 1600×1600），再交给适配器进程写盘。
+- **结论**：`opencli doubao image --image <本地图> --op <目录>` 可行，工作量约 1–3 小时（含 `browser verify`）。风险与官方 doubao 适配器同级：低频、单账号、不批量；**建议只放本地 `~/.opencli/clis/doubao/`，不进公开仓库**。
+
+本轮新增的坑：
+
+| 坑 | 现象 | 正确做法 |
+| --- | --- | --- |
+| `network --follow` 不出条目 | 后台跑了一整轮生成，抓包文件 0 行 | 改用 `network --all --since 5m`（事后一次性取） |
+| `osascript` 的 `window 1` 不可靠 | opencli 的前台窗口可能和用户自己的 Chrome 窗口合并，按键落到别的标签页（粘贴失败） | 用 **URL 匹配**定位标签页后再发按键：遍历 `tabs of window 1`，`URL contains "doubao.com/chat/<id>"` 的那个设为 active |
+| 合成注入的附件删不掉 | 用 opencli 点 ×（`[class*=delete]`）无效果，按钮要 hover 才出现 | 手动 hover 点 × 清理，或忽略（草稿不会发送） |
+
 ## 声音
 
 - 分清临时配音、音色／表演参考、最终对白、环境音与音乐。
