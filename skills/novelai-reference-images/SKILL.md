@@ -5,7 +5,7 @@ description: 使用 NovelAI 官方图像 API 制作角色参考图和分镜关�
 
 # NovelAI 参考图
 
-**开工前先确认账号状态**：本 Skill 需要用户的 NovelAI 订阅与 `NOVELAI_API_KEY`。先确认是否具备；没有就改用[ComfyUI 参考图](../comfyui-reference-images/SKILL.md)或让用户自备图片。
+**开工前先确认账号状态**：本 Skill 需要用户的 NovelAI 订阅与 `NOVELAI_API_KEY`。先确认是否具备；没有就改用[ComfyUI 参考图](../comfyui-reference-images/SKILL.md)或让用户自备图片。后端优先级按[生图后端怎么选](../../docs/image-generation-backends.md)执行。
 
 先把需要的图片列清楚，再调用一次、检查一次。不要把“下载成功”当作“角色一致”。
 

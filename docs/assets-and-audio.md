@@ -11,123 +11,16 @@
 - 逐次绑定提示词里的“图1、图2”与实际文件，编号不能跨任务照搬。
 - 分开保存作者原提示词与实际提交稿，记录素材来源和版本。
 
-### 改参考图之前，先问用户手上有什么
+### 生图后端怎么选
 
-改图、换装、去背景这类任务开始前，**先确认用户实际可用的后端**，不要默认对方有会员或账号：
+改图、换装、去背景或准备首帧前，先按用户的 **Agent 产品与模型 provider** 决定生图方式，默认“能走 CLI/API 就不走网页”：
 
-1. 问一句：本地有没有 ComfyUI（或其它本地生图环境）？有没有 GPT / Gemini / 豆包 / 即梦 / 通义 等工具的账号，且**当前是否已登录**？有没有可用的图像 API key（OpenAI / Gemini 等）？
-2. 按“**本地 → 宿主内置生图 / CLI / API → 已登录账号的网页工具 → 需要登录的工具 → 用户自备图**”排序选择后端，并把选择理由说清楚（成本、速度、是否需要账号）。
+- 用户在用 **Codex**，或用 Hermes / OpenClaw 这类开源 Agent 但**订阅走 Codex / GPT** → 优先 **GPT Image**：先试宿主内置 `image_gen`，不可用时用 `imagegen` 技能 CLI（需 `OPENAI_API_KEY`）。
+- **其它 provider** → 先看它的 API 有没有视觉能力：有视觉就能承担看图与验收；不能出图时再往下找。
+- 看用户**已经登录的 chat**，优先级 **GPT → Gemini → 豆包**；未登录时先把登录页打开给用户，等他登录（不索取密码、不代登录、不碰 cookies）。
+- 都没有 → **本地 ComfyUI**；再不行 → **用户自备图片**。
 
-   **能走 CLI 或 API 就不要走网页**：编码类 Agent 通常自带或能调用图像 CLI（例如 Codex 的 `imagegen` 技能：优先内置 `image_gen` 工具，其次 `scripts/image_gen.py` CLI），比驱动浏览器更稳、更快、可脚本化。网页只在前两者都不可用时使用，因为它依赖登录态、页面结构，并且有上传/下载的自动化限制。
-3. 需要登录而当前未登录时，**先把登录页打开给用户**（或说明在哪登录），等对方登录后再继续；不要在未登录状态下反复重试、也不要索取账号密码或 cookies。
-4. 把这一轮实际使用的后端、账号状态与结果写进项目记录，便于下一次直接复用。
-
-常见后端的现实差异（2026-09）：
-
-| 后端 | 门槛 | 备注 |
-| --- | --- | --- |
-| 本地 ComfyUI / SDXL / Anima | 只需显卡，无需账号 | 最稳的默认；换装/去背景要靠对应工作流 |
-| 即梦（jimeng） | 免登录可用文生图 | 图像编辑（上传参考图）仍需界面手动上传 |
-| 豆包 | 需要登录 | 网页与客户端都要账号；换装类编辑在应用内完成 |
-| 通义、元宝 | 需要登录 | 免登录状态下不应假设能用 |
-| GPT Image / Gemini | 需要账号（多为付费档） | 大陆网络通常不可直接使用；按上一节的顺序先问用户 |
-
-### 把本地图送进网页工具、再把结果取回来（实测路径）
-
-2026-09-16 在 macOS + Chrome + opencli 1.7.22 上实测，适用于“换装 / 改图 / 去背景”这类需要**输入本地图片**的任务。按省事程度排序：
-
-1. **优先用能直接收图并落盘的适配器命令。** 例如 `opencli chatgpt image "<提示词>" --image <本地图> --op <输出目录>` 一条命令完成上传、生成、保存——不需要碰界面。编码类 Agent 自己有图像工具时（如 Codex 的 `imagegen`）更优先。
-2. **没有可用适配器时，用剪贴板 + 真实按键粘贴**，再从界面回收结果（下面的命令）。
-3. **零账号场景**：本地 ComfyUI；即梦（jimeng）可免登录**文生图**，但改图仍要手动上传。
-
-已验证可用的上传流程（豆包 / ChatGPT 通用）：
-
-```bash
-# 1) 把本地图放进 macOS 剪贴板（PNG）
-osascript -e 'set the clipboard to (read (POSIX file "/绝对路径/图.png") as «class PNGf»)'   # 注意引号
-# 2) 让光标进入输入框：用 opencli 点 contenteditable，并先打一个字符确认焦点
-opencli browser <session> click "<contenteditable 的 ref 或 CSS>"
-# 3) 把 Chrome 切到最前，发送“真实” Cmd+V（不是 opencli keys）
-osascript -e 'tell application "Google Chrome" to activate' -e 'delay 0.8' \
-          -e 'tell application "System Events" to keystroke "v" using command down'
-# 4) 输入提示词并发送
-opencli browser <session> type <composer-ref> "<提示词>"
-opencli browser <session> click "#flow-end-msg-send"          # 豆包
-opencli browser <session> click "[data-testid=send-button]"   # ChatGPT
-```
-
-### 已知坑（别再重犯）
-
-| 坑 | 现象 | 正确做法 |
-| --- | --- | --- |
-| `opencli browser keys "Meta+v"` | 只发按键、不带 paste 语义，图片不会进输入框 | 用上一步的 OS 级 Cmd+V；先确认光标在输入框里（打字验证） |
-| `opencli browser upload <ref> <file>` | 等不到 `Page.fileChooserOpened` 直接失败 | 别反复重试，改走剪贴板；等 opencli 升级后再评估 |
-| refs 会过期 | 页面一变，ref 指向别的元素，点出无关弹窗 | 重复动作改用 CSS 选择器 + `--nth`；写操作前先 `state` 刷新 |
-| 推广弹窗遮挡 | Escape 关不掉，后续点击被吞 | `find --css "[aria-label*=关闭]"` 找到关闭按钮再点，别硬按 Escape |
-| 点错页头按钮 | 把「下载电脑版」当图片下载，误下安装包 | 下载图片要在**大图查看器**里点下载图标；误下的文件移入废纸篓而不要直接删 |
-| 结果是 `blob:` 地址 | `curl` / `wget` 拿不到，网络捕获里也没有 | 走查看器下载，或优先用带 `--op` 的适配器命令（第 1 条） |
-| 多张同名图片 | 分不清上传图和生成图 | 用 `--nth` 区分；生成结果通常是最后一个 |
-
-### 侦察结论：豆包改图能不能做成适配器（2026-09-16）
-
-- **不能直连 API。** 抓到的豆包请求都带 `msToken` 与 `a_bogus`（字节系反爬签名），内部接口（`/alice/...`）完全依赖这套签名。伪造签名是高风险路线，不做。
-- **可行路线是“页面内驱动”**，与官方 `doubao` 适配器同一套思路：
-  - **上传**：在页面内构造 `DataTransfer` + `File`，向输入框派发合成的 `ClipboardEvent('paste')` —— 实测被接受（输入框立即出现附件缩略图），文件由站点自己的通道上传，不需要签名。
-  - **取回**：结果图是带签名的 `byteimg` HTTPS 地址（也可能渲染成 `blob:`），**在页面内 `fetch()` 可取到字节**（实测 200 / `image/png` / 2,587,128 字节 / 1600×1600），再交给适配器进程写盘。
-- **结论**：`opencli doubao image --image <本地图> --op <目录>` 可行，工作量约 1–3 小时（含 `browser verify`）。风险与官方 doubao 适配器同级：低频、单账号、不批量；**建议只放本地 `~/.opencli/clis/doubao/`，不进公开仓库**。
-
-本轮新增的坑：
-
-| 坑 | 现象 | 正确做法 |
-| --- | --- | --- |
-| `network --follow` 不出条目 | 后台跑了一整轮生成，抓包文件 0 行 | 改用 `network --all --since 5m`（事后一次性取） |
-| `osascript` 的 `window 1` 不可靠 | opencli 的前台窗口可能和用户自己的 Chrome 窗口合并，按键落到别的标签页（粘贴失败） | 用 **URL 匹配**定位标签页后再发按键：遍历 `tabs of window 1`，`URL contains "doubao.com/chat/<id>"` 的那个设为 active |
-| 合成注入的附件删不掉 | 用 opencli 点 ×（`[class*=delete]`）无效果，按钮要 hover 才出现 | 手动 hover 点 × 清理，或忽略（草稿不会发送） |
-
-### 普通用户（无 GPT / Gemini 订阅）用豆包改参考图：标准流程
-
-前置：用户在本机 Chrome 里**登录豆包**（扫码即可）；Agent 侧 `opencli doctor` 全绿。实测三次换装各用 50–75 秒，UI 显示「消耗 0」——但不要批量刷。
-
-| 步骤 | 谁做 | 做法 |
-| --- | --- | --- |
-| 1. 放图 | Agent | 图片进剪贴板 → opencli 点输入框 → **用唯一标记参数定位标签页** → 系统级 Cmd+V；截图确认缩略图出现 |
-| 2. 写提示词 | Agent | 用下面的模板，写清“只改什么 / 什么必须不变 / 白底 / 同尺寸” |
-| 3. 发送 | Agent | `click "#flow-end-msg-send"`，等 50–70 秒 |
-| 4. 取回 | Agent | 从 DOM 取结果图的签名 URL，再由本机带 `Referer` 取回（见下） |
-| 5. 归档 | Agent | 改名挪进项目目录，记录来源、原图、提示词、时间与结果哈希 |
-
-**取回结果的两种方式**（都验证过，推荐第一种）：
-
-```bash
-# 方式 A（推荐）：从页面取签名 URL，本机带 Referer 直接下载，不受浏览器下载策略影响
-opencli browser <session> eval "(()=>[...document.querySelectorAll('img')].filter(i=>i.src.includes('byteimg')&&i.naturalWidth>=1000).map(i=>i.src).join('\n'))()"
-# 拿到 URL 后用 python/curl 带 -H "Referer: https://www.doubao.com/" 取回
-
-# 方式 B：页面内 fetch + <a download>（第一次可用；连续第二次会被 Chrome 的“多文件下载”拦）
-```
-
-整个过程**可以全自动**：上传由 Agent 做（剪贴板 + 真实 Cmd+V，或页面内合成 `paste` 注入），下载由 Agent 做（方式 A）。人的角色是“事先登录豆包”和“事后确认结果”。
-
-改图提示词模板（实测有效）：
-
-```text
-只改<要变的部分>，其他都保持不变。把<对象>的服装换成：<具体服装描述>。
-要求：脸型、五官、发型、发色、<其它身份特征>、姿势、手势、镜头角度和构图全部保持不变；
-背景改成干净的纯白背景（用于视频参考图）；不要文字、水印或多余装饰；输出与输入同尺寸。
-```
-
-**完全手工版**（不需要任何工具，适合不装 opencli 的用户）：在豆包网页/客户端里直接拖图 → 粘贴上面的提示词 → 生成后点下载。Agent 的价值在提示词、批量推进与归档。
-
-无 GPT 订阅时的其它选择：本地 ComfyUI（有显卡最自由，零账号）、即梦（免登录文生图，改图仍需手动上传）、通义/元宝（都要登录）。
-
-再补三个实测坑：
-
-| 坑 | 现象 | 正确做法 |
-| --- | --- | --- |
-| 多个豆包标签 | `osascript` 按 “doubao.com/chat” 匹配会命中别的标签，按键发错地方 | 给会话 URL 加**唯一标记参数**（如 `?cxtarget=swap3`），osascript 只匹配这个标记 |
-| 输入框里的旧附件 | 合成注入的测试附件删不掉（点 × 会打开预览） | 别清残留，**直接新开一个对话**做下一张 |
-| 连续程序化下载 | 第二次 `<a download>` 被 Chrome 的“多文件下载”拦截 | 改用方式 A（本机带 Referer 取签名 URL） |
-| `opencli browser open` | 会新开标签，原会话可能停在 `about:blank` | 之后重新 `open` 目标 URL，或先 `state` 确认当前页 |
+完整的决策顺序、后端能力对照表，以及**豆包实测链路**（上传/取回命令、提示词模板、坑表）见 [生图后端怎么选](image-generation-backends.md)。
 
 ## 声音
 
