@@ -8,6 +8,7 @@
 | [GPT Image 2 high](gpt-image2-reference-images/SKILL.md) | 多参考图绑定、角色与场景生成、单次调用和输出恢复 |
 | [NovelAI 官方 API](novelai-reference-images/SKILL.md) | 文生图、图生图、提示词与参考功能说明 |
 | [角色合集剪辑](character-showcase-editing/SKILL.md) | 图片缩放、纯溶解、图接视频、视频合集与音轨处理 |
+| [参考视频获取](reference-video-fetch/SKILL.md) | B 站 / YouTube 匿名取参考视频，不登录、不传 cookie，写出抓取记录 |
 
 ## 使用
 
@@ -22,6 +23,7 @@ Agent 需要文件、网络或相应生图工具权限；视觉验收还需要�
 - ComfyUI：流程与官方资料已核对，未用本包实跑推理；不附带私人风格工作流。
 - GPT Image 2 / NovelAI：请求与异常处理通过离线测试，未执行真实付费生成。
 - NovelAI：当前模型的完整 API 配置需先核实，高级参考功能尚未纳入附带客户端。
+- 参考视频获取：链接校验、竖屏选流、画质上限与失败分类通过离线测试（21 项）；匿名可用画质逐视频不同，用 `--probe` 现场核对，已实测两条 B 站视频。
 - 视频模板的完整执行包仍在整理，参考图 Skill 不代表视频流程已可一键运行。
 - 角色合集：已提供参数化剪辑执行器及离线计划检查，公开配置未重新渲染；生成链路见各模板。
 

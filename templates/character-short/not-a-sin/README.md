@@ -16,6 +16,8 @@
 
 视频默认使用[本地 ComfyUI](../../../docs/comfyui-local.md)，也可连接自托管实例。Agent 优先复用已经配置的驱动视频和音乐；缺少时只补齐对应素材。
 
+参考视频优先用你提供的文件。只给了一个视频页面链接时，Agent 会用[参考视频获取 Skill](../../../skills/reference-video-fetch/SKILL.md)匿名取到本机（不登录、画质以站点匿名可得为准），并留下抓取记录；第三方参考只用于本地分析，不会进入仓库或媒体库。
+
 [工作流说明](workflows/README.md) · [提示词](prompts/README.md) · [参数](profile.json) · [制作记录](evidence/README.md) · [作者与技术来源](sources.md)
 
 原创配方：**Shenrui Ma（四倍体果蝇）**。完整续接执行包仍在完善，运行需要可用的 H3 环境与模板参考素材。

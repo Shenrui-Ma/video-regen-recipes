@@ -351,7 +351,8 @@
         "ComfyUI + MiniMax H3",
         "联合音视频续接适配",
         "RIFE",
-        "FFmpeg"
+        "FFmpeg",
+        "参考视频（用户自备，或按 Skill 匿名获取）"
       ],
       "variants": [],
       "status": "documented-historical-case",

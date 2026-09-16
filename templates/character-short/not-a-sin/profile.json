@@ -36,6 +36,18 @@
     "identity_images_in_historical_case": 1,
     "outfit_policy": "fixed_character_outfit"
   },
+  "reference_video": {
+    "policy": "user-supplied file first; fetch from a page link only when the user has none",
+    "fetch_skill": "../../../skills/reference-video-fetch/SKILL.md",
+    "local_only": true,
+    "example": {
+      "page_url": "https://www.bilibili.com/video/BV1LQ7j6WEyD/",
+      "title": "🐋DeepSeek不是罪过~🐋",
+      "uploader": "uulumine゛",
+      "duration_seconds": 56.0,
+      "anonymous_max_height": 1080
+    }
+  },
   "continuation": {
     "source": "previous_published_slow_video_and_audio_tail",
     "video_context_frames": 22,
@@ -119,7 +131,8 @@
       "ComfyUI + MiniMax H3",
       "联合音视频续接适配",
       "RIFE",
-      "FFmpeg"
+      "FFmpeg",
+      "参考视频（用户自备，或按 Skill 匿名获取）"
     ],
     "status_label": "说明已整理；续接执行包待完善"
   }

@@ -39,7 +39,7 @@ Agent 会先询问你的意见，按需下载需要的模型，再一键生成�
 | [模板目录](templates/) | 选择模板、查看示例与验证状态 |
 | [Agent 使用与适配](docs/agent-compatibility.md) | 接入方式与实测范围 |
 | ComfyUI：[本地](docs/comfyui-local.md) / [远程](docs/comfyui-remote.md) | 部署、连接与文件传输 |
-| [参考图 Skills](skills/) · [图片与声音](docs/assets-and-audio.md) | 准备角色图、场景与音频 |
+| [参考图 Skills](skills/) · [参考视频获取](skills/reference-video-fetch/SKILL.md) · [图片与声音](docs/assets-and-audio.md) | 准备角色图、参考视频与音频 |
 | [H3 制作流程](docs/local-h3.md) · [工作流库](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit) | 本地视频生成与配套工作流 |
 | [模板怎么写](docs/template-format.md) · [复现测试](docs/testing/README.md) | 贡献模板与维护者测试 |
 

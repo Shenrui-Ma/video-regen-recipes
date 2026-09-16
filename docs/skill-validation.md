@@ -35,3 +35,17 @@ python3 -m unittest discover -s skills/novelai-reference-images/tests -v
 | NovelAI 模型 ID 或参考配置缺少官方依据 | 报告具体缺项，不猜 ID、不丢弃参考输入继续 |
 
 以上是执行验收标准；尚未用不同能力的 Agent 进行成功率评测。后续需分别补充真实账户、模型／节点版本、GPU 环境、图像结果及人工验收记录。
+
+## 参考视频获取（2026-09-16）
+
+新增共用 Skill `skills/reference-video-fetch/`：用 `yt-dlp` 匿名下载 B 站 / YouTube 参考视频页面，不传 cookie、不传账号状态，并写出抓取记录。
+
+```bash
+python3 -m unittest discover -s skills/reference-video-fetch/tests -v
+```
+
+本次通过 21 项离线测试（伪造 yt-dlp / ffprobe 输出，不联网）：链接规范化与短链解析、媒体直链与站外链接拒绝、竖屏按短边选流、画质上限与 `--require-height`、已存在文件保护、缺失工具、不可用页面与时长上限、抓取记录字段，以及“命令中绝不出现 cookie 参数”。
+
+真实站点只做了只读探测：BV1BPgq6hEey 与 BV1LQ7j6WEyD 匿名均可得 1080p30 并成功下载合并；`1080p60`、4K、番剧与付费内容需要登录或大会员，本工具不覆盖。
+
+未验证：登录态链路、番剧与合集页、批量抓取、超长视频、被删除或区域限制视频的实际表现，以及下载内容的画面验收（属使用者与原作者的权利范围，本工具只负责取到本机）。
