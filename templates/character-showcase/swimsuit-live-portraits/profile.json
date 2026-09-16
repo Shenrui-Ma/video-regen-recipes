@@ -1,5 +1,19 @@
 {
   "schema_version": 1,
+  "version": "0.1.0",
+  "runtime": {
+    "distribution_mode": "repo-bound",
+    "entry": null,
+    "asset_manifest": null,
+    "environment_lock": "workflows/toolkit-source.json",
+    "clean_install_inference_verified": false,
+    "existing_environment_verified": true,
+    "notes": "历史 8 段案例在作者环境完成；新角色链路只做过离线检查"
+  },
+  "requires": {
+    "skills": ["skills/comfyui-reference-images", "skills/character-showcase-editing"],
+    "templates": ["templates/character-showcase/video-collection"]
+  },
   "id": "swimsuit-live-portraits",
   "author": "Shenrui Ma（四倍体果蝇）",
   "parent_template": "character-video-collection",

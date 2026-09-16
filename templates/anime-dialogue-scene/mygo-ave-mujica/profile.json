@@ -1,5 +1,23 @@
 {
   "schema_version": 1,
+  "version": "0.1.0",
+  "runtime": {
+    "distribution_mode": "repo-bound",
+    "entry": "scripts/build_episode.py",
+    "asset_manifest": null,
+    "environment_lock": "workflows/toolkit-source.json",
+    "clean_install_inference_verified": false,
+    "existing_environment_verified": false,
+    "notes": "脚本只做校验与图导出；Ref2VA 工作流从 Toolkit 固定版本获取，本模板记录 revision 与哈希"
+  },
+  "requires": {
+    "skills": [
+      "skills/comfyui-reference-images",
+      "skills/gpt-image2-reference-images",
+      "skills/novelai-reference-images"
+    ],
+    "docs": ["docs/comfyui-local.md", "docs/comfyui-remote.md"]
+  },
   "id": "mygo-ave-mujica-episode",
   "status": "adapted-template-offline-checked",
   "new_environment_validation": "pending",

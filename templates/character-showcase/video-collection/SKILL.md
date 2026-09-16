@@ -1,6 +1,10 @@
 ---
 name: character-video-collection
 description: 从一句话制作角色动态立绘合集；使用 ComfyUI 生成角色参考图和首帧图，本地 MiniMax H3 逐段 I2V，再剪辑视频合集或原图→对应视频混剪。也处理用户明确要求的已有视频重剪。
+version: 0.1.0
+author: Shenrui Ma（四倍体果蝇）
+license: "See LICENSES.md for component terms"
+platforms: [linux, macos]
 ---
 
 # 角色视频合集

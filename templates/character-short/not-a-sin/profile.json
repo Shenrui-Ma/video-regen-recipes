@@ -6,7 +6,24 @@
   "status": "documented-historical-case",
   "public_runtime_status": "not-packaged",
   "new_character_validation": "pending",
-  "runtime": "ComfyUI",
+  "runtime": {
+    "distribution_mode": "repo-bound",
+    "entry": null,
+    "asset_manifest": null,
+    "environment_lock": null,
+    "clean_install_inference_verified": false,
+    "existing_environment_verified": true,
+    "notes": "历史案例在作者环境完成，但联合音视频续接适配没有可导入的执行包；详见 workflows/README.md 与 references/validation.md"
+  },
+  "requires": {
+    "skills": [
+      "skills/comfyui-reference-images",
+      "skills/gpt-image2-reference-images",
+      "skills/novelai-reference-images",
+      "skills/reference-video-fetch"
+    ],
+    "docs": ["docs/comfyui-local.md", "docs/comfyui-remote.md", "docs/local-h3.md"]
+  },
   "deployment": {
     "default": "local",
     "guides": {

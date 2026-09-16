@@ -42,3 +42,10 @@
 - 第一段通过后再扩展；高清、复杂走位、配乐、修脸与超分按需增加，见[效率与进阶](references/efficiency-and-variants.md)。
 
 [来源与许可](sources.md) · [验证状态](evidence/README.md)
+
+## 配套资源
+
+- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)：`h3/ref2va-dialogue` 工作流，固定 revision 与文件哈希见 [workflows/toolkit-source.json](workflows/toolkit-source.json)
+- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)：公开素材库；角色图与音色按用户自己的来源准备
+
+第三方组件、角色 IP 与声音权利见 [LICENSES.md](LICENSES.md)，本次验证范围见 [验证记录](references/validation.md)。

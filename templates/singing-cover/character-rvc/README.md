@@ -47,3 +47,11 @@ helper 只需 Python 3.10+ 标准库。`build_filelist.py` 检查实际文件并
 交付音频即完成本模板；需要画面时可另接[律动环 MV](../../music-visualizer/rhythm-ring/README.md)，只传递冻结母带与哈希，MV 不成为训练前置条件。
 
 配方：**Shenrui Ma（四倍体果蝇）**。感谢 **RVCProject / RVC-Project**、原角色中文配音**若舞**与明日方舟游戏权利主体；技术代码、角色、录音、表演和歌曲权利分别归各自权利人。
+
+## 配套资源
+
+- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)：本仓库其它模板使用的固定版本工作流；本模板是音频链路，不调用它做推理
+- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)：公开素材库；本模板不附带权重、索引或录音
+- 配套入口：[语音发现脚本](scripts/discover.py) · [依赖与哈希](model-catalog/dependencies.json) · [律动环 MV](../../music-visualizer/rhythm-ring/README.md)
+
+第三方代码、权重、角色与声音权利见 [LICENSES.md](LICENSES.md)，本次验证范围与权利登记要求见 [验证记录](references/validation.md)。

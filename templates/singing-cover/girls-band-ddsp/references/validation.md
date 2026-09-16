@@ -42,3 +42,9 @@ python3 -B templates/singing-cover/girls-band-ddsp/scripts/preflight.py --voice 
 实际复现时在自己的项目记录日期、操作系统/GPU/驱动、源码commit与diff、实际依赖lock、模型及source hash、argv、起止时间/耗时、输出格式/frames、分离审听、F0和字词检查、独立LUFS/dBTP、修复/拒绝版本、最终接受状态。技术检查和人工听审各自填真实状态，不预填成功。
 
 本模板未附模型、原曲、完整分轨、旧部署lock、私有runner、旧字幕cue或完整DAW工程，因此不是全离线复现包。独立MV另行验收，本模板完成条件仅为经验证的母带/分轨/哈希。
+
+## 契约状态
+
+- `runtime.distribution_mode = repo-bound`，`runtime.entry = scripts/preflight.py`，`runtime.environment_lock = model-catalog/dependencies.json`。
+- `runtime.existing_environment_verified = true` 只表示历史成品在作者的独立 Linux GPU 环境完成；`runtime.clean_install_inference_verified = false`。
+- 声码器 PC-NSF-HiFiGAN 2025.02 的发行声明为 **CC BY-NC-SA 4.0（非商业）**；其余权重许可有未厘清项，逐项见 [LICENSES.md](../LICENSES.md)。

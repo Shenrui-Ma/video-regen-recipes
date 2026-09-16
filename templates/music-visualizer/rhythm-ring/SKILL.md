@@ -1,6 +1,10 @@
 ---
 name: rhythm-ring-mv
 description: 把已确认音频、图片和可选歌词时间轴做成独立双律动环 MV，支持横竖屏、节选、双语字幕和母带哈希绑定；不做 SVC 推理、不改混音。
+version: 0.1.0
+author: Shenrui Ma（四倍体果蝇）
+license: "See LICENSES.md for component terms"
+platforms: [linux, macos]
 ---
 
 # 律动环 MV

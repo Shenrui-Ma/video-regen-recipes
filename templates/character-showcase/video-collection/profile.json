@@ -1,5 +1,18 @@
 {
   "schema_version": 1,
+  "version": "0.1.0",
+  "runtime": {
+    "distribution_mode": "repo-bound",
+    "entry": null,
+    "asset_manifest": null,
+    "environment_lock": "workflows/toolkit-source.json",
+    "clean_install_inference_verified": false,
+    "existing_environment_verified": false,
+    "notes": "H3 I2V 工作流从 Toolkit 固定版本获取；本模板记录 revision 与文件哈希"
+  },
+  "requires": {
+    "skills": ["skills/comfyui-reference-images", "skills/character-showcase-editing"]
+  },
   "id": "character-video-collection",
   "author": "Shenrui Ma（四倍体果蝇）",
   "status": "workflow-linked; editing-config-offline-checked; new-generation-not-run",

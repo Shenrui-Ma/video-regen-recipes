@@ -49,3 +49,10 @@ python3 templates/music-visualizer/rhythm-ring/scripts/render.py /path/to/projec
 - 记录绑定项目、音频、图片、字体及输出哈希，保存起点、时长、帧率、实际帧数、cue、耗时与完整解码检查。
 - 人工看头尾、强拍和字幕切换帧，听有无人声截断、漂移、爆音；字体缺字方框与角色遮挡不能靠 ffprobe 发现。脚本的 `visual_review` 默认是 `not_performed`，不能自动改成已验收。
 - 本次只用自制合成音频与测试图片验证，未下载这两首歌、未复刻整支作品、未重新跑 GPU 翻唱。具体测试命令见 [sources.md](sources.md)。
+
+## 配套资源
+
+- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)：本仓库其它模板使用的固定版本工作流；本模板是独立渲染器，不调用模型
+- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)：公开素材库；母带、图片与字体由用户自备
+
+第三方组件、歌曲与声线权利见 [LICENSES.md](LICENSES.md)，本次验证范围见 [验证记录](references/validation.md)。

@@ -133,6 +133,7 @@
     "asset_manifest": "assets/runtime-assets.json",
     "clean_install_inference_verified": false,
     "distribution_mode": "portable-no-media",
+    "existing_environment_verified": true,
     "existing_environment_first_segment_verified": true,
     "first_segment_validation": "references/first-segment-validation.json",
     "environment_lock": "references/environment.lock.json"

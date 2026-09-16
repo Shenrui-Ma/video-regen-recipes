@@ -25,3 +25,10 @@
 本例采用连续色域轮廓矢量化及语义分层，静态SVG平均每通道色差为1.30/255，视觉接近原图，但并非严格逐像素1:1。它不是大模型逐笔手工绘画或思考过程录像。
 
 模板实现：**Shenrui Ma（四倍体果蝇）**。灵感来源：[Hope麻匪《再给 GPT6 Astra 一点时间》](https://www.bilibili.com/video/BV1azYW6zEXy)。[来源与验证](sources.md)
+
+## 配套资源
+
+- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)：本仓库其它模板使用的固定版本图像与视频工作流；本模板不使用模型推理
+- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)：公开素材库；本模板的示例素材体积与哈希见 [assets/manifest.json](assets/manifest.json)
+
+第三方组件与素材条款见 [LICENSES.md](LICENSES.md)，本次验证范围见 [验证记录](references/validation.md)。

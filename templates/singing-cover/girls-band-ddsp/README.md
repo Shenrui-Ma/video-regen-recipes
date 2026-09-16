@@ -59,3 +59,11 @@ python3 templates/singing-cover/girls-band-ddsp/scripts/preflight.py --voice tom
 Agent 从 [SKILL.md](SKILL.md) 开始；机器索引见 [profile.json](profile.json)。
 
 配方：**Shenrui Ma（四倍体果蝇）**。角色模型、代码与依赖作者分别见上方致谢及来源页。
+
+## 配套资源
+
+- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)：本仓库其它模板使用的固定版本工作流；本模板是音频链路，不调用它做推理
+- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)：公开素材库；本模板不附带权重与音频
+- 配套入口：[预检脚本](scripts/preflight.py) · [模型清单与哈希](model-catalog/dependencies.json) · [律动环 MV](../../music-visualizer/rhythm-ring/README.md)
+
+第三方代码与权重条款（含**非商业**声码器）见 [LICENSES.md](LICENSES.md)，本次验证范围见 [验证记录](references/validation.md)。

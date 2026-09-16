@@ -21,3 +21,10 @@
 [工作流说明](workflows/README.md) · [提示词](prompts/README.md) · [参数](profile.json) · [制作记录](evidence/README.md) · [作者与技术来源](sources.md)
 
 原创配方：**Shenrui Ma（四倍体果蝇）**。完整续接执行包仍在完善，运行需要可用的 H3 环境与模板参考素材。
+
+## 配套资源
+
+- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)：H3 与图像工作流的维护位置
+- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)：公开素材库；参考视频用[参考视频获取 Skill](../../../skills/reference-video-fetch/SKILL.md)按需取到本机
+
+第三方组件、参考作品与角色权利见 [LICENSES.md](LICENSES.md)，本次验证范围见 [验证记录](references/validation.md)。

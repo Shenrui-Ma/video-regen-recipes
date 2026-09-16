@@ -13,3 +13,10 @@ Agent 会用 ComfyUI 准备参考图与首帧图，用本地 MiniMax H3 逐段�
 [生成链路](references/generation.md) · [剪辑规则](references/editing.md) · [视频合集示例](examples/video-collection.json) · [图→视频示例](examples/still-video.json)
 
 原创配方：**Shenrui Ma（四倍体果蝇）**。工作流从关联 Toolkit 获取，首次运行由 Agent 核对本地模型与节点。参见[来源与验证范围](sources.md)。
+
+## 配套资源
+
+- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)：`h3-i2v-live-portrait` 等固定版本工作流，固定 revision 与哈希见 [workflows/toolkit-source.json](workflows/toolkit-source.json)
+- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)：公开素材库；本模板的示例配置不附带媒体
+
+第三方组件与素材条款见 [LICENSES.md](LICENSES.md)，本次验证范围见 [验证记录](references/validation.md)。

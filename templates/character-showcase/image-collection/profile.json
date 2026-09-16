@@ -1,5 +1,18 @@
 {
   "schema_version": 1,
+  "version": "0.1.0",
+  "runtime": {
+    "distribution_mode": "repo-bound",
+    "entry": null,
+    "asset_manifest": null,
+    "environment_lock": null,
+    "clean_install_inference_verified": false,
+    "existing_environment_verified": false,
+    "notes": "生图与剪辑执行由共用 Skill 提供；本模板只含规则、示例与提示词"
+  },
+  "requires": {
+    "skills": ["skills/comfyui-reference-images", "skills/character-showcase-editing"]
+  },
   "id": "character-image-collection",
   "status": "adapted-template-offline-checked",
   "new_environment_validation": "pending",

@@ -1,5 +1,21 @@
 {
   "schema_version": 1,
+  "version": "0.1.0",
+  "runtime": {
+    "distribution_mode": "repo-bound",
+    "entry": "scripts/discover.py",
+    "asset_manifest": null,
+    "environment_lock": "model-catalog/dependencies.json",
+    "clean_install_inference_verified": false,
+    "existing_environment_verified": true,
+    "notes": "历史训练与翻唱在作者独立 Linux GPU 环境完成；依赖清单来自资料包导入，哈希未在本模板重新下载核对"
+  },
+  "requires": {
+    "templates": [
+      "templates/singing-cover/girls-band-ddsp",
+      "templates/music-visualizer/rhythm-ring"
+    ]
+  },
   "id": "character-rvc-training-cover",
   "status": "adapted-template-offline-checked",
   "new_environment_validation": "pending-linux-gpu-training-inference-and-listening",

@@ -59,3 +59,9 @@ Agent 原生网页搜索成功找到 PRTS 莫斯提马语音记录页，多语�
 标准库 helper 不检查 NPY 数值/形状、WAV 解码、音域覆盖、分组泄漏、checkpoint 内容、优化器恢复、索引内部维度/ntotal、授权、进程锁或声音质量。技术示例经固定源码核对，不等于已在新环境通过。没有依赖 lock/可信权重、真实授权输入和听审时，停止在对应阶段，不能以占位文件代替。
 
 新角色完整验收至少包括：本次来源/用途依据、真实筛选和分组、部署与资产校验、逐阶段日志及输入输出哈希、音频/数组技术检查、候选 checkpoint 与索引配对、短段和全曲听审、母带独立响度/真峰值测量、可恢复的干声/工程和交付清单。只有这次实际完成的项才能标通过。
+
+## 契约状态
+
+- `runtime.distribution_mode = repo-bound`，`runtime.entry = scripts/discover.py`，`runtime.environment_lock = model-catalog/dependencies.json`。
+- `runtime.existing_environment_verified = true` 只表示历史训练与翻唱在作者的独立 Linux GPU 环境完成；`runtime.clean_install_inference_verified = false`。
+- 依赖清单中的哈希与字节是资料包导入值，未在本模板重新下载核对，逐项 `hash_basis` 已注明；公开导出不含 ASR 全文、权重、索引、音频与私有路径，见 [LICENSES.md](../LICENSES.md)。

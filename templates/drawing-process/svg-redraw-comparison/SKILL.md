@@ -1,6 +1,10 @@
 ---
 name: svg-redraw-comparison
 description: 用参考图制作高精度 SVG 临摹绘制过程视频，交付纯 SVG 网页、独立 SVG 和原图对照 MP4。禁止 Canvas、位图嵌入与外链，按构图、线稿、固有色、阴影、高光、细节重放；横图上下、竖图左右合成。
+version: 0.1.0
+author: Shenrui Ma（四倍体果蝇）
+license: "See LICENSES.md for component terms"
+platforms: [linux, macos]
 ---
 
 # 基于大模型的SVG临摹重绘

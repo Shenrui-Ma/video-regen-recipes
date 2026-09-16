@@ -1,6 +1,10 @@
 ---
 name: html-product-showcase
 description: 根据产品特点、目标用户与真实功能证据设计 HTML/CSS/SVG 产品展示动画，选择合适的动效与分镜，交付可 seek 的网页、MP4 和可复用项目；支持横竖屏重新编排与配音字幕。
+version: 0.1.0
+author: Shenrui Ma（四倍体果蝇）
+license: "See LICENSES.md for component terms"
+platforms: [linux, macos]
 ---
 
 # HTML 产品展示动画

@@ -15,3 +15,10 @@
 文件与离线逻辑已检查，公开版未重新渲染或进行视觉验收。
 
 整理：**Shenrui Ma（四倍体果蝇）**。
+
+## 配套资源
+
+- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)：本仓库其它模板使用的固定版本工作流；本模板不调用模型推理
+- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)：公开素材库；产品图与字体由用户自备
+
+第三方组件、字体与素材条款见 [LICENSES.md](LICENSES.md)，本次验证范围见 [验证记录](references/validation.md)。

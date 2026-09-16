@@ -14,3 +14,10 @@ Agent 会准备 8 张首帧、生成对应片段，再按模板剪成竖屏合�
 - [真实案例与验证边界](references/evidence.md)
 
 **配方：Shenrui Ma（四倍体果蝇）**
+
+## 配套资源
+
+- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)：`h3-i2v-live-portrait` 等固定版本工作流，固定 revision 与哈希见 [workflows/toolkit-source.json](workflows/toolkit-source.json)
+- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)：公开素材库；本模板不附带媒体
+
+第三方组件与素材条款见 [LICENSES.md](LICENSES.md)，本次验证范围见 [验证记录](references/validation.md)，来源与署名见 [sources.md](sources.md)。

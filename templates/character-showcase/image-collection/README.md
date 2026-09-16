@@ -15,3 +15,10 @@ Agent 用 ComfyUI 生成一组角色图，再加上缩放、模糊背景、转�
 历史剪辑参数已整理，公开执行包只做过文件与离线逻辑检查，新环境成片待实测。
 
 配方：**Shenrui Ma（四倍体果蝇）**。
+
+## 配套资源
+
+- [shenrui-comfyui-toolkit](https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit)：固定版本的图片与视频工作流
+- [Shenrui-Ma/video-regen-assets](https://huggingface.co/datasets/Shenrui-Ma/video-regen-assets)：公开素材库；本模板不附带媒体
+
+第三方组件与素材条款见 [LICENSES.md](LICENSES.md)，本次验证范围见 [验证记录](references/validation.md)。

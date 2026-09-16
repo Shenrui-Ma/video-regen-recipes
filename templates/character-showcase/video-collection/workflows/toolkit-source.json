@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/Shenrui-Ma/shenrui-comfyui-toolkit",
+  "revision": "667eafddb9f42bb6c72ad27b665def9ada36df45",
+  "workflow": {
+    "id": "h3-i2v-live-portrait",
+    "path": "workflows/h3/i2v-live-portrait/api.template.json",
+    "sha256": "d68e490716e1787a951f687162c9d7fb29184c0a4cc8397a1c726b6db45bc908",
+    "family": "MiniMax-H3",
+    "mode": "independent first-frame I2V",
+    "format": "parameterized-comfyui-api",
+    "status": "pinned; a real run in the user's environment is still required",
+    "guide": "workflows/h3/i2v-live-portrait/README.md"
+  },
+  "purpose": "Keep the graph in one place. Verify the revision and hash before use instead of drifting to whatever main points at today."
+}

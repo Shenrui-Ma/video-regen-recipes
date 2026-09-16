@@ -1,6 +1,10 @@
 ---
 name: girls-band-ddsp-cover
 description: 从已有歌曲或已审听分轨制作少女乐队 DDSP-SVC 6.2 翻唱；本机控制、独立 Linux GPU 推理，经过模型配对校验、分离听审、分声部转换、局部修复与混音，交付母带分轨和哈希，不依赖 MV。
+version: 0.1.0
+author: Shenrui Ma（四倍体果蝇）
+license: "See LICENSES.md for component terms"
+platforms: [linux]
 ---
 
 # 少女乐队 DDSP-SVC 翻唱

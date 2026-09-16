@@ -1,5 +1,18 @@
 {
   "schema_version": 1,
+  "version": "0.1.0",
+  "runtime": {
+    "distribution_mode": "repo-bound",
+    "entry": "scripts/preflight.py",
+    "asset_manifest": null,
+    "environment_lock": "model-catalog/dependencies.json",
+    "clean_install_inference_verified": false,
+    "existing_environment_verified": true,
+    "notes": "历史成品在作者独立 Linux GPU 环境完成；依赖哈希由资料包导入，未在本模板重新下载核对；声码器权重为 CC BY-NC-SA，非商业"
+  },
+  "requires": {
+    "templates": ["templates/music-visualizer/rhythm-ring"]
+  },
   "id": "girls-band-ddsp-cover",
   "status": "adapted-template-offline-checked",
   "new_environment_validation": "pending-linux-gpu-inference-and-listening",

@@ -1,5 +1,15 @@
 {
   "schema_version": 1,
+  "version": "0.1.0",
+  "runtime": {
+    "distribution_mode": "repo-bound",
+    "entry": "scripts/build_demo.py",
+    "asset_manifest": "assets/manifest.json",
+    "environment_lock": null,
+    "clean_install_inference_verified": false,
+    "existing_environment_verified": true,
+    "notes": "示例已在本机渲染；新参考图的还原精度仍需人工复核。不调用模型推理"
+  },
   "id": "svg-redraw-comparison",
   "author": "Shenrui Ma（四倍体果蝇）",
   "status": "example-rendered; new-image-fidelity-requires-review",

@@ -1,5 +1,18 @@
 {
   "schema_version": 1,
+  "version": "0.1.0",
+  "runtime": {
+    "distribution_mode": "repo-bound",
+    "entry": "scripts/render.py",
+    "asset_manifest": null,
+    "environment_lock": null,
+    "clean_install_inference_verified": false,
+    "existing_environment_verified": true,
+    "notes": "已在合成音频与测试图上实跑渲染并核对帧数与音轨；未用真实歌曲或模型权重验证"
+  },
+  "requires": {
+    "templates": ["templates/singing-cover/girls-band-ddsp"]
+  },
   "id": "rhythm-ring-mv",
   "author": "Shenrui Ma（四倍体果蝇）",
   "status": "independent-renderer-synthetic-media-tested; historical-project-not-recovered",

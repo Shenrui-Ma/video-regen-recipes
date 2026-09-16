@@ -1,6 +1,10 @@
 ---
 name: not-a-sin-local-h3
 description: 一句话或一张角色图启动 XX不是罪过制作，自动准备角色参考图，按 RIFE 半速参考、本地 H3 串行音视频续接、原速恢复与音乐回装完成角色重演。只使用本仓库 H3 路线。
+version: 0.1.0
+author: Shenrui Ma（四倍体果蝇）
+license: "See LICENSES.md for component terms"
+platforms: [linux, macos]
 ---
 
 # XX不是罪过：本地 H3 角色重演

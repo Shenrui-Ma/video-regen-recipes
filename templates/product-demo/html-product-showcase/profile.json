@@ -1,5 +1,18 @@
 {
   "schema_version": 1,
+  "version": "0.1.0",
+  "runtime": {
+    "distribution_mode": "repo-bound",
+    "entry": "scripts/render-film.cjs",
+    "asset_manifest": null,
+    "environment_lock": null,
+    "clean_install_inference_verified": false,
+    "existing_environment_verified": false,
+    "notes": "纯 HTML/CSS/SVG + 无头浏览器渲染，不调用模型；公开版未重新渲染"
+  },
+  "requires": {
+    "skills": ["skills/character-showcase-editing"]
+  },
   "id": "html-product-showcase",
   "status": "adapted-skill-offline-checked-not-rendered",
   "author": "Shenrui Ma（四倍体果蝇）",
