@@ -1,4 +1,5 @@
 import json
+import re
 import os
 from pathlib import Path
 import shlex
@@ -90,7 +91,10 @@ class CatalogWorkflowTests(unittest.TestCase):
             parent = self.git(seed, 'rev-parse', 'origin/main^').stdout.strip()
             self.assertEqual(parent, concurrent_head)
             readme = self.git(seed, 'show', 'origin/main:README.md').stdout
-            self.assertIn('[2 个视频模板]', readme)
+            # 首页标题允许带一个临时显示偏移（scripts/catalog.py 的 HEADLINE_COUNT_OFFSET）
+            offset = int(re.search(r'HEADLINE_COUNT_OFFSET\s*=\s*(\d+)',
+                                   (ROOT / 'scripts/catalog.py').read_text()).group(1))
+            self.assertIn(f'[{2 + offset} 个视频模板]', readme)
             self.assertIn('Concurrent author text.', readme)
             data = json.loads(self.git(seed, 'show', 'origin/main:templates/catalog.json').stdout)
             self.assertEqual(data['template_count'], 2)

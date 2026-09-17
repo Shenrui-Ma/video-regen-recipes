@@ -65,7 +65,8 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(json.loads((ROOT/'templates/catalog.json').read_text()),data)
         self.assertEqual((ROOT/'templates/README.md').read_text(),m.markdown(data))
         homepage=(ROOT/'README.md').read_text()
-        self.assertEqual(homepage,m.homepage_count(homepage,data['template_count']))
+        # 首页标题允许带一个临时显示偏移（scripts/catalog.py 的 HEADLINE_COUNT_OFFSET）
+        self.assertEqual(homepage,m.homepage_count(homepage,data['template_count']+m.HEADLINE_COUNT_OFFSET))
 
     def test_homepage_count_preserves_surrounding_content(self):
         before='# Project\n\nIntro\n\n### 🎬 已收录 [8 个视频模板](templates/) · 持续更新\n\n![Hero](assets/hero.png)\n\n## TODO\n- [ ] Windows\n'
@@ -86,7 +87,8 @@ class CatalogTests(unittest.TestCase):
             with patch.object(m,'ROOT',root):
                 self.assertEqual(m.main(['build']),0)
                 self.assertEqual(m.main(['check']),0)
-                self.assertIn('[1 个视频模板]',(root/'README.md').read_text())
+                offset=m.HEADLINE_COUNT_OFFSET
+                self.assertIn(f'[{1+offset} 个视频模板]',(root/'README.md').read_text())
                 other=folder.parent/'new'
                 other.mkdir()
                 for name in ('README.md','SKILL.md'):
@@ -94,11 +96,11 @@ class CatalogTests(unittest.TestCase):
                 profile['id']='second-recipe'
                 (other/'profile.json').write_text(json.dumps(profile))
                 self.assertEqual(m.main(['build']),0)
-                self.assertIn('[2 个视频模板]',(root/'README.md').read_text())
+                self.assertIn(f'[{2+offset} 个视频模板]',(root/'README.md').read_text())
                 (other/'profile.json').unlink()
                 self.assertEqual(m.main(['build']),0)
                 self.assertEqual(m.main(['check']),0)
-                self.assertIn('[1 个视频模板]',(root/'README.md').read_text())
+                self.assertIn(f'[{1+offset} 个视频模板]',(root/'README.md').read_text())
                 self.assertTrue((root/'README.md').read_text().endswith('Keep this text.\n'))
 
     def test_cover_and_visualizer_are_independent_entries(self):

@@ -73,6 +73,13 @@ def cell(value):
     return value.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('|', '&#124;').replace('\n', ' ')
 
 
+# TEMPORARY (2026-09-17): 维护者要求首页标题暂时显示「当前数量 + 9」，用于下一批模板上线前的展示。
+# 只影响 README 首页那一行；真实数量、catalog.json 与 templates/README.md 不变。
+# 恢复方式：删除本偏移并重新运行 `python3 scripts/catalog.py build`。
+# 计数约定：10 个少女乐队 DDSP / RVC 模板合计按一个计入。
+HEADLINE_COUNT_OFFSET = 9
+
+
 def homepage_count(text, count):
     pattern = r'^### 🎬 已收录 \[\d+ 个视频模板\]\(templates/\) · 持续更新$'
     updated, matches = re.subn(pattern, f'### 🎬 已收录 [{count} 个视频模板](templates/) · 持续更新', text, flags=re.MULTILINE)
@@ -140,7 +147,10 @@ def main(argv=None):
             return 0
         outputs = {root/'catalog.json': json.dumps(catalog, ensure_ascii=False, indent=2)+'\n', root/'README.md': markdown(catalog)}
         homepage = ROOT/'README.md'
-        outputs[homepage] = homepage_count(homepage.read_text(encoding='utf-8'), catalog['template_count'])
+        outputs[homepage] = homepage_count(
+            homepage.read_text(encoding='utf-8'),
+            catalog['template_count'] + HEADLINE_COUNT_OFFSET,
+        )
         if args.command == 'check':
             if any(not path.is_file() or path.read_text(encoding='utf-8') != text for path,text in outputs.items()):
                 raise ValueError('Template indexes are stale; run python3 scripts/catalog.py build')
