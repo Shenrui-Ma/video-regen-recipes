@@ -26,13 +26,13 @@
   <a href="https://openclaw.ai/" title="OpenClaw"><img src="assets/icons/openclaw.svg" width="48" height="48" alt="OpenClaw logo"></a>
 </p>
 
-下载完整仓库，在 Codex、Hermes Agent、OpenClaw 等 Agent 中打开项目，从[模板目录](templates/)选择一个模板，然后告诉它：
+下载完整仓库，在 Codex、Hermes Agent、OpenClaw 等 Agent 中打开项目，然后告诉它你要复刻的视频：
 
-> 使用【模板名称】，用【角色或素材】制作视频。先读取对应的 SKILL.md，按模板完成素材准备、生成与剪辑。
+> 复刻【模板名称】，用【自定义提示词/角色参考图】制作。
 
 - Agent 会先询问你的意见，按需下载模型，再一键生成二创视频，建议使用 DeepSeek 等实惠模型（内置Codex模型改DeepSeek的方法）。
 - 默认速度优先，采用量化模型 + 少步优化，如果追求质量可告知 Agent 使用多步推理，二次采样和RTX超分。
-- 本仓库的 skill 具备使用 GPT-Image, Nano Banana, 豆包等生成图像的能力，会根据你的已有登录情况自行选择，也可自定义。
+- 本仓库的 skill 会使用 GPT-Image, Nano Banana, 豆包等生成图像，会根据你的已有登录情况自行选择，也可自定义。
 
 ## 文档导航
 
